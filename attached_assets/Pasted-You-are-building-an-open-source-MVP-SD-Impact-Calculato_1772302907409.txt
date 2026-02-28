@@ -1,0 +1,80 @@
+You are building an open-source MVP “SD Impact Calculator” for designers.
+
+Goal:
+A static, client-side web app (no backend) that lets a user rate a design project across 4 pillars:
+Environmental, Social, Cultural, Financial.
+
+Scoring rules:
+- Each pillar has multiple criteria, each criterion has a point value.
+- Each criterion has a 3-state status: Meets / Not yet / N/A.
+- Meets adds the criterion’s points.
+- Not yet adds 0.
+- N/A adds 0. DO NOT normalize thresholds; each pillar always has a fixed pass threshold of 50 points.
+- A pillar passes if its score >= 50.
+- Overall certification passes only if ALL 4 pillars pass.
+
+Critical requirement:
+All criteria and point values must come from an independent JSON file that can be swapped in a repo without changing code:
+`/data/criteria.json`
+
+Repo / file structure to create:
+sd-impact-calculator/
+  index.html
+  /src
+    app.js
+    styles.css
+    score.js
+  /data
+    criteria.json
+  /docs
+    contributing.md
+    scoring-philosophy.md
+  LICENSE
+  README.md
+
+UI requirements (spreadsheet-like “at a glance”):
+- On desktop, show 4 columns (one per pillar) visible at once, each listing its criteria rows.
+- Each row shows: criterion label, points, and a segmented 3-state toggle (Meets / Not yet / N/A).
+- A sticky top summary bar shows each pillar score like “42 / 50” and PASS/FAIL.
+- A prominent overall status badge: “SD Standard Certified” or “Not Yet Certified”.
+- Include a filter toggle: “Show only unmet” (shows criteria where status is Not yet or N/A).
+- Include a search box to filter criteria labels.
+- Mobile: collapse into 4 tabs (Environmental/Social/Cultural/Financial) with the summary bar still visible.
+
+Data requirements:
+- Load criteria.json via fetch on page load. If it fails, show an error message.
+- criteria.json must include:
+  - version
+  - thresholds { environmental: 50, social: 50, cultural: 50, financial: 50 }
+  - pillars[] with id, label, criteria[] where each criterion has id, label, points
+- The app must not hardcode criteria or points.
+
+State requirements:
+- Store user selections in localStorage so refreshing keeps progress.
+- Provide Export and Import:
+  - Export: download a JSON file containing project meta + answers.
+  - Import: upload a JSON file to restore selections.
+- Include a “Reset” button that clears localStorage for this app.
+
+Scoring implementation:
+- Put all scoring logic in `src/score.js`.
+- app.js should only handle UI, state, events.
+- score.js should export functions like:
+  - computePillarScores(criteriaData, answers)
+  - computeCertificationStatus(scores, thresholds)
+
+Accessibility:
+- Controls must be keyboard accessible.
+- Use semantic HTML (buttons for toggles).
+- Provide visible focus styles.
+
+Styling:
+- Simple, clean, responsive. Use CSS only (no frameworks). Make it easy to theme later.
+
+Deliverables:
+- Generate all the files above with working code.
+- Provide concise instructions in README.md for running locally and hosting on GitHub Pages.
+- Include a placeholder LICENSE (MIT).
+- In docs/scoring-philosophy.md, explain the fixed 50 threshold and N/A=0 policy.
+
+Start with a sample criteria.json that includes at least 6 criteria per pillar so the UI is meaningful.
