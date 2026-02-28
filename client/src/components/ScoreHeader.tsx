@@ -23,7 +23,7 @@ export function ScoreHeader({ data, results }: ScoreHeaderProps) {
           <div className={cn(
             "flex items-center gap-3 px-5 py-3 rounded-2xl border shadow-sm transition-all duration-300",
             results.isCertified 
-              ? "bg-success border-success text-success-foreground" 
+              ? "bg-success/10 border-success/20 text-success-foreground" 
               : "bg-muted border-border text-muted-foreground"
           )}>
             {results.isCertified ? (
@@ -54,7 +54,7 @@ export function ScoreHeader({ data, results }: ScoreHeaderProps) {
                 className={cn(
                   "p-3 sm:p-4 rounded-xl border flex flex-col gap-3 transition-colors duration-300",
                   isPassing 
-                    ? "bg-success border-success text-success-foreground shadow-md" 
+                    ? "bg-background border-success/30 shadow-[0_2px_10px_-3px_rgba(34,197,94,0.1)]" 
                     : "bg-background border-border shadow-sm"
                 )}
               >
@@ -62,7 +62,7 @@ export function ScoreHeader({ data, results }: ScoreHeaderProps) {
                   <span className="font-semibold text-sm sm:text-base">{pillar.label}</span>
                   <span className={cn(
                     "text-xs font-bold px-2 py-0.5 rounded-full",
-                    isPassing ? "bg-white/20 text-white" : "bg-muted text-muted-foreground"
+                    isPassing ? "bg-success/15 text-success" : "bg-muted text-muted-foreground"
                   )}>
                     {isPassing ? "PASS" : "FAIL"}
                   </span>
@@ -71,30 +71,24 @@ export function ScoreHeader({ data, results }: ScoreHeaderProps) {
                 <div className="flex items-end gap-1.5">
                   <span className={cn(
                     "text-2xl font-bold leading-none",
-                    isPassing ? "text-white" : "text-muted-foreground"
+                    isPassing ? "text-foreground" : "text-muted-foreground"
                   )}>
                     {score}
                   </span>
-                  <span className={cn(
-                    "text-sm font-medium leading-snug",
-                    isPassing ? "text-white/80" : "text-muted-foreground"
-                  )}>
+                  <span className="text-sm font-medium text-muted-foreground leading-snug">
                     / {threshold}
                   </span>
                 </div>
                 
                 {/* Progress bar */}
-                <div className={cn(
-                  "h-2 w-full rounded-full overflow-hidden",
-                  isPassing ? "bg-white/20" : "bg-muted"
-                )}>
+                <div className="h-2 w-full bg-muted rounded-full overflow-hidden">
                   <motion.div 
                     initial={{ width: 0 }}
                     animate={{ width: `${progressPercent}%` }}
                     transition={{ duration: 0.5, ease: "easeOut" }}
                     className={cn(
                       "h-full rounded-full",
-                      isPassing ? "bg-white" : "bg-foreground/20"
+                      isPassing ? "bg-success" : "bg-foreground/20"
                     )}
                   />
                 </div>
