@@ -1,6 +1,6 @@
 import { useState, useRef, useMemo } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { Search, Filter, Download, Upload, RotateCcw, AlertTriangle, Loader2 } from "lucide-react";
+import { Search, CheckCircle, Filter, Download, Upload, RotateCcw, AlertTriangle, Loader2 } from "lucide-react";
 import { useCriteria } from "@/hooks/use-criteria";
 import { useAnswers } from "@/hooks/use-answers";
 import { computePillarScores, computeCertificationStatus, AnswerStatus, Pillar } from "@/lib/score";
@@ -207,7 +207,7 @@ export default function Home() {
                       exit={{ opacity: 0, scale: 0.95 }}
                       className="py-12 text-center bg-background rounded-2xl border border-dashed border-border"
                     >
-                      <CheckCircle2 className="w-8 h-8 text-muted-foreground/30 mx-auto mb-3" />
+                      <CheckCircle className="w-8 h-8 text-muted-foreground/30 mx-auto mb-3" />
                       <p className="text-sm text-muted-foreground font-medium">No criteria found</p>
                     </motion.div>
                   ) : (
