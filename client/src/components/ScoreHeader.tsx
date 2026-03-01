@@ -46,6 +46,7 @@ export function ScoreHeader({ data, results }: ScoreHeaderProps) {
             const score = results.pillarScores[pillar.id] || 0;
             const threshold = data.thresholds[pillar.id] || 50;
             const isPassing = results.pillarStatus[pillar.id];
+            const reachedGreenMilestone = score >= 50;
             const progressPercent = Math.min((score / threshold) * 100, 100);
 
             return (
@@ -53,8 +54,8 @@ export function ScoreHeader({ data, results }: ScoreHeaderProps) {
                 key={pillar.id} 
                 className={cn(
                   "p-3 sm:p-4 rounded-xl border flex flex-col gap-3 transition-colors duration-300",
-                  isPassing 
-                    ? "bg-background border-success/30 shadow-[0_2px_10px_-3px_rgba(34,197,94,0.1)]" 
+                  reachedGreenMilestone
+                    ? "bg-success/10 border-success/30 shadow-[0_2px_10px_-3px_rgba(34,197,94,0.1)]"
                     : "bg-background border-border shadow-sm"
                 )}
               >
