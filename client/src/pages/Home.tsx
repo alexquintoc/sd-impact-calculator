@@ -256,6 +256,11 @@ export default function Home() {
         </div>
 
       </main>
+       <footer className="fixed inset-x-0 bottom-0 z-30 border-t border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-muted-foreground">
+          Standard version: <span className="font-semibold text-foreground">{data.standardVersion ?? data.version}</span>
+        </div>
+      </footer>
     </div>
   );
 }
