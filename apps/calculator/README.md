@@ -1,1 +1,1 @@
-
+# SD Impact Calculator App
