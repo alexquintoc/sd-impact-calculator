@@ -1,4 +1,13 @@
 {
+  "standard": {
+    "id": "sd-impact-calculator",
+    "name": "SD Impact Calculator",
+    "standardVersion": "0.1.0",
+    "scoringConfigVersion": "2026.02.28",
+    "license": "GPL-3.0",
+    "lastUpdated": "2026-02-28",
+    "description": "Point-based criteria across Environmental, Social, Cultural, and Financial pillars."
+  },
   "version": "1.0",
   "thresholds": { "environmental": 50, "social": 50, "cultural": 50, "financial": 50 },
   "pillars": [
