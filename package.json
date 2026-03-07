@@ -1,0 +1,8 @@
+{
+  "name": "sd-standard",
+  "private": true,
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ]
+}

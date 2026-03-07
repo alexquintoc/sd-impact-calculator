@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { CriteriaData } from '@/lib/score';
-import { criteria } from '../../../../../packages/standard-core/src';
+import { criteria } from "@sd-standard/standard-core";
 
 export function useCriteria() {
   return useQuery<CriteriaData>({
