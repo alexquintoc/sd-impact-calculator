@@ -5,6 +5,8 @@
 
 This section contains the criteria used in the SD Standard, grouped by pillar.
 
+<a id="environmental"></a>
+
 ## Environmental
 
 - [env1: Reduces carbon footprint](env1.md)
@@ -13,6 +15,8 @@ This section contains the criteria used in the SD Standard, grouped by pillar.
 - [env4: Energy efficient design](env4.md)
 - [env5: Promotes circular economy](env5.md)
 - [env6: Water conservation](env6.md)
+
+<a id="social"></a>
 
 ## Social
 
@@ -23,6 +27,8 @@ This section contains the criteria used in the SD Standard, grouped by pillar.
 - [soc5: Ethical sourcing](soc5.md)
 - [soc6: Supports local communities](soc6.md)
 
+<a id="cultural"></a>
+
 ## Cultural
 
 - [cul1: Respects cultural heritage](cul1.md)
@@ -31,6 +37,8 @@ This section contains the criteria used in the SD Standard, grouped by pillar.
 - [cul4: Encourages artistic expression](cul4.md)
 - [cul5: Supports indigenous practices](cul5.md)
 - [cul6: Fosters cross-cultural understanding](cul6.md)
+
+<a id="financial"></a>
 
 ## Financial
 
