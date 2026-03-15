@@ -93,3 +93,6 @@ Do not hardcode criteria into the application.
 Maintain accessibility and transparency in scoring rules.
 
 Please open an issue or submit a pull request for discussion.
+
+# Documentation:
+https://alexquintoc.github.io/sd-standard/
