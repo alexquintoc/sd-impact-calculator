@@ -1,0 +1,12 @@
+[book]
+title = "SD Standard Criteria Knowledge Base"
+authors = ["Valerie Elliot, Tuuli Sauren, Alex Quinto"]
+language = "en"
+src = "src"
+
+[build]
+build-dir = "book"
+
+[output.html]
+git-repository-url = "https://github.com/alexquintoc/sd-standard"
+edit-url-template = "https://github.com/alexquintoc/sd-standard/edit/main/docs/{path}"
