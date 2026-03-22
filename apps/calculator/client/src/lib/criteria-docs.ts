@@ -1,4 +1,4 @@
-import criteriaMeta from "@shared/generated/criteria-meta.json";
+import criteriaMeta from "../../../../../packages/standard-core/src/generated/criteria-meta.json";
 
 export type CriterionDocMeta = {
   id: string;
