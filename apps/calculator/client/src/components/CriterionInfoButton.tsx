@@ -18,7 +18,7 @@ export function CriterionInfoButton({
 
   return (
     <div
-      className="relative inline-flex shrink-0"
+      className="relative inline-flex shrink-0 pb-2"
       onMouseEnter={() => setOpen(true)}
       onMouseLeave={() => setOpen(false)}
       onFocus={() => setOpen(true)}
@@ -33,7 +33,7 @@ export function CriterionInfoButton({
       </button>
 
       {open && (
-        <div className="absolute left-0 top-full z-50 mt-2 w-80 rounded-xl border bg-background p-3 shadow-xl">
+        <div className="absolute left-0 top-full z-50 mt-0 w-80 rounded-xl border bg-background p-3 shadow-xl">
           <div className="mb-1 text-sm font-semibold text-foreground">
             {doc.label}
           </div>
