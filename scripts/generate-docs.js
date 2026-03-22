@@ -328,7 +328,7 @@ function generateCriteriaMeta(criteriaData) {
         summary: criterion.summary || criterion.description || "",
         description: criterion.description || "",
         whyItMatters: criterion.whyItMatters || "",
-        url: `/generated/criteria/${criterion.id}.html`
+        url: `/generated/criteria/${criterion.id.replace(/-/g, "")}.html`
       };
     }
   }

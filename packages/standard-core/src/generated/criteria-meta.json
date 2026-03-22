@@ -8,7 +8,7 @@
     "summary": "Includes at least one meaningful step to reduce emissions or energy use across the project lifecycle.",
     "description": "The project strategy includes at least one action to reduce environmental impact.",
     "whyItMatters": "Early design decisions can significantly reduce emissions across materials, production, and distribution.",
-    "url": "/generated/criteria/env-1.html"
+    "url": "/generated/criteria/env1.html"
   },
   "env2": {
     "id": "env2",
