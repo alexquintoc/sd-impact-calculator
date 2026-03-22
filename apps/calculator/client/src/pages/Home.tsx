@@ -7,6 +7,7 @@ import { computePillarScores, computeCertificationStatus, AnswerStatus, Pillar }
 import { ScoreHeader } from "@/components/ScoreHeader";
 import { SegmentedControl } from "@/components/SegmentedControl";
 import { cn } from "@/lib/utils";
+import { CriterionInfoButton } from "@/components/CriterionInfoButton";
 
 export default function Home() {
   const { data, isLoading, error } = useCriteria();
@@ -234,6 +235,10 @@ export default function Home() {
                               <h3 className="text-sm font-semibold leading-snug text-foreground">
                                 {criterion.label}
                               </h3>
+                              <CriterionInfoButton
+                                criterionId={criterion.id}
+                                criterionLabel={criterion.label}
+                              />
                               <span className="shrink-0 text-xs font-bold text-muted-foreground bg-secondary px-2 py-1 rounded-md">
                                 {criterion.points} pts
                               </span>
