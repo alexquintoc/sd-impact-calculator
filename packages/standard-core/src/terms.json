@@ -4,7 +4,7 @@
     "title": "Carbon Footprint",
     "definition": "The total greenhouse gas emissions associated with a product, service, activity, or system.",
     "whyItMatters": "Design decisions affect material use, energy consumption, distribution, and end-of-life impacts.",
-    "relatedCriteria": ["env1"],
+    "relatedCriteria": ["env-1"],
     "relatedTerms": ["emissions", "lifecycle-assessment"]
   },
   {

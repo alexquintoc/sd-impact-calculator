@@ -23,7 +23,15 @@ const docsGeneratedDir = path.join(root, "docs", "src", "generated");
 const docsCriteriaDir = path.join(docsGeneratedDir, "criteria");
 const docsTermsDir = path.join(docsGeneratedDir, "terms");
 const docsPillarsDir = path.join(docsGeneratedDir, "pillars");
-const summaryPath = path.join(root, "docs", "src", "SUMMARY.md");
+
+const criteriaMetaPath = path.join(
+  root,
+  "packages",
+  "standard-core",
+  "src",
+  "generated",
+  "criteria-meta.json"
+);
 
 const GENERATED_WARNING = [
   "<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->",
@@ -39,73 +47,8 @@ function writeFile(filePath, content) {
   fs.writeFileSync(filePath, content.trim() + "\n", "utf8");
 }
 
-function upsertMarkedSection(filePath, startMarker, endMarker, content) {
-  if (!fs.existsSync(filePath)) {
-    throw new Error(`Missing file: ${filePath}`);
-  }
-
-  const existing = fs.readFileSync(filePath, "utf8");
-
-  if (!existing.includes(startMarker) || !existing.includes(endMarker)) {
-    throw new Error(
-      `File ${filePath} is missing required markers: ${startMarker} / ${endMarker}`
-    );
-  }
-
-  const escapedStart = startMarker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-  const escapedEnd = endMarker.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
-
-  const regex = new RegExp(`${escapedStart}[\\s\\S]*?${escapedEnd}`, "m");
-  const replacement = `${startMarker}\n${content.trim()}\n${endMarker}`;
-
-  const updated = existing.replace(regex, replacement);
-  fs.writeFileSync(filePath, updated, "utf8");
-}
-
-function buildCriteriaSummaryLines(criteriaData) {
-  const lines = [
-    "- [Criteria Reference](generated/criteria/README.md)"
-  ];
-
-  for (const pillar of criteriaData.pillars) {
-    lines.push(`  - [${pillar.label}](generated/criteria/README.md#${pillar.id})`);
-
-    for (const criterion of pillar.criteria) {
-      lines.push(
-        `    - [${criterion.id}: ${criterion.label}](generated/criteria/${criterion.id}.md)`
-      );
-    }
-  }
-
-  return lines;
-}
-
-function buildTermsSummaryLines(termsData) {
-  const sortedTerms = [...termsData].sort((a, b) =>
-    a.title.localeCompare(b.title, "en", { sensitivity: "base" })
-  );
-
-  const lines = [
-    "- [Terms Index](generated/terms/README.md)"
-  ];
-
-  for (const term of sortedTerms) {
-    lines.push(`  - [${term.title}](generated/terms/${term.id}.md)`);
-  }
-
-  return lines;
-}
-
-function buildPillarsSummaryLines(criteriaData) {
-  const lines = [
-    "- [Pillars](generated/pillars/README.md)"
-  ];
-
-  for (const pillar of criteriaData.pillars) {
-    lines.push(`  - [${pillar.label}](generated/pillars/${pillar.id}.md)`);
-  }
-
-  return lines;
+function writeJson(filePath, data) {
+  fs.writeFileSync(filePath, JSON.stringify(data, null, 2) + "\n", "utf8");
 }
 
 function cleanGeneratedMarkdown(dir) {
@@ -193,7 +136,7 @@ function generateCriteriaDocs(criteriaData) {
   ];
 
   for (const pillar of criteriaData.pillars) {
-    indexLines.push(`<a id="${pillar.id}"></a>`, "", `## ${pillar.label}`, "");
+    indexLines.push(`## ${pillar.label}`, "");
 
     for (const criterion of pillar.criteria) {
       const examples = (criterion.examples || [])
@@ -212,6 +155,10 @@ function generateCriteriaDocs(criteriaData) {
         `**Points:** ${criterion.points}`,
         ""
       ];
+
+      if (criterion.summary) {
+        contentParts.push("## Summary", criterion.summary, "");
+      }
 
       if (criterion.description) {
         contentParts.push("## Description", criterion.description, "");
@@ -241,6 +188,62 @@ function generateCriteriaDocs(criteriaData) {
   writeFile(path.join(docsCriteriaDir, "README.md"), indexLines.join("\n"));
 }
 
+function generateTermsDocs(termsData) {
+  ensureDir(docsTermsDir);
+  cleanGeneratedMarkdown(docsTermsDir);
+
+  const sortedTerms = [...termsData].sort((a, b) =>
+    a.title.localeCompare(b.title, "en", { sensitivity: "base" })
+  );
+
+  const indexLines = [
+    GENERATED_WARNING,
+    "# Terms Index",
+    "",
+    "This section contains key concepts and definitions referenced in the SD Standard.",
+    ""
+  ];
+
+  for (const term of sortedTerms) {
+    const relatedCriteria = (term.relatedCriteria || [])
+      .map((criterionId) => `- [${criterionId}](../criteria/${criterionId}.md)`)
+      .join("\n");
+
+    const relatedTerms = (term.relatedTerms || [])
+      .map((termId) => `- [${slugToTitle(termId)}](${termId}.md)`)
+      .join("\n");
+
+    const contentParts = [
+      GENERATED_WARNING,
+      `# ${term.title}`,
+      ""
+    ];
+
+    if (term.definition) {
+      contentParts.push("## Definition", term.definition, "");
+    }
+
+    if (term.whyItMatters) {
+      contentParts.push("## Why it matters", term.whyItMatters, "");
+    }
+
+    if (relatedCriteria) {
+      contentParts.push("## Related criteria", relatedCriteria, "");
+    }
+
+    if (relatedTerms) {
+      contentParts.push("## Related terms", relatedTerms, "");
+    }
+
+    const filePath = path.join(docsTermsDir, `${term.id}.md`);
+    writeFile(filePath, contentParts.join("\n"));
+
+    indexLines.push(`- [${term.title}](${term.id}.md)`);
+  }
+
+  writeFile(path.join(docsTermsDir, "README.md"), indexLines.join("\n"));
+}
+
 function generatePillarDocs(criteriaData) {
   ensureDir(docsPillarsDir);
   cleanGeneratedMarkdown(docsPillarsDir);
@@ -257,6 +260,7 @@ function generatePillarDocs(criteriaData) {
 
   for (const pillar of criteriaData.pillars) {
     const threshold = thresholds[pillar.id];
+
     const criteriaLinks = pillar.criteria
       .map(
         (criterion) =>
@@ -308,80 +312,28 @@ function generatePillarDocs(criteriaData) {
   writeFile(path.join(docsPillarsDir, "README.md"), indexLines.join("\n"));
 }
 
-function generateSummary(criteriaData, termsData) {
-  const startMarker = "<!-- GENERATED_SUMMARY:START -->";
-  const endMarker = "<!-- GENERATED_SUMMARY:END -->";
+function generateCriteriaMeta(criteriaData) {
+  ensureDir(path.dirname(criteriaMetaPath));
 
-  const lines = [
-    "",
-    "# Reference",
-    ...buildPillarsSummaryLines(criteriaData),
-    "",
-    ...buildCriteriaSummaryLines(criteriaData),
-    "",
-    ...buildTermsSummaryLines(termsData),
-    ""
-  ];
+  const meta = {};
 
-  upsertMarkedSection(summaryPath, startMarker, endMarker, lines.join("\n"));
-}
-
-function generateTermsDocs(termsData) {
-  ensureDir(docsTermsDir);
-  cleanGeneratedMarkdown(docsTermsDir);
-
-  const sortedTerms = [...termsData].sort((a, b) =>
-    a.title.localeCompare(b.title, "en", { sensitivity: "base" })
-  );
-
-  
-
-  const indexLines = [
-    GENERATED_WARNING,
-    "# Terms Index",
-    "",
-    "This section contains key concepts and definitions referenced in the SD Standard.",
-    ""
-  ];
-
-  for (const term of sortedTerms) {
-    const relatedCriteria = (term.relatedCriteria || [])
-      .map((criterionId) => `- [${criterionId}](../criteria/${criterionId}.md)`)
-      .join("\n");
-
-    const relatedTerms = (term.relatedTerms || [])
-      .map((termId) => `- [${slugToTitle(termId)}](${termId}.md)`)
-      .join("\n");
-
-    const contentParts = [
-      GENERATED_WARNING,
-      `# ${term.title}`,
-      ""
-    ];
-
-    if (term.definition) {
-      contentParts.push("## Definition", term.definition, "");
+  for (const pillar of criteriaData.pillars) {
+    for (const criterion of pillar.criteria) {
+      meta[criterion.id] = {
+        id: criterion.id,
+        label: criterion.label,
+        points: criterion.points,
+        pillarId: pillar.id,
+        pillarLabel: pillar.label,
+        summary: criterion.summary || criterion.description || "",
+        description: criterion.description || "",
+        whyItMatters: criterion.whyItMatters || "",
+        url: `/generated/criteria/${criterion.id}.html`
+      };
     }
-
-    if (term.whyItMatters) {
-      contentParts.push("## Why it matters", term.whyItMatters, "");
-    }
-
-    if (relatedCriteria) {
-      contentParts.push("## Related criteria", relatedCriteria, "");
-    }
-
-    if (relatedTerms) {
-      contentParts.push("## Related terms", relatedTerms, "");
-    }
-
-    const filePath = path.join(docsTermsDir, `${term.id}.md`);
-    writeFile(filePath, contentParts.join("\n"));
-
-    indexLines.push(`- [${term.title}](${term.id}.md)`);
   }
 
-  writeFile(path.join(docsTermsDir, "README.md"), indexLines.join("\n"));
+  writeJson(criteriaMetaPath, meta);
 }
 
 function main() {
@@ -405,9 +357,9 @@ function main() {
   generateCriteriaDocs(criteriaData);
   generateTermsDocs(termsData);
   generatePillarDocs(criteriaData);
-  generateSummary(criteriaData, termsData);
+  generateCriteriaMeta(criteriaData);
 
-  console.log("Docs generated successfully.");
+  console.log("Docs and criteria metadata generated successfully.");
 }
 
 main();
