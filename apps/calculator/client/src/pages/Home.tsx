@@ -1,7 +1,7 @@
 import { useState, useRef, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, CheckCircle, Filter, Download, Upload, RotateCcw, AlertTriangle, Loader2 } from "lucide-react";
-import { useCriteria } from "@/hooks/use-criteria";
+import { useCalculatorCriteria } from "@/calculator/hooks/useCalculatorCriteria";
 import { useAnswers } from "@/hooks/use-answers";
 import { computePillarScores, computeCertificationStatus, AnswerStatus, Pillar } from "@/lib/score";
 import { ScoreHeader } from "@/components/ScoreHeader";
@@ -10,10 +10,14 @@ import { cn } from "@/lib/utils";
 import { CriterionInfoButton } from "@/components/CriterionInfoButton";
 import { ProjectSetupBar } from "@/calculator/components/ProjectSetupBar";
 import { calculatorVersions, type CalculatorVersionId } from "@/calculator/registry";
+import { isCriterionApplicable } from "@/calculator/utils/applicability";
 
 
 export default function Home() {
-  const { data, isLoading, error } = useCriteria();
+  const [calculatorVersion, setCalculatorVersion] = useState<CalculatorVersionId>("v1");
+  const [projectCategory, setProjectCategory] = useState("");
+  const [projectType, setProjectType] = useState("");
+  const { data, isLoading, error } = useCalculatorCriteria(calculatorVersion);
   const { answers, setAnswer, reset, exportData, importData } = useAnswers();
   
   const [searchQuery, setSearchQuery] = useState("");
@@ -21,27 +25,64 @@ export default function Home() {
   const [activeMobileTab, setActiveMobileTab] = useState<string>("");
   
   const fileInputRef = useRef<HTMLInputElement>(null);
-
-  const results = useMemo(() => {
-    if (!data) return { isCertified: false, pillarStatus: {}, pillarScores: {} };
-    const scores = computePillarScores(data, answers);
-    return computeCertificationStatus(scores, data.thresholds);
-  }, [data, answers]);
-
-  const [calculatorVersion, setCalculatorVersion] = useState<CalculatorVersionId>("v1");
-  const [projectCategory, setProjectCategory] = useState("");
-  const [projectType, setProjectType] = useState("");
-  const selectedCalculatorVersion = useMemo(
+  
+const selectedCalculatorVersion = useMemo(
   () => calculatorVersions[calculatorVersion],
   [calculatorVersion]
 );
 
+const showProjectSetupPrompt =
+  selectedCalculatorVersion.features.projectTypes &&
+  (projectCategory === "" || projectType === "");
+
+const displayData = useMemo(() => {
+  if (!data) return data;
+
+  // v1: use criteria as-is
+  if (!selectedCalculatorVersion.features.projectTypes) {
+    return data;
+  }
+
+  // v2: before category/type are selected, show no criteria yet
+  if (!projectCategory || !projectType) {
+    return {
+      ...data,
+      pillars: data.pillars.map((pillar) => ({
+        ...pillar,
+        criteria: [],
+      })),
+    };
+  }
+
+  return {
+    ...data,
+    pillars: data.pillars.map((pillar) => ({
+      ...pillar,
+      criteria: pillar.criteria.filter((criterion: any) =>
+        isCriterionApplicable(criterion.applicability, {
+          projectCategory,
+          projectType,
+        })
+      ),
+    })),
+  };
+}, [data, selectedCalculatorVersion, projectCategory, projectType]);
+
+ const results = useMemo(() => {
+  if (!displayData) {
+    return { isCertified: false, pillarStatus: {}, pillarScores: {} };
+  }
+
+const scores = computePillarScores(displayData, answers);
+  return computeCertificationStatus(scores, displayData.thresholds);
+}, [displayData, answers]);
+
   // Set initial active tab for mobile when data loads
   useEffect(() => {
-    if (data && !activeMobileTab) {
-      setActiveMobileTab(data.pillars[0].id);
-    }
-  }, [data, activeMobileTab]);
+  if (displayData && displayData.pillars.length > 0 && !activeMobileTab) {
+    setActiveMobileTab(displayData.pillars[0].id);
+  }
+}, [displayData, activeMobileTab]);
 
   // Reset project filters when switching to a version without project types
   useEffect(() => {
@@ -49,7 +90,12 @@ export default function Home() {
       setProjectCategory("");
       setProjectType("");
     }
+    setActiveMobileTab("");
   }, [selectedCalculatorVersion]);
+
+  useEffect(() => {
+  setActiveMobileTab("");
+}, [projectCategory, projectType]);
 
   const handleImportClick = () => {
     fileInputRef.current?.click();
@@ -81,7 +127,7 @@ export default function Home() {
         </div>
         <h2 className="text-2xl font-bold text-foreground mb-2">Failed to load criteria</h2>
         <p className="text-muted-foreground max-w-md mb-6">
-          Could not load the scoring criteria from /data/criteria.json. Ensure the file exists and is valid JSON.
+          Could not load the scoring criteria for the selected calculator version.
         </p>
         <button 
           onClick={() => window.location.reload()}
@@ -94,7 +140,7 @@ export default function Home() {
   }
 
   // Filter criteria based on search and "unmet" toggle
-  const getFilteredCriteria = (pillar: Pillar) => {
+  const getFilteredCriteria = (pillar: any) => {
     return pillar.criteria.filter((c) => {
       const matchesSearch = c.label.toLowerCase().includes(searchQuery.toLowerCase());
       
@@ -124,7 +170,7 @@ export default function Home() {
         projectType={projectType}
         onProjectTypeChange={setProjectType}
       />
-      <ScoreHeader data={data} results={results} />
+      <ScoreHeader data={displayData} results={results} />
         
         {/* Toolbar */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
@@ -190,7 +236,7 @@ export default function Home() {
 
         {/* Mobile Tabs */}
         <div className="lg:hidden flex space-x-2 mb-6 overflow-x-auto hide-scrollbar pb-2">
-          {data.pillars.map((pillar) => (
+          {displayData.pillars.map((pillar) => (
             <button
               key={pillar.id}
               onClick={() => setActiveMobileTab(pillar.id)}
@@ -207,8 +253,20 @@ export default function Home() {
         </div>
 
         {/* Desktop Columns / Mobile Content */}
+
+        {showProjectSetupPrompt && (
+          <div className="mb-6 rounded-2xl border border-dashed border-border bg-background p-6 text-center">
+            <p className="text-sm font-medium text-foreground">
+              Select a project category and project type to load the relevant criteria.
+            </p>
+            <p className="mt-1 text-sm text-muted-foreground">
+              In v2, the calculator adapts the criteria to the type of project being evaluated.
+            </p>
+          </div>
+        )}
+
         <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-          {data.pillars.map((pillar) => {
+          {displayData.pillars.map((pillar) => {
             const filteredCriteria = getFilteredCriteria(pillar);
             const isVisibleOnMobile = activeMobileTab === pillar.id;
 
@@ -291,7 +349,7 @@ export default function Home() {
       </main>
        <footer className="fixed inset-x-0 bottom-0 z-30 border-t border-border/60 bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/80">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 text-xs text-muted-foreground">
-          Standard version: <span className="font-semibold text-foreground">{data.standardVersion ?? data.version}</span>
+          Standard version: <span className="font-semibold text-foreground">{displayData.standardVersion ?? displayData.version ?? selectedCalculatorVersion.label}</span>
         </div>
       </footer>
     </div>
