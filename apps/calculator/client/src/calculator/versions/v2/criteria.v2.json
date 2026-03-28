@@ -1,0 +1,1170 @@
+{
+  "version": "2.0",
+  "projectCategories": [
+    {
+      "id": "print",
+      "label": "Print-based",
+      "description": "Projects primarily delivered as physical printed matter."
+    },
+    {
+      "id": "digital",
+      "label": "Digital",
+      "description": "Projects primarily delivered through screens, devices, networks, or electronic files."
+    },
+    {
+      "id": "hybrid",
+      "label": "Hybrid",
+      "description": "Projects combining physical and digital components."
+    }
+  ],
+  "projectTypes": [
+    {
+      "id": "website",
+      "label": "Website",
+      "category": "digital",
+      "description": "A public-facing or private website."
+    },
+    {
+      "id": "app",
+      "label": "App",
+      "category": "digital",
+      "description": "A software application or interactive digital tool."
+    },
+    {
+      "id": "pdf-report",
+      "label": "PDF Report",
+      "category": "digital",
+      "description": "A downloadable electronic document or report."
+    },
+    {
+      "id": "ebook",
+      "label": "E-book",
+      "category": "digital",
+      "description": "A digital editorial publication."
+    },
+    {
+      "id": "book",
+      "label": "Book",
+      "category": "print",
+      "description": "A bound editorial publication."
+    },
+    {
+      "id": "postcard",
+      "label": "Postcard",
+      "category": "print",
+      "description": "A small-format printed communication piece."
+    },
+    {
+      "id": "packaging",
+      "label": "Packaging",
+      "category": "print",
+      "description": "Packaging for a product or service."
+    },
+    {
+      "id": "signage",
+      "label": "Signage",
+      "category": "print",
+      "description": "Wayfinding, informational, or promotional signage."
+    },
+    {
+      "id": "exhibit",
+      "label": "Exhibit",
+      "category": "hybrid",
+      "description": "An exhibit or installation with physical and/or digital components."
+    },
+    {
+      "id": "campaign",
+      "label": "Campaign",
+      "category": "hybrid",
+      "description": "A campaign spanning multiple media touchpoints."
+    },
+    {
+      "id": "motion",
+      "label": "Motion / Video",
+      "category": "digital",
+      "description": "Motion graphics, video, or animation."
+    },
+    {
+      "id": "social-media",
+      "label": "Social Media Asset",
+      "category": "digital",
+      "description": "A social media post, story, or campaign asset."
+    }
+  ],
+  "thresholds": {
+    "environment": 20,
+    "social": 20,
+    "cultural": 10,
+    "financial": 10
+  },
+  "pillars": [
+    {
+      "id": "environment",
+      "label": "Environment",
+      "criteria": [
+        {
+          "id": "env-impact-reduction",
+          "label": "Environmental Impact Reduction",
+          "points": 1,
+          "description": "The project strategy includes at least one action to reduce environmental impact.",
+          "whyItMatters": "A baseline environmental action should be considered across all project types.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant to all projects."
+          }
+        },
+        {
+          "id": "env-product-ingredients",
+          "label": "Product Ingredients List",
+          "points": 1,
+          "description": "The product or product packaging includes a list of components and/or ingredients.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "packaging"
+            ],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is mainly relevant to packaging or products with material disclosure needs."
+          }
+        },
+        {
+          "id": "env-ink-printing-finishes",
+          "label": "Ink, Printing, and Finishes",
+          "points": 1,
+          "description": "The project materials were designed to reduce or eliminate the use of inks, varnishes and finishes or require no printing.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "book",
+              "postcard",
+              "packaging",
+              "signage",
+              "exhibit",
+              "campaign"
+            ],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is typically not relevant for screen-only outputs."
+          }
+        },
+        {
+          "id": "env-paper",
+          "label": "Paper",
+          "points": 1,
+          "description": "The project materials were designed to reduce paper.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "book",
+              "postcard",
+              "packaging",
+              "signage",
+              "exhibit",
+              "campaign"
+            ],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion generally does not apply to purely digital projects."
+          }
+        },
+        {
+          "id": "env-product-quantity",
+          "label": "Product Quantity",
+          "points": 1,
+          "description": "No more units than needed were produced, including the possibility of no physical copies at all.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "book",
+              "postcard",
+              "packaging",
+              "signage",
+              "exhibit",
+              "campaign"
+            ],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion applies where physical production volume is relevant."
+          }
+        },
+        {
+          "id": "env-extended-life-product",
+          "label": "Extended Life Product",
+          "points": 1,
+          "description": "When desirable, the product or system is designed to be reused, recharged, repaired and/or upgraded to create an environmental benefit.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "packaging",
+              "signage",
+              "exhibit",
+              "website",
+              "app"
+            ],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion is most relevant where a product, system, or durable output can remain in use over time."
+          }
+        },
+        {
+          "id": "env-durability",
+          "label": "Durability",
+          "points": 1,
+          "description": "The product or system is physically and highly durable.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "packaging",
+              "signage",
+              "exhibit"
+            ],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion mainly applies to durable physical outputs."
+          }
+        },
+        {
+          "id": "env-toxins",
+          "label": "Toxins",
+          "points": 1,
+          "description": "The project reduces or eliminates the use of toxic materials.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "book",
+              "postcard",
+              "packaging",
+              "signage",
+              "exhibit"
+            ],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion applies primarily when physical materials are selected."
+          }
+        },
+        {
+          "id": "env-supplier-environmental-policy",
+          "label": "Supplier Environmental Policy",
+          "points": 1,
+          "description": "The majority of suppliers have a publicly published environmental policy.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion is broadly relevant when suppliers or vendors are part of the project."
+          }
+        },
+        {
+          "id": "env-designing-entity-environmental-policy",
+          "label": "Designing Entity Environmental Policy",
+          "points": 1,
+          "description": "The designing entity has a publicly published environmental policy.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion is broadly relevant to most projects."
+          }
+        },
+        {
+          "id": "env-material-waste-reporting",
+          "label": "Material Usage and Waste Reporting",
+          "points": 1,
+          "description": "The designing entity has published a quantified report of reductions in material usage and waste disposal.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion is more relevant when physical material use is part of the work."
+          }
+        },
+        {
+          "id": "env-lifecycle-assessment",
+          "label": "Lifecycle Assessment",
+          "points": 1,
+          "description": "The project strategy is supported by a simplified life cycle study or quantitative life cycle assessment.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion may apply to projects with sufficient scale or complexity."
+          }
+        },
+        {
+          "id": "env-zero-waste",
+          "label": "Zero Waste",
+          "points": 1,
+          "description": "The final product is a zero-waste product.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "packaging",
+              "signage",
+              "exhibit"
+            ],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion mainly applies to physical products or installations."
+          }
+        },
+        {
+          "id": "env-recyclability-reusability",
+          "label": "Recyclability or Reusability",
+          "points": 1,
+          "description": "The design solutions include materials or systems that increase the ease and likelihood of recycling and/or reuse.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "book",
+              "postcard",
+              "packaging",
+              "signage",
+              "exhibit"
+            ],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion applies mainly to physical products and materials."
+          }
+        },
+        {
+          "id": "env-end-of-life",
+          "label": "Product End of Life",
+          "points": 1,
+          "description": "The product is locally compostable by the end user or can enter a local energy-recovery system that does not involve landfill or thermal treatment.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "packaging",
+              "signage",
+              "exhibit"
+            ],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion mainly applies to physical outputs with material end-of-life considerations."
+          }
+        },
+        {
+          "id": "env-renewable-energy",
+          "label": "Renewable Energy",
+          "points": 1,
+          "description": "The production of the product uses renewable energy from solar, wind, thermal or tidal sources.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion may apply to printers, hosts, platforms, venues, and other suppliers."
+          }
+        },
+        {
+          "id": "env-non-renewable-resources",
+          "label": "Non-Renewable Resources",
+          "points": 1,
+          "description": "The project reduces or eliminates the use of scarce, non-renewable natural resources and raw materials.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "book",
+              "postcard",
+              "packaging",
+              "signage",
+              "exhibit"
+            ],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion mainly applies to material-based projects."
+          }
+        },
+        {
+          "id": "env-energy-emissions-reporting",
+          "label": "CO2 and Energy Reporting",
+          "points": 1,
+          "description": "The designing entity has published a quantified report of reductions in CO2 emissions and/or energy.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion is broadly relevant at the organizational level."
+          }
+        },
+        {
+          "id": "env-consumer-energy",
+          "label": "Consumer Energy",
+          "points": 1,
+          "description": "The product or system used by the consumer is energy efficient or uses renewable energy.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "website",
+              "app",
+              "motion",
+              "exhibit"
+            ],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion applies when the end-user experience consumes electricity or device resources."
+          }
+        },
+        {
+          "id": "env-transport",
+          "label": "Transport",
+          "points": 1,
+          "description": "The project strategy includes shipping and/or warehousing efficiencies to reduce transportation and waste.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "book",
+              "postcard",
+              "packaging",
+              "signage",
+              "exhibit",
+              "campaign"
+            ],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion applies when physical distribution or warehousing is part of the project."
+          }
+        },
+        {
+          "id": "env-co2-certification",
+          "label": "CO2 Certification",
+          "points": 1,
+          "description": "The product displays a recognized certification or third-party declaration of its CO2 emissions.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "packaging",
+              "book"
+            ],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion is mainly relevant when product-level emissions claims are being communicated."
+          }
+        },
+        {
+          "id": "env-air-pollution-ghg",
+          "label": "Air Pollution and Greenhouse Gases",
+          "points": 1,
+          "description": "Air pollution or greenhouse gas emissions were avoided or reduced.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion can apply across many project types."
+          }
+        },
+        {
+          "id": "env-carbon-offsets",
+          "label": "Carbon Offsets",
+          "points": 1,
+          "description": "The project offsets CO2 emissions for travel, production, and web presence.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion applies when offsetting is part of the strategy."
+          }
+        },
+        {
+          "id": "env-water",
+          "label": "Water",
+          "points": 1,
+          "description": "Water pollution or water use were avoided or reduced.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "packaging",
+              "book",
+              "postcard",
+              "signage",
+              "exhibit"
+            ],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion mainly applies where materials or production processes use water."
+          }
+        },
+        {
+          "id": "env-animal-welfare",
+          "label": "Animal Welfare",
+          "points": 1,
+          "description": "The success of the project does not and will not put animals or an entire animal species at risk.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion applies when the project affects ecosystems, sourcing, or wildlife-related outcomes."
+          }
+        }
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Social",
+      "criteria": [
+        {
+          "id": "soc-harmless",
+          "label": "Harmless",
+          "points": 1,
+          "description": "The project is purposely designed to reduce mental and physical injury to those who produce or use the product.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant to all projects."
+          }
+        },
+        {
+          "id": "soc-health-safety",
+          "label": "Health and Safety",
+          "points": 1,
+          "description": "The project's main focus is to improve the health or safety of the target audience.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion is most relevant when health or safety outcomes are central to the project brief."
+          }
+        },
+        {
+          "id": "soc-local-labour",
+          "label": "Local Labour",
+          "points": 1,
+          "description": "Design and production significantly increased the amount of locally sourced labour from the end user's location.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion can apply across project types when labour sourcing is a strategic choice."
+          }
+        },
+        {
+          "id": "soc-human-rights",
+          "label": "Human Rights",
+          "points": 1,
+          "description": "The project does not contribute to the violation of universal human rights.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant to all projects."
+          }
+        },
+        {
+          "id": "soc-corruption",
+          "label": "Corruption",
+          "points": 1,
+          "description": "In fulfilling their role in the project, no organization was involved in corruption.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant to all projects."
+          }
+        },
+        {
+          "id": "soc-rights-of-workers",
+          "label": "Rights of Workers",
+          "points": 1,
+          "description": "The project does not contribute to the violation of the fundamental principles and rights of workers.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant to all projects."
+          }
+        },
+        {
+          "id": "soc-electronic-documents",
+          "label": "Electronic Documents",
+          "points": 1,
+          "description": "All electronic documents comply with WCAG or PDF/UA accessibility standards.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "website",
+              "app",
+              "pdf-report",
+              "ebook",
+              "campaign"
+            ],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion applies to digital or hybrid outputs with electronic documents or interfaces."
+          }
+        },
+        {
+          "id": "soc-documents-compliance",
+          "label": "Documents and Compliance",
+          "points": 1,
+          "description": "All documents comply with WCAG Level AA or PDF/UA accessibility standards.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [
+              "website",
+              "pdf-report",
+              "ebook",
+              "campaign"
+            ],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion applies to digital or hybrid documents and content systems."
+          }
+        },
+        {
+          "id": "soc-universal-design",
+          "label": "Universal Design Principles",
+          "points": 1,
+          "description": "The non-document components of the project adhere to universal design principles.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant across physical and digital experiences."
+          }
+        },
+        {
+          "id": "soc-intellectual-property",
+          "label": "Intellectual Property",
+          "points": 1,
+          "description": "The process or product shares reusable intellectual property that may be valuable to society as a whole.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion applies when reuse, open licensing, or public benefit knowledge-sharing are part of the project."
+          }
+        },
+        {
+          "id": "soc-affordable",
+          "label": "Affordable",
+          "points": 1,
+          "description": "The product is affordable to a wide audience including those with limited financial resources.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion applies when pricing or access barriers are relevant to project outcomes."
+          }
+        },
+        {
+          "id": "soc-fair-trade",
+          "label": "Fair Trade",
+          "points": 1,
+          "description": "The project involves fair trade.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion applies when labour, sourcing, or geographic equity are central to the project."
+          }
+        },
+        {
+          "id": "soc-social-gaps",
+          "label": "Social Gaps",
+          "points": 1,
+          "description": "The project's main focus is to encourage closing social gaps of gender, power, or wealth.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion is most relevant when equity outcomes are explicit goals of the project."
+          }
+        },
+        {
+          "id": "soc-freedom-of-expression",
+          "label": "Freedom of Expression",
+          "points": 1,
+          "description": "The project's main focus is to encourage or educate about freedom of expression and/or democracy.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion is most relevant when civic participation or expression is central to the project."
+          }
+        },
+        {
+          "id": "soc-design-education",
+          "label": "Design Education",
+          "points": 1,
+          "description": "The project included design students and/or enriches existing design school curriculum.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion applies when educational engagement is part of the project."
+          }
+        },
+        {
+          "id": "soc-educational-component",
+          "label": "Educational Component",
+          "points": 1,
+          "description": "The product includes an educational component that promotes sustainability to the consumer.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion can apply across many project types."
+          }
+        }
+      ]
+    },
+    {
+      "id": "cultural",
+      "label": "Cultural",
+      "criteria": [
+        {
+          "id": "cul-cultural-sustainability-policy",
+          "label": "Cultural Sustainability Policy",
+          "points": 1,
+          "description": "The project or designing entity defines a cultural sustainability policy.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion is broadly relevant but may be documented at the organizational level."
+          }
+        },
+        {
+          "id": "cul-endangered-languages",
+          "label": "Endangered Languages",
+          "points": 1,
+          "description": "The project is likely to help preserve endangered languages, including Indigenous languages.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion is most relevant when language preservation is part of the brief or audience context."
+          }
+        },
+        {
+          "id": "cul-indigenous-culture",
+          "label": "Indigenous Culture",
+          "points": 1,
+          "description": "The project preserves or nurtures Indigenous culture other than language.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion is most relevant when Indigenous cultural contexts are involved."
+          }
+        },
+        {
+          "id": "cul-local-culture",
+          "label": "Local Culture",
+          "points": 1,
+          "description": "The project's products or services adapt to local and regional cultures.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant to most audience-centered communication projects."
+          }
+        },
+        {
+          "id": "cul-cultural-diversity",
+          "label": "Cultural Diversity",
+          "points": 1,
+          "description": "The project intends to promote or enhance cultural diversity.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion can apply across many project types."
+          }
+        },
+        {
+          "id": "cul-supplier-cultural-policy",
+          "label": "Supplier Cultural Sustainability Policy",
+          "points": 1,
+          "description": "Most suppliers specific to the project have a publicly visible policy of cultural sustainability.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "conditional",
+            "notApplicableMessage": "This criterion is more relevant when external suppliers materially shape the cultural impact of the project."
+          }
+        },
+        {
+          "id": "cul-audience-participation",
+          "label": "Audience Participation",
+          "points": 1,
+          "description": "The project includes participation by direct audience members or end users throughout the design process.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant across communication design practice."
+          }
+        },
+        {
+          "id": "cul-community-participation",
+          "label": "Community Participation",
+          "points": 1,
+          "description": "The designing entity actively supports and participates in the sustainable development of their community.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion is broadly relevant at the organizational and project levels."
+          }
+        },
+        {
+          "id": "cul-practitioners-education",
+          "label": "Practitioners’ Education",
+          "points": 1,
+          "description": "The project results in the education of practitioners regarding sustainable design.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion applies when professional learning or sector influence is part of the outcome."
+          }
+        }
+      ]
+    },
+    {
+      "id": "financial",
+      "label": "Financial",
+      "criteria": [
+        {
+          "id": "fin-economic-benefits",
+          "label": "Economic Benefits",
+          "points": 1,
+          "description": "The project strategy identifies and creates economic benefits outside the client and the designing entity.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion can apply across many project types."
+          }
+        },
+        {
+          "id": "fin-profitability",
+          "label": "Profitability",
+          "points": 1,
+          "description": "The project budget or contract does not assume financial loss by the designing entity.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant to most projects."
+          }
+        },
+        {
+          "id": "fin-unpaid-work",
+          "label": "Unpaid Work",
+          "points": 1,
+          "description": "There was no process in the project where designers, including student designers, were asked to provide unpaid work.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant to all projects."
+          }
+        },
+        {
+          "id": "fin-smart-goals",
+          "label": "SMART Goals",
+          "points": 1,
+          "description": "A strategy document exists that includes measurable financial objectives.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion is broadly relevant to projects with defined financial goals."
+          }
+        },
+        {
+          "id": "fin-accountability-transparency",
+          "label": "Accountability and Transparency",
+          "points": 1,
+          "description": "The designing entity adheres to accountable and transparent processes and procedures.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "primary",
+            "notApplicableMessage": "This criterion is broadly relevant to all projects."
+          }
+        },
+        {
+          "id": "fin-sop-improvement",
+          "label": "SOP Improvement",
+          "points": 1,
+          "description": "The project resulted in improvements to the designing entity's documented standard procedures.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion applies when internal learning and process improvement are part of project value."
+          }
+        },
+        {
+          "id": "fin-design-thinking",
+          "label": "Design Thinking",
+          "points": 1,
+          "description": "Design thinking is adding financial value to the audience, users, and/or stakeholders.",
+          "applicability": {
+            "mode": "some",
+            "categories": [
+              "print",
+              "digital",
+              "hybrid"
+            ],
+            "projectTypes": [],
+            "relevance": "secondary",
+            "notApplicableMessage": "This criterion can apply across many project types."
+          }
+        }
+      ]
+    }
+  ]
+}

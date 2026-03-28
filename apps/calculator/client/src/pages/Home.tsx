@@ -1,4 +1,4 @@
-import { useState, useRef, useMemo } from "react";
+import { useState, useRef, useMemo, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Search, CheckCircle, Filter, Download, Upload, RotateCcw, AlertTriangle, Loader2 } from "lucide-react";
 import { useCriteria } from "@/hooks/use-criteria";
@@ -8,6 +8,9 @@ import { ScoreHeader } from "@/components/ScoreHeader";
 import { SegmentedControl } from "@/components/SegmentedControl";
 import { cn } from "@/lib/utils";
 import { CriterionInfoButton } from "@/components/CriterionInfoButton";
+import { ProjectSetupBar } from "@/calculator/components/ProjectSetupBar";
+import { calculatorVersions, type CalculatorVersionId } from "@/calculator/registry";
+
 
 export default function Home() {
   const { data, isLoading, error } = useCriteria();
@@ -25,12 +28,28 @@ export default function Home() {
     return computeCertificationStatus(scores, data.thresholds);
   }, [data, answers]);
 
+  const [calculatorVersion, setCalculatorVersion] = useState<CalculatorVersionId>("v1");
+  const [projectCategory, setProjectCategory] = useState("");
+  const [projectType, setProjectType] = useState("");
+  const selectedCalculatorVersion = useMemo(
+  () => calculatorVersions[calculatorVersion],
+  [calculatorVersion]
+);
+
   // Set initial active tab for mobile when data loads
-  useMemo(() => {
+  useEffect(() => {
     if (data && !activeMobileTab) {
       setActiveMobileTab(data.pillars[0].id);
     }
   }, [data, activeMobileTab]);
+
+  // Reset project filters when switching to a version without project types
+  useEffect(() => {
+    if (!selectedCalculatorVersion.features.projectTypes) {
+      setProjectCategory("");
+      setProjectType("");
+    }
+  }, [selectedCalculatorVersion]);
 
   const handleImportClick = () => {
     fileInputRef.current?.click();
@@ -94,9 +113,18 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-secondary/30 pb-20">
-      <ScoreHeader data={data} results={results} />
-      
+            
       <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mt-6 sm:mt-8">
+
+      <ProjectSetupBar
+        version={calculatorVersion}
+        onVersionChange={setCalculatorVersion}
+        projectCategory={projectCategory}
+        onProjectCategoryChange={setProjectCategory}
+        projectType={projectType}
+        onProjectTypeChange={setProjectType}
+      />
+      <ScoreHeader data={data} results={results} />
         
         {/* Toolbar */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">

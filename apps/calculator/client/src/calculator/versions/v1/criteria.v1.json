@@ -1,0 +1,76 @@
+{
+  "standard": {
+    "id": "sd-impact-calculator",
+    "name": "SD Impact Calculator",
+    "standardVersion": "0.1.0",
+    "scoringConfigVersion": "2026.02.28",
+    "license": "GPL-3.0",
+    "lastUpdated": "2026-02-28",
+    "description": "Point-based criteria across Environmental, Social, Cultural, and Financial pillars."
+  },
+  "version": "1.0",
+  "thresholds": { "environmental": 50, "social": 50, "cultural": 50, "financial": 50 },
+  "pillars": [
+    {
+      "id": "environmental",
+      "label": "Environmental",
+      "criteria": [
+        {
+          "id": "env-1",
+          "label": "Reduces carbon footprint",
+          "points": 10,
+          "summary": "Includes at least one meaningful step to reduce emissions or energy use across the project lifecycle.",
+          "description": "The project strategy includes at least one action to reduce environmental impact.",
+          "whyItMatters": "Early design decisions can significantly reduce emissions across materials, production, and distribution.",
+          "examples": [
+            "Reducing page count",
+            "Choosing lower-impact materials",
+            "Optimizing digital assets"
+          ],
+          "terms": ["carbon-footprint"]
+        },
+        { "id": "env2", "label": "Uses sustainable materials", "points": 15 },
+        { "id": "env3", "label": "Minimizes waste", "points": 10 },
+        { "id": "env4", "label": "Energy efficient design", "points": 10 },
+        { "id": "env5", "label": "Promotes circular economy", "points": 15 },
+        { "id": "env6", "label": "Water conservation", "points": 10 }
+      ]
+    },
+    {
+      "id": "social",
+      "label": "Social",
+      "criteria": [
+        { "id": "soc1", "label": "Improves community well-being", "points": 15 },
+        { "id": "soc2", "label": "Ensures fair labor practices", "points": 15 },
+        { "id": "soc3", "label": "Accessible and inclusive design", "points": 10 },
+        { "id": "soc4", "label": "Fosters user health and safety", "points": 10 },
+        { "id": "soc5", "label": "Ethical sourcing", "points": 10 },
+        { "id": "soc6", "label": "Supports local communities", "points": 10 }
+      ]
+    },
+    {
+      "id": "cultural",
+      "label": "Cultural",
+      "criteria": [
+        { "id": "cul1", "label": "Respects cultural heritage", "points": 15 },
+        { "id": "cul2", "label": "Promotes diversity of thought", "points": 10 },
+        { "id": "cul3", "label": "Avoids cultural appropriation", "points": 15 },
+        { "id": "cul4", "label": "Encourages artistic expression", "points": 10 },
+        { "id": "cul5", "label": "Supports indigenous practices", "points": 10 },
+        { "id": "cul6", "label": "Fosters cross-cultural understanding", "points": 10 }
+      ]
+    },
+    {
+      "id": "financial",
+      "label": "Financial",
+      "criteria": [
+        { "id": "fin1", "label": "Long-term economic viability", "points": 15 },
+        { "id": "fin2", "label": "Transparent pricing", "points": 10 },
+        { "id": "fin3", "label": "Fair value distribution", "points": 15 },
+        { "id": "fin4", "label": "Affordable for target users", "points": 10 },
+        { "id": "fin5", "label": "Supports local economies", "points": 10 },
+        { "id": "fin6", "label": "Responsible investment", "points": 10 }
+      ]
+    }
+  ]
+}
