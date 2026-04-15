@@ -29,11 +29,11 @@
           ],
           "terms": ["carbon-footprint"]
         },
-        { "id": "E2", "label": "Uses sustainable materials", "points": 15 },
-        { "id": "E3", "label": "Minimizes waste", "points": 10 },
-        { "id": "E4", "label": "Energy efficient design", "points": 10 },
-        { "id": "E5", "label": "Promotes circular economy", "points": 15 },
-        { "id": "E6", "label": "Water conservation", "points": 10 }
+        { "id": "E2", "label": "Habitat Conservation", "points": 15 },
+        { "id": "E3", "label": "Product Ingredients List", "points": 10 },
+        { "id": "E4", "label": "Ink, Printing, and Finishes", "points": 10 },
+        { "id": "E5", "label": "Paper", "points": 15 },
+        { "id": "E6", "label": "Product Quantity", "points": 10 }
       ]
     },
     {
