@@ -10,7 +10,7 @@ The total greenhouse gas emissions associated with a product, service, activity,
 Design decisions affect material use, energy consumption, distribution, and end-of-life impacts.
 
 ## Related criteria
-- [env-1](../criteria/env-1.md)
+- [E1](../criteria/E1.md)
 
 ## Related terms
 - [Emissions](emissions.md)

@@ -4,7 +4,7 @@
     "title": "Carbon Footprint",
     "definition": "The total greenhouse gas emissions associated with a product, service, activity, or system.",
     "whyItMatters": "Design decisions affect material use, energy consumption, distribution, and end-of-life impacts.",
-    "relatedCriteria": ["env-1"],
+    "relatedCriteria": ["E1"],
     "relatedTerms": ["emissions", "lifecycle-assessment"]
   },
   {
@@ -12,7 +12,7 @@
     "title": "Circular Economy",
     "definition": "An approach that keeps materials and products in use longer through reuse, repair, remanufacture, and recycling.",
     "whyItMatters": "It helps reduce waste and the extraction of virgin materials.",
-    "relatedCriteria": ["env5"],
+    "relatedCriteria": ["E5"],
     "relatedTerms": ["waste-reduction", "sustainable-materials"]
   },
   {
@@ -26,20 +26,20 @@
     "title": "Sustainable Materials",
     "definition": "Materials chosen to reduce environmental harm through renewability, recyclability, or lower lifecycle impact.",
     "whyItMatters": "Material choice often dominates environmental impact in physical design outputs.",
-    "relatedCriteria": ["env2"]
+    "relatedCriteria": ["E2"]
   },
 {
     "id": "lifecycle-assessment",
     "title": "Lifecycle Assessment",
     "definition": "TBD.",
     "whyItMatters": "TBD.",
-    "relatedCriteria": ["env2"]
+    "relatedCriteria": ["E2"]
   },
   {
     "id": "waste-reduction",
     "title": "Waste Reduction",
     "definition": "TBD.",
     "whyItMatters": "TBD.",
-    "relatedCriteria": ["env2"]
+    "relatedCriteria": ["E2"]
   }
 ]

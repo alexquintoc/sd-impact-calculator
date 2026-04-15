@@ -1,7 +1,7 @@
 const fs = require("fs");
 const path = require("path");
 
-const root = process.cwd();
+const root = path.resolve(__dirname, "..");
 
 const criteriaPath = path.join(
   root,

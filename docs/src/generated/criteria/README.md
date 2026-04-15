@@ -7,12 +7,12 @@ This section contains the criteria used in the SD Standard, grouped by pillar.
 
 ## Environmental
 
-- [env-1: Reduces carbon footprint](env-1.md)
-- [env2: Uses sustainable materials](env2.md)
-- [env3: Minimizes waste](env3.md)
-- [env4: Energy efficient design](env4.md)
-- [env5: Promotes circular economy](env5.md)
-- [env6: Water conservation](env6.md)
+- [E1: Reduces carbon footprint](E1.md)
+- [E2: Uses sustainable materials](E2.md)
+- [E3: Minimizes waste](E3.md)
+- [E4: Energy efficient design](E4.md)
+- [E5: Promotes circular economy](E5.md)
+- [E6: Water conservation](E6.md)
 
 ## Social
 

@@ -5,7 +5,7 @@
     "standardVersion": "0.1.0",
     "scoringConfigVersion": "2026.02.28",
     "license": "GPL-3.0",
-    "lastUpdated": "2026-02-28",
+    "lastUpdated": "2026-04-15",
     "description": "Point-based criteria across Environmental, Social, Cultural, and Financial pillars."
   },
   "version": "1.0",
@@ -16,24 +16,134 @@
       "label": "Environmental",
       "criteria": [
         {
-          "id": "env-1",
-          "label": "Reduces carbon footprint",
+          "id": "E1",
+          "label": "Environmental Impact Reduction",
           "points": 10,
-          "summary": "Includes at least one meaningful step to reduce emissions or energy use across the project lifecycle.",
+          "summary": "Actions lead to designs with a lower impact.",
           "description": "The project strategy includes at least one action to reduce environmental impact.",
-          "whyItMatters": "Early design decisions can significantly reduce emissions across materials, production, and distribution.",
+          "whyItMatters": "",
           "examples": [
             "Reducing page count",
             "Choosing lower-impact materials",
             "Optimizing digital assets"
           ],
-          "terms": ["carbon-footprint"]
+          "terms": ["carbon-footprint"],
+          "sdg": ["11", "12", "13"]
         },
-        { "id": "env2", "label": "Uses sustainable materials", "points": 15 },
-        { "id": "env3", "label": "Minimizes waste", "points": 10 },
-        { "id": "env4", "label": "Energy efficient design", "points": 10 },
-        { "id": "env5", "label": "Promotes circular economy", "points": 15 },
-        { "id": "env6", "label": "Water conservation", "points": 10 }
+        {
+          "id": "E2",
+          "label": "Product Ingredients List",
+          "points": 10,
+          "summary": "The display of “ingredients” or material components.",
+          "description": "The product or product packaging includes a list of components and/or ingredients.",
+          "whyItMatters": "",
+          "examples": [
+            "Packaging that displays a list of material components"
+          ],
+          "terms": ["carbon-footprint"],
+          "sdg": ["12"]
+        },
+        {
+          "id": "E3",
+          "label": "Ink, Printing, and Finishes",
+          "points": 10,
+          "summary": "Reduces ink coverage on printed materials.",
+          "description": "The project materials were designed to reduce or eliminate the use of inks, varnishes and finishes or requires no printing.",
+          "whyItMatters": "",
+          "examples": [
+            "Packaging that displays a list of material components"
+          ],
+          "terms": ["carbon-footprint"],
+          "sdg": ["12"]
+        },
+        {
+          "id": "E4",
+          "label": "Paper",
+          "points": 10,
+          "summary": "Efficient use of paper and reduces paper use.",
+          "description": "The project materials were designed to reduce paper.",
+          "whyItMatters": "",
+          "examples": [
+            "A magazine reduces paper use year over year."
+          ],
+          "terms": ["carbon-footprint"],
+          "sdg": ["12"]
+        },
+        {
+          "id": "E5",
+          "label": "Product Quantity",
+          "points": 10,
+          "summary": "Reproduction and end-of-life considerations.",
+          "description": "No more units than needed were produced (including the possibility of no physical copies at all).",
+          "whyItMatters": "",
+          "examples": [
+            "A magazine that switches from print distribution to online distribution."
+          ],
+          "terms": ["carbon-footprint"],
+          "sdg": ["12"]
+        },
+        {
+          "id": "E6",
+          "label": "Extended Life Product",
+          "points": 10,
+          "summary": "Product design for longer life than the industry average.",
+          "description": "When a longer lifetime is desirable for a product or system, it is designed to be reused, recharged, repaired, and/or upgraded as an environmental benefit.",
+          "whyItMatters": "",
+          "examples": [
+            "A mobile phone designed to be repaired."
+          ],
+          "terms": ["carbon-footprint"],
+          "sdg": ["9", "11", "12"]
+        },
+        {
+          "id": "E7",
+          "label": "Durability",
+          "points": 10,
+          "summary": "Physical durability as a product asset, where applicable.",
+          "description": "The product or system is physically durable.",
+          "whyItMatters": "",
+          "examples": [
+            "A tablet that withstands damage when dropped accidentally."
+          ],
+          "terms": ["carbon-footprint"],
+          "sdg": ["12"]
+        }, {
+          "id": "E8",
+          "label": "Toxins",
+          "points": 10,
+          "summary": "Reduces or eliminates toxins in a product.",
+          "description": "The project reduces or eliminates the use of toxins.",
+          "whyItMatters": "",
+          "examples": [
+            "A mural that uses low-VOC paint."
+          ],
+          "terms": ["carbon-footprint"],
+          "sdg": ["11", "12", "14", "15"]
+        }, {
+          "id": "E9",
+          "label": "Environmental Policy",
+          "points": 10,
+          "summary": "Publicly-accessible environmental policies.",
+          "description": "The designing entity and a majority of suppliers have a publicly-published environmental policy.",
+          "whyItMatters": "",
+          "examples": [
+            "An environmental policy webpage."
+          ],
+          "terms": ["carbon-footprint"],
+          "sdg": ["9", "12", "17"]
+        }, {
+          "id": "E10",
+          "label": "Lifecycle Assessment",
+          "points": 10,
+          "summary": "Design addresses the environmental impact of a product.",
+          "description": "The project’s strategy is supported by a qualified, simplified life cycle study (LCS) or quantitative life cycle assessment (LCA).",
+          "whyItMatters": "",
+          "examples": [
+            ""
+          ],
+          "terms": ["carbon-footprint"],
+          "sdg": ["12"]
+        }
       ]
     },
     {

@@ -10,7 +10,7 @@ An approach that keeps materials and products in use longer through reuse, repai
 It helps reduce waste and the extraction of virgin materials.
 
 ## Related criteria
-- [env5](../criteria/env5.md)
+- [E5](../criteria/E5.md)
 
 ## Related terms
 - [Waste Reduction](waste-reduction.md)

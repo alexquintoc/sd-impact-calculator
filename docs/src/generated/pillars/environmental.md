@@ -7,12 +7,12 @@
 **Total available points:** 70
 
 ## Criteria in this pillar
-- [env-1: Reduces carbon footprint](../criteria/env-1.md)
-- [env2: Uses sustainable materials](../criteria/env2.md)
-- [env3: Minimizes waste](../criteria/env3.md)
-- [env4: Energy efficient design](../criteria/env4.md)
-- [env5: Promotes circular economy](../criteria/env5.md)
-- [env6: Water conservation](../criteria/env6.md)
+- [E1: Reduces carbon footprint](../criteria/E1.md)
+- [E2: Uses sustainable materials](../criteria/E2.md)
+- [E3: Minimizes waste](../criteria/E3.md)
+- [E4: Energy efficient design](../criteria/E4.md)
+- [E5: Promotes circular economy](../criteria/E5.md)
+- [E6: Water conservation](../criteria/E6.md)
 
 ## Related terms
 - [Carbon Footprint](../terms/carbon-footprint.md)

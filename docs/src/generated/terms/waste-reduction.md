@@ -10,4 +10,4 @@ TBD.
 TBD.
 
 ## Related criteria
-- [env2](../criteria/env2.md)
+- [E2](../criteria/E2.md)
