@@ -118,7 +118,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant to all projects."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-product-ingredients",
@@ -136,7 +137,8 @@
             ],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is mainly relevant to packaging or products with material disclosure needs."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-ink-printing-finishes",
@@ -159,7 +161,8 @@
             ],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is typically not relevant for screen-only outputs."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-paper",
@@ -182,7 +185,8 @@
             ],
             "relevance": "primary",
             "notApplicableMessage": "This criterion generally does not apply to purely digital projects."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-product-quantity",
@@ -205,7 +209,8 @@
             ],
             "relevance": "primary",
             "notApplicableMessage": "This criterion applies where physical production volume is relevant."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-extended-life-product",
@@ -228,7 +233,8 @@
             ],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion is most relevant where a product, system, or durable output can remain in use over time."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-durability",
@@ -248,7 +254,8 @@
             ],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion mainly applies to durable physical outputs."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-toxins",
@@ -270,7 +277,8 @@
             ],
             "relevance": "primary",
             "notApplicableMessage": "This criterion applies primarily when physical materials are selected."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-supplier-environmental-policy",
@@ -287,7 +295,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion is broadly relevant when suppliers or vendors are part of the project."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "env-designing-entity-environmental-policy",
@@ -304,7 +313,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion is broadly relevant to most projects."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "env-material-waste-reporting",
@@ -320,7 +330,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion is more relevant when physical material use is part of the work."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "env-lifecycle-assessment",
@@ -337,7 +348,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion may apply to projects with sufficient scale or complexity."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-zero-waste",
@@ -357,7 +369,8 @@
             ],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion mainly applies to physical products or installations."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-recyclability-reusability",
@@ -379,7 +392,8 @@
             ],
             "relevance": "primary",
             "notApplicableMessage": "This criterion applies mainly to physical products and materials."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-end-of-life",
@@ -399,7 +413,8 @@
             ],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion mainly applies to physical outputs with material end-of-life considerations."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-renewable-energy",
@@ -416,7 +431,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion may apply to printers, hosts, platforms, venues, and other suppliers."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-non-renewable-resources",
@@ -438,7 +454,8 @@
             ],
             "relevance": "primary",
             "notApplicableMessage": "This criterion mainly applies to material-based projects."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-energy-emissions-reporting",
@@ -455,7 +472,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion is broadly relevant at the organizational level."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "env-consumer-energy",
@@ -476,7 +494,8 @@
             ],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion applies when the end-user experience consumes electricity or device resources."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-transport",
@@ -499,7 +518,8 @@
             ],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion applies when physical distribution or warehousing is part of the project."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-co2-certification",
@@ -518,7 +538,8 @@
             ],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion is mainly relevant when product-level emissions claims are being communicated."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-air-pollution-ghg",
@@ -535,7 +556,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion can apply across many project types."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-carbon-offsets",
@@ -552,7 +574,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion applies when offsetting is part of the strategy."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-water",
@@ -574,7 +597,8 @@
             ],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion mainly applies where materials or production processes use water."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "env-animal-welfare",
@@ -591,7 +615,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion applies when the project affects ecosystems, sourcing, or wildlife-related outcomes."
-          }
+          },
+          "level": "project"
         }
       ]
     },
@@ -614,7 +639,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant to all projects."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-health-safety",
@@ -631,7 +657,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion is most relevant when health or safety outcomes are central to the project brief."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-local-labour",
@@ -648,7 +675,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion can apply across project types when labour sourcing is a strategic choice."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-human-rights",
@@ -665,7 +693,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant to all projects."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-corruption",
@@ -682,7 +711,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant to all projects."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "soc-rights-of-workers",
@@ -699,7 +729,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant to all projects."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "soc-electronic-documents",
@@ -721,7 +752,8 @@
             ],
             "relevance": "primary",
             "notApplicableMessage": "This criterion applies to digital or hybrid outputs with electronic documents or interfaces."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-documents-compliance",
@@ -742,7 +774,8 @@
             ],
             "relevance": "primary",
             "notApplicableMessage": "This criterion applies to digital or hybrid documents and content systems."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-universal-design",
@@ -759,7 +792,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant across physical and digital experiences."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-intellectual-property",
@@ -776,7 +810,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion applies when reuse, open licensing, or public benefit knowledge-sharing are part of the project."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-affordable",
@@ -793,7 +828,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion applies when pricing or access barriers are relevant to project outcomes."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-fair-trade",
@@ -810,7 +846,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion applies when labour, sourcing, or geographic equity are central to the project."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-social-gaps",
@@ -827,7 +864,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion is most relevant when equity outcomes are explicit goals of the project."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-freedom-of-expression",
@@ -844,7 +882,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion is most relevant when civic participation or expression is central to the project."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-design-education",
@@ -861,7 +900,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion applies when educational engagement is part of the project."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "soc-educational-component",
@@ -878,7 +918,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion can apply across many project types."
-          }
+          },
+          "level": "project"
         }
       ]
     },
@@ -901,7 +942,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion is broadly relevant but may be documented at the organizational level."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "cul-endangered-languages",
@@ -918,7 +960,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion is most relevant when language preservation is part of the brief or audience context."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "cul-indigenous-culture",
@@ -935,7 +978,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion is most relevant when Indigenous cultural contexts are involved."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "cul-local-culture",
@@ -952,7 +996,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant to most audience-centered communication projects."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "cul-cultural-diversity",
@@ -969,7 +1014,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion can apply across many project types."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "cul-supplier-cultural-policy",
@@ -986,7 +1032,8 @@
             "projectTypes": [],
             "relevance": "conditional",
             "notApplicableMessage": "This criterion is more relevant when external suppliers materially shape the cultural impact of the project."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "cul-audience-participation",
@@ -1003,7 +1050,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant across communication design practice."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "cul-community-participation",
@@ -1020,7 +1068,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion is broadly relevant at the organizational and project levels."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "cul-practitioners-education",
@@ -1037,7 +1086,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion applies when professional learning or sector influence is part of the outcome."
-          }
+          },
+          "level": "entity"
         }
       ]
     },
@@ -1060,7 +1110,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion can apply across many project types."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "fin-profitability",
@@ -1077,7 +1128,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant to most projects."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "fin-unpaid-work",
@@ -1094,7 +1146,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant to all projects."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "fin-smart-goals",
@@ -1111,7 +1164,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion is broadly relevant to projects with defined financial goals."
-          }
+          },
+          "level": "project"
         },
         {
           "id": "fin-accountability-transparency",
@@ -1128,7 +1182,8 @@
             "projectTypes": [],
             "relevance": "primary",
             "notApplicableMessage": "This criterion is broadly relevant to all projects."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "fin-sop-improvement",
@@ -1145,7 +1200,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion applies when internal learning and process improvement are part of project value."
-          }
+          },
+          "level": "entity"
         },
         {
           "id": "fin-design-thinking",
@@ -1162,7 +1218,8 @@
             "projectTypes": [],
             "relevance": "secondary",
             "notApplicableMessage": "This criterion can apply across many project types."
-          }
+          },
+          "level": "project"
         }
       ]
     }
