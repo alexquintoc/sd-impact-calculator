@@ -6,9 +6,10 @@ import { cn } from "@/lib/utils";
 interface ScoreHeaderProps {
   data: CriteriaData;
   results: CertificationResult;
+  description?: string;
 }
 
-export function ScoreHeader({ data, results }: ScoreHeaderProps) {
+export function ScoreHeader({ data, results, description = "Evaluate your project against the Sustainable Design standard." }: ScoreHeaderProps) {
   return (
     <header className="sticky top-0 z-40 bg-background/95 backdrop-blur-xl border-b border-border/50 shadow-sm">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 sm:py-6">
@@ -17,7 +18,7 @@ export function ScoreHeader({ data, results }: ScoreHeaderProps) {
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4 mb-6">
           <div>
             <h1 className="text-xl font-bold tracking-tight text-foreground">SD Impact Calculator</h1>
-            <p className="text-sm text-muted-foreground mt-1">Evaluate your project against the Sustainable Design standard.</p>
+            <p className="text-sm text-muted-foreground mt-1">{description}</p>
           </div>
           
           <div className={cn(

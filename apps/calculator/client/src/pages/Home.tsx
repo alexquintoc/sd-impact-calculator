@@ -3,12 +3,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import { Search, CheckCircle, Filter, Download, Upload, RotateCcw, AlertTriangle, Loader2 } from "lucide-react";
 import { useCalculatorCriteria } from "@/calculator/hooks/useCalculatorCriteria";
 import { useAnswers } from "@/hooks/use-answers";
-import { computePillarScores, computeCertificationStatus, AnswerStatus, Pillar } from "@/lib/score";
+import { computePillarScores, computeCertificationStatus, AnswerStatus } from "@/lib/score";
 import { ScoreHeader } from "@/components/ScoreHeader";
 import { SegmentedControl } from "@/components/SegmentedControl";
 import { cn } from "@/lib/utils";
 import { CriterionInfoButton } from "@/components/CriterionInfoButton";
-import { ProjectSetupBar } from "@/calculator/components/ProjectSetupBar";
+import { ProjectSetupBar, type CriteriaLevelFilter } from "@/calculator/components/ProjectSetupBar";
 import { calculatorVersions, type CalculatorVersionId } from "@/calculator/registry";
 import { isCriterionApplicable } from "@/calculator/utils/applicability";
 
@@ -17,6 +17,7 @@ export default function Home() {
   const [calculatorVersion, setCalculatorVersion] = useState<CalculatorVersionId>("v1");
   const [projectCategory, setProjectCategory] = useState("");
   const [projectType, setProjectType] = useState("");
+  const [selectedLevel, setSelectedLevel] = useState<CriteriaLevelFilter>("project");
   const { data, isLoading, error } = useCalculatorCriteria(calculatorVersion);
   const { answers, setAnswer, reset, exportData, importData } = useAnswers();
   
@@ -31,9 +32,18 @@ const selectedCalculatorVersion = useMemo(
   [calculatorVersion]
 );
 
+const showEntityProjectToggle =
+  selectedCalculatorVersion.features.entityProjectLevels === true;
+
 const showProjectSetupPrompt =
   selectedCalculatorVersion.features.projectTypes &&
+  !(showEntityProjectToggle && selectedLevel === "entity") &&
   (projectCategory === "" || projectType === "");
+
+const scoreHeaderDescription =
+  showEntityProjectToggle && selectedLevel === "entity"
+    ? "Evaluate the practices of the designer, studio, or organization."
+    : "Evaluate your project against the Sustainable Design standard.";
 
 const displayData = useMemo(() => {
   if (!data) return data;
@@ -43,30 +53,67 @@ const displayData = useMemo(() => {
     return data;
   }
 
-  // v2: before category/type are selected, show no criteria yet
-  if (!projectCategory || !projectType) {
+  if (!showEntityProjectToggle) {
+    // v2 project-type filtering before entity/project levels existed.
+    if (!projectCategory || !projectType) {
+      return {
+        ...data,
+        pillars: data.pillars.map((pillar) => ({
+          ...pillar,
+          criteria: [],
+        })),
+      };
+    }
+
     return {
       ...data,
       pillars: data.pillars.map((pillar) => ({
         ...pillar,
-        criteria: [],
+        criteria: pillar.criteria.filter((criterion: any) =>
+          isCriterionApplicable(criterion.applicability, {
+            projectCategory,
+            projectType,
+          })
+        ),
       })),
     };
   }
+
+  const hasProjectProfile = Boolean(projectCategory && projectType);
+  const isEntityLevel = selectedLevel === "entity";
+  const isProjectLevel = selectedLevel === "project";
+  const isAllLevel = selectedLevel === "all";
 
   return {
     ...data,
     pillars: data.pillars.map((pillar) => ({
       ...pillar,
-      criteria: pillar.criteria.filter((criterion: any) =>
-        isCriterionApplicable(criterion.applicability, {
-          projectCategory,
-          projectType,
-        })
-      ),
+      criteria: pillar.criteria.filter((criterion: any) => {
+        const criterionLevel = criterion.level ?? "project";
+        const matchesProjectApplicability =
+          hasProjectProfile &&
+          isCriterionApplicable(criterion.applicability, {
+            projectCategory,
+            projectType,
+          });
+
+        if (isEntityLevel) {
+          return criterionLevel === "entity";
+        }
+
+        if (isProjectLevel) {
+          return criterionLevel === "project" && matchesProjectApplicability;
+        }
+
+        if (isAllLevel) {
+          return criterionLevel === "entity" || matchesProjectApplicability;
+        }
+
+        return false;
+      }),
     })),
   };
-}, [data, selectedCalculatorVersion, projectCategory, projectType]);
+}, [data, selectedCalculatorVersion, projectCategory, projectType, showEntityProjectToggle, selectedLevel]);
 
  const results = useMemo(() => {
   if (!displayData) {
@@ -90,12 +137,15 @@ const scores = computePillarScores(displayData, answers);
       setProjectCategory("");
       setProjectType("");
     }
+    if (!selectedCalculatorVersion.features.entityProjectLevels) {
+      setSelectedLevel("project");
+    }
     setActiveMobileTab("");
   }, [selectedCalculatorVersion]);
 
   useEffect(() => {
   setActiveMobileTab("");
-}, [projectCategory, projectType]);
+}, [projectCategory, projectType, selectedLevel]);
 
   const handleImportClick = () => {
     fileInputRef.current?.click();
@@ -141,7 +191,7 @@ const scores = computePillarScores(displayData, answers);
 
   // Filter criteria based on search and "unmet" toggle
   const getFilteredCriteria = (pillar: any) => {
-    return pillar.criteria.filter((c) => {
+    return pillar.criteria.filter((c: any) => {
       const matchesSearch = c.label.toLowerCase().includes(searchQuery.toLowerCase());
       
       let matchesUnmet = true;
@@ -169,8 +219,10 @@ const scores = computePillarScores(displayData, answers);
         onProjectCategoryChange={setProjectCategory}
         projectType={projectType}
         onProjectTypeChange={setProjectType}
+        selectedLevel={selectedLevel}
+        onSelectedLevelChange={setSelectedLevel}
       />
-      <ScoreHeader data={displayData} results={results} />
+      <ScoreHeader data={displayData} results={results} description={scoreHeaderDescription} />
         
         {/* Toolbar */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center gap-4 mb-8">
@@ -282,7 +334,7 @@ const scores = computePillarScores(displayData, answers);
                 <h2 className="hidden lg:flex items-center justify-between pb-2 border-b border-border text-lg font-bold text-foreground">
                   {pillar.label}
                   <span className="text-xs font-semibold px-2 py-1 bg-muted text-muted-foreground rounded-full">
-                    {pillar.criteria.length} items
+                    {filteredCriteria.length} items
                   </span>
                 </h2>
 
@@ -299,7 +351,7 @@ const scores = computePillarScores(displayData, answers);
                     </motion.div>
                   ) : (
                     <div className="space-y-3">
-                      {filteredCriteria.map((criterion) => {
+                      {filteredCriteria.map((criterion: any) => {
                         const status = answers[criterion.id];
                         const isMet = status === 'Meets';
                         
@@ -318,9 +370,16 @@ const scores = computePillarScores(displayData, answers);
                             )}
                           >
                             <div className="flex justify-between items-start gap-3 mb-4">
-                              <h3 className="text-sm font-semibold leading-snug text-foreground">
-                                {criterion.label}
-                              </h3>
+                              <div className="min-w-0 flex-1 space-y-2">
+                                <h3 className="text-sm font-semibold leading-snug text-foreground">
+                                  {criterion.label}
+                                </h3>
+                                {showEntityProjectToggle && (
+                                  <span className="inline-flex rounded-full bg-secondary px-2 py-0.5 text-[11px] font-semibold capitalize text-muted-foreground">
+                                    {criterion.level ?? "project"}
+                                  </span>
+                                )}
+                              </div>
                               <CriterionInfoButton
                                 criterionId={criterion.id}
                                 criterionLabel={criterion.label}

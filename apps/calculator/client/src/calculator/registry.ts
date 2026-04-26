@@ -1,5 +1,6 @@
 import v1Criteria from "@/calculator/versions/v1/criteria.v1.json";
 import v2Criteria from "@/calculator/versions/v2/criteria.v2.json";
+import type { CriteriaData } from "@/lib/score";
 
 export type CalculatorVersionId = "v1" | "v2";
 
@@ -16,8 +17,8 @@ export type ProjectType = {
   description?: string;
 };
 
-export type CalculatorCriteriaData = {
-  version?: string;
+export type CalculatorCriteriaData = CriteriaData & {
+  standardVersion?: string;
   projectCategories?: ProjectCategory[];
   projectTypes?: ProjectType[];
   pillars: Array<{
@@ -35,6 +36,7 @@ export const calculatorVersions: Record<
     criteria: CalculatorCriteriaData;
     features: {
       projectTypes: boolean;
+      entityProjectLevels?: boolean;
     };
   }
 > = {
@@ -52,6 +54,7 @@ export const calculatorVersions: Record<
     criteria: v2Criteria as CalculatorCriteriaData,
     features: {
       projectTypes: true,
+      entityProjectLevels: true,
     },
   },
 };
