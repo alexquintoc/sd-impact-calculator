@@ -10,7 +10,7 @@
 <!-- GENERATED_SUMMARY:START -->
 # Reference
 - [Pillars](generated/pillars/README.md)
-  - [Environmental](generated/pillars/environmental.md)
+  - [Environmental](generated/pillars/environment.md)
   - [Social](generated/pillars/social.md)
   - [Cultural](generated/pillars/cultural.md)
   - [Financial](generated/pillars/financial.md)

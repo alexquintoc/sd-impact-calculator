@@ -144,6 +144,10 @@ function unique(values) {
   return [...new Set(values)];
 }
 
+function getPillarDocSlug(pillar) {
+  return pillar.id === "environmental" ? "environment" : pillar.id;
+}
+
 function getAllCriterionIds(criteriaData) {
   return new Set(
     criteriaData.pillars.flatMap((pillar) =>
@@ -328,6 +332,7 @@ function generatePillarDocs(criteriaData) {
 
   for (const pillar of criteriaData.pillars) {
     const threshold = thresholds[pillar.id];
+    const pillarSlug = getPillarDocSlug(pillar);
 
     const criteriaLinks = pillar.criteria
       .map(
@@ -371,10 +376,14 @@ function generatePillarDocs(criteriaData) {
       contentParts.push("## Related terms", relatedTerms, "");
     }
 
-    const filePath = path.join(docsPillarsDir, `${pillar.id}.md`);
+    const filePath = path.join(docsPillarsDir, `${pillarSlug}.md`);
     writeFile(filePath, contentParts.join("\n"));
 
-    indexLines.push(`- [${pillar.label}](${pillar.id}.md)`);
+    if (pillar.id !== pillarSlug) {
+      writeFile(path.join(docsPillarsDir, `${pillar.id}.md`), contentParts.join("\n"));
+    }
+
+    indexLines.push(`- [${pillar.label}](${pillarSlug}.md)`);
   }
 
   writeFile(path.join(docsPillarsDir, "README.md"), indexLines.join("\n"));

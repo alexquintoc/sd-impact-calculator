@@ -216,34 +216,10 @@ function buildKnowledgeBase(destination) {
   fs.rmSync(docsBookDir, { recursive: true, force: true });
   fs.rmSync(destination, { recursive: true, force: true });
   run(npmCommand, ["run", "docs:build"]);
+  logExpectedKnowledgeBaseFiles("mdBook output before copy", docsBookDir);
   copyDirectory(docsBookDir, destination);
-  removeKnowledgeBaseSourceArtifacts(destination);
   ensureSearchIndexCompatibility(destination);
-}
-
-function removeKnowledgeBaseSourceArtifacts(destination) {
-  const generatedDir = path.join(destination, "generated");
-
-  fs.rmSync(generatedDir, { recursive: true, force: true });
-
-  function removeMarkdownFiles(currentPath) {
-    for (const entry of fs.readdirSync(currentPath, { withFileTypes: true })) {
-      const entryPath = path.join(currentPath, entry.name);
-
-      if (entry.isDirectory()) {
-        removeMarkdownFiles(entryPath);
-        continue;
-      }
-
-      if (entry.name.endsWith(".md")) {
-        fs.rmSync(entryPath, { force: true });
-      }
-    }
-  }
-
-  if (fs.existsSync(destination)) {
-    removeMarkdownFiles(destination);
-  }
+  logExpectedKnowledgeBaseFiles("dist output after copy", destination);
 }
 
 function ensureSearchIndexCompatibility(destination) {
@@ -265,6 +241,22 @@ function ensureSearchIndexCompatibility(destination) {
     path.join(destination, hashedSearchIndex),
     expectedSearchIndex,
   );
+}
+
+function logExpectedKnowledgeBaseFiles(label, baseDir) {
+  const expectedFiles = [
+    "index.html",
+    "toc.html",
+    "searchindex.js",
+    path.join("generated", "pillars", "environment.html"),
+  ];
+
+  console.log(`${label}:`);
+
+  for (const expectedFile of expectedFiles) {
+    const filePath = path.join(baseDir, expectedFile);
+    console.log(`  ${expectedFile}: ${fs.existsSync(filePath) ? "yes" : "no"}`);
+  }
 }
 
 function findInvalidDeployPaths(directory) {
