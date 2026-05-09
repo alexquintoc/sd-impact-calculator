@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build:site"
+  command = "bash scripts/install-mdbook.sh && npm run build:site"
   publish = "dist"
 
 [[redirects]]
