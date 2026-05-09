@@ -5,7 +5,7 @@
 
 This section contains overview pages for each SD Standard pillar.
 
-- [Environmental](environment.md)
-- [Social](social.md)
-- [Cultural](cultural.md)
-- [Financial](financial.md)
+- [Environmental Criteria](environment.md)
+- [Social Criteria](society.md)
+- [Cultural Criteria](culture.md)
+- [Financial Criteria](finance.md)

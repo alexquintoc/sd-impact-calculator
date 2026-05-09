@@ -5,38 +5,70 @@
 
 This section contains the criteria used in the SD Standard, grouped by pillar.
 
-## Environmental
+## Environmental Criteria
 
-- [E1: Reduces carbon footprint](E1.md)
-- [E2: Habitat Conservation](E2.md)
-- [E3: Product Ingredients List](E3.md)
-- [E4: Ink, Printing, and Finishes](E4.md)
-- [E5: Paper](E5.md)
-- [E6: Product Quantity](E6.md)
+- [E1: ENVIRONMENTAL IMPACT REDUCTION](E1.md)
+- [E2: LIFECYCLE](E2.md)
+- [E3: PRODUCT INGREDIENTS LIST](E3.md)
+- [E4: INK, PRINTING, AND FINISHES](E4.md)
+- [E5: PAPER](E5.md)
+- [E6: PRODUCT QUANTITY](E6.md)
+- [E7: EXTENDED LIFE PRODUCT](E7.md)
+- [E7b: DURABILITY](E7b.md)
+- [E9: TOXINS](E9.md)
+- [E10: ENVIRONMENTAL POLICY](E10.md)
+- [E11: QUANTIFIED REPORTING](E11.md)
+- [EM4: ANIMAL WELFARE](EM4.md)
+- [EM6: ECOSYSTEMS CONSERVATION](EM6.md)
+- [E15: PRODUCT’S END OF LIFE](E15.md)
+- [E14: RECYCLABILITY OR REUSABILITY](E14.md)
+- [E13: ZERO WASTE](E13.md)
+- [E16: RENEWABLE ENERGY](E16.md)
+- [E17: NON-RENEWABLE RESOURCES](E17.md)
+- [E18: CONSUMER ENERGY](E18.md)
+- [E19: TRANSPORT](E19.md)
+- [E20: CO2 CERTIFICATION](E20.md)
+- [E21: AIR POLLUTION AND GREENHOUSE GASES](E21.md)
+- [E22: CARBON OFFSETS](E22.md)
+- [E23: WATER](E23.md)
 
-## Social
+## Social Criteria
 
-- [soc1: Improves community well-being](soc1.md)
-- [soc2: Ensures fair labor practices](soc2.md)
-- [soc3: Accessible and inclusive design](soc3.md)
-- [soc4: Fosters user health and safety](soc4.md)
-- [soc5: Ethical sourcing](soc5.md)
-- [soc6: Supports local communities](soc6.md)
+- [S1: HARMLESS](S1.md)
+- [S2: HEALTH AND SAFETY](S2.md)
+- [S3: LOCAL LABOUR](S3.md)
+- [SM1: HUMAN RIGHTS](SM1.md)
+- [SM2: CORRUPTION](SM2.md)
+- [SM3: RIGHTS OF WORKERS](SM3.md)
+- [S10: ARTIFICIAL INTELLIGENCE (AI)](S10.md)
+- [S6: ELECTRONIC DOCUMENTS](S6.md)
+- [S6b: DOCUMENTS AND COMPLIANCE](S6b.md)
+- [S8: UNIVERSAL DESIGN PRINCIPLES](S8.md)
+- [S9: INTELLECTUAL PROPERTY](S9.md)
+- [S11: AFFORDABLE](S11.md)
+- [S12: FAIR TRADE](S12.md)
+- [S13: SOCIAL GAPS](S13.md)
+- [S14: FREEDOM OF EXPRESSION](S14.md)
+- [S15: DESIGN EDUCATION](S15.md)
+- [S16: EDUCATIONAL COMPONENT](S16.md)
 
-## Cultural
+## Cultural Criteria
 
-- [cul1: Respects cultural heritage](cul1.md)
-- [cul2: Promotes diversity of thought](cul2.md)
-- [cul3: Avoids cultural appropriation](cul3.md)
-- [cul4: Encourages artistic expression](cul4.md)
-- [cul5: Supports indigenous practices](cul5.md)
-- [cul6: Fosters cross-cultural understanding](cul6.md)
+- [C2: ENDANGERED LANGUAGES](C2.md)
+- [C3: INDIGENOUS CULTURE](C3.md)
+- [C4: LOCAL CULTURE](C4.md)
+- [C5: CULTURAL DIVERSITY](C5.md)
+- [CM9: CULTURAL POLICY](CM9.md)
+- [C6: AUDIENCE PARTICIPATION](C6.md)
+- [C7: COMMUNITY PARTICIPATION](C7.md)
+- [C8: PRACTITIONERS’ EDUCATION](C8.md)
 
-## Financial
+## Financial Criteria
 
-- [fin1: Long-term economic viability](fin1.md)
-- [fin2: Transparent pricing](fin2.md)
-- [fin3: Fair value distribution](fin3.md)
-- [fin4: Affordable for target users](fin4.md)
-- [fin5: Supports local economies](fin5.md)
-- [fin6: Responsible investment](fin6.md)
+- [F1: ECONOMIC BENEFITS](F1.md)
+- [F2: PROFITABILITY](F2.md)
+- [FM3: UNPAID WORK](FM3.md)
+- [F4: SMART GOALS](F4.md)
+- [F5: ACCOUNTABILITY AND TRANSPARENCY](F5.md)
+- [F6: STANDARDS IMPROVEMENT](F6.md)
+- [F7: DESIGN THINKING](F7.md)

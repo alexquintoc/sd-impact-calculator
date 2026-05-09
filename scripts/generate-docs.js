@@ -8,7 +8,7 @@ const criteriaPath = path.join(
   "packages",
   "standard-core",
   "src",
-  "criteria.json"
+  "criteria.v2.json"
 );
 
 const termsPath = path.join(
@@ -151,7 +151,9 @@ function getPillarDocSlug(pillar) {
 function getAllCriterionIds(criteriaData) {
   return new Set(
     criteriaData.pillars.flatMap((pillar) =>
-      pillar.criteria.map((criterion) => criterion.id)
+      pillar.criteria.flatMap((criterion) =>
+        [criterion.id, criterion.legacyId, criterion.displayId].filter(Boolean)
+      )
     )
   );
 }
