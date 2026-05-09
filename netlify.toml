@@ -1,3 +1,13 @@
 [build]
-  command = "npm install && npm --workspace apps/calculator run build"
-  publish = "apps/calculator/dist/public"
+  command = "npm run build:site"
+  publish = "dist"
+
+[[redirects]]
+  from = "/calculator/*"
+  to = "/calculator/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/brief-generator/*"
+  to = "/brief-generator/index.html"
+  status = 200

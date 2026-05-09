@@ -2,6 +2,7 @@
   "name": "sd-standard",
   "private": true,
   "scripts": {
+    "build:site": "node scripts/build-site.js",
     "docs:generate": "node scripts/generate-docs.js",
     "docs:serve": "npm run docs:generate && mdbook serve docs",
     "docs:build": "npm run docs:generate && mdbook build docs"
