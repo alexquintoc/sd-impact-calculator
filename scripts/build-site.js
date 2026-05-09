@@ -214,9 +214,36 @@ function writeRedirects() {
 
 function buildKnowledgeBase(destination) {
   fs.rmSync(docsBookDir, { recursive: true, force: true });
+  fs.rmSync(destination, { recursive: true, force: true });
   run(npmCommand, ["run", "docs:build"]);
   copyDirectory(docsBookDir, destination);
+  removeKnowledgeBaseSourceArtifacts(destination);
   ensureSearchIndexCompatibility(destination);
+}
+
+function removeKnowledgeBaseSourceArtifacts(destination) {
+  const generatedDir = path.join(destination, "generated");
+
+  fs.rmSync(generatedDir, { recursive: true, force: true });
+
+  function removeMarkdownFiles(currentPath) {
+    for (const entry of fs.readdirSync(currentPath, { withFileTypes: true })) {
+      const entryPath = path.join(currentPath, entry.name);
+
+      if (entry.isDirectory()) {
+        removeMarkdownFiles(entryPath);
+        continue;
+      }
+
+      if (entry.name.endsWith(".md")) {
+        fs.rmSync(entryPath, { force: true });
+      }
+    }
+  }
+
+  if (fs.existsSync(destination)) {
+    removeMarkdownFiles(destination);
+  }
 }
 
 function ensureSearchIndexCompatibility(destination) {
@@ -238,6 +265,43 @@ function ensureSearchIndexCompatibility(destination) {
     path.join(destination, hashedSearchIndex),
     expectedSearchIndex,
   );
+}
+
+function findInvalidDeployPaths(directory) {
+  const invalidPaths = [];
+
+  function scan(currentPath) {
+    for (const entry of fs.readdirSync(currentPath, { withFileTypes: true })) {
+      const entryPath = path.join(currentPath, entry.name);
+
+      if (entry.name.includes("#") || entry.name.includes("?")) {
+        invalidPaths.push(path.relative(root, entryPath));
+      }
+
+      if (entry.isDirectory()) {
+        scan(entryPath);
+      }
+    }
+  }
+
+  if (fs.existsSync(directory)) {
+    scan(directory);
+  }
+
+  return invalidPaths;
+}
+
+function assertValidDeployPaths() {
+  const invalidPaths = findInvalidDeployPaths(distDir);
+
+  if (invalidPaths.length > 0) {
+    throw new Error(
+      [
+        "Invalid deploy path names found. Netlify cannot deploy files or folders containing # or ?.",
+        ...invalidPaths.map((invalidPath) => `- ${invalidPath}`),
+      ].join("\n"),
+    );
+  }
 }
 
 function buildSite() {
@@ -263,6 +327,7 @@ function buildSite() {
   buildKnowledgeBase(path.join(distDir, "knowledge-base"));
 
   writeRedirects();
+  assertValidDeployPaths();
   console.log("unified site built in dist/");
 }
 
