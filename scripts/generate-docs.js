@@ -119,18 +119,59 @@ function removeInvalidGeneratedFilenames(dir) {
 }
 
 
-function sanitizeSummaryLinks() {
+function buildGeneratedSummary(criteriaData, termsData) {
+  const lines = [
+    "<!-- GENERATED_SUMMARY:START -->",
+    "# Reference",
+    "- [Pillars](generated/pillars/README.md)"
+  ];
+
+  for (const pillar of criteriaData.pillars) {
+    lines.push(`  - [${pillar.label}](generated/pillars/${getPillarDocSlug(pillar)}.md)`);
+  }
+
+  lines.push("", "- [Criteria Reference](generated/criteria/README.md)");
+
+  for (const pillar of criteriaData.pillars) {
+    for (const criterion of pillar.criteria) {
+      const publicId = getCriterionPublicId(criterion);
+      lines.push(`  - [${publicId}: ${criterion.label}](generated/criteria/${publicId}.md)`);
+    }
+  }
+
+  const sortedTerms = [...termsData].sort((a, b) =>
+    a.title.localeCompare(b.title, "en", { sensitivity: "base" })
+  );
+
+  lines.push("", "- [Terms Index](generated/terms/README.md)");
+
+  for (const term of sortedTerms) {
+    lines.push(`  - [${term.title}](generated/terms/${term.id}.md)`);
+  }
+
+  lines.push("<!-- GENERATED_SUMMARY:END -->");
+
+  return lines.join("\n");
+}
+
+function updateGeneratedSummary(criteriaData, termsData) {
   if (!fs.existsSync(docsSummaryPath)) return;
 
   const summary = fs.readFileSync(docsSummaryPath, "utf8");
-  const sanitizedSummary = summary.replace(
-    /^\s+- \[(Environmental|Social|Cultural|Financial)\]\(generated\/criteria\/README\.md#[^)]+\)\r?\n/gm,
-    ""
-  );
+  const generatedSummary = buildGeneratedSummary(criteriaData, termsData);
+  const generatedBlockPattern =
+    /<!-- GENERATED_SUMMARY:START -->[\s\S]*<!-- GENERATED_SUMMARY:END -->/;
 
-  if (sanitizedSummary !== summary) {
-    fs.writeFileSync(docsSummaryPath, sanitizedSummary, "utf8");
+  if (generatedBlockPattern.test(summary)) {
+    fs.writeFileSync(
+      docsSummaryPath,
+      summary.replace(generatedBlockPattern, generatedSummary),
+      "utf8"
+    );
+    return;
   }
+
+  fs.writeFileSync(docsSummaryPath, `${summary.trimEnd()}\n\n${generatedSummary}\n`, "utf8");
 }
 
 function slugToTitle(slug) {
@@ -147,6 +188,11 @@ function unique(values) {
 function getPillarDocSlug(pillar) {
   return pillar.id === "environmental" ? "environment" : pillar.id;
 }
+
+function getCriterionPublicId(criterion) {
+  return criterion.displayId || criterion.id;
+}
+
 
 function getAllCriterionIds(criteriaData) {
   return new Set(
@@ -213,6 +259,7 @@ function generateCriteriaDocs(criteriaData) {
     indexLines.push(`## ${pillar.label}`, "");
 
     for (const criterion of pillar.criteria) {
+      const publicId = getCriterionPublicId(criterion);
       const examples = (criterion.examples || [])
         .map((example) => `- ${example}`)
         .join("\n");
@@ -223,7 +270,7 @@ function generateCriteriaDocs(criteriaData) {
 
       const contentParts = [
         GENERATED_WARNING,
-        `# ${criterion.id}: ${criterion.label}`,
+        `# ${publicId}: ${criterion.label}`,
         "",
         `**Pillar:** ${pillar.label}  `,
         `**Points:** ${criterion.points}`,
@@ -250,10 +297,10 @@ function generateCriteriaDocs(criteriaData) {
         contentParts.push("## Related terms", relatedTerms, "");
       }
 
-      const filePath = path.join(docsCriteriaDir, `${criterion.id}.md`);
+      const filePath = path.join(docsCriteriaDir, `${publicId}.md`);
       writeFile(filePath, contentParts.join("\n"));
 
-      indexLines.push(`- [${criterion.id}: ${criterion.label}](${criterion.id}.md)`);
+      indexLines.push(`- [${publicId}: ${criterion.label}](${publicId}.md)`);
     }
 
     indexLines.push("");
@@ -338,8 +385,10 @@ function generatePillarDocs(criteriaData) {
 
     const criteriaLinks = pillar.criteria
       .map(
-        (criterion) =>
-          `- [${criterion.id}: ${criterion.label}](../criteria/${criterion.id}.md)`
+        (criterion) => {
+          const publicId = getCriterionPublicId(criterion);
+          return `- [${publicId}: ${criterion.label}](../criteria/${publicId}.md)`;
+        }
       )
       .join("\n");
 
@@ -437,7 +486,7 @@ function main() {
   generateTermsDocs(termsData);
   generatePillarDocs(criteriaData);
   generateCriteriaMeta(criteriaData);
-  sanitizeSummaryLinks();
+  updateGeneratedSummary(criteriaData, termsData);
   removeInvalidGeneratedFilenames(docsGeneratedDir);
   assertNoInvalidGeneratedFilenames(docsGeneratedDir);
 

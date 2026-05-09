@@ -1,0 +1,13 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+
+# FFS1: ECONOMIC BENEFITS
+
+**Pillar:** Financial Criteria  
+**Points:** 1
+
+## Description
+The project strategy identifies and creates economic benefits outside the client and the designing entity.
+
+## Why it matters
+Adds value to benefit a region’s economy.

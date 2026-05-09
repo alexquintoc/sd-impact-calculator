@@ -6,11 +6,11 @@
 **Total available points:** 8
 
 ## Criteria in this pillar
-- [C2: ENDANGERED LANGUAGES](../criteria/C2.md)
-- [C3: INDIGENOUS CULTURE](../criteria/C3.md)
-- [C4: LOCAL CULTURE](../criteria/C4.md)
-- [C5: CULTURAL DIVERSITY](../criteria/C5.md)
-- [CM9: CULTURAL POLICY](../criteria/CM9.md)
-- [C6: AUDIENCE PARTICIPATION](../criteria/C6.md)
-- [C7: COMMUNITY PARTICIPATION](../criteria/C7.md)
-- [C8: PRACTITIONERS’ EDUCATION](../criteria/C8.md)
+- [CCP1: ENDANGERED LANGUAGES](../criteria/CCP1.md)
+- [CCP2: INDIGENOUS CULTURE](../criteria/CCP2.md)
+- [CCP3: LOCAL CULTURE](../criteria/CCP3.md)
+- [CCP4: CULTURAL DIVERSITY](../criteria/CCP4.md)
+- [CCP5: CULTURAL POLICY](../criteria/CCP5.md)
+- [CCE1: AUDIENCE PARTICIPATION](../criteria/CCE1.md)
+- [CCE2: COMMUNITY PARTICIPATION](../criteria/CCE2.md)
+- [CCE3: PRACTITIONERS’ EDUCATION](../criteria/CCE3.md)

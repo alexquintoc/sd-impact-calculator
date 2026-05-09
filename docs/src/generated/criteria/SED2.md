@@ -1,0 +1,13 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+
+# SED2: EDUCATIONAL COMPONENT
+
+**Pillar:** Social Criteria  
+**Points:** 1
+
+## Description
+The product includes an educational component that promotes sustainability to the consumer.
+
+## Why it matters
+Educates the user or consumer on sustainability.

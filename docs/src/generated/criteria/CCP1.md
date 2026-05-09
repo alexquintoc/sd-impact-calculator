@@ -1,0 +1,13 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+
+# CCP1: ENDANGERED LANGUAGES
+
+**Pillar:** Cultural Criteria  
+**Points:** 1
+
+## Description
+The project is likely to help preserve endangered languages, particularly Indigenous languages.
+
+## Why it matters
+Contributes to the preservation of endangered languages.

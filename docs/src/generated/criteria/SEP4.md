@@ -1,0 +1,13 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+
+# SEP4: ARTIFICIAL INTELLIGENCE (AI)
+
+**Pillar:** Social Criteria  
+**Points:** 1
+
+## Description
+The process of the design production is human made and, if AI was used to create the design, it is clearly labelled. The AI used is from ethical data sourcing, compliant with transparency, from ethical databases, and free from bias.
+
+## Why it matters
+Authentically created design by a person.

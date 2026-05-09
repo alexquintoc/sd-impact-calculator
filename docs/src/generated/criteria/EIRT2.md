@@ -1,0 +1,13 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+
+# EIRT2: LIFECYCLE
+
+**Pillar:** Environmental Criteria  
+**Points:** 1
+
+## Description
+The project’s strategy is supported by a qualified, simplified life cycle study (LCS) or quantitative life cycle assessment (LCA).
+
+## Why it matters
+Design addresses the environmental impact of a product.

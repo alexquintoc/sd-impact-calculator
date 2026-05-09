@@ -1,0 +1,13 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+
+# EE3: CONSUMER ENERGY
+
+**Pillar:** Environmental Criteria  
+**Points:** 1
+
+## Description
+The product or system used by the consumer is energy efficient or uses renewable energy.
+
+## Why it matters
+The product consumes energy efficiently.

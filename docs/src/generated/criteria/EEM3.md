@@ -1,0 +1,13 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+
+# EEM3: AIR POLLUTION AND GREENHOUSE GASES
+
+**Pillar:** Environmental Criteria  
+**Points:** 1
+
+## Description
+Air pollution or greenhouse gas emissions were avoided or reduced, mitigating ocean acidification.
+
+## Why it matters
+Product emission and air pollution.

@@ -1,0 +1,13 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+
+# EEM2: CO2 CERTIFICATION
+
+**Pillar:** Environmental Criteria  
+**Points:** 1
+
+## Description
+The design entity or the product displays a recognized certification or third party declaration of the product’s CO2 emissions.
+
+## Why it matters
+A certified third party declares CO2 emissions.

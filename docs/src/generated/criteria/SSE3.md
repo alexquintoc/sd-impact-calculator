@@ -1,0 +1,13 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+
+# SSE3: SOCIAL GAPS
+
+**Pillar:** Social Criteria  
+**Points:** 1
+
+## Description
+The project’s main focus aims to close gaps of gender, power, or wealth.
+
+## Why it matters
+Reduces wealth and power gaps inside and between countries.
