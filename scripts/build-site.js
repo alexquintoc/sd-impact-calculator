@@ -7,7 +7,6 @@ const distDir = path.join(root, "dist");
 const calculatorDist = path.join(root, "apps", "calculator", "dist", "public");
 const briefGeneratorDist = path.join(root, "apps", "brief-generator", "dist");
 const docsBookDir = path.join(root, "docs", "book");
-const docsSourceDir = path.join(root, "docs", "src");
 
 const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
 
@@ -50,18 +49,6 @@ function run(command, args, options = {}) {
   if (result.status !== 0) {
     throw new Error(`${command} ${args.join(" ")} failed`);
   }
-}
-
-function runOptional(command, args, options = {}) {
-  const resolved = resolveCommand(command, args);
-  const result = spawnSync(resolved.command, resolved.args, {
-    cwd: options.cwd ?? root,
-    env: createEnv(options.env),
-    stdio: "inherit",
-    shell: false,
-  });
-
-  return result.status === 0;
 }
 
 function copyDirectory(source, destination) {
@@ -225,107 +212,32 @@ function writeRedirects() {
   fs.writeFileSync(path.join(distDir, "_redirects"), redirects, "utf8");
 }
 
-function getSummaryLinks() {
-  const summaryPath = path.join(docsSourceDir, "SUMMARY.md");
-
-  if (!fs.existsSync(summaryPath)) {
-    return [];
-  }
-
-  const summary = fs.readFileSync(summaryPath, "utf8");
-  const links = [];
-  const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
-  let match;
-
-  while ((match = linkPattern.exec(summary))) {
-    const [, label, href] = match;
-
-    if (href.startsWith("http")) continue;
-
-    links.push({
-      label,
-      href: href.replace(/\.md($|#)/, ".html$1"),
-    });
-  }
-
-  return links;
-}
-
-function writeFallbackKnowledgeBase(destination) {
-  const links = getSummaryLinks();
-  const introPath = path.join(docsSourceDir, "README.md");
-  const intro = fs.existsSync(introPath)
-    ? fs
-        .readFileSync(introPath, "utf8")
-        .split("\n")
-        .filter((line) => line.trim() && !line.startsWith("#"))
-        .slice(0, 2)
-        .join(" ")
-    : "Explore the SD Standard criteria, terms, and guidance notes.";
-
-  fs.mkdirSync(destination, { recursive: true });
-  fs.writeFileSync(
-    path.join(destination, "index.html"),
-    `<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>SD Standard Knowledge Base</title>
-    <style>
-      :root {
-        --accent: #28775e;
-        --background: #f7f5ef;
-        --border: #d9d4c8;
-        --surface: #fffdf8;
-        --text: #5f5a50;
-        --text-strong: #1f241f;
-        font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-        color: var(--text);
-        background: var(--background);
-      }
-      * { box-sizing: border-box; }
-      body { margin: 0; }
-      main { width: min(960px, calc(100% - 32px)); margin: 0 auto; padding: 56px 0; }
-      a { color: var(--accent); font-weight: 700; }
-      h1, h2 { color: var(--text-strong); }
-      h1 { margin: 0 0 16px; font-size: clamp(2.4rem, 7vw, 4.7rem); line-height: 0.98; }
-      p { max-width: 720px; line-height: 1.65; }
-      ul { display: grid; gap: 10px; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); padding: 0; list-style: none; }
-      li { border: 1px solid var(--border); border-radius: 8px; padding: 14px 16px; background: var(--surface); }
-    </style>
-  </head>
-  <body>
-    <main>
-      <a href="/">Back to SD Standard</a>
-      <h1>Knowledge Base</h1>
-      <p>${intro}</p>
-      <h2>Reference Pages</h2>
-      <ul>
-        ${links
-          .map((link) => `<li><a href="${link.href}">${link.label}</a></li>`)
-          .join("\n        ")}
-      </ul>
-    </main>
-  </body>
-</html>
-`,
-    "utf8",
-  );
-}
-
 function buildKnowledgeBase(destination) {
-  const builtDocs = runOptional(npmCommand, ["run", "docs:build"]);
+  fs.rmSync(docsBookDir, { recursive: true, force: true });
+  run(npmCommand, ["run", "docs:build"]);
+  copyDirectory(docsBookDir, destination);
+  ensureSearchIndexCompatibility(destination);
+}
 
-  if (builtDocs || fs.existsSync(docsBookDir)) {
-    copyDirectory(docsBookDir, destination);
+function ensureSearchIndexCompatibility(destination) {
+  const expectedSearchIndex = path.join(destination, "searchindex.js");
+
+  if (fs.existsSync(expectedSearchIndex)) {
     return;
   }
 
-  console.warn(
-    "Knowledge base build failed and docs/book was unavailable. Writing a simple fallback index from docs/src.",
+  const hashedSearchIndex = fs
+    .readdirSync(destination)
+    .find((file) => /^searchindex-[\w-]+\.js$/.test(file));
+
+  if (!hashedSearchIndex) {
+    throw new Error("mdBook output did not include searchindex.js or a hashed searchindex-*.js file.");
+  }
+
+  fs.copyFileSync(
+    path.join(destination, hashedSearchIndex),
+    expectedSearchIndex,
   );
-  writeFallbackKnowledgeBase(destination);
 }
 
 function buildSite() {
@@ -347,7 +259,7 @@ function buildSite() {
   });
   copyDirectory(briefGeneratorDist, path.join(distDir, "brief-generator"));
 
-  console.log("building or copying knowledge base...");
+  console.log("building knowledge base...");
   buildKnowledgeBase(path.join(distDir, "knowledge-base"));
 
   writeRedirects();
