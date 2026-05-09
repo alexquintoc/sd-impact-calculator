@@ -23,6 +23,7 @@ const docsGeneratedDir = path.join(root, "docs", "src", "generated");
 const docsCriteriaDir = path.join(docsGeneratedDir, "criteria");
 const docsTermsDir = path.join(docsGeneratedDir, "terms");
 const docsPillarsDir = path.join(docsGeneratedDir, "pillars");
+const docsSummaryPath = path.join(root, "docs", "src", "SUMMARY.md");
 
 const criteriaMetaPath = path.join(
   root,
@@ -58,10 +59,77 @@ function cleanGeneratedMarkdown(dir) {
     const fullPath = path.join(dir, file);
     const stat = fs.statSync(fullPath);
 
-    if (stat.isDirectory()) continue;
-    if (!file.endsWith(".md")) continue;
+    if (stat.isDirectory()) {
+      cleanGeneratedMarkdown(fullPath);
+      continue;
+    }
 
-    fs.unlinkSync(fullPath);
+    if (file.endsWith(".md") || file.includes("#") || file.includes("?")) {
+      fs.unlinkSync(fullPath);
+    }
+  }
+}
+
+function assertNoInvalidGeneratedFilenames(dir) {
+  if (!fs.existsSync(dir)) return;
+
+  const invalidPaths = [];
+
+  function scan(currentDir) {
+    for (const entry of fs.readdirSync(currentDir, { withFileTypes: true })) {
+      const entryPath = path.join(currentDir, entry.name);
+
+      if (entry.name.includes("#") || entry.name.includes("?")) {
+        invalidPaths.push(path.relative(root, entryPath));
+      }
+
+      if (entry.isDirectory()) {
+        scan(entryPath);
+      }
+    }
+  }
+
+  scan(dir);
+
+  if (invalidPaths.length > 0) {
+    throw new Error(
+      [
+        "Invalid generated docs filenames found. Generated files must not contain # or ?.",
+        ...invalidPaths.map((invalidPath) => `- ${invalidPath}`)
+      ].join("\n")
+    );
+  }
+}
+
+function removeInvalidGeneratedFilenames(dir) {
+  if (!fs.existsSync(dir)) return;
+
+  for (const entry of fs.readdirSync(dir, { withFileTypes: true })) {
+    const entryPath = path.join(dir, entry.name);
+
+    if (entry.isDirectory()) {
+      removeInvalidGeneratedFilenames(entryPath);
+      continue;
+    }
+
+    if (entry.name.includes("#") || entry.name.includes("?")) {
+      fs.unlinkSync(entryPath);
+    }
+  }
+}
+
+
+function sanitizeSummaryLinks() {
+  if (!fs.existsSync(docsSummaryPath)) return;
+
+  const summary = fs.readFileSync(docsSummaryPath, "utf8");
+  const sanitizedSummary = summary.replace(
+    /^\s+- \[(Environmental|Social|Cultural|Financial)\]\(generated\/criteria\/README\.md#[^)]+\)\r?\n/gm,
+    ""
+  );
+
+  if (sanitizedSummary !== summary) {
+    fs.writeFileSync(docsSummaryPath, sanitizedSummary, "utf8");
   }
 }
 
@@ -358,6 +426,9 @@ function main() {
   generateTermsDocs(termsData);
   generatePillarDocs(criteriaData);
   generateCriteriaMeta(criteriaData);
+  sanitizeSummaryLinks();
+  removeInvalidGeneratedFilenames(docsGeneratedDir);
+  assertNoInvalidGeneratedFilenames(docsGeneratedDir);
 
   console.log("Docs and criteria metadata generated successfully.");
 }
