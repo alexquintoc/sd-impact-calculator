@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Poster production diagram">
+  <rect width="1200" height="800" fill="#eaf4fb"/>
+  <path d="M180 400h840" stroke="#143d2c" stroke-width="24" stroke-linecap="round"/>
+  <circle cx="260" cy="400" r="86" fill="#71b88f"/>
+  <circle cx="600" cy="400" r="86" fill="#f6d365"/>
+  <circle cx="940" cy="400" r="86" fill="#2d6cdf"/>
+</svg>

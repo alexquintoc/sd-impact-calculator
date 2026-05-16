@@ -3,6 +3,7 @@ import type { Server } from "http";
 import express from "express";
 import fs from "fs";
 import path from "path";
+import { getAllProjects, getProject } from "./projects";
 
 function serveKnowledgeBase(app: Express) {
   const knowledgeBasePath = path.resolve(
@@ -30,8 +31,34 @@ export async function registerRoutes(
   httpServer: Server,
   app: Express
 ): Promise<Server> {
+  app.get("/admin", (_req, res) => {
+    res.redirect(302, "/admin/index.html");
+  });
+
+  app.get("/quick-project-scan", (_req, res) => {
+    res.redirect(301, "/project-scan");
+  });
+
+  app.get("/quick-project-scan/", (_req, res) => {
+    res.redirect(301, "/project-scan");
+  });
+
+  app.get("/api/projects", (_req, res) => {
+    res.json({ projects: getAllProjects() });
+  });
+
+  app.get("/api/projects/:slug", (req, res) => {
+    const project = getProject(req.params.slug);
+
+    if (!project) {
+      res.status(404).json({ message: "Project not found" });
+      return;
+    }
+
+    res.json({ project });
+  });
+
   serveKnowledgeBase(app);
 
-  // Static app - no API routes required.
   return httpServer;
 }

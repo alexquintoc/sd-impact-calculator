@@ -1,1 +1,4 @@
+/admin /admin/index.html 200
+/quick-project-scan /project-scan 301
+/quick-project-scan/* /project-scan 301
 /* /index.html 200

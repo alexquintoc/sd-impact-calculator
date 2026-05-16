@@ -1,13 +1,23 @@
 [build]
-  command = "bash scripts/install-mdbook.sh && npm run build:site"
-  publish = "dist"
+  command = "bash scripts/install-mdbook.sh && npm run build"
+  publish = "apps/calculator/dist/public"
 
 [[redirects]]
-  from = "/calculator/*"
-  to = "/calculator/index.html"
+  from = "/admin"
+  to = "/admin/index.html"
   status = 200
 
 [[redirects]]
-  from = "/brief-generator/*"
-  to = "/brief-generator/index.html"
+  from = "/quick-project-scan"
+  to = "/project-scan"
+  status = 301
+
+[[redirects]]
+  from = "/quick-project-scan/*"
+  to = "/project-scan"
+  status = 301
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
   status = 200

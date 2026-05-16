@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-label="Reusable exhibit modules">
+  <rect width="1200" height="800" fill="#eef2f5"/>
+  <rect x="150" y="180" width="250" height="420" rx="20" fill="#f6d365"/>
+  <rect x="475" y="180" width="250" height="420" rx="20" fill="#143d2c"/>
+  <rect x="800" y="180" width="250" height="420" rx="20" fill="#71b88f"/>
+</svg>

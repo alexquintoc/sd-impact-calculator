@@ -7,6 +7,8 @@ import NotFound from "@/pages/not-found";
 import BriefGenerator from "@/pages/BriefGenerator";
 import Home from "@/pages/Home";
 import Index from "@/pages/Index";
+import ProjectDetail from "@/pages/ProjectDetail";
+import Projects from "@/pages/Projects";
 import QuickProjectScan from "@/pages/QuickProjectScan";
 
 function Router() {
@@ -17,8 +19,15 @@ function Router() {
       <Route path="/brief-generator/" component={BriefGenerator} />
       <Route path="/calculator" component={Home} />
       <Route path="/calculator/" component={Home} />
+      <Route path="/project-scan" component={QuickProjectScan} />
+      <Route path="/project-scan/" component={QuickProjectScan} />
       <Route path="/quick-project-scan" component={QuickProjectScan} />
       <Route path="/quick-project-scan/" component={QuickProjectScan} />
+      <Route path="/projects" component={Projects} />
+      <Route path="/projects/" component={Projects} />
+      <Route path="/projects/:slug">
+        {(params) => <ProjectDetail params={params} />}
+      </Route>
       <Route component={NotFound} />
     </Switch>
   );

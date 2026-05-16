@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">Low-carbon poster cover</title>
+  <desc id="desc">Abstract green and blue poster layout.</desc>
+  <rect width="1200" height="800" fill="#eff6f2"/>
+  <rect x="92" y="78" width="420" height="644" fill="#143d2c"/>
+  <circle cx="760" cy="282" r="170" fill="#71b88f"/>
+  <rect x="620" y="486" width="430" height="84" rx="12" fill="#2d6cdf"/>
+  <rect x="620" y="604" width="300" height="34" rx="8" fill="#143d2c"/>
+  <rect x="146" y="146" width="260" height="36" rx="8" fill="#f6d365"/>
+  <rect x="146" y="222" width="300" height="300" rx="8" fill="#f7f3e8"/>
+</svg>

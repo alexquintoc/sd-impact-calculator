@@ -2,10 +2,12 @@
   "name": "sd-standard",
   "private": true,
   "scripts": {
-    "build:site": "node scripts/build-site.js",
+    "build:site": "npm run build",
     "docs:generate": "node scripts/generate-docs.js",
     "docs:serve": "npm run docs:generate && mdbook serve docs",
-    "docs:build": "npm run docs:generate && mdbook build docs"
+    "docs:build": "npm run docs:generate && mdbook build docs",
+    "dev": "cross-env TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"npm run dev -w apps/calculator\"",
+    "build": "node scripts/sync-tina-admin.js && npm run build -w apps/calculator"
   },
   "workspaces": [
     "apps/*",
@@ -15,5 +17,8 @@
     "@tinacms/cli": "^2.3.1",
     "@tinacms/datalayer": "^2.0.21",
     "tinacms": "^3.8.1"
+  },
+  "devDependencies": {
+    "cross-env": "^10.1.0"
   }
 }
