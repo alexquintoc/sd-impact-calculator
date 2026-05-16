@@ -71,7 +71,7 @@ const getTensionWarning = (values: BriefGeneratorValues) => {
   return null
 }
 
-const unique = (values: string[]) => [...new Set(values)]
+const unique = (values: string[]) => Array.from(new Set(values))
 
 const scoreSeed = (
   seed: BriefSeed,

@@ -2,6 +2,8 @@
 
 Welcome to the SD Standard documentation.
 
+[Back to SD Standard home](/)
+
 This site contains:
 - the core standard documentation
 - scoring philosophy

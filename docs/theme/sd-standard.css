@@ -1,0 +1,129 @@
+:root {
+  --sd-background: #f7f5ef;
+  --sd-surface: #fffdf8;
+  --sd-surface-alt: #f0eee7;
+  --sd-border: #d9d4c8;
+  --sd-text: #1f241f;
+  --sd-muted: #5f5a50;
+  --sd-accent: #28775e;
+  --sd-focus: #85bba8;
+}
+
+html.light,
+html.rust {
+  --bg: var(--sd-background);
+  --fg: var(--sd-text);
+  --sidebar-bg: var(--sd-surface);
+  --sidebar-fg: var(--sd-muted);
+  --sidebar-active: var(--sd-accent);
+  --sidebar-non-existant: #9a9385;
+  --sidebar-spacer: var(--sd-border);
+  --scrollbar: #bdb7aa;
+  --icons: var(--sd-muted);
+  --icons-hover: var(--sd-accent);
+  --links: var(--sd-accent);
+  --inline-code-color: var(--sd-text);
+  --theme-popup-bg: var(--sd-surface);
+  --theme-popup-border: var(--sd-border);
+  --quote-bg: var(--sd-surface-alt);
+  --quote-border: var(--sd-accent);
+  --table-border-color: var(--sd-border);
+  --table-header-bg: var(--sd-surface-alt);
+  --table-alternate-bg: var(--sd-surface);
+  --searchbar-border-color: var(--sd-border);
+  --searchbar-bg: #ffffff;
+  --searchbar-fg: var(--sd-text);
+  --searchresults-header-fg: var(--sd-muted);
+  --searchresults-border-color: var(--sd-border);
+  --searchresults-li-bg: var(--sd-surface);
+  --search-mark-bg: #fff11f;
+}
+
+body {
+  font-family: "Open Sans", "Helvetica Neue", Arial, sans-serif;
+  letter-spacing: 0;
+}
+
+.content {
+  color: var(--sd-text);
+}
+
+.content main {
+  max-width: 880px;
+}
+
+.content h1 {
+  color: var(--sd-text);
+  font-size: 3rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  line-height: 1;
+}
+
+.content h2,
+.content h3 {
+  color: var(--sd-text);
+  font-weight: 800;
+  letter-spacing: 0;
+}
+
+.content p,
+.content li {
+  color: var(--sd-muted);
+  line-height: 1.7;
+}
+
+.content a,
+.sidebar a {
+  font-weight: 700;
+  text-decoration-thickness: 0.08em;
+  text-underline-offset: 0.16em;
+}
+
+.content a:hover,
+.sidebar a:hover {
+  color: #1f604d;
+}
+
+.sidebar {
+  border-right: 1px solid var(--sd-border);
+}
+
+.chapter li.chapter-item {
+  margin: 0.1rem 0;
+}
+
+.chapter li a {
+  border-radius: 6px;
+  color: var(--sd-muted);
+  font-size: 0.92rem;
+  font-weight: 700;
+}
+
+.chapter li a.active {
+  background: #e5efe9;
+  color: var(--sd-accent);
+}
+
+#searchbar {
+  border-radius: 8px;
+  font-weight: 700;
+}
+
+.nav-chapters {
+  color: var(--sd-accent);
+}
+
+.menu-title {
+  color: var(--sd-text);
+  font-weight: 800;
+}
+
+.content blockquote {
+  border-left-color: var(--sd-accent);
+  border-radius: 0 8px 8px 0;
+}
+
+.content code {
+  border-radius: 4px;
+}

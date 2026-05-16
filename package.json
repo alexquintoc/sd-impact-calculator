@@ -10,5 +10,10 @@
   "workspaces": [
     "apps/*",
     "packages/*"
-  ]
+  ],
+  "dependencies": {
+    "@tinacms/cli": "^2.3.1",
+    "@tinacms/datalayer": "^2.0.21",
+    "tinacms": "^3.8.1"
+  }
 }

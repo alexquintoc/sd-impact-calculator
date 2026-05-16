@@ -18,6 +18,13 @@ const resources = [
     href: "/brief-generator/",
     linkText: "Open Brief Generator",
   },
+  {
+    title: "Quick Project Scan",
+    description:
+      "Scan an early project description for likely SD Standard criteria matches and opportunities.",
+    href: "/quick-project-scan/",
+    linkText: "Open Quick Project Scan",
+  },
 ];
 
 export default function Index() {
@@ -37,7 +44,7 @@ export default function Index() {
           </p>
         </div>
 
-        <div className="mt-12 grid gap-5 md:grid-cols-3">
+        <div className="mt-12 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {resources.map((resource) => (
             <a
               key={resource.title}

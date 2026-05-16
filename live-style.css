@@ -1,0 +1,64 @@
+/* 
+Theme Name: Hello Elementor Child
+Theme URI: https://github.com/elementor/hello-theme-child/
+Description: Hello Elementor Child is a child theme of Hello Elementor, created by Elementor team
+Author: Elementor Team
+Author URI: https://elementor.com/
+Template: hello-elementor
+Version: 2.0.0
+Text Domain: hello-elementor-child
+License: GNU General Public License v3 or later.
+License URI: https://www.gnu.org/licenses/gpl-3.0.html
+Tags: flexible-header, custom-colors, custom-menu, custom-logo, editor-style, featured-images, rtl-language-support, threaded-comments, translation-ready
+*/
+
+/* Add your custom styles here */
+
+
+.acf-editor-wrap iframe { min-height: 140px; }
+.post-1738 .acf-field .acf-input .description { color: #ffffff; }
+.acf-field .acf-input .description { text-transform: none; font-size: .85em; }
+
+/* Funding Opportunities Search Results page */
+.funding-search-legend, h3.funding-result__title, article.funding-result { font-family: 'Poppins Medium'; }
+h3.funding-result__title { font-size: 1.25em; }
+ul.funding-result__meta, p.funding-result__overview { font-size: .9em; }
+#search-results .funding-search-legend { font-size: 1em; }
+article.funding-result { 
+	padding: 25px 0px;
+    border-bottom: 1px solid;
+    border-color: var(--e-global-color-accent);
+}
+
+.no-organizer-phone .tec-events-elementor-event-widget__organizer-phone-wrapper {
+    display: none !important;
+}
+
+.no-organizer-email .tec-events-elementor-event-widget__organizer-email-wrapper {
+    display: none !important;
+}
+
+.no-organizer-website .tec-events-elementor-event-widget__organizer-website-wrapper {
+    display: none !important;
+}
+
+.tribe-events .tribe-events-calendar-list__event-header {
+    display: flex;
+    flex-direction: column;
+}
+
+.tribe-events .tribe-events-calendar-list__event-title {
+    order: 1;
+}
+
+.tribe-events .tribe-events-calendar-list__event-organizer {
+    order: 4;
+}
+
+.tribe-events .tribe-events-calendar-list__event-datetime-wrapper {
+    order: 2;
+}
+
+.tribe-events .tribe-events-calendar-list__event-venue {
+    order: 3;
+}

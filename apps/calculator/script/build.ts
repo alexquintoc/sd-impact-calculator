@@ -1,6 +1,8 @@
 import { build as esbuild } from "esbuild";
 import { build as viteBuild } from "vite";
-import { rm, readFile } from "fs/promises";
+import { cp, rm, readFile } from "fs/promises";
+import { spawnSync } from "child_process";
+import path from "path";
 
 // server deps to bundle to reduce openat(2) syscalls
 // which helps cold start times
@@ -38,6 +40,10 @@ async function buildAll() {
   console.log("building client...");
   await viteBuild();
 
+  console.log("building knowledge base...");
+  buildKnowledgeBase();
+  await copyKnowledgeBase();
+
   console.log("building server...");
   const pkg = JSON.parse(await readFile("package.json", "utf-8"));
   const allDeps = [
@@ -59,6 +65,35 @@ async function buildAll() {
     external: externals,
     logLevel: "info",
   });
+}
+
+function buildKnowledgeBase() {
+  const root = path.resolve("..", "..");
+  const npmCommand = process.platform === "win32" ? "npm.cmd" : "npm";
+  const command = process.platform === "win32" ? "cmd.exe" : npmCommand;
+  const args =
+    process.platform === "win32"
+      ? ["/d", "/s", "/c", `call ${npmCommand} run docs:build`]
+      : ["run", "docs:build"];
+
+  const result = spawnSync(command, args, {
+    cwd: root,
+    stdio: "inherit",
+    shell: false,
+  });
+
+  if (result.status !== 0) {
+    throw new Error("npm run docs:build failed");
+  }
+}
+
+async function copyKnowledgeBase() {
+  const root = path.resolve("..", "..");
+  const source = path.join(root, "docs", "book");
+  const destination = path.resolve("dist", "public", "knowledge-base");
+
+  await rm(destination, { recursive: true, force: true });
+  await cp(source, destination, { recursive: true });
 }
 
 buildAll().catch((err) => {
