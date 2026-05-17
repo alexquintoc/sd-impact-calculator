@@ -8,27 +8,10 @@ import {
 } from "lucide-react";
 import type { ReactNode } from "react";
 
-const primaryActions = [
-  {
-    label: "Explore the Knowledge Base",
-    href: "/knowledge-base/",
-  },
-  {
-    label: "Try the Impact Calculator",
-    href: "/calculator/",
-  },
-];
-
-const secondaryActions = [
-  {
-    label: "Generate a Design Brief",
-    href: "/brief-generator/",
-  },
-  {
-    label: "Scan a Project",
-    href: "/project-scan/",
-  },
-];
+const heroAction = {
+  label: "Start by Generating a Sustainable Design Brief",
+  href: "/brief-generator/",
+};
 
 const pillars = [
   {
@@ -65,29 +48,29 @@ const tools = [
   {
     title: "Design Brief Generator",
     description: "Generate sustainability-oriented project briefs that balance the four SD Standard pillars.",
-    href: "/brief-generator/",
-    label: "Open generator",
+    href: "/brief-generator",
+    label: "Open the generator",
     icon: PenLine,
   },
   {
     title: "Quick Project Scanner",
     description: "Rapidly identify likely sustainability opportunities in an existing project or concept.",
-    href: "/project-scan/",
+    href: "/quick-project-scan",
     label: "Scan a project",
     icon: ScanLine,
   },
   {
     title: "Impact Calculator",
     description: "Evaluate projects through the SD Standard framework and track criteria-level progress.",
-    href: "/calculator/",
-    label: "Try calculator",
+    href: "/calculator",
+    label: "Try the calculator",
     icon: Calculator,
   },
   {
     title: "Knowledge Base",
     description: "Explore sustainability concepts, criteria, terminology, and supporting reference material.",
-    href: "/knowledge-base/",
-    label: "Browse knowledge base",
+    href: "/knowledge-base",
+    label: "Browse the knowledge base",
     icon: BookOpen,
   },
 ];
@@ -195,18 +178,7 @@ export default function Index() {
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
-            {primaryActions.map((action) => (
-              <LinkButton href={action.href} key={action.label}>
-                {action.label}
-              </LinkButton>
-            ))}
-          </div>
-          <div className="mt-3 flex flex-wrap gap-3">
-            {secondaryActions.map((action) => (
-              <LinkButton href={action.href} key={action.label} variant="secondary">
-                {action.label}
-              </LinkButton>
-            ))}
+            <LinkButton href={heroAction.href}>{heroAction.label}</LinkButton>
           </div>
         </div>
 
@@ -286,7 +258,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
+      <section id="tools-resources" className="mx-auto max-w-7xl scroll-mt-24 px-5 py-16 sm:px-8 lg:px-10">
         <SectionHeader
           kicker="Tools & resources"
           title="Move from intention to evidence."
@@ -395,7 +367,7 @@ export default function Index() {
         </div>
       </section>
 
-      <section className="border-t border-[#d9d4c8] bg-[#fffdf8]">
+      <section id="get-involved" className="scroll-mt-24 border-t border-[#d9d4c8] bg-[#fffdf8]">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
           <div className="grid gap-8 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
             <div>
