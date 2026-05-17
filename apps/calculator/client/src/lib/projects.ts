@@ -1,3 +1,5 @@
+import { fetchJsonWithFallback } from "@/lib/fetchJson";
+
 export type CriteriaDetail = {
   displayId: string;
   id: string;
@@ -35,24 +37,19 @@ export type ProjectDetail = ProjectSummary & {
 };
 
 export async function fetchProjects() {
-  const response = await fetch("/api/projects");
-
-  if (!response.ok) {
-    throw new Error("Unable to load projects");
-  }
-
-  const data = (await response.json()) as { projects: ProjectSummary[] };
+  const data = await fetchJsonWithFallback<{ projects: ProjectSummary[] }>(
+    "/api/projects",
+    "/data/projects.json",
+  );
   return data.projects;
 }
 
 export async function fetchProject(slug: string) {
-  const response = await fetch(`/api/projects/${encodeURIComponent(slug)}`);
-
-  if (!response.ok) {
-    throw new Error("Unable to load project");
-  }
-
-  const data = (await response.json()) as { project: ProjectDetail };
+  const encodedSlug = encodeURIComponent(slug);
+  const data = await fetchJsonWithFallback<{ project: ProjectDetail }>(
+    `/api/projects/${encodedSlug}`,
+    `/data/projects/${encodedSlug}.json`,
+  );
   return data.project;
 }
 

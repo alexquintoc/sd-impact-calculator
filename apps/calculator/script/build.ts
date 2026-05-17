@@ -3,6 +3,12 @@ import { build as viteBuild } from "vite";
 import { cp, rm, readFile } from "fs/promises";
 import { spawnSync } from "child_process";
 import path from "path";
+import {
+  getAllBaselines,
+  getBaseline,
+  getBaselinesForProjectSlug,
+} from "../server/baselines";
+import { getAllProjects, getProject } from "../server/projects";
 
 // server deps to bundle to reduce openat(2) syscalls
 // which helps cold start times
@@ -39,6 +45,9 @@ async function buildAll() {
 
   console.log("building client...");
   await viteBuild();
+
+  console.log("building static data...");
+  await writeStaticData();
 
   console.log("building knowledge base...");
   buildKnowledgeBase();
@@ -94,6 +103,47 @@ async function copyKnowledgeBase() {
 
   await rm(destination, { recursive: true, force: true });
   await cp(source, destination, { recursive: true });
+}
+
+async function writeStaticData() {
+  const outputRoot = path.resolve("dist", "public", "data");
+  const projectsRoot = path.join(outputRoot, "projects");
+  const baselinesRoot = path.join(outputRoot, "baselines");
+  const projects = getAllProjects();
+  const baselines = getAllBaselines();
+
+  await rm(outputRoot, { recursive: true, force: true });
+  await writeJson(path.join(outputRoot, "projects.json"), { projects });
+  await writeJson(path.join(outputRoot, "baselines.json"), { baselines });
+
+  await Promise.all(
+    projects.map((project) => {
+      const projectDetail = getProject(project.slug);
+      return writeJson(path.join(projectsRoot, `${project.slug}.json`), {
+        project: projectDetail
+          ? {
+              ...projectDetail,
+              linkedBaselines: getBaselinesForProjectSlug(project.slug),
+            }
+          : project,
+      });
+    }),
+  );
+
+  await Promise.all(
+    baselines.map((baseline) =>
+      writeJson(path.join(baselinesRoot, `${baseline.slug}.json`), {
+        baseline: getBaseline(baseline.slug) ?? baseline,
+      }),
+    ),
+  );
+}
+
+async function writeJson(filePath: string, value: unknown) {
+  const { mkdir, writeFile } = await import("fs/promises");
+
+  await mkdir(path.dirname(filePath), { recursive: true });
+  await writeFile(filePath, JSON.stringify(value, null, 2), "utf8");
 }
 
 buildAll().catch((err) => {

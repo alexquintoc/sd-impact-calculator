@@ -1,4 +1,5 @@
 import type { CriteriaDetail, ProjectSummary } from "@/lib/projects";
+import { fetchJsonWithFallback } from "@/lib/fetchJson";
 
 export type Source = {
   label: string;
@@ -40,24 +41,19 @@ export type BaselineDetail = BaselineSummary & {
 };
 
 export async function fetchBaselines() {
-  const response = await fetch("/api/baselines");
-
-  if (!response.ok) {
-    throw new Error("Unable to load baselines");
-  }
-
-  const data = (await response.json()) as { baselines: BaselineSummary[] };
+  const data = await fetchJsonWithFallback<{ baselines: BaselineSummary[] }>(
+    "/api/baselines",
+    "/data/baselines.json",
+  );
   return data.baselines;
 }
 
 export async function fetchBaseline(slug: string) {
-  const response = await fetch(`/api/baselines/${encodeURIComponent(slug)}`);
-
-  if (!response.ok) {
-    throw new Error("Unable to load baseline");
-  }
-
-  const data = (await response.json()) as { baseline: BaselineDetail };
+  const encodedSlug = encodeURIComponent(slug);
+  const data = await fetchJsonWithFallback<{ baseline: BaselineDetail }>(
+    `/api/baselines/${encodedSlug}`,
+    `/data/baselines/${encodedSlug}.json`,
+  );
   return data.baseline;
 }
 
