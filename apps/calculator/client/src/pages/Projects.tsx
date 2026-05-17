@@ -19,12 +19,9 @@ export default function Projects() {
     <main className="min-h-screen bg-[#f7f5ef] px-5 py-8 text-[#1f241f] sm:px-8 lg:px-10">
       <div className="mx-auto max-w-7xl">
         <header className="mb-8 max-w-3xl">
-          <a
-            href="/"
-            className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#28775e] hover:text-[#1f241f]"
-          >
+          <p className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#28775e]">
             SD Standard
-          </a>
+          </p>
           <h1 className="mt-3 text-5xl font-extrabold leading-none tracking-normal sm:text-6xl">
             Project examples
           </h1>
@@ -33,6 +30,24 @@ export default function Projects() {
             pillars, criteria, scores, and ratings.
           </p>
         </header>
+
+        <aside className="mb-8 rounded-lg border border-[#d9d4c8] bg-[#e5efe9] p-6 text-[#1f241f]">
+          <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
+            <div>
+              <h2 className="text-xl font-extrabold">Compare projects against baseline studies</h2>
+              <p className="mt-2 max-w-3xl text-sm leading-6 text-[#4f5a55]">
+                Baselines provide reference assumptions for common design formats, making it easier
+                to understand where a project performs above or below an expected model.
+              </p>
+            </div>
+            <a
+              href="/baselines"
+              className="inline-flex shrink-0 items-center justify-center rounded-md border border-[#28775e] bg-[#fffdf8] px-5 py-3 text-sm font-extrabold text-[#28775e] transition hover:bg-white focus:outline-none focus:ring-4 focus:ring-[#85bba8]"
+            >
+              View baselines
+            </a>
+          </div>
+        </aside>
 
         {status === "loading" ? (
           <div className="flex min-h-64 items-center justify-center text-[#5f5a50]">

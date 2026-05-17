@@ -1,5 +1,6 @@
 import { useEffect, useMemo, useState } from "react";
 import { Loader2 } from "lucide-react";
+import BaselineComparison from "@/components/BaselineComparison";
 import { fetchProject, getPillarLabel, type ProjectDetail as ProjectDetailType } from "@/lib/projects";
 
 const pillarOrder = ["environment", "social", "cultural", "financial"];
@@ -205,6 +206,40 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
             </div>
           </section>
         ) : null}
+
+        {project.linkedBaselines?.length ? (
+          <section className="mt-10">
+            <h2 className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#28775e]">
+              Linked baseline studies
+            </h2>
+            <div className="mt-4 grid gap-5 md:grid-cols-3">
+              {project.linkedBaselines.map((baseline) => (
+                <a
+                  className="rounded-lg border border-[#d9d4c8] bg-[#fffdf8] p-5 hover:border-[#28775e]"
+                  href={`/baselines/${baseline.slug}`}
+                  key={baseline.slug}
+                >
+                  <h3 className="text-lg font-extrabold">{baseline.title}</h3>
+                  <p className="mt-2 text-sm leading-6 text-[#5f5a50]">
+                    {baseline.summary}
+                  </p>
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {baseline.criteria.slice(0, 5).map((criterion) => (
+                      <span
+                        className="rounded-full border border-[#d9d4c8] px-3 py-1 text-xs font-bold text-[#5f5a50]"
+                        key={criterion}
+                      >
+                        {criterion}
+                      </span>
+                    ))}
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+        ) : null}
+
+        <BaselineComparison baselines={project.linkedBaselines ?? []} />
       </div>
     </main>
   );

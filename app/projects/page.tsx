@@ -19,6 +19,18 @@ export default function ProjectsPage() {
         TinaCMS.
       </p>
 
+      <aside className="section-callout projects-callout">
+        <div>
+          <h2>Compare projects against baseline studies</h2>
+          <p>
+            Baselines provide reference assumptions for common design formats,
+            making it easier to understand where a project performs above or
+            below an expected model.
+          </p>
+        </div>
+        <Link href="/baselines">View baselines</Link>
+      </aside>
+
       <section className="project-grid" aria-label="Projects">
         {projects.map((project) => (
           <Link className="project-card" href={`/projects/${project.slug}`} key={project.slug}>

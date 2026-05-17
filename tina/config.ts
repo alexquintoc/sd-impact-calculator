@@ -19,6 +19,7 @@ const criteriaPrefixByPillar: Record<string, string> = {
 };
 
 type CriteriaWithDisplayIds = {
+  id?: string;
   displayId?: string;
   label: string;
 };
@@ -28,10 +29,11 @@ const criteriaOptions = criteriaV2.pillars.flatMap((pillar) =>
     const criterion = rawCriterion as CriteriaWithDisplayIds;
     const generatedDisplayId = `${criteriaPrefixByPillar[pillar.id]}${index + 1}`;
     const displayId = criterion.displayId ?? generatedDisplayId;
+    const referenceId = criterion.id ?? displayId;
 
     return {
-      label: `${displayId} - ${criterion.label}`,
-      value: displayId,
+      label: `${referenceId} / ${displayId} - ${criterion.label}`,
+      value: referenceId,
     };
   }),
 );
@@ -165,6 +167,13 @@ export default defineConfig({
             label: "Score",
           },
           {
+            type: "string",
+            name: "relatedBaselines",
+            label: "Related Baselines",
+            list: true,
+            description: "Optional baseline slugs linked to this project.",
+          },
+          {
             type: "boolean",
             name: "published",
             label: "Published",
@@ -178,6 +187,185 @@ export default defineConfig({
         ],
         ui: {
           router: ({ document }) => `/projects/${document._sys.filename}`,
+        },
+      },
+      {
+        name: "baseline",
+        label: "Baseline Studies",
+        path: "content/baselines",
+        format: "mdx",
+        fields: [
+          {
+            type: "string",
+            name: "title",
+            label: "Title",
+            isTitle: true,
+            required: true,
+          },
+          {
+            type: "string",
+            name: "slug",
+            label: "Slug",
+            required: true,
+          },
+          {
+            type: "string",
+            name: "summary",
+            label: "Summary",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "string",
+            name: "projectType",
+            label: "Project Type",
+          },
+          {
+            type: "string",
+            name: "format",
+            label: "Format",
+          },
+          {
+            type: "string",
+            name: "region",
+            label: "Region",
+          },
+          {
+            type: "number",
+            name: "year",
+            label: "Year",
+          },
+          {
+            type: "image",
+            name: "coverImage",
+            label: "Cover Image",
+          },
+          {
+            type: "image",
+            name: "gallery",
+            label: "Gallery",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "pillars",
+            label: "Pillars",
+            list: true,
+            options: ["environment", "society", "culture", "finance"],
+          },
+          {
+            type: "string",
+            name: "criteria",
+            label: "Criteria",
+            list: true,
+            options: criteriaOptions,
+            description: "Store criteria references only, such as E1, E4, S6, C4, or F2.",
+          },
+          {
+            type: "string",
+            name: "sdgs",
+            label: "SDGs",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "rating",
+            label: "Rating",
+            options: ["Baseline", "Improved", "Best Practice", "Experimental"],
+          },
+          {
+            type: "number",
+            name: "estimatedCarbonKg",
+            label: "Estimated Carbon (kg CO2e)",
+          },
+          {
+            type: "number",
+            name: "estimatedWasteKg",
+            label: "Estimated Waste (kg)",
+          },
+          {
+            type: "number",
+            name: "estimatedLifespanUses",
+            label: "Estimated Lifespan Uses",
+          },
+          {
+            type: "string",
+            name: "recyclability",
+            label: "Recyclability",
+            options: ["High", "Medium", "Low", "Unknown"],
+          },
+          {
+            type: "string",
+            name: "productionAssumptions",
+            label: "Production Assumptions",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "materialAssumptions",
+            label: "Material Assumptions",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "transportAssumptions",
+            label: "Transport Assumptions",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "disposalAssumptions",
+            label: "Disposal Assumptions",
+            list: true,
+          },
+          {
+            type: "string",
+            name: "evidenceNotes",
+            label: "Evidence Notes",
+            ui: {
+              component: "textarea",
+            },
+          },
+          {
+            type: "object",
+            name: "sources",
+            label: "Sources",
+            list: true,
+            fields: [
+              {
+                type: "string",
+                name: "label",
+                label: "Label",
+              },
+              {
+                type: "string",
+                name: "url",
+                label: "URL",
+              },
+            ],
+          },
+          {
+            type: "string",
+            name: "relatedProjects",
+            label: "Related Projects",
+            list: true,
+            description: "Optional project slugs linked to this baseline.",
+          },
+          {
+            type: "boolean",
+            name: "published",
+            label: "Published",
+          },
+          {
+            type: "rich-text",
+            name: "body",
+            label: "Body",
+            isBody: true,
+          },
+        ],
+        ui: {
+          router: ({ document }) => `/baselines/${document._sys.filename}`,
         },
       },
     ],

@@ -1,8 +1,7 @@
 import fs from "fs";
 import path from "path";
 import criteriaV2 from "../../../packages/standard-core/src/criteria.v2.json";
-
-type FrontmatterValue = string | number | boolean | string[];
+import { parseMdx, toStringList, type FrontmatterValue } from "./content";
 
 export type ProjectSummary = {
   slug: string;
@@ -18,6 +17,7 @@ export type ProjectSummary = {
   criteria: string[];
   rating: "Emerging" | "Advanced" | "Transformative";
   score: number;
+  relatedBaselines: string[];
   published: boolean;
   criteriaDetails: CriteriaDetail[];
 };
@@ -167,7 +167,7 @@ function getPillarKey(pillar: string) {
   return pillarAliases[pillar] ?? pillar;
 }
 
-function getCriteriaDetails(criteria: string[]) {
+export function getCriteriaDetails(criteria: string[]) {
   return criteria.map((criterion) => {
     const key = criterion.toLowerCase();
     return (
@@ -186,59 +186,6 @@ function getCriteriaDetails(criteria: string[]) {
   });
 }
 
-function parseMdx(fileContents: string) {
-  const match = fileContents.match(/^---\r?\n([\s\S]*?)\r?\n---\r?\n?([\s\S]*)$/);
-
-  if (!match) {
-    return { frontmatter: {}, body: fileContents };
-  }
-
-  return {
-    frontmatter: parseFrontmatter(match[1]),
-    body: match[2].trim(),
-  };
-}
-
-function parseFrontmatter(frontmatter: string) {
-  const values: Record<string, FrontmatterValue> = {};
-  const lines = frontmatter.split(/\r?\n/);
-
-  for (let index = 0; index < lines.length; index += 1) {
-    const line = lines[index];
-    const keyValue = line.match(/^([A-Za-z0-9_-]+):(?:\s*(.*))?$/);
-
-    if (!keyValue) {
-      continue;
-    }
-
-    const [, key, rawValue = ""] = keyValue;
-
-    if (rawValue === "") {
-      const list: string[] = [];
-      while (lines[index + 1]?.match(/^\s+-\s+/)) {
-        index += 1;
-        list.push(unquote(lines[index].replace(/^\s+-\s+/, "").trim()));
-      }
-      values[key] = list;
-    } else {
-      values[key] = parseScalar(rawValue.trim());
-    }
-  }
-
-  return values;
-}
-
-function parseScalar(value: string): FrontmatterValue {
-  if (value === "true") return true;
-  if (value === "false") return false;
-  if (/^-?\d+(\.\d+)?$/.test(value)) return Number(value);
-  return unquote(value);
-}
-
-function unquote(value: string) {
-  return value.replace(/^["']|["']$/g, "");
-}
-
 function normalizeProject(frontmatter: Record<string, FrontmatterValue>) {
   return {
     title: String(frontmatter.title ?? "Untitled project"),
@@ -248,11 +195,12 @@ function normalizeProject(frontmatter: Record<string, FrontmatterValue>) {
     projectType: String(frontmatter.projectType ?? ""),
     website: frontmatter.website ? String(frontmatter.website) : undefined,
     coverImage: String(frontmatter.coverImage ?? ""),
-    gallery: Array.isArray(frontmatter.gallery) ? frontmatter.gallery : [],
-    pillars: Array.isArray(frontmatter.pillars) ? frontmatter.pillars : [],
-    criteria: Array.isArray(frontmatter.criteria) ? frontmatter.criteria : [],
+    gallery: toStringList(frontmatter.gallery),
+    pillars: toStringList(frontmatter.pillars),
+    criteria: toStringList(frontmatter.criteria),
     rating: String(frontmatter.rating ?? "Emerging") as ProjectSummary["rating"],
     score: Number(frontmatter.score ?? 0),
+    relatedBaselines: toStringList(frontmatter.relatedBaselines),
     published: Boolean(frontmatter.published),
   };
 }

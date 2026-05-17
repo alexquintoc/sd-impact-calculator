@@ -6,7 +6,8 @@
     "docs:generate": "node scripts/generate-docs.js",
     "docs:serve": "npm run docs:generate && mdbook serve docs",
     "docs:build": "npm run docs:generate && mdbook build docs",
-    "dev": "cross-env TINA_PUBLIC_IS_LOCAL=true tinacms dev -c \"npm run dev -w apps/calculator\"",
+    "dev": "cross-env TINA_PUBLIC_IS_LOCAL=true PORT=5000 tinacms dev -c \"npm run dev -w apps/calculator\"",
+    "dev:app": "cross-env PORT=5000 npm run dev -w apps/calculator",
     "build": "node scripts/sync-tina-admin.js && npm run build -w apps/calculator"
   },
   "workspaces": [

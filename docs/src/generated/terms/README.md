@@ -9,5 +9,6 @@ This section contains key concepts and definitions referenced in the SD Standard
 - [Circular Economy](circular-economy.md)
 - [Emissions](emissions.md)
 - [Lifecycle Assessment](lifecycle-assessment.md)
+- [Print on Demand](print-on-demand.md)
 - [Sustainable Materials](sustainable-materials.md)
 - [Waste Reduction](waste-reduction.md)

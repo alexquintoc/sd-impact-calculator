@@ -23,6 +23,10 @@ const docsGeneratedDir = path.join(root, "docs", "src", "generated");
 const docsCriteriaDir = path.join(docsGeneratedDir, "criteria");
 const docsTermsDir = path.join(docsGeneratedDir, "terms");
 const docsPillarsDir = path.join(docsGeneratedDir, "pillars");
+const docsManualDir = path.join(root, "docs", "src", "manual");
+const docsManualCriteriaDir = path.join(docsManualDir, "criteria");
+const docsBookDir = path.join(root, "docs", "book");
+const distKnowledgeBaseDir = path.join(root, "dist", "knowledge-base");
 const docsSummaryPath = path.join(root, "docs", "src", "SUMMARY.md");
 
 const criteriaMetaPath = path.join(
@@ -46,6 +50,13 @@ function ensureDir(dir) {
 
 function writeFile(filePath, content) {
   fs.writeFileSync(filePath, content.trim() + "\n", "utf8");
+}
+
+function writeFileIfMissing(filePath, content) {
+  if (fs.existsSync(filePath)) return false;
+
+  writeFile(filePath, content);
+  return true;
 }
 
 function writeJson(filePath, data) {
@@ -122,6 +133,9 @@ function removeInvalidGeneratedFilenames(dir) {
 function buildGeneratedSummary(criteriaData, termsData) {
   const lines = [
     "<!-- GENERATED_SUMMARY:START -->",
+    "# Manual Guidance",
+    "- [Criteria Guidance](manual/criteria/README.md)",
+    "",
     "# Reference",
     "- [Pillars](generated/pillars/README.md)"
   ];
@@ -193,6 +207,153 @@ function getCriterionPublicId(criterion) {
   return criterion.displayId || criterion.id;
 }
 
+function getCriterionManualFileName(criterion) {
+  return `${criterion.id}-guidance.md`;
+}
+
+function getCriterionManualPath(criterion) {
+  return path.join(docsManualCriteriaDir, getCriterionManualFileName(criterion));
+}
+
+function formatListValue(values) {
+  return values
+    .filter((value) => typeof value !== "undefined" && value !== null && `${value}`.trim())
+    .map((value) =>
+      `${value}`
+        .split(/[-_\s]+/)
+        .filter(Boolean)
+        .map((word) => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
+        .join(" ")
+    )
+    .join(", ");
+}
+
+function formatSdgs(sdgs) {
+  if (!Array.isArray(sdgs) || sdgs.length === 0) return "";
+
+  return sdgs
+    .filter((sdg) => typeof sdg !== "undefined" && sdg !== null && `${sdg}`.trim())
+    .map((sdg) => {
+      const value = `${sdg}`.trim();
+      return /^sdg\s+/i.test(value) ? value.replace(/^sdg/i, "SDG") : `SDG ${value}`;
+    })
+    .join(", ");
+}
+
+function formatProjectTypes(criterion) {
+  const applicability = criterion.applicability || {};
+  const categories = Array.isArray(applicability.categories)
+    ? applicability.categories
+    : [];
+  const nestedProjectTypes = Array.isArray(applicability.projectTypes)
+    ? applicability.projectTypes
+    : [];
+  const topLevelProjectTypes = Array.isArray(criterion.projectTypes)
+    ? criterion.projectTypes
+    : [];
+
+  return formatListValue(unique([...categories, ...nestedProjectTypes, ...topLevelProjectTypes]));
+}
+
+function stripFirstHeading(content) {
+  return content.replace(/^\s*# .*(?:\r?\n)+/, "").trim();
+}
+
+function buildManualGuidanceTemplate(criterion) {
+  const publicId = getCriterionPublicId(criterion);
+
+  return [
+    `# ${criterion.id}: ${criterion.label} — Extended Guidance`,
+    "",
+    `Related criterion: [${criterion.id}: ${criterion.label}](../../generated/criteria/${publicId}.md)`,
+    "",
+    "## Purpose",
+    "",
+    "Add human-authored guidance for this criterion.",
+    "",
+    "## How to apply this criterion",
+    "",
+    "Add practical notes, project-specific guidance, and examples.",
+    "",
+    "## Evidence to document",
+    "",
+    "Add examples of evidence, documentation, or decision records that could support this criterion.",
+    "",
+    "## Related examples",
+    "",
+    "Add links to case studies, tools, or project examples."
+  ].join("\n");
+}
+
+function buildManualCriteriaReadme(criteriaData) {
+  const lines = [
+    "# Criteria Guidance",
+    "",
+    "Human-authored extended guidance pages for SD Standard criteria.",
+    ""
+  ];
+
+  for (const pillar of criteriaData.pillars) {
+    lines.push(`## ${pillar.label}`, "");
+
+    for (const criterion of pillar.criteria) {
+      const publicId = getCriterionPublicId(criterion);
+      lines.push(
+        `- [${publicId}: ${criterion.label}](${getCriterionManualFileName(criterion)})`
+      );
+    }
+
+    lines.push("");
+  }
+
+  return lines.join("\n");
+}
+
+function ensureManualGuidanceDocs(criteriaData) {
+  ensureDir(docsManualCriteriaDir);
+
+  writeFileIfMissing(
+    path.join(docsManualDir, "README.md"),
+    [
+      "# Manual Guidance",
+      "",
+      "Human-authored guidance that supplements the generated SD Standard reference.",
+      "",
+      "- [Criteria Guidance](criteria/README.md)"
+    ].join("\n")
+  );
+
+  writeFileIfMissing(
+    path.join(docsManualCriteriaDir, "README.md"),
+    buildManualCriteriaReadme(criteriaData)
+  );
+
+  for (const pillar of criteriaData.pillars) {
+    for (const criterion of pillar.criteria) {
+      writeFileIfMissing(
+        getCriterionManualPath(criterion),
+        buildManualGuidanceTemplate(criterion)
+      );
+    }
+  }
+}
+
+function readManualGuidance(criterion) {
+  const manualPath = getCriterionManualPath(criterion);
+
+  if (!fs.existsSync(manualPath)) return "";
+
+  return stripFirstHeading(fs.readFileSync(manualPath, "utf8"));
+}
+
+function getManualGuidanceLink(criterion) {
+  return `../../manual/criteria/${getCriterionManualFileName(criterion)}`;
+}
+
+function invalidateBuiltBook() {
+  fs.rmSync(docsBookDir, { recursive: true, force: true });
+  fs.rmSync(distKnowledgeBaseDir, { recursive: true, force: true });
+}
 
 function getAllCriterionIds(criteriaData) {
   return new Set(
@@ -273,9 +434,22 @@ function generateCriteriaDocs(criteriaData) {
         `# ${publicId}: ${criterion.label}`,
         "",
         `**Pillar:** ${pillar.label}  `,
-        `**Points:** ${criterion.points}`,
-        ""
+        `**Points:** ${criterion.points}  `,
+        `**Mandatory for Certification:** ${criterion.mandatory === true ? "Yes" : "No"}  `
       ];
+
+      const projectTypes = formatProjectTypes(criterion);
+      const relatedSdgs = formatSdgs(criterion.sdgs);
+
+      if (projectTypes) {
+        contentParts.push(`**Project types:** ${projectTypes}  `);
+      }
+
+      if (relatedSdgs) {
+        contentParts.push(`**Related SDGs:** ${relatedSdgs}`);
+      }
+
+      contentParts.push("");
 
       if (criterion.summary) {
         contentParts.push("## Summary", criterion.summary, "");
@@ -295,6 +469,18 @@ function generateCriteriaDocs(criteriaData) {
 
       if (relatedTerms) {
         contentParts.push("## Related terms", relatedTerms, "");
+      }
+
+      const manualGuidance = readManualGuidance(criterion);
+
+      if (manualGuidance) {
+        contentParts.push(
+          "## Extended guidance",
+          `_Manual source: [${getCriterionManualFileName(criterion)}](${getManualGuidanceLink(criterion)})_`,
+          "",
+          manualGuidance,
+          ""
+        );
       }
 
       const filePath = path.join(docsCriteriaDir, `${publicId}.md`);
@@ -482,6 +668,7 @@ function main() {
   const termsData = JSON.parse(fs.readFileSync(termsPath, "utf8"));
 
   validateLinks(criteriaData, termsData);
+  ensureManualGuidanceDocs(criteriaData);
   generateCriteriaDocs(criteriaData);
   generateTermsDocs(termsData);
   generatePillarDocs(criteriaData);
@@ -489,6 +676,7 @@ function main() {
   updateGeneratedSummary(criteriaData, termsData);
   removeInvalidGeneratedFilenames(docsGeneratedDir);
   assertNoInvalidGeneratedFilenames(docsGeneratedDir);
+  invalidateBuiltBook();
 
   console.log("Docs and criteria metadata generated successfully.");
 }

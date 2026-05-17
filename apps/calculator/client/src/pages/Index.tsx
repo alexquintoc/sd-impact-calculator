@@ -132,9 +132,9 @@ const involvementGroups = [
   },
   {
     title: "Contributors & Collaborators",
-    for: ["designers", "developers", "writers", "translators", "UX researchers", "students"],
+    for: ["designers", "developers", "writers", "translators", "UX designers", "students"],
     contributionTitle: "Ways to contribute",
-    contributions: ["improve the knowledge base", "develop tools", "write case studies", "create datasets", "document projects", "test workflows"],
+    contributions: ["improve the user experience", "develop tools", "write case studies", "create datasets", "document projects", "test workflows"],
   },
   {
     title: "Educational & Institutional Partners",
@@ -188,10 +188,10 @@ export default function Index() {
             An open sustainability standard for visual communication and design practitioners
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-[#5f5a50] sm:text-xl">
-            The SD Standard evaluates design through four pillars: environment,
-            society, culture, and finance. It applies to communication design,
+            The SD Standard is a design framework applicable to communication design,
             digital design, print, branding, exhibits, packaging, and hybrid
-            communication systems.
+            communication projects. It is based on four pillars: environment,
+            society, culture, and finance.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
@@ -219,7 +219,7 @@ export default function Index() {
               <p className="text-xs font-extrabold uppercase tracking-[0.08em] text-[#5f5a50]">
                 Integrated workflow
               </p>
-              <h2 className="text-xl font-extrabold">Brief, scan, evaluate, improve</h2>
+              <h2 className="text-xl font-extrabold">Brief, design, evaluate, improve</h2>
             </div>
           </div>
           <div className="mt-7 grid gap-3">
@@ -248,7 +248,7 @@ export default function Index() {
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
           <SectionHeader
             kicker="What is the SD Standard?"
-            title="A four-pillar framework for evaluating design impact."
+            title="A four-pillar framework for design impact: from concept to evaluation."
             description="The standard turns broad sustainability goals into practical criteria that can be reviewed during briefing, production, evaluation, and documentation."
           />
           <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -290,7 +290,7 @@ export default function Index() {
         <SectionHeader
           kicker="Tools & resources"
           title="Move from intention to evidence."
-          description="Use the SD Standard as a connected set of tools for briefing, scanning, evaluating, and learning."
+          description="Use the SD Standard as a connected set of tools for briefing, planning, evaluating, and learning."
         />
         <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
           {tools.map((tool) => {
@@ -355,11 +355,16 @@ export default function Index() {
           <SectionHeader
             kicker="Project gallery"
             title="Examples from the SD Standard project library."
-            description="Featured TinaCMS project entries show how scores, pillars, and criteria can be documented as lightweight case studies."
+            description="Featured projects show how scores, pillars, and criteria can be documented as lightweight case studies."
           />
-          <LinkButton href="/projects" variant="secondary">
-            View all projects
-          </LinkButton>
+          <div className="grid w-full gap-3 sm:w-auto sm:grid-cols-2">
+            <LinkButton href="/projects" variant="secondary">
+              View all projects
+            </LinkButton>
+            <LinkButton href="/baselines" variant="secondary">
+              View baselines
+            </LinkButton>
+          </div>
         </div>
         <div className="mt-9 grid gap-5 md:grid-cols-3">
           {featuredProjects.map((project) => (
@@ -404,6 +409,11 @@ export default function Index() {
                 The SD Standard is being developed as an open and evolving
                 framework for sustainable communication design.
               </p>
+              <div className="mt-7">
+                <LinkButton href="mailto:info@sdstandard.org" variant="secondary">
+                  Get in touch
+                </LinkButton>
+              </div>
             </div>
 
             <div className="grid gap-5 md:grid-cols-2">
@@ -426,9 +436,6 @@ export default function Index() {
                       {group.contributions.join(", ")}
                     </p>
                   </div>
-                  <LinkButton href="mailto:hello@sdstandard.org" variant="secondary">
-                    Get in touch
-                  </LinkButton>
                 </article>
               ))}
             </div>

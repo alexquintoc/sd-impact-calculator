@@ -1,5 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { BaselineComparison } from "../../components/BaselineComparison";
+import { getBaselinesForProjectSlug } from "../../../lib/baselines";
 import {
   getAllProjects,
   getPillarKey,
@@ -50,6 +52,7 @@ export default async function ProjectPage({ params }: PageProps) {
   }
 
   const pillarCounts = getPillarCounts(project);
+  const linkedBaselines = getBaselinesForProjectSlug(project.slug);
 
   return (
     <main className="projects-shell project-detail">
@@ -170,6 +173,40 @@ export default async function ProjectPage({ params }: PageProps) {
           </div>
         </section>
       ) : null}
+
+      {linkedBaselines.length ? (
+        <section className="related-section">
+          <h2>Linked baseline studies</h2>
+          <div className="project-grid">
+            {linkedBaselines.map((baseline) => (
+              <Link className="project-card" href={`/baselines/${baseline.slug}`} key={baseline.slug}>
+                {baseline.coverImage ? <img src={baseline.coverImage} alt="" /> : null}
+                <div className="project-card-body">
+                  <h3>{baseline.title}</h3>
+                  <p>{baseline.summary}</p>
+                  <div className="tag-list" aria-label="Baseline criteria">
+                    {baseline.criteria.slice(0, 5).map((criterion) => (
+                      <span className="tag" key={criterion}>
+                        {criterion}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="score-row">
+                    <span className="estimate">
+                      {baseline.estimatedCarbonKg
+                        ? `${baseline.estimatedCarbonKg.toLocaleString()} kg CO2e`
+                        : "Carbon TBD"}
+                    </span>
+                    <span className="rating">{baseline.rating}</span>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      ) : null}
+
+      <BaselineComparison baselines={linkedBaselines} />
     </main>
   );
 }

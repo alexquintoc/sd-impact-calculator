@@ -3,6 +3,7 @@ import type { Server } from "http";
 import express from "express";
 import fs from "fs";
 import path from "path";
+import { getAllBaselines, getBaseline, getBaselinesForProjectSlug } from "./baselines";
 import { getAllProjects, getProject } from "./projects";
 
 function serveKnowledgeBase(app: Express) {
@@ -55,7 +56,27 @@ export async function registerRoutes(
       return;
     }
 
-    res.json({ project });
+    res.json({
+      project: {
+        ...project,
+        linkedBaselines: getBaselinesForProjectSlug(req.params.slug),
+      },
+    });
+  });
+
+  app.get("/api/baselines", (_req, res) => {
+    res.json({ baselines: getAllBaselines() });
+  });
+
+  app.get("/api/baselines/:slug", (req, res) => {
+    const baseline = getBaseline(req.params.slug);
+
+    if (!baseline) {
+      res.status(404).json({ message: "Baseline not found" });
+      return;
+    }
+
+    res.json({ baseline });
   });
 
   serveKnowledgeBase(app);

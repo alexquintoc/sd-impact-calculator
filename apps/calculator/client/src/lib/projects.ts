@@ -23,6 +23,7 @@ export type ProjectSummary = {
   criteria: string[];
   rating: "Emerging" | "Advanced" | "Transformative";
   score: number;
+  relatedBaselines: string[];
   published: boolean;
   criteriaDetails: CriteriaDetail[];
 };
@@ -30,6 +31,7 @@ export type ProjectSummary = {
 export type ProjectDetail = ProjectSummary & {
   body: string;
   relatedProjects: ProjectSummary[];
+  linkedBaselines?: import("@/lib/baselines").BaselineSummary[];
 };
 
 export async function fetchProjects() {

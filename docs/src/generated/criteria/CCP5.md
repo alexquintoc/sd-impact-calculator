@@ -4,10 +4,34 @@
 # CCP5: CULTURAL POLICY
 
 **Pillar:** Cultural Criteria  
-**Points:** 1
+**Points:** 1  
+**Mandatory for Certification:** Yes  
+**Project types:** Print, Digital, Hybrid  
+**Related SDGs:** SDG 5, SDG 10, SDG 11, SDG 14, SDG 16
 
 ## Description
 The designing entity and the majority of suppliers have a publicly-accessible policy to actively protect and support communities.
 
 ## Why it matters
 Publicly-accessible cultural sustainability policy.
+
+## Extended guidance
+_Manual source: [CM9-guidance.md](../../manual/criteria/CM9-guidance.md)_
+
+Related criterion: [CM9: CULTURAL POLICY](../../generated/criteria/CCP5.md)
+
+## Purpose
+
+Add human-authored guidance for this criterion.
+
+## How to apply this criterion
+
+Add practical notes, project-specific guidance, and examples.
+
+## Evidence to document
+
+Add examples of evidence, documentation, or decision records that could support this criterion.
+
+## Related examples
+
+Add links to case studies, tools, or project examples.
