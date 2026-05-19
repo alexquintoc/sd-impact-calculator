@@ -26,8 +26,8 @@ export default function Projects() {
             Project examples
           </h1>
           <p className="mt-5 text-lg leading-8 text-[#5f5a50]">
-            Explore TinaCMS-managed project examples mapped to SD Standard
-            pillars, criteria, scores, and ratings.
+            Explore project examples mapped to SD Standard pillars, criteria,
+            scores, and ratings.
           </p>
         </header>
 

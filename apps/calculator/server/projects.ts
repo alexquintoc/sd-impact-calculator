@@ -201,6 +201,6 @@ function normalizeProject(frontmatter: Record<string, FrontmatterValue>) {
     rating: String(frontmatter.rating ?? "Emerging") as ProjectSummary["rating"],
     score: Number(frontmatter.score ?? 0),
     relatedBaselines: toStringList(frontmatter.relatedBaselines),
-    published: Boolean(frontmatter.published),
+    published: frontmatter.published !== false,
   };
 }
