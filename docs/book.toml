@@ -11,3 +11,4 @@ build-dir = "book"
 git-repository-url = "https://github.com/alexquintoc/sd-standard"
 edit-url-template = "https://github.com/alexquintoc/sd-standard/edit/main/docs/{path}"
 additional-css = ["theme/sd-standard.css"]
+additional-js = ["theme/sd-standard-nav.js"]

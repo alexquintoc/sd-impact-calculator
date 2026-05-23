@@ -18,3 +18,6 @@ Add examples of evidence, documentation, or decision records that could support 
 ## Related examples
 
 Add links to case studies, tools, or project examples.
+
+## Related resources
+[International Labour Standards](https://www.ilo.org/international-labour-standards)

@@ -44,6 +44,8 @@ The current system automatically generates:
 
 This approach allows the SD Standard to maintain a single source of truth for sustainability criteria while supporting multiple interfaces and tools.
 
+Knowledge Base theme integration lives in `docs/theme/`. The mdBook build loads these assets through `docs/book.toml`, so the site navigation is preserved when generated criteria, pillar, and term pages are rebuilt. Use `npm run docs:build` to regenerate `docs/book`, or `npm run docs:serve` to preview the Knowledge Base directly. The unified dev app serves an existing `docs/book` folder at `/knowledge-base/` on `localhost:5000`.
+
 ## Criteria Evolution
 
 The criteria framework is currently undergoing a major v2 restructuring that includes:
