@@ -40,7 +40,7 @@ const criteriaMetaPath = path.join(
 
 const GENERATED_WARNING = [
   "<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->",
-  "<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->",
+  "<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->",
   ""
 ].join("\n");
 
@@ -259,15 +259,16 @@ function stripFirstHeading(content) {
   return content.replace(/^\s*# .*(?:\r?\n)+/, "").trim();
 }
 
-function buildManualGuidanceTemplate(criterion) {
-  const publicId = getCriterionPublicId(criterion);
+function cleanEmbeddedManualGuidance(content) {
+  return stripFirstHeading(content)
+    .replace(/^\s*Related criterion:\s.*(?:\r?\n)+/i, "")
+    .replace(/(^|\r?\n)#{1,6}\s+Purpose\s*(?:\r?\n)+/i, "$1")
+    .trim();
+}
 
+function buildManualGuidanceTemplate(criterion) {
   return [
     `# ${criterion.id}: ${criterion.label} — Extended Guidance`,
-    "",
-    `Related criterion: [${criterion.id}: ${criterion.label}](../../generated/criteria/${publicId}.md)`,
-    "",
-    "## Purpose",
     "",
     "Add human-authored guidance for this criterion.",
     "",
@@ -343,11 +344,7 @@ function readManualGuidance(criterion) {
 
   if (!fs.existsSync(manualPath)) return "";
 
-  return stripFirstHeading(fs.readFileSync(manualPath, "utf8"));
-}
-
-function getManualGuidanceLink(criterion) {
-  return `../../manual/criteria/${getCriterionManualFileName(criterion)}`;
+  return cleanEmbeddedManualGuidance(fs.readFileSync(manualPath, "utf8"));
 }
 
 function invalidateBuiltBook() {
@@ -476,8 +473,6 @@ function generateCriteriaDocs(criteriaData) {
       if (manualGuidance) {
         contentParts.push(
           "## Extended guidance",
-          `_Manual source: [${getCriterionManualFileName(criterion)}](${getManualGuidanceLink(criterion)})_`,
-          "",
           manualGuidance,
           ""
         );

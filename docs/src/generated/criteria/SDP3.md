@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # SDP3: LOCAL LABOUR
 
@@ -16,13 +16,8 @@ Design and production significantly increased the amount of locally sourced labo
 Increases locally sourced labour.
 
 ## Extended guidance
-_Manual source: [S3-guidance.md](../../manual/criteria/S3-guidance.md)_
-
-Related criterion: [S3: LOCAL LABOUR](../../generated/criteria/SDP3.md)
-
-## Purpose
-
-Add human-authored guidance for this criterion.
+## Direct vs. Indirect labour used in production
+Direct labour includes people who work on the reproduction of the final product, such as printing company employees. Indirectly involved people, such as paper and ink company staff , are excluded from this definition of labour and production.
 
 ## How to apply this criterion
 

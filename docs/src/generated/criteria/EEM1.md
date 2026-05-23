@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EEM1: TRANSPORT
 
@@ -16,12 +16,6 @@ The project strategy includes shipping and/or warehousing efficiencies to reduce
 Efficiency in the product’s transportation.
 
 ## Extended guidance
-_Manual source: [E19-guidance.md](../../manual/criteria/E19-guidance.md)_
-
-Related criterion: [E19: TRANSPORT](../../generated/criteria/EEM1.md)
-
-## Purpose
-
 ### What kinds of actions may be considered to improve shipping efficiency and reduce transportation and waste?
 Sizing boxes and palettes to maximize the number and volume of product shipped, and minimizing associated packaging materials (fill, tissue, foam, label, tape, plastic wrap, etc.) help achieve efficiency and transportation and waste reduction goals.
 

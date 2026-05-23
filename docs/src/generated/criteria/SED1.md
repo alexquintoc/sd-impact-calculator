@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # SED1: DESIGN EDUCATION
 
@@ -16,13 +16,8 @@ The project includes design students and/or enriches existing design school curr
 Provides design education opportunities for students.
 
 ## Extended guidance
-_Manual source: [S15-guidance.md](../../manual/criteria/S15-guidance.md)_
-
-Related criterion: [S15: DESIGN EDUCATION](../../generated/criteria/SED1.md)
-
-## Purpose
-
-Add human-authored guidance for this criterion.
+## What are examples of design education opportunities?
+The project can involve design students in various ways: a lecture, workshop, collaboration, or internship.
 
 ## How to apply this criterion
 

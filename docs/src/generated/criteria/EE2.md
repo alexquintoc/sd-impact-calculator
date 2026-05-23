@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EE2: NON-RENEWABLE RESOURCES
 
@@ -16,12 +16,6 @@ The project reduces or eliminates the use of scarce, non-renewable natural resou
 Strategies reduce the use of non-renewable natural resources.
 
 ## Extended guidance
-_Manual source: [E17-guidance.md](../../manual/criteria/E17-guidance.md)_
-
-Related criterion: [E17: NON-RENEWABLE RESOURCES](../../generated/criteria/EE2.md)
-
-## Purpose
-
 ### What are non-renewable resources?
 A non-renewable resource (also called a finite resource) is a natural resource that cannot be readily replaced by natural means at a pace quick enough to keep up with consumption. Source: [Wikipedia](https://en.wikipedia.org/wiki/Non-renewable_resource). Non-renewable resources can also include:
 

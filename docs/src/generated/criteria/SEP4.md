@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # SEP4: ARTIFICIAL INTELLIGENCE (AI)
 
@@ -16,12 +16,6 @@ The process of the design production is human made and, if AI was used to create
 Authentically created design by a person.
 
 ## Extended guidance
-_Manual source: [S10-guidance.md](../../manual/criteria/S10-guidance.md)_
-
-Related criterion: [S10: ARTIFICIAL INTELLIGENCE (AI)](../../generated/criteria/SEP4.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

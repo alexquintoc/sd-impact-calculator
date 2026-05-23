@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EEM2: CO2 CERTIFICATION
 
@@ -16,12 +16,6 @@ The design entity or the product displays a recognized certification or third pa
 A certified third party declares CO2 emissions.
 
 ## Extended guidance
-_Manual source: [E20-guidance.md](../../manual/criteria/E20-guidance.md)_
-
-Related criterion: [E20: CO2 CERTIFICATION](../../generated/criteria/EEM2.md)
-
-## Purpose
-
 ### What is a certification of CO2 emissions?
 The CO2 or greenhouse gas emissions associated with the product service system have been calculated by a credible certification body, typically a third party entity. The certification should appear on the product or its packaging. The greenhouse gas emissions may be given in CO2 equivalents.
 

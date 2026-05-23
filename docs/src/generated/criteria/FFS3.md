@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # FFS3: UNPAID WORK
 
@@ -16,12 +16,6 @@ There was no process by the design entity or in the project where designers, inc
 All design work is financially compensated.
 
 ## Extended guidance
-_Manual source: [FM3-guidance.md](../../manual/criteria/FM3-guidance.md)_
-
-Related criterion: [FM3: UNPAID WORK](../../generated/criteria/FFS3.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

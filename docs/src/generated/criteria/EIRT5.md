@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT5: PAPER
 
@@ -16,12 +16,6 @@ The project materials were designed to reduce paper.
 Efficient use of paper and reduces paper use.
 
 ## Extended guidance
-_Manual source: [E5-guidance.md](../../manual/criteria/E5-guidance.md)_
-
-Related criterion: [E5: PAPER](../../generated/criteria/EIRT5.md)
-
-## Purpose
-
 ### Why should attention be paid to the amount of paper used in a project?
 The amount of paper used is directly related to material consumption, as well as waste generation and disposal. In particular, paper fiber may originate from a non-renewable source, contributing to deforestation and habitat impacts. Therefore reduction can have a positive impact on resources, energy and pollution.
 

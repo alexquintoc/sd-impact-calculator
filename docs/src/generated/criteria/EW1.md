@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EW1: PRODUCT’S END OF LIFE
 
@@ -16,12 +16,6 @@ The product is locally compostable by the end user or can be incorporated into a
 The product can be composted or used as fuel or food.
 
 ## Extended guidance
-_Manual source: [E15-guidance.md](../../manual/criteria/E15-guidance.md)_
-
-Related criterion: [E15: PRODUCTâ€™S END OF LIFE](../../generated/criteria/EW1.md)
-
-## Purpose
-
 ### What is thermal treatment?
 Thermal treatment refers to the incineration of waste and/or the incineration of waste for energy recovery.
 

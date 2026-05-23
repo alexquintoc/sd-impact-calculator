@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # CCP5: CULTURAL POLICY
 
@@ -16,12 +16,6 @@ The designing entity and the majority of suppliers have a publicly-accessible po
 Publicly-accessible cultural sustainability policy.
 
 ## Extended guidance
-_Manual source: [CM9-guidance.md](../../manual/criteria/CM9-guidance.md)_
-
-Related criterion: [CM9: CULTURAL POLICY](../../generated/criteria/CCP5.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

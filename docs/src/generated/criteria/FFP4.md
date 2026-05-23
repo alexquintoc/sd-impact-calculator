@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # FFP4: DESIGN THINKING
 
@@ -16,12 +16,6 @@ Design thinking adds financial value to the audience, users, and/or stakeholders
 Adds value to a business through design strategy.
 
 ## Extended guidance
-_Manual source: [F7-guidance.md](../../manual/criteria/F7-guidance.md)_
-
-Related criterion: [F7: DESIGN THINKING](../../generated/criteria/FFP4.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

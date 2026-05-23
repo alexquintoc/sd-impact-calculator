@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # CCE3: PRACTITIONERS’ EDUCATION
 
@@ -16,12 +16,6 @@ The project results in the education of practitioners regarding sustainable desi
 Project educates others to support sustainable design education.
 
 ## Extended guidance
-_Manual source: [C8-guidance.md](../../manual/criteria/C8-guidance.md)_
-
-Related criterion: [C8: PRACTITIONERSâ€™ EDUCATION](../../generated/criteria/CCE3.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

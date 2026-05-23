@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # FFS2: PROFITABILITY
 
@@ -16,12 +16,6 @@ The project budget or contract does not assume financial loss by the designing e
 The designing entity profits from the project.
 
 ## Extended guidance
-_Manual source: [F2-guidance.md](../../manual/criteria/F2-guidance.md)_
-
-Related criterion: [F2: PROFITABILITY](../../generated/criteria/FFS2.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

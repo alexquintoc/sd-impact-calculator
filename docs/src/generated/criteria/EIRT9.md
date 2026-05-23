@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT9: TOXINS
 
@@ -16,12 +16,6 @@ The project reduces or eliminates the use of toxins.
 Reduces or eliminates toxins in a product.
 
 ## Extended guidance
-_Manual source: [E9-guidance.md](../../manual/criteria/E9-guidance.md)_
-
-Related criterion: [E9: TOXINS](../../generated/criteria/EIRT9.md)
-
-## Purpose
-
 ### What is a toxin?
 A toxin is generally defined as a substance that has the potential to damage or kill. The response depends upon dose (concentration), exposure pathway and assimilation, and may vary from organism to organism.
 

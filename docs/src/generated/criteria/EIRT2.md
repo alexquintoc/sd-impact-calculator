@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT2: LIFECYCLE
 
@@ -16,12 +16,6 @@ The project’s strategy is supported by a qualified, simplified life cycle stud
 Design addresses the environmental impact of a product.
 
 ## Extended guidance
-_Manual source: [E2-guidance.md](../../manual/criteria/E2-guidance.md)_
-
-Related criterion: [E2: LIFECYCLE](../../generated/criteria/EIRT2.md)
-
-## Purpose
-
 ### What is a life cycle?
 A life cycle describes the linked, process steps of a product or service system, from resource extraction, to material processing, manufacturing, assembly, packaging and distribution, retail, use and eventual disposal. A life cycle report strives to be comprehensive and complete, that is, to include all processes of a given product/service system that occur over time.
 

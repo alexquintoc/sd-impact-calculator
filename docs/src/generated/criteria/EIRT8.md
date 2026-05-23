@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT8: DURABILITY
 
@@ -16,13 +16,6 @@ The product or system is physically durable.
 Physical durability as a product asset, where applicable.
 
 ## Extended guidance
-_Manual source: [E7b-guidance.md](../../manual/criteria/E7b-guidance.md)_
-
-Related criterion: [E7b: DURABILITY](../../generated/criteria/EIRT8.md)
-
-## Purpose
-
-
 ## How to apply this criterion
 
 Use baseline references for addressing this Criterion, using a common unit of measure. For example: Increased durability of product by X years compared to the average baseline product.

@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # CCE2: COMMUNITY PARTICIPATION
 
@@ -16,12 +16,6 @@ The project’s designing entity actively supports and participates in the susta
 Actively supports the sustainable development of your community.
 
 ## Extended guidance
-_Manual source: [C7-guidance.md](../../manual/criteria/C7-guidance.md)_
-
-Related criterion: [C7: COMMUNITY PARTICIPATION](../../generated/criteria/CCE2.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

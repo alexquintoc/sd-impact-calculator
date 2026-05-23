@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # CCP1: ENDANGERED LANGUAGES
 
@@ -16,12 +16,6 @@ The project is likely to help preserve endangered languages, particularly Indige
 Contributes to the preservation of endangered languages.
 
 ## Extended guidance
-_Manual source: [C2-guidance.md](../../manual/criteria/C2-guidance.md)_
-
-Related criterion: [C2: ENDANGERED LANGUAGES](../../generated/criteria/CCP1.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

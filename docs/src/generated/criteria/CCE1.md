@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # CCE1: AUDIENCE PARTICIPATION
 
@@ -16,12 +16,6 @@ The project includes participation by direct audience members or end users throu
 Design process engages with end user.
 
 ## Extended guidance
-_Manual source: [C6-guidance.md](../../manual/criteria/C6-guidance.md)_
-
-Related criterion: [C6: AUDIENCE PARTICIPATION](../../generated/criteria/CCE1.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

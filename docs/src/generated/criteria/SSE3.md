@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # SSE3: SOCIAL GAPS
 
@@ -16,13 +16,8 @@ The project’s main focus aims to close gaps of gender, power, or wealth.
 Reduces wealth and power gaps inside and between countries.
 
 ## Extended guidance
-_Manual source: [S13-guidance.md](../../manual/criteria/S13-guidance.md)_
-
-Related criterion: [S13: SOCIAL GAPS](../../generated/criteria/SSE3.md)
-
-## Purpose
-
-Add human-authored guidance for this criterion.
+## What are social gaps?
+Social Gaps recognizes that sustainable design must address inequality, not only environmental impact. Within the SD Standard, this criterion highlights projects that actively help close gaps of gender, power, or wealth. Referencing indicators such as the OECD’s income inequality measures can help designers connect their work to broader patterns of social and economic disparity, and consider whether a project improves access, representation, opportunity, or participation for groups that are often excluded.
 
 ## How to apply this criterion
 

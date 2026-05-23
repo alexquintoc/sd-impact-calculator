@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # FFP1: SMART GOALS
 
@@ -16,12 +16,6 @@ A strategy document exists that includes measurable financial objectives.
 Financial objectives are defined in a design brief.
 
 ## Extended guidance
-_Manual source: [F4-guidance.md](../../manual/criteria/F4-guidance.md)_
-
-Related criterion: [F4: SMART GOALS](../../generated/criteria/FFP1.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

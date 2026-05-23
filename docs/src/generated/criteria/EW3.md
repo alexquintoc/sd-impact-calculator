@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EW3: ZERO WASTE
 
@@ -16,12 +16,6 @@ The final product is a “zero waste” product.
 Zero waste products.
 
 ## Extended guidance
-_Manual source: [E13-guidance.md](../../manual/criteria/E13-guidance.md)_
-
-Related criterion: [E13: ZERO WASTE](../../generated/criteria/EW3.md)
-
-## Purpose
-
 Zero Waste certifications are available for both projects and entities. For example, [TRUE certification](https://true.gbci.org/true-certification-zero-waste) and the [SCS Zero Waste](https://www.scsglobalservices.com/services/zero-waste-certification) program.
 
 ## How to apply this criterion

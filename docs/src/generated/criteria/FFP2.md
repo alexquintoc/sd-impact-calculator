@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # FFP2: ACCOUNTABILITY AND TRANSPARENCY
 
@@ -16,12 +16,6 @@ The designing entity and the client adhere to accountable and transparent proces
 Adheres to international accounting standards.
 
 ## Extended guidance
-_Manual source: [F5-guidance.md](../../manual/criteria/F5-guidance.md)_
-
-Related criterion: [F5: ACCOUNTABILITY AND TRANSPARENCY](../../generated/criteria/FFP2.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

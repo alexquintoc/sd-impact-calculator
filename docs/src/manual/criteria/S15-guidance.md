@@ -4,7 +4,8 @@ Related criterion: [S15: DESIGN EDUCATION](../../generated/criteria/SED1.md)
 
 ## Purpose
 
-Add human-authored guidance for this criterion.
+## What are examples of design education opportunities?
+The project can involve design students in various ways: a lecture, workshop, collaboration, or internship.
 
 ## How to apply this criterion
 

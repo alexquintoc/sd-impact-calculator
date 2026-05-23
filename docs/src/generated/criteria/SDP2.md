@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # SDP2: HEALTH AND SAFETY
 
@@ -16,12 +16,6 @@ The project’s main focus is to improve the health or safety of the target audi
 Improves human health and/or safety.
 
 ## Extended guidance
-_Manual source: [S2-guidance.md](../../manual/criteria/S2-guidance.md)_
-
-Related criterion: [S2: HEALTH AND SAFETY](../../generated/criteria/SDP2.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

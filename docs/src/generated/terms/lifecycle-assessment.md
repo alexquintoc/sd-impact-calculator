@@ -1,13 +1,17 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # Lifecycle Assessment
 
 ## Definition
-TBD.
+A method for evaluating the environmental impacts of a product, service, or system across its life cycle.
 
 ## Why it matters
-TBD.
+It helps teams identify where material, energy, emissions, and end-of-life impacts can be reduced.
 
 ## Related criteria
 - [E2](../criteria/E2.md)
+
+## Related terms
+- [Carbon Footprint](carbon-footprint.md)
+- [Sustainable Materials](sustainable-materials.md)

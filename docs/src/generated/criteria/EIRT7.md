@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT7: EXTENDED LIFE PRODUCT
 
@@ -16,12 +16,6 @@ When a longer lifetime is desirable for a product or system, it is designed to b
 Product design for longer life than the industry average.
 
 ## Extended guidance
-_Manual source: [E7-guidance.md](../../manual/criteria/E7-guidance.md)_
-
-Related criterion: [E7: EXTENDED LIFE PRODUCT](../../generated/criteria/EIRT7.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

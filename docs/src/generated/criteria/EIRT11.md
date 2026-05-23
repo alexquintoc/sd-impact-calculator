@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT11: QUANTIFIED REPORTING
 
@@ -16,12 +16,6 @@ The designing entity has published a quantified report of reductions in GHG emis
 Publicly-accessible reporting of materials, waste and emissions.
 
 ## Extended guidance
-_Manual source: [E11-guidance.md](../../manual/criteria/E11-guidance.md)_
-
-Related criterion: [E11: QUANTIFIED REPORTING](../../generated/criteria/EIRT11.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

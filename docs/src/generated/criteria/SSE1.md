@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # SSE1: AFFORDABLE
 
@@ -16,13 +16,8 @@ The product is affordable to a wide audience including those with limited financ
 Sustainable products are affordable for all market sectors.
 
 ## Extended guidance
-_Manual source: [S11-guidance.md](../../manual/criteria/S11-guidance.md)_
-
-Related criterion: [S11: AFFORDABLE](../../generated/criteria/SSE1.md)
-
-## Purpose
-
-Add human-authored guidance for this criterion.
+## Why is affordability important?
+Affordability ensures that sustainable design does not reinforce inequality. If a product, service, campaign, tool, or communication system is environmentally responsible but only accessible to higher-income audiences, its social impact is limited. Within the SD Standard, affordability asks designers to consider whether the benefits of a sustainable solution can reach people with limited financial resources, smaller organizations, or underserved communities. It encourages design decisions that reduce barriers to access while still respecting quality, durability, fair labour, and long-term value.
 
 ## How to apply this criterion
 

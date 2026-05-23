@@ -28,11 +28,19 @@
     "whyItMatters": "Material choice often dominates environmental impact in physical design outputs.",
     "relatedCriteria": ["E2"]
   },
-{
+  {
     "id": "lifecycle-assessment",
     "title": "Lifecycle Assessment",
-    "definition": "TBD.",
-    "whyItMatters": "TBD.",
+    "definition": "A method for evaluating the environmental impacts of a product, service, or system across its life cycle.",
+    "whyItMatters": "It helps teams identify where material, energy, emissions, and end-of-life impacts can be reduced.",
+    "relatedCriteria": ["E2"],
+    "relatedTerms": ["carbon-footprint", "sustainable-materials"]
+  },
+  {
+    "id": "sustainability",
+    "title": "Sustainability",
+    "definition": "In 1987, the United Nations Brundtland Commission defined sustainability as “meeting the needs of the present without compromising the ability of future generations to meet their own needs.”",
+    "whyItMatters": "Sustainability is important to making sure that we have and will continue to have, the water, materials, and resources to protect human health and our environment.",
     "relatedCriteria": ["E2"]
   },
   {

@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT4: INK, PRINTING, AND FINISHES
 
@@ -16,12 +16,6 @@ The project materials were designed to reduce or eliminate the use of inks, varn
 Reduces ink coverage on printed materials.
 
 ## Extended guidance
-_Manual source: [E4-guidance.md](../../manual/criteria/E4-guidance.md)_
-
-Related criterion: [E4: INK, PRINTING, AND FINISHES](../../generated/criteria/EIRT4.md)
-
-## Purpose
-
 ### Why should attention be paid to ink coverage?
 Ink coverage is directly related to material consumption, as well as waste generation and disposal. Therefore ink reduction can have a positive impact on resources, energy and pollution.
 

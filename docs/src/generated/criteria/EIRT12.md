@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT12: ANIMAL WELFARE
 
@@ -16,12 +16,6 @@ The success of the project does not and will not put animals or entire animal of
 Animals are not at risk from this project.
 
 ## Extended guidance
-_Manual source: [EM4-guidance.md](../../manual/criteria/EM4-guidance.md)_
-
-Related criterion: [EM4: ANIMAL WELFARE](../../generated/criteria/EIRT12.md)
-
-## Purpose
-
 ### Where can I read the declaration and what it’s about?
 The Universal Declaration on Animal Welfare (UDAW) is a proposed inter-governmental agreement to recognise that animals are sentient, to prevent cruelty and reduce suffering, and to promote standards on the welfare of animals such as farm animals, companion animals, animals in scientific research, draught animals, wildlife and animals in recreation. This Declaration is proposed by the World Society for the Protection of Animals.
 Read it on [Wikipedia](https://en.wikipedia.org/wiki/Universal_Declaration_on_Animal_Welfare).

@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EEM4: CARBON OFFSETS
 
@@ -16,12 +16,6 @@ The design entity or project offsets CO2 emissions for travel, production and We
 Carbon credits offset travel, production and Web presence.
 
 ## Extended guidance
-_Manual source: [E22-guidance.md](../../manual/criteria/E22-guidance.md)_
-
-Related criterion: [E22: CARBON OFFSETS](../../generated/criteria/EEM4.md)
-
-## Purpose
-
 ### What are carbon offset credits and how do I get them?
 ‘Carbon offsets’ refer to activities that reduce greenhouse gases, such as renewable energy, forestry, and resource conservation projects. Participation in carbon offset projects may be purchased as ‘carbon credits.’ Businesses and individuals may use carbon offset credits as a means of reducing and managing their greenhouse gas emissions. For example, an individual or a company may purchase carbon credits to ‘offset’ travel- and/or energy-related greenhouse gas emissions.
 

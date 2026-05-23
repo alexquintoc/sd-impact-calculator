@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EE3: CONSUMER ENERGY
 
@@ -16,12 +16,6 @@ The product or system used by the consumer is energy efficient or uses renewable
 The product consumes energy efficiently.
 
 ## Extended guidance
-_Manual source: [E18-guidance.md](../../manual/criteria/E18-guidance.md)_
-
-Related criterion: [E18: CONSUMER ENERGY](../../generated/criteria/EE3.md)
-
-## Purpose
-
 ### Energy efficiency certifications
 Common energy-use certifications for consumer products in North America include:
 * Energy Star: an international standard for energy efficient consumer products originated in the United States. It was created in 1992 by the Environmental Protection Agency.

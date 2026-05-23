@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # CCP4: CULTURAL DIVERSITY
 
@@ -16,12 +16,6 @@ The project intends to promote or enhance cultural diversity.
 Design promotes or enhances cultural diversity.
 
 ## Extended guidance
-_Manual source: [C5-guidance.md](../../manual/criteria/C5-guidance.md)_
-
-Related criterion: [C5: CULTURAL DIVERSITY](../../generated/criteria/CCP4.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

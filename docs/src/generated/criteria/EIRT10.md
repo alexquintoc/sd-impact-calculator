@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT10: ENVIRONMENTAL POLICY
 
@@ -16,12 +16,6 @@ The designing entity and a majority of suppliers have a publicly-accessible envi
 Publicly-accessible environmental policies.
 
 ## Extended guidance
-_Manual source: [E10-guidance.md](../../manual/criteria/E10-guidance.md)_
-
-Related criterion: [E10: ENVIRONMENTAL POLICY](../../generated/criteria/EIRT10.md)
-
-## Purpose
-
 ### What constitutes a ‘publicly-declared policy?’
 Companies may declare their policies related to environmental sustainability by making them available in a company document such as an Annual Report, Sustainability Report, Global Reporting Initiative (GRI), website or other publication.
 

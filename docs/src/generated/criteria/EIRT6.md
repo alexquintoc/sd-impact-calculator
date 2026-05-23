@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT6: PRODUCT QUANTITY
 
@@ -16,12 +16,6 @@ No more units than needed were produced, including the possibility of no physica
 Reproduction and end-of-life considerations.
 
 ## Extended guidance
-_Manual source: [E6-guidance.md](../../manual/criteria/E6-guidance.md)_
-
-Related criterion: [E6: PRODUCT QUANTITY](../../generated/criteria/EIRT6.md)
-
-## Purpose
-
 ### Why should attention be paid to reproduction quantity?
 Reproduction quantity is directly related to material consumption, as well as waste generation and disposal. Therefore any reduction in quantity can have a positive impact on resources, energy and pollution.
 

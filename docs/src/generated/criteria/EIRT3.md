@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT3: PRODUCT INGREDIENTS LIST
 
@@ -16,12 +16,6 @@ The product or product packaging includes a list of components and/or ingredient
 The display of “ingredients” or material components.
 
 ## Extended guidance
-_Manual source: [E3-guidance.md](../../manual/criteria/E3-guidance.md)_
-
-Related criterion: [E3: PRODUCT INGREDIENTS LIST](../../generated/criteria/EIRT3.md)
-
-## Purpose
-
 ### What ingredients and/or materials should be listed?
 An ingredients list, or list of the material contents of the product, should provide enough information so that the user is informed of the materials that comprise the product and product packaging. In cases where trace amounts of materials may be present and difficult to identify, every effort should be made to identify the ingredient. To provide for such transparency in materials, this information may be listed on the product itself and/or on the product’s packaging.
 

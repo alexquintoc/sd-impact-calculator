@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT1: ENVIRONMENTAL IMPACT REDUCTION
 
@@ -16,12 +16,6 @@ The project strategy includes at least one action to reduce environmental impact
 Actions lead to designs with a lower impact.
 
 ## Extended guidance
-_Manual source: [E1-guidance.md](../../manual/criteria/E1-guidance.md)_
-
-Related criterion: [E1: ENVIRONMENTAL IMPACT REDUCTION](../../generated/criteria/EIRT1.md)
-
-## Purpose
-
 ### What is an Environmental Impact Reduction strategy?
 This should include a description of the environmental impact and reduction target, and how it is to be accomplished and measured. For example: the design brief for a packaging project may list the goal of reducing the environmental impact associated with virgin fiber by using recycled paper fiber. The design brief specifies that no less than 50% of the project’s paper be made of recycled paper, as measured by weight.
 

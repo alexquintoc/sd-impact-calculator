@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EE1: RENEWABLE ENERGY
 
@@ -16,12 +16,6 @@ The production of the product uses renewable energy from solar, wind, thermal or
 Clean energy sources were used to make the product.
 
 ## Extended guidance
-_Manual source: [E16-guidance.md](../../manual/criteria/E16-guidance.md)_
-
-Related criterion: [E16: RENEWABLE ENERGY](../../generated/criteria/EE1.md)
-
-## Purpose
-
 ### What is considered project ‘production,’ and what constitutes a ‘majority of the energy?’
 The number and type of production steps, and the amount and type of energy needed for each step, will vary for different products. In general, production of a project includes generation of the materials, processing of the materials, and fabrication. You may also consider associated packaging, shipping and distribution of the project as part of the production.
 

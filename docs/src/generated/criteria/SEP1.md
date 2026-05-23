@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # SEP1: HUMAN RIGHTS
 
@@ -16,13 +16,8 @@ To the best knowledge of the design entity, the project and the client do not co
 Design does not contribute to the violation of human rights.
 
 ## Extended guidance
-_Manual source: [SM1-guidance.md](../../manual/criteria/SM1-guidance.md)_
-
-Related criterion: [SM1: HUMAN RIGHTS](../../generated/criteria/SEP1.md)
-
-## Purpose
-
-Add human-authored guidance for this criterion.
+## What are the universal human rights?
+Proclaimed on the [Universal Declaration of Human Rights](https://www.un.org/en/about-us/universal-declaration-of-human-rights), and promoted through 30 articles, are the rights concerning to equality and freedom for all human beings.
 
 ## How to apply this criterion
 

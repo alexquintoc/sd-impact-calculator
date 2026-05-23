@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # CCP2: INDIGENOUS CULTURE
 
@@ -16,12 +16,6 @@ The project preserves or nurtures Indigenous culture, other than language.
 Preserves or nurtures Indigenous culture.
 
 ## Extended guidance
-_Manual source: [C3-guidance.md](../../manual/criteria/C3-guidance.md)_
-
-Related criterion: [C3: INDIGENOUS CULTURE](../../generated/criteria/CCP2.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

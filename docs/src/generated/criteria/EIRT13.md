@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EIRT13: ECOSYSTEMS CONSERVATION
 
@@ -16,12 +16,6 @@ To the best knowledge of the design entity, the client’s activities and the pr
 Conservation of valuable ecosystems.
 
 ## Extended guidance
-_Manual source: [EM6-guidance.md](../../manual/criteria/EM6-guidance.md)_
-
-Related criterion: [EM6: ECOSYSTEMS CONSERVATION](../../generated/criteria/EIRT13.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

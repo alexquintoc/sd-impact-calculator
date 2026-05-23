@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EEM3: AIR POLLUTION AND GREENHOUSE GASES
 
@@ -16,12 +16,6 @@ Air pollution or greenhouse gas emissions were avoided or reduced, mitigating oc
 Product emission and air pollution.
 
 ## Extended guidance
-_Manual source: [E21-guidance.md](../../manual/criteria/E21-guidance.md)_
-
-Related criterion: [E21: AIR POLLUTION AND GREENHOUSE GASES](../../generated/criteria/EEM3.md)
-
-## Purpose
-
 ### How may air pollution or greenhouse gases be avoided or reduced?
 The project was designed to avoid or reduce overall air pollution and/or greenhouse gas emissions associated with the product service system. This may be done by ‘offsetting’ greenhouse gas emissions by purchasing carbon offset credits,
 conducting a life cycle assessment (LCA) that identifies and calculates air pollution,

@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EW2: RECYCLABILITY OR REUSABILITY
 
@@ -16,12 +16,6 @@ Design solutions include materials or systems that increase the ease and likelih
 Product and packaging can be reused or recycled.
 
 ## Extended guidance
-_Manual source: [E14-guidance.md](../../manual/criteria/E14-guidance.md)_
-
-Related criterion: [E14: RECYCLABILITY OR REUSABILITY](../../generated/criteria/EW2.md)
-
-## Purpose
-
 Recycled content avoids waste temporarily and reduces the need of using virgin natural resources.
 
 ## How to apply this criterion

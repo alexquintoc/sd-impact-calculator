@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # SDP1: HARMLESS
 
@@ -16,12 +16,6 @@ The project is purposely designed to reduce mental and physical injury to those 
 Reduces injury in the making and use of the product.
 
 ## Extended guidance
-_Manual source: [S1-guidance.md](../../manual/criteria/S1-guidance.md)_
-
-Related criterion: [S1: HARMLESS](../../generated/criteria/SDP1.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion

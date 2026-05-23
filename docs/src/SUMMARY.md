@@ -82,6 +82,7 @@
   - [Emissions](generated/terms/emissions.md)
   - [Lifecycle Assessment](generated/terms/lifecycle-assessment.md)
   - [Print on Demand](generated/terms/print-on-demand.md)
+  - [Sustainability](generated/terms/sustainability.md)
   - [Sustainable Materials](generated/terms/sustainable-materials.md)
   - [Waste Reduction](generated/terms/waste-reduction.md)
 <!-- GENERATED_SUMMARY:END -->

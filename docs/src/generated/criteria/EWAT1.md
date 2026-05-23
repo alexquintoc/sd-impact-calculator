@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # EWAT1: WATER
 
@@ -16,12 +16,6 @@ Water pollution or water use were avoided or reduced.
 Reduces water use and pollution.
 
 ## Extended guidance
-_Manual source: [E23-guidance.md](../../manual/criteria/E23-guidance.md)_
-
-Related criterion: [E23: WATER](../../generated/criteria/EWAT1.md)
-
-## Purpose
-
 ### How can water pollution be avoided or reduced?
 The project was designed to avoid or reduce overall water pollution associated with the product service system. This may be done by:
 

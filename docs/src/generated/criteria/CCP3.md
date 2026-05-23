@@ -1,5 +1,5 @@
 <!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
-<!-- Edit packages/standard-core/src/criteria.json or terms.json instead. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
 
 # CCP3: LOCAL CULTURE
 
@@ -16,12 +16,6 @@ The project’s products or services adapt to local and regional cultures.
 Adapts design to local cultures.
 
 ## Extended guidance
-_Manual source: [C4-guidance.md](../../manual/criteria/C4-guidance.md)_
-
-Related criterion: [C4: LOCAL CULTURE](../../generated/criteria/CCP3.md)
-
-## Purpose
-
 Add human-authored guidance for this criterion.
 
 ## How to apply this criterion
