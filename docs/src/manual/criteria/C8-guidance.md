@@ -2,9 +2,9 @@
 
 Related criterion: [C8: PRACTITIONERSâ€™ EDUCATION](../../generated/criteria/CCE3.md)
 
-## Purpose
+## What forms of educational practices could be included?
 
-Add human-authored guidance for this criterion.
+Internships, temporary work, fellowships, summer programs, curriculum development.
 
 ## How to apply this criterion
 

@@ -16,7 +16,9 @@ The project is likely to help preserve endangered languages, particularly Indige
 Contributes to the preservation of endangered languages.
 
 ## Extended guidance
-Add human-authored guidance for this criterion.
+## What are the world's endangered language?
+
+UNESCO published a list of the world's endangered languages in 2010. See their [Atlas of the world's languages in danger](https://unesdoc.unesco.org/ark:/48223/pf0000187026)
 
 ## How to apply this criterion
 

@@ -16,7 +16,8 @@ The product includes an educational component that promotes sustainability to th
 Educates the user or consumer on sustainability.
 
 ## Extended guidance
-Add human-authored guidance for this criterion.
+## What is meant by 'educating about sustainability'?
+The project educates on sustainability, meaning, content that refers directly or indirectly to a current definition of sustainability.
 
 ## How to apply this criterion
 

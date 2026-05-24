@@ -16,7 +16,9 @@ The project results in the education of practitioners regarding sustainable desi
 Project educates others to support sustainable design education.
 
 ## Extended guidance
-Add human-authored guidance for this criterion.
+## What forms of educational practices could be included?
+
+Internships, temporary work, fellowships, summer programs, curriculum development.
 
 ## How to apply this criterion
 

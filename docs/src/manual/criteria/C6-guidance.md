@@ -2,9 +2,8 @@
 
 Related criterion: [C6: AUDIENCE PARTICIPATION](../../generated/criteria/CCE1.md)
 
-## Purpose
-
-Add human-authored guidance for this criterion.
+## What are some methods for engaging audiences to participate in the design process?
+See Wikipedia’s [Participatory Design](https://en.wikipedia.org/wiki/Participatory_design) page.
 
 ## How to apply this criterion
 

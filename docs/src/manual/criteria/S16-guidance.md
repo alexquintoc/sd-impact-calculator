@@ -4,7 +4,8 @@ Related criterion: [S16: EDUCATIONAL COMPONENT](../../generated/criteria/SED2.md
 
 ## Purpose
 
-Add human-authored guidance for this criterion.
+## What is meant by 'educating about sustainability'?
+The project educates on sustainability, meaning, content that refers directly or indirectly to a current definition of sustainability.
 
 ## How to apply this criterion
 

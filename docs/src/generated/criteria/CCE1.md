@@ -16,7 +16,8 @@ The project includes participation by direct audience members or end users throu
 Design process engages with end user.
 
 ## Extended guidance
-Add human-authored guidance for this criterion.
+## What are some methods for engaging audiences to participate in the design process?
+See Wikipedia’s [Participatory Design](https://en.wikipedia.org/wiki/Participatory_design) page.
 
 ## How to apply this criterion
 

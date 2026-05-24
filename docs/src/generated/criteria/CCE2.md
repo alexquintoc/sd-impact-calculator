@@ -16,7 +16,12 @@ The project’s designing entity actively supports and participates in the susta
 Actively supports the sustainable development of your community.
 
 ## Extended guidance
-Add human-authored guidance for this criterion.
+## What are some examples of community participation?
+For example, the designing entity has a program in place to support local events, through volunteer efforts; thus strengthening the local community.
+
+The designing entity shares content, code, or other intellectual property to an organization in the local community.
+
+These activities are explained or documented by the designing entity and are included in its publicly-visible policy on cultural sustainability.
 
 ## How to apply this criterion
 
