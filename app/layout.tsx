@@ -14,43 +14,20 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
-  {
-    label: "Tools and Resources",
-    href: "/#tools-resources",
-    children: [
-      { label: "Impact Calculator", href: "/calculator" },
-      { label: "Brief Generator", href: "/brief-generator" },
-      { label: "Quick Project Scan", href: "/quick-project-scan" },
-      { label: "Knowledge Base", href: "/knowledge-base" },
-    ],
-  },
-  { label: "Projects", href: "/projects" },
-  { label: "Baselines", href: "/baselines" },
-  { label: "Get Involved", href: "/#get-involved" },
+  { label: "Footprints", href: "/footprints" },
+  { label: "Quick Scan", href: "/quick-project-scan" },
+  { label: "Evaluate", href: "/calculator" },
+  { label: "Learn", href: "/knowledge-base" },
+  { label: "Imagine", href: "/brief-generator" },
 ];
 
 const footerColumns: NavItem[][] = [
-  [{ label: "Home", href: "/" }],
+  [{ label: "Footprints", href: "/footprints" }],
+  [{ label: "Quick Scan", href: "/quick-project-scan" }],
+  [{ label: "Evaluate", href: "/calculator" }],
   [
-    {
-      label: "Tools and Resources",
-      href: "/#tools-resources",
-      children: [
-        { label: "Impact Calculator", href: "/calculator" },
-        { label: "Brief Generator", href: "/brief-generator" },
-        { label: "Quick Project Scan", href: "/quick-project-scan" },
-        { label: "Knowledge Base", href: "/knowledge-base" },
-      ],
-    },
-  ],
-  [
-    { label: "Projects", href: "/projects" },
-    { label: "Baselines", href: "/baselines" },
-  ],
-  [
-    { label: "Get Involved", href: "/#get-involved" },
-    { label: "Get in Touch", href: "mailto:info@sdstandard.org" },
+    { label: "Learn", href: "/knowledge-base" },
+    { label: "Imagine", href: "/brief-generator" },
   ],
 ];
 
@@ -99,7 +76,7 @@ export default function RootLayout({
             <div>
               <h2>SD Standard</h2>
               <p>
-                An open sustainability standard for visual communication and design practitioners
+                An openy sustainability standard for visual communication and design practitioners
               </p>
             </div>
             <nav aria-label="Footer navigation">

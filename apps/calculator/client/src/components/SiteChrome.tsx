@@ -1,5 +1,4 @@
 import type { ReactNode } from "react";
-import { ChevronDown } from "lucide-react";
 import { useLocation } from "wouter";
 
 type NavItem = {
@@ -9,43 +8,20 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { label: "Home", href: "/" },
-  {
-    label: "Tools and Resources",
-    href: "/#tools-resources",
-    children: [
-      { label: "Impact Calculator", href: "/calculator" },
-      { label: "Brief Generator", href: "/brief-generator" },
-      { label: "Quick Project Scan", href: "/quick-project-scan" },
-      { label: "Knowledge Base", href: "/knowledge-base" },
-    ],
-  },
-  { label: "Projects", href: "/projects" },
-  { label: "Baselines", href: "/baselines" },
-  { label: "Get Involved", href: "/#get-involved" },
+  { label: "Footprints", href: "/footprints" },
+  { label: "Quick Scan", href: "/quick-project-scan" },
+  { label: "Evaluate", href: "/calculator" },
+  { label: "Learn", href: "/knowledge-base" },
+  { label: "Imagine", href: "/brief-generator" },
 ];
 
 const footerColumns: NavItem[][] = [
-  [{ label: "Home", href: "/" }],
+  [{ label: "Footprints", href: "/footprints" }],
+  [{ label: "Quick Scan", href: "/quick-project-scan" }],
+  [{ label: "Evaluate", href: "/calculator" }],
   [
-    {
-      label: "Tools and Resources",
-      href: "/#tools-resources",
-      children: [
-        { label: "Impact Calculator", href: "/calculator" },
-        { label: "Brief Generator", href: "/brief-generator" },
-        { label: "Quick Project Scan", href: "/quick-project-scan" },
-        { label: "Knowledge Base", href: "/knowledge-base" },
-      ],
-    },
-  ],
-  [
-    { label: "Projects", href: "/projects" },
-    { label: "Baselines", href: "/baselines" },
-  ],
-  [
-    { label: "Get Involved", href: "/#get-involved" },
-    { label: "Get in Touch", href: "mailto:info@sdstandard.org" },
+    { label: "Learn", href: "/knowledge-base" },
+    { label: "Imagine", href: "/brief-generator" },
   ],
 ];
 
@@ -86,40 +62,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
           </a>
           <nav className="flex flex-wrap gap-2" aria-label="Main navigation">
             {navItems.map((item) => {
-              const active =
-                isActive(location, item.href) ||
-                Boolean(item.children?.some((child) => isActive(location, child.href)));
-              if (item.children) {
-                return (
-                  <div className="group relative" key={item.href}>
-                    <a className={`${getNavLinkClasses(active)} inline-flex items-center gap-1`} href={item.href}>
-                      {item.label}
-                      <ChevronDown className="h-4 w-4" aria-hidden="true" />
-                    </a>
-                    <div className="invisible absolute left-0 top-full z-20 min-w-56 pt-2 opacity-0 transition group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
-                      <div className="rounded-lg border border-[#d9d4c8] bg-[#fffdf8] p-2 shadow-[0_18px_50px_rgba(45,39,28,0.12)]">
-                        {item.children.map((child) => {
-                          const childActive = isActive(location, child.href);
-                          return (
-                            <a
-                              className={`block rounded-md px-3 py-2 text-sm font-bold transition focus:outline-none focus:ring-4 focus:ring-[#85bba8] ${
-                                childActive
-                                  ? "bg-[#e5efe9] text-[#28775e]"
-                                  : "text-[#5f5a50] hover:bg-white hover:text-[#1f241f]"
-                              }`}
-                              href={child.href}
-                              key={child.href}
-                            >
-                              {child.label}
-                            </a>
-                          );
-                        })}
-                      </div>
-                    </div>
-                  </div>
-                );
-              }
-
+              const active = isActive(location, item.href);
               return (
                 <a
                   className={getNavLinkClasses(active)}

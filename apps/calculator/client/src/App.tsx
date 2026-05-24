@@ -7,6 +7,7 @@ import NotFound from "@/pages/not-found";
 import BaselineDetail from "@/pages/BaselineDetail";
 import Baselines from "@/pages/Baselines";
 import BriefGenerator from "@/pages/BriefGenerator";
+import Footprints from "@/pages/Footprints";
 import Home from "@/pages/Home";
 import Index from "@/pages/Index";
 import ProjectDetail from "@/pages/ProjectDetail";
@@ -22,6 +23,8 @@ function Router() {
       <Route path="/brief-generator/" component={BriefGenerator} />
       <Route path="/calculator" component={Home} />
       <Route path="/calculator/" component={Home} />
+      <Route path="/footprints" component={Footprints} />
+      <Route path="/footprints/" component={Footprints} />
       <Route path="/project-scan" component={QuickProjectScan} />
       <Route path="/project-scan/" component={QuickProjectScan} />
       <Route path="/quick-project-scan" component={QuickProjectScan} />

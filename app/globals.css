@@ -344,6 +344,46 @@ a {
   background: #fff8d7;
 }
 
+.footprints-tabs > input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.footprints-toggle {
+  background: #fffdf8;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  display: inline-flex;
+  gap: 4px;
+  margin-top: 32px;
+  padding: 4px;
+}
+
+.footprints-toggle label {
+  border-radius: 6px;
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 800;
+  padding: 11px 18px;
+}
+
+#footprints-projects:checked ~ .footprints-toggle label[for="footprints-projects"],
+#footprints-baselines:checked ~ .footprints-toggle label[for="footprints-baselines"] {
+  background: var(--environment);
+  color: #fff;
+}
+
+.footprints-panel {
+  display: none;
+}
+
+#footprints-projects:checked ~ .projects-panel,
+#footprints-baselines:checked ~ .baselines-panel {
+  display: grid;
+}
+
 .estimate {
   color: var(--ink);
   font-size: 0.95rem;

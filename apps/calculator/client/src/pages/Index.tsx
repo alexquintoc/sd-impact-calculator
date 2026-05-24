@@ -2,12 +2,15 @@ import {
   ArrowRight,
   BookOpen,
   Calculator,
+  Footprints as FootprintsIcon,
   Network,
   PenLine,
   ScanLine,
 } from "lucide-react";
 import type { ReactNode } from "react";
 
+// HOMEPAGE COPY: Edit the objects in this block to change the main language on `/`.
+// These are hand-authored strings and are separate from generated Knowledge Base files.
 const heroAction = {
   label: "Start by Generating a Sustainable Design Brief",
   href: "/brief-generator/",
@@ -46,39 +49,46 @@ const pillars = [
 
 const tools = [
   {
-    title: "Design Brief Generator",
-    description: "Generate sustainability-oriented project briefs that balance the four SD Standard pillars.",
-    href: "/brief-generator",
-    label: "Open the generator",
-    icon: PenLine,
+    title: "Explore Impacts",
+    description: "Learn the average footprint of what we create.",
+    href: "/footprints",
+    label: "Review footprints",
+    icon: FootprintsIcon,
   },
   {
-    title: "Quick Project Scanner",
-    description: "Rapidly identify likely sustainability opportunities in an existing project or concept.",
+    title: "Scan a Project",
+    description: "Quickly Identify sustainable options for a current project.",
     href: "/quick-project-scan",
     label: "Scan a project",
     icon: ScanLine,
   },
   {
-    title: "Impact Calculator",
-    description: "Evaluate projects through the SD Standard framework and track criteria-level progress.",
+    title: "Evaluate Your Impacts",
+    description: "Measure your work and report on progress.",
     href: "/calculator",
-    label: "Try the calculator",
+    label: "Try the Standard",
     icon: Calculator,
   },
   {
-    title: "Knowledge Base",
-    description: "Explore sustainability concepts, criteria, terminology, and supporting reference material.",
+    title: "Grow Knowledge",
+    description: "Explore sustainability concepts, terminology and other open resources.",
     href: "/knowledge-base",
-    label: "Browse the knowledge base",
+    label: "Browse resources",
     icon: BookOpen,
+  },
+  {
+    title: "Imagine More",
+    description: "Create briefs that balance the four SD Standard pillars.",
+    href: "/brief-generator",
+    label: "Create a design brief",
+    icon: PenLine,
   },
 ];
 
 const workflowSteps = [
-  "Generate a project brief",
-  "Scan sustainability opportunities",
-  "Evaluate against sustainability criteria",
+  "Create the brief",
+  "Scan opportunities",
+  "Evaluate your impact",
   "Document and improve impact",
 ];
 
@@ -108,30 +118,31 @@ const featuredProjects = [
 
 const involvementGroups = [
   {
-    title: "Advisors & Researchers",
-    for: ["academics", "sustainability specialists", "accessibility experts", "policy advisors", "Indigenous knowledge holders", "lifecycle assessment professionals"],
-    contributionTitle: "Ways to contribute",
-    contributions: ["review criteria", "advise on methodology", "contribute research", "help validate frameworks"],
-  },
-  {
     title: "Contributors & Collaborators",
     for: ["designers", "developers", "writers", "translators", "UX designers", "students"],
     contributionTitle: "Ways to contribute",
     contributions: ["improve the user experience", "develop tools", "write case studies", "create datasets", "document projects", "test workflows"],
   },
   {
+    title: "Advisors & Researchers",
+    for: ["academics", "sustainability specialists", "accessibility experts", "social health advocates", "lawyers", "attorneys", "policy advisors", "Indigenous knowledge holders", "lifecycle assessment professionals"],
+    contributionTitle: "Ways to contribute",
+    contributions: ["review criteria", "advise on methodology", "contribute research", "help validate frameworks", "evolve knowledge base"],
+  },
+  {
     title: "Educational & Institutional Partners",
     for: ["schools", "nonprofits", "design associations", "government agencies", "incubators"],
-    contributionTitle: "Potential collaborations",
+    contributionTitle: "COLLABORATION OPPORTUNTIES",
     contributions: ["sustainable design curriculum", "workshops", "certification pilots", "research partnerships", "student challenges", "regional adaptations"],
   },
   {
     title: "Industry & Supply Chain Partners",
-    for: ["printers", "paper suppliers", "digital hosting companies", "accessibility vendors", "packaging suppliers", "lifecycle assessment providers"],
+    for: ["printers", "paper suppliers", "digital hosting companies", "accessibility vendors", "packaging suppliers", "lifecycle assessment providers", "product vendors", "certification bodies"],
     contributionTitle: "Ways to collaborate",
     contributions: ["materials datasets", "environmental benchmarks", "verified supplier pathways", "low-impact production templates", "chain-of-custody systems"],
   },
 ];
+// END HOMEPAGE COPY
 
 function LinkButton({
   href,
@@ -162,19 +173,18 @@ function LinkButton({
 export default function Index() {
   return (
     <main className="min-h-screen bg-[#f7f5ef] text-[#1f241f]">
+      {/* HOMEPAGE COPY: Hero headline, intro paragraph, and primary CTA. */}
       <section className="mx-auto grid min-h-[92vh] w-full max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(0,1fr)_380px] lg:px-10 lg:py-20">
         <div>
           <p className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#28775e]">
             Sustainable Design Standard
           </p>
           <h1 className="mt-5 max-w-5xl text-5xl font-extrabold leading-[0.98] tracking-normal sm:text-6xl lg:text-7xl">
-            An open sustainability standard for visual communication and design practitioners
+            An open sustainability standard for creatives
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-[#5f5a50] sm:text-xl">
-            The SD Standard is a design framework applicable to communication design,
-            digital design, print, branding, exhibits, packaging, and hybrid
-            communication projects. It is based on four pillars: environment,
-            society, culture, and finance.
+            The Sustainable Design Standard is a framework to help creatives understand our impacts, create options, and build future-focused projects. 
+            It’s based on four pillars: environment, society, culture, and finance.
           </p>
 
           <div className="mt-9 flex flex-wrap gap-3">
@@ -216,11 +226,12 @@ export default function Index() {
         </aside>
       </section>
 
+      {/* HOMEPAGE COPY: Section headers and body copy below are safe to edit here. */}
       <section className="border-y border-[#d9d4c8] bg-[#fffdf8]">
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
           <SectionHeader
             kicker="What is the SD Standard?"
-            title="A four-pillar framework for design impact: from concept to evaluation."
+            title="A living framework for interconnected design and creative decision-making."
             description="The standard turns broad sustainability goals into practical criteria that can be reviewed during briefing, production, evaluation, and documentation."
           />
           <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
@@ -264,7 +275,7 @@ export default function Index() {
           title="Move from intention to evidence."
           description="Use the SD Standard as a connected set of tools for briefing, planning, evaluating, and learning."
         />
-        <div className="mt-9 grid gap-5 md:grid-cols-2 xl:grid-cols-4">
+        <div className="mt-9 grid gap-5 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {tools.map((tool) => {
             const Icon = tool.icon;
             return (
@@ -296,7 +307,7 @@ export default function Index() {
         <div className="mx-auto max-w-7xl px-5 py-16 sm:px-8 lg:px-10">
           <SectionHeader
             kicker="Design process"
-            title="A standard that fits into the way design work already happens."
+            title="A Standard that fits the way we design."
             description="Use it early to shape project intent, during production to identify opportunities, and after launch to document and improve impact."
             inverted
           />
@@ -375,11 +386,10 @@ export default function Index() {
                 Get involved
               </p>
               <h2 className="mt-3 text-4xl font-extrabold leading-tight sm:text-5xl">
-                Build the standard with practitioners, researchers, and partners.
+                Build the Standards with creatives, researchers, and partners.
               </h2>
               <p className="mt-5 text-lg leading-8 text-[#5f5a50]">
-                The SD Standard is being developed as an open and evolving
-                framework for sustainable communication design.
+                The SD Standard is a living and evolving framework built on collaboration.
               </p>
               <div className="mt-7">
                 <LinkButton href="mailto:info@sdstandard.org" variant="secondary">
