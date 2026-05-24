@@ -12,7 +12,7 @@
     "title": "Circular Economy",
     "definition": "An approach that keeps materials and products in use longer through reuse, repair, remanufacture, and recycling.",
     "whyItMatters": "It helps reduce waste and the extraction of virgin materials.",
-    "relatedCriteria": ["E5"],
+    "relatedCriteria": ["E6", "E14", "E15", "E13"],
     "relatedTerms": ["waste-reduction", "sustainable-materials"]
   },
   {
@@ -26,14 +26,14 @@
     "title": "Sustainable Materials",
     "definition": "Materials chosen to reduce environmental harm through renewability, recyclability, or lower lifecycle impact.",
     "whyItMatters": "Material choice often dominates environmental impact in physical design outputs.",
-    "relatedCriteria": ["E2"]
+    "relatedCriteria": ["E17", "E15", "E16"]
   },
   {
     "id": "lifecycle-assessment",
     "title": "Lifecycle Assessment",
     "definition": "A method for evaluating the environmental impacts of a product, service, or system across its life cycle.",
     "whyItMatters": "It helps teams identify where material, energy, emissions, and end-of-life impacts can be reduced.",
-    "relatedCriteria": ["E2"],
+    "relatedCriteria": ["E1"],
     "relatedTerms": ["carbon-footprint", "sustainable-materials"]
   },
   {
@@ -41,20 +41,20 @@
     "title": "Sustainability",
     "definition": "In 1987, the United Nations Brundtland Commission defined sustainability as “meeting the needs of the present without compromising the ability of future generations to meet their own needs.”",
     "whyItMatters": "Sustainability is important to making sure that we have and will continue to have, the water, materials, and resources to protect human health and our environment.",
-    "relatedCriteria": ["E2"]
+    "relatedCriteria": ["E1"]
   },
   {
     "id": "waste-reduction",
     "title": "Waste Reduction",
     "definition": "TBD.",
     "whyItMatters": "TBD.",
-    "relatedCriteria": ["E2"]
+    "relatedCriteria": ["E5", "E14", "E13"]
   },
   {
     "id": "print-on-demand",
     "title": "Print on Demand",
     "definition": "Print on demand (POD) is a printing technology and business process in which book copies (or other documents, packaging, or materials) are not printed until the company receives an order, allowing prints in single or small quantities.",
     "whyItMatters": "Reduces unnecessary material waste.",
-    "relatedCriteria": ["E1", "E2", "E4", "E5", "E6"]
+    "relatedCriteria": ["E3", "E4", "E5"]
   }
 ]

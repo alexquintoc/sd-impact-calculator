@@ -10,4 +10,6 @@ TBD.
 TBD.
 
 ## Related criteria
-- [E2](../criteria/E2.md)
+- [E5](../criteria/E5.md)
+- [E14](../criteria/E14.md)
+- [E13](../criteria/E13.md)

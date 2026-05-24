@@ -10,4 +10,6 @@ Materials chosen to reduce environmental harm through renewability, recyclabilit
 Material choice often dominates environmental impact in physical design outputs.
 
 ## Related criteria
-- [E2](../criteria/E2.md)
+- [E17](../criteria/E17.md)
+- [E15](../criteria/E15.md)
+- [E16](../criteria/E16.md)

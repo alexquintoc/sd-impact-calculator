@@ -148,8 +148,9 @@ function buildGeneratedSummary(criteriaData, termsData) {
 
   for (const pillar of criteriaData.pillars) {
     for (const criterion of pillar.criteria) {
-      const publicId = getCriterionPublicId(criterion);
-      lines.push(`  - [${publicId}: ${criterion.label}](generated/criteria/${publicId}.md)`);
+      const visibleId = getCriterionVisibleId(criterion);
+      const docSlug = getCriterionDocSlug(criterion);
+      lines.push(`  - [${visibleId}: ${criterion.label}](generated/criteria/${docSlug}.md)`);
     }
   }
 
@@ -203,7 +204,11 @@ function getPillarDocSlug(pillar) {
   return pillar.id === "environmental" ? "environment" : pillar.id;
 }
 
-function getCriterionPublicId(criterion) {
+function getCriterionDocSlug(criterion) {
+  return criterion.id;
+}
+
+function getCriterionVisibleId(criterion) {
   return criterion.displayId || criterion.id;
 }
 
@@ -238,6 +243,30 @@ function formatSdgs(sdgs) {
       return /^sdg\s+/i.test(value) ? value.replace(/^sdg/i, "SDG") : `SDG ${value}`;
     })
     .join(", ");
+}
+
+function formatAppliesTo(appliesTo) {
+  if (!Array.isArray(appliesTo) || appliesTo.length === 0) return "";
+
+  const labels = {
+    project: "Project",
+    designingEntity: "Designing Entity"
+  };
+
+  return appliesTo
+    .map((value) => labels[value] || value)
+    .filter(Boolean)
+    .join(", ");
+}
+
+function formatSubcategory(criteriaData, criterion) {
+  const subcategory = criterion.subcategory;
+  if (!subcategory) return "";
+
+  return (
+    criteriaData.subcategories?.[subcategory]?.label ||
+    formatListValue([subcategory])
+  );
 }
 
 function formatProjectTypes(criterion) {
@@ -298,9 +327,9 @@ function buildManualCriteriaReadme(criteriaData) {
     lines.push(`## ${pillar.label}`, "");
 
     for (const criterion of pillar.criteria) {
-      const publicId = getCriterionPublicId(criterion);
+      const visibleId = getCriterionVisibleId(criterion);
       lines.push(
-        `- [${publicId}: ${criterion.label}](${getCriterionManualFileName(criterion)})`
+        `- [${visibleId}: ${criterion.label}](${getCriterionManualFileName(criterion)})`
       );
     }
 
@@ -417,7 +446,8 @@ function generateCriteriaDocs(criteriaData) {
     indexLines.push(`## ${pillar.label}`, "");
 
     for (const criterion of pillar.criteria) {
-      const publicId = getCriterionPublicId(criterion);
+      const visibleId = getCriterionVisibleId(criterion);
+      const docSlug = getCriterionDocSlug(criterion);
       const examples = (criterion.examples || [])
         .map((example) => `- ${example}`)
         .join("\n");
@@ -428,8 +458,9 @@ function generateCriteriaDocs(criteriaData) {
 
       const contentParts = [
         GENERATED_WARNING,
-        `# ${publicId}: ${criterion.label}`,
+        `# ${visibleId}: ${criterion.label}`,
         "",
+        `**Display ID:** ${visibleId}  `,
         `**Pillar:** ${pillar.label}  `,
         `**Points:** ${criterion.points}  `,
         `**Mandatory for Certification:** ${criterion.mandatory === true ? "Yes" : "No"}  `
@@ -437,6 +468,16 @@ function generateCriteriaDocs(criteriaData) {
 
       const projectTypes = formatProjectTypes(criterion);
       const relatedSdgs = formatSdgs(criterion.sdgs);
+      const appliesTo = formatAppliesTo(criterion.appliesTo);
+      const subcategory = formatSubcategory(criteriaData, criterion);
+
+      if (subcategory) {
+        contentParts.push(`**Category:** ${subcategory}  `);
+      }
+
+      if (appliesTo) {
+        contentParts.push(`**Applicability:** ${appliesTo}  `);
+      }
 
       if (projectTypes) {
         contentParts.push(`**Project types:** ${projectTypes}  `);
@@ -478,10 +519,10 @@ function generateCriteriaDocs(criteriaData) {
         );
       }
 
-      const filePath = path.join(docsCriteriaDir, `${publicId}.md`);
+      const filePath = path.join(docsCriteriaDir, `${docSlug}.md`);
       writeFile(filePath, contentParts.join("\n"));
 
-      indexLines.push(`- [${publicId}: ${criterion.label}](${publicId}.md)`);
+      indexLines.push(`- [${visibleId}: ${criterion.label}](${docSlug}.md)`);
     }
 
     indexLines.push("");
@@ -567,8 +608,9 @@ function generatePillarDocs(criteriaData) {
     const criteriaLinks = pillar.criteria
       .map(
         (criterion) => {
-          const publicId = getCriterionPublicId(criterion);
-          return `- [${publicId}: ${criterion.label}](../criteria/${publicId}.md)`;
+          const visibleId = getCriterionVisibleId(criterion);
+          const docSlug = getCriterionDocSlug(criterion);
+          return `- [${visibleId}: ${criterion.label}](../criteria/${docSlug}.md)`;
         }
       )
       .join("\n");
@@ -630,14 +672,21 @@ function generateCriteriaMeta(criteriaData) {
     for (const criterion of pillar.criteria) {
       meta[criterion.id] = {
         id: criterion.id,
+        displayId: getCriterionVisibleId(criterion),
+        legacyId: criterion.legacyId || "",
         label: criterion.label,
         points: criterion.points,
         pillarId: pillar.id,
         pillarLabel: pillar.label,
+        subcategory: criterion.subcategory || "",
+        subcategoryLabel: formatSubcategory(criteriaData, criterion),
+        appliesTo: Array.isArray(criterion.appliesTo) ? criterion.appliesTo : [],
+        mandatory: criterion.mandatory === true,
+        sdgs: Array.isArray(criterion.sdgs) ? criterion.sdgs : [],
         summary: criterion.summary || criterion.description || "",
         description: criterion.description || "",
         whyItMatters: criterion.whyItMatters || "",
-        url: `/generated/criteria/${criterion.id.replace(/-/g, "")}.html`
+        url: `/generated/criteria/${getCriterionDocSlug(criterion)}.html`
       };
     }
   }

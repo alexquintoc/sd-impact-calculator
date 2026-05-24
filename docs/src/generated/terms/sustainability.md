@@ -10,4 +10,4 @@ In 1987, the United Nations Brundtland Commission defined sustainability as “m
 Sustainability is important to making sure that we have and will continue to have, the water, materials, and resources to protect human health and our environment.
 
 ## Related criteria
-- [E2](../criteria/E2.md)
+- [E1](../criteria/E1.md)

@@ -1,617 +1,1375 @@
 {
   "E1": {
     "id": "E1",
-    "label": "ENVIRONMENTAL IMPACT REDUCTION",
+    "displayId": "E1",
+    "legacyId": "E1",
+    "label": "Environmental Impact Reduction",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The project strategy includes at least one action to reduce environmental impact.",
-    "description": "The project strategy includes at least one action to reduce environmental impact.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      11,
+      12,
+      13
+    ],
+    "summary": "Reduces environmental impact and is supported by a qualified life cycle study (LCS) or quantitative life cycle assessment (LCA).",
+    "description": "The project strategy includes at least one action to reduce environmental impact that is supported by a qualified life cycle study (LCS) or quantitative life cycle assessment (LCA).",
     "whyItMatters": "Actions lead to designs with a lower impact.",
     "url": "/generated/criteria/E1.html"
   },
-  "E2": {
-    "id": "E2",
-    "label": "LIFECYCLE",
-    "points": 1,
-    "pillarId": "environment",
-    "pillarLabel": "Environmental Criteria",
-    "summary": "The project’s strategy is supported by a qualified, simplified life cycle study (LCS) or quantitative life cycle assessment (LCA).",
-    "description": "The project’s strategy is supported by a qualified, simplified life cycle study (LCS) or quantitative life cycle assessment (LCA).",
-    "whyItMatters": "Design addresses the environmental impact of a product.",
-    "url": "/generated/criteria/E2.html"
-  },
   "E3": {
     "id": "E3",
-    "label": "PRODUCT INGREDIENTS LIST",
+    "displayId": "E2",
+    "legacyId": "E3",
+    "label": "Product Ingredients Transparency",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The product or product packaging includes a list of components and/or ingredients.",
-    "description": "The product or product packaging includes a list of components and/or ingredients.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      12
+    ],
+    "summary": "Displays ingredients or material components.",
+    "description": "The project includes a list of all components and/or ingredients.",
     "whyItMatters": "The display of “ingredients” or material components.",
     "url": "/generated/criteria/E3.html"
   },
   "E4": {
     "id": "E4",
-    "label": "INK, PRINTING, AND FINISHES",
+    "displayId": "E3",
+    "legacyId": "E4",
+    "label": "Ink, Printing, and Finishes",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The project materials were designed to reduce or eliminate the use of inks, varnishes and finishes or requires no printing.",
-    "description": "The project materials were designed to reduce or eliminate the use of inks, varnishes and finishes or requires no printing.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      12
+    ],
+    "summary": "Reduces ink coverage on printed materials.",
+    "description": "The project reduces or eliminates the use of inks, varnishes and finishes, or requires no printing.",
     "whyItMatters": "Reduces ink coverage on printed materials.",
     "url": "/generated/criteria/E4.html"
   },
   "E5": {
     "id": "E5",
-    "label": "PAPER",
+    "displayId": "E4",
+    "legacyId": "E5",
+    "label": "Paper",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The project materials were designed to reduce paper.",
-    "description": "The project materials were designed to reduce paper.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      12
+    ],
+    "summary": "Reduces paper use.",
+    "description": "The project reduces paper use through efficiencies.",
     "whyItMatters": "Efficient use of paper and reduces paper use.",
     "url": "/generated/criteria/E5.html"
   },
   "E6": {
     "id": "E6",
-    "label": "PRODUCT QUANTITY",
+    "displayId": "E5",
+    "legacyId": "E6",
+    "label": "Product Quantity",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "No more units than needed were produced, including the possibility of no physical copies at all.",
-    "description": "No more units than needed were produced, including the possibility of no physical copies at all.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      12
+    ],
+    "summary": "Considers reproduction needs.",
+    "description": "Reproduction is limited to immediate needs, including the possibility that no physical copies were needed.",
     "whyItMatters": "Reproduction and end-of-life considerations.",
     "url": "/generated/criteria/E6.html"
   },
   "E7": {
     "id": "E7",
-    "label": "EXTENDED LIFE PRODUCT",
+    "displayId": "E6",
+    "legacyId": "E7/E7b",
+    "label": "Durability & Extended Life",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "When a longer lifetime is desirable for a product or system, it is designed to be reused, recharged, repaired, and/or upgraded as an environmental benefit.",
-    "description": "When a longer lifetime is desirable for a product or system, it is designed to be reused, recharged, repaired, and/or upgraded as an environmental benefit.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      9,
+      11,
+      12
+    ],
+    "summary": "Integrates extended-life durability through reuse, repair, recharge, and/or upgrade where appropriate.",
+    "description": "The product or system is physically durable and has a longer life than the industry average, where desirable. The product or system can be reused, recharged, repaired, and/or upgraded as an environmental benefit.",
     "whyItMatters": "Product design for longer life than the industry average.",
     "url": "/generated/criteria/E7.html"
   },
-  "E7b": {
-    "id": "E7b",
-    "label": "DURABILITY",
-    "points": 1,
-    "pillarId": "environment",
-    "pillarLabel": "Environmental Criteria",
-    "summary": "The product or system is physically durable.",
-    "description": "The product or system is physically durable.",
-    "whyItMatters": "Physical durability as a product asset, where applicable.",
-    "url": "/generated/criteria/E7b.html"
-  },
   "E9": {
     "id": "E9",
-    "label": "TOXINS",
+    "displayId": "E7",
+    "legacyId": "E9",
+    "label": "Toxins",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The project reduces or eliminates the use of toxins.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      11,
+      12,
+      14,
+      15
+    ],
+    "summary": "Reduces or eliminates toxins.",
     "description": "The project reduces or eliminates the use of toxins.",
     "whyItMatters": "Reduces or eliminates toxins in a product.",
     "url": "/generated/criteria/E9.html"
   },
   "E10": {
     "id": "E10",
-    "label": "ENVIRONMENTAL POLICY",
+    "displayId": "E8",
+    "legacyId": "E10",
+    "label": "Environmental Policy",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The designing entity and a majority of suppliers have a publicly-accessible environmental policy.",
-    "description": "The designing entity and a majority of suppliers have a publicly-accessible environmental policy.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      9,
+      12,
+      17
+    ],
+    "summary": "Displays publicly-accessible environmental policies.",
+    "description": "The design entity and a majority of suppliers have publicly-accessible environmental policies.",
     "whyItMatters": "Publicly-accessible environmental policies.",
     "url": "/generated/criteria/E10.html"
   },
-  "E11": {
-    "id": "E11",
-    "label": "QUANTIFIED REPORTING",
-    "points": 1,
-    "pillarId": "environment",
-    "pillarLabel": "Environmental Criteria",
-    "summary": "The designing entity has published a quantified report of reductions in GHG emissions and/or energy, material usage and waste disposal.",
-    "description": "The designing entity has published a quantified report of reductions in GHG emissions and/or energy, material usage and waste disposal.",
-    "whyItMatters": "Publicly-accessible reporting of materials, waste and emissions.",
-    "url": "/generated/criteria/E11.html"
-  },
   "EM4": {
     "id": "EM4",
-    "label": "ANIMAL WELFARE",
+    "displayId": "EM9",
+    "legacyId": "EM4",
+    "label": "Animal Welfare",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The success of the project does not and will not put animals or entire animal of an ecosystem at risk.",
-    "description": "The success of the project does not and will not put animals or entire animal of an ecosystem at risk.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": true,
+    "sdgs": [
+      13,
+      14,
+      15
+    ],
+    "summary": "Protects all animals.",
+    "description": "To the best of the design entity's knowledge, the project, the design entity, and the client's activities do not, and will not, put animals at risk.",
     "whyItMatters": "Animals are not at risk from this project.",
     "url": "/generated/criteria/EM4.html"
   },
   "EM6": {
     "id": "EM6",
-    "label": "ECOSYSTEMS CONSERVATION",
+    "displayId": "EM10",
+    "legacyId": "EM6",
+    "label": "Ecosystems Conservation",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "To the best knowledge of the design entity, the client’s activities and the project do not depend on, or support the destruction of fragile ecosystems.",
-    "description": "To the best knowledge of the design entity, the client’s activities and the project do not depend on, or support the destruction of fragile ecosystems.",
+    "subcategory": "environmental-impact-reduction-and-transparency",
+    "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": true,
+    "sdgs": [
+      13,
+      14,
+      15
+    ],
+    "summary": "Conserves valuable ecosystems.",
+    "description": "To the best of the design entity's knowledge, the project, the design entity, and the client's activities do not, and will not, support the destruction of ecosystems.",
     "whyItMatters": "Conservation of valuable ecosystems.",
     "url": "/generated/criteria/EM6.html"
   },
-  "E15": {
-    "id": "E15",
-    "label": "PRODUCT’S END OF LIFE",
-    "points": 1,
-    "pillarId": "environment",
-    "pillarLabel": "Environmental Criteria",
-    "summary": "The product is locally compostable by the end user or can be incorporated into a local energy-recovery system that does not involve landfill or thermal treatment.",
-    "description": "The product is locally compostable by the end user or can be incorporated into a local energy-recovery system that does not involve landfill or thermal treatment.",
-    "whyItMatters": "The product can be composted or used as fuel or food.",
-    "url": "/generated/criteria/E15.html"
-  },
   "E14": {
     "id": "E14",
-    "label": "RECYCLABILITY OR REUSABILITY",
+    "displayId": "E11",
+    "legacyId": "E14",
+    "label": "Recyclability or Reusability",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "Design solutions include materials or systems that increase the ease and likelihood of recycling and/or reuse of the product and/or its packaging.",
-    "description": "Design solutions include materials or systems that increase the ease and likelihood of recycling and/or reuse of the product and/or its packaging.",
+    "subcategory": "circular-design-and-waste-reduction",
+    "subcategoryLabel": "Circular Design and Waste Reduction",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      11,
+      12,
+      14,
+      15
+    ],
+    "summary": "Enables recycling or reuse.",
+    "description": "Materials or systems used increase the ease and likelihood of recycling and/or reuse of the product and its packaging.",
     "whyItMatters": "Product and packaging can be reused or recycled.",
     "url": "/generated/criteria/E14.html"
   },
-  "E13": {
-    "id": "E13",
-    "label": "ZERO WASTE",
+  "E17": {
+    "id": "E17",
+    "displayId": "E12",
+    "legacyId": "E17",
+    "label": "Non-Renewable Resources",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The final product is a “zero waste” product.",
-    "description": "The final product is a “zero waste” product.",
+    "subcategory": "circular-design-and-waste-reduction",
+    "subcategoryLabel": "Circular Design and Waste Reduction",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      9,
+      12,
+      14,
+      15
+    ],
+    "summary": "Reduces non-renewable natural resources and materials.",
+    "description": "The project reduces or eliminates the use of scarce, non-renewable natural resources and raw materials.",
+    "whyItMatters": "Strategies reduce the use of non-renewable natural resources.",
+    "url": "/generated/criteria/E17.html"
+  },
+  "E15": {
+    "id": "E15",
+    "displayId": "E13",
+    "legacyId": "E15",
+    "label": "Biological or Organic Materials",
+    "points": 1,
+    "pillarId": "environment",
+    "pillarLabel": "Environmental Criteria",
+    "subcategory": "circular-design-and-waste-reduction",
+    "subcategoryLabel": "Circular Design and Waste Reduction",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      11,
+      13,
+      14,
+      15
+    ],
+    "summary": "Uses waste as a nutrient or fuel, or is compostable.",
+    "description": "The product can be used as fuel or food, or composted, either locally composted by the end user or incorporated into a local energy-recovery system that does not involve landfill or thermal treatment.",
+    "whyItMatters": "The product can be composted or used as fuel or food.",
+    "url": "/generated/criteria/E15.html"
+  },
+  "E13": {
+    "id": "E13",
+    "displayId": "E14",
+    "legacyId": "E13",
+    "label": "Zero Waste",
+    "points": 1,
+    "pillarId": "environment",
+    "pillarLabel": "Environmental Criteria",
+    "subcategory": "circular-design-and-waste-reduction",
+    "subcategoryLabel": "Circular Design and Waste Reduction",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      11,
+      12,
+      14,
+      15
+    ],
+    "summary": "Eliminates waste.",
+    "description": "The final product is a \"zero waste\" product.",
     "whyItMatters": "Zero waste products.",
     "url": "/generated/criteria/E13.html"
   },
   "E16": {
     "id": "E16",
-    "label": "RENEWABLE ENERGY",
+    "displayId": "E15",
+    "legacyId": "E16",
+    "label": "Renewable Energy",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The production of the product uses renewable energy from solar, wind, thermal or tidal sources.",
-    "description": "The production of the product uses renewable energy from solar, wind, thermal or tidal sources.",
+    "subcategory": "energy-efficiency",
+    "subcategoryLabel": "Energy Efficiency",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      7,
+      9,
+      11,
+      12,
+      13
+    ],
+    "summary": "Uses renewable energy.",
+    "description": "P: The production of the product uses renewable energy from solar, wind, thermal or tidal sources.\n\nC: The design entity uses renewable energy from solar, wind, thermal or tidal sources.",
     "whyItMatters": "Clean energy sources were used to make the product.",
     "url": "/generated/criteria/E16.html"
   },
-  "E17": {
-    "id": "E17",
-    "label": "NON-RENEWABLE RESOURCES",
-    "points": 1,
-    "pillarId": "environment",
-    "pillarLabel": "Environmental Criteria",
-    "summary": "The project reduces or eliminates the use of scarce, non-renewable natural resources and raw materials.",
-    "description": "The project reduces or eliminates the use of scarce, non-renewable natural resources and raw materials.",
-    "whyItMatters": "Strategies reduce the use of non-renewable natural resources.",
-    "url": "/generated/criteria/E17.html"
-  },
   "E18": {
     "id": "E18",
-    "label": "CONSUMER ENERGY",
+    "displayId": "E16",
+    "legacyId": "E18",
+    "label": "Consumer Energy Efficiency",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The product or system used by the consumer is energy efficient or uses renewable energy.",
+    "subcategory": "energy-efficiency",
+    "subcategoryLabel": "Energy Efficiency",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      7,
+      9,
+      12,
+      13
+    ],
+    "summary": "Optimizes consumer energy efficiency.",
     "description": "The product or system used by the consumer is energy efficient or uses renewable energy.",
     "whyItMatters": "The product consumes energy efficiently.",
     "url": "/generated/criteria/E18.html"
   },
-  "E19": {
-    "id": "E19",
-    "label": "TRANSPORT",
+  "energy-efficiency": {
+    "id": "energy-efficiency",
+    "displayId": "E17",
+    "legacyId": "",
+    "label": "Energy Efficiency",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The project strategy includes shipping and/or warehousing efficiencies to reduce transportation and waste.",
-    "description": "The project strategy includes shipping and/or warehousing efficiencies to reduce transportation and waste.",
+    "subcategory": "energy-efficiency",
+    "subcategoryLabel": "Energy Efficiency",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      7,
+      9,
+      12,
+      13,
+      15
+    ],
+    "summary": "Maximizes the product or the system's energy efficiency.",
+    "description": "The product or system used by the consumer is energy efficient or uses renewable energy.",
+    "whyItMatters": "",
+    "url": "/generated/criteria/energy-efficiency.html"
+  },
+  "E19": {
+    "id": "E19",
+    "displayId": "E18",
+    "legacyId": "E19",
+    "label": "Storage and Transportation",
+    "points": 1,
+    "pillarId": "environment",
+    "pillarLabel": "Environmental Criteria",
+    "subcategory": "emissions",
+    "subcategoryLabel": "Emissions",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      9
+    ],
+    "summary": "Optimizes storage and transportation efficiencies.",
+    "description": "The project includes shipping and/or warehousing efficiencies to optimize storage and transportation.",
     "whyItMatters": "Efficiency in the product’s transportation.",
     "url": "/generated/criteria/E19.html"
   },
-  "E20": {
-    "id": "E20",
-    "label": "CO2 CERTIFICATION",
+  "E11": {
+    "id": "E11",
+    "displayId": "E19",
+    "legacyId": "E11",
+    "label": "Quantified GHG Reporting and Certification",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The design entity or the product displays a recognized certification or third party declaration of the product’s CO2 emissions.",
-    "description": "The design entity or the product displays a recognized certification or third party declaration of the product’s CO2 emissions.",
-    "whyItMatters": "A certified third party declares CO2 emissions.",
-    "url": "/generated/criteria/E20.html"
+    "subcategory": "emissions",
+    "subcategoryLabel": "Emissions",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      6,
+      7,
+      11,
+      12,
+      13,
+      14,
+      15
+    ],
+    "summary": "Displays a publicly-accessible report of emissions, materials use, and waste.",
+    "description": "P: The project has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.\n\nC: The design entity has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.",
+    "whyItMatters": "Publicly-accessible reporting of materials, waste and emissions.",
+    "url": "/generated/criteria/E11.html"
   },
   "E21": {
     "id": "E21",
-    "label": "AIR POLLUTION AND GREENHOUSE GASES",
+    "displayId": "E20",
+    "legacyId": "E21",
+    "label": "Air Pollution",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "Air pollution or greenhouse gas emissions were avoided or reduced, mitigating ocean acidification.",
-    "description": "Air pollution or greenhouse gas emissions were avoided or reduced, mitigating ocean acidification.",
+    "subcategory": "emissions",
+    "subcategoryLabel": "Emissions",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      13,
+      14,
+      15
+    ],
+    "summary": "Reduces air pollution.",
+    "description": "P: The project reduces or avoids air pollution.\n\nC: The design entity reduces or avoids air pollution.",
     "whyItMatters": "Product emission and air pollution.",
     "url": "/generated/criteria/E21.html"
   },
   "E22": {
     "id": "E22",
-    "label": "CARBON OFFSETS",
+    "displayId": "E21",
+    "legacyId": "E22",
+    "label": "Carbon Offsets",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "The design entity or project offsets CO2 emissions for travel, production and Web presence.",
-    "description": "The design entity or project offsets CO2 emissions for travel, production and Web presence.",
+    "subcategory": "emissions",
+    "subcategoryLabel": "Emissions",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      13
+    ],
+    "summary": "Offsets travel, production, and web presence emissions through carbon credit purchases.",
+    "description": "P: The project offsets all GHG emissions for travel, production and Web presence.\n\nC: The design entity offsets all GHG emissions for travel, production and Web presence.",
     "whyItMatters": "Carbon credits offset travel, production and Web presence.",
     "url": "/generated/criteria/E22.html"
   },
   "E23": {
     "id": "E23",
-    "label": "WATER",
+    "displayId": "E22",
+    "legacyId": "E23",
+    "label": "Water",
     "points": 1,
     "pillarId": "environment",
     "pillarLabel": "Environmental Criteria",
-    "summary": "Water pollution or water use were avoided or reduced.",
+    "subcategory": "water",
+    "subcategoryLabel": "Water",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      6,
+      14
+    ],
+    "summary": "Reduces or eliminates water use and water pollution.",
     "description": "Water pollution or water use were avoided or reduced.",
     "whyItMatters": "Reduces water use and pollution.",
     "url": "/generated/criteria/E23.html"
   },
+  "sound-light-pollution": {
+    "id": "sound-light-pollution",
+    "displayId": "E23",
+    "legacyId": "",
+    "label": "Sound & Light Pollution",
+    "points": 1,
+    "pillarId": "environment",
+    "pillarLabel": "Environmental Criteria",
+    "subcategory": "sound-light-and-smell",
+    "subcategoryLabel": "Sound, Light and Smell",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      3,
+      11
+    ],
+    "summary": "Reduces or eliminates sound and light pollution.",
+    "description": "P: The project avoids or reduces sound and light pollution.\n\nC: The design entity avoids or reduces sound and light pollution.",
+    "whyItMatters": "",
+    "url": "/generated/criteria/sound-light-pollution.html"
+  },
+  "odor-scent-fragrance": {
+    "id": "odor-scent-fragrance",
+    "displayId": "E24",
+    "legacyId": "",
+    "label": "Odor, Scent and Fragrance",
+    "points": 1,
+    "pillarId": "environment",
+    "pillarLabel": "Environmental Criteria",
+    "subcategory": "sound-light-and-smell",
+    "subcategoryLabel": "Sound, Light and Smell",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [],
+    "summary": "Eliminates odors, scents and fragrances.",
+    "description": "P: The project is odor, scent, and fragrance-free.\n\nC: The design entity has a no odor, scent, or fragrance policy.",
+    "whyItMatters": "",
+    "url": "/generated/criteria/odor-scent-fragrance.html"
+  },
   "S1": {
     "id": "S1",
-    "label": "HARMLESS",
+    "displayId": "S1",
+    "legacyId": "S1",
+    "label": "Harmless",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The project is purposely designed to reduce mental and physical injury to those who produce or use the product.",
-    "description": "The project is purposely designed to reduce mental and physical injury to those who produce or use the product.",
+    "subcategory": "design-production-and-social-impact",
+    "subcategoryLabel": "Design Production and Social Impact",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      3
+    ],
+    "summary": "Reduces injury in the making and use of the product.",
+    "description": "The project reduces mental and physical injury to those who produce or use the product.",
     "whyItMatters": "Reduces injury in the making and use of the product.",
     "url": "/generated/criteria/S1.html"
   },
   "S2": {
     "id": "S2",
-    "label": "HEALTH AND SAFETY",
+    "displayId": "S2",
+    "legacyId": "S2",
+    "label": "Health and Safety",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The project’s main focus is to improve the health or safety of the target audience.",
-    "description": "The project’s main focus is to improve the health or safety of the target audience.",
+    "subcategory": "design-production-and-social-impact",
+    "subcategoryLabel": "Design Production and Social Impact",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      3,
+      16
+    ],
+    "summary": "Improves human health and/or safety.",
+    "description": "The project improves the health or safety of the target audience.",
     "whyItMatters": "Improves human health and/or safety.",
     "url": "/generated/criteria/S2.html"
   },
   "S3": {
     "id": "S3",
-    "label": "LOCAL LABOUR",
+    "displayId": "S3",
+    "legacyId": "S3",
+    "label": "Local Labour",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "Design and production significantly increased the amount of locally sourced labour from the end user’s location.",
-    "description": "Design and production significantly increased the amount of locally sourced labour from the end user’s location.",
+    "subcategory": "design-production-and-social-impact",
+    "subcategoryLabel": "Design Production and Social Impact",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      1,
+      8,
+      11
+    ],
+    "summary": "Increases locally sourced labour.",
+    "description": "The project significantly increases the amount of locally sourced labour from the end users' location.",
     "whyItMatters": "Increases locally sourced labour.",
     "url": "/generated/criteria/S3.html"
   },
   "SM1": {
     "id": "SM1",
-    "label": "HUMAN RIGHTS",
+    "displayId": "SM4",
+    "legacyId": "SM1",
+    "label": "Human Rights",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "To the best knowledge of the design entity, the project and the client do not contribute directly or indirectly to the violation of universal human rights.",
-    "description": "To the best knowledge of the design entity, the project and the client do not contribute directly or indirectly to the violation of universal human rights.",
+    "subcategory": "ethical-practices-in-design-and-production",
+    "subcategoryLabel": "Ethical Practices in Design and Production",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": true,
+    "sdgs": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      10
+    ],
+    "summary": "Upholds universal human rights.",
+    "description": "P: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in the violation of universal human rights.\n\nC: The design entity does not contribute directly or indirectly to the violation of universal human rights.",
     "whyItMatters": "Design does not contribute to the violation of human rights.",
     "url": "/generated/criteria/SM1.html"
   },
   "SM2": {
     "id": "SM2",
-    "label": "CORRUPTION",
+    "displayId": "SM5",
+    "legacyId": "SM2",
+    "label": "Corruption",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "To the best knowledge of the design entity, no corruption was involved in the project.",
-    "description": "To the best knowledge of the design entity, no corruption was involved in the project.",
+    "subcategory": "ethical-practices-in-design-and-production",
+    "subcategoryLabel": "Ethical Practices in Design and Production",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": true,
+    "sdgs": [
+      16
+    ],
+    "summary": "Upholds high standards of anti-corruption and ethical governance.",
+    "description": "P: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in corruption or unethical governance.\n\nC: The design entity is not involved in corruption or unethical governance.",
     "whyItMatters": "Corruption was not identified in the project.",
     "url": "/generated/criteria/SM2.html"
   },
   "SM3": {
     "id": "SM3",
-    "label": "RIGHTS OF WORKERS",
+    "displayId": "SM6",
+    "legacyId": "SM3",
+    "label": "Rights of Workers",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "To the best knowledge of the design entity, the project and the client do not contribute directly or indirectly to the violation of the fundamental principles and rights of workers.",
-    "description": "To the best knowledge of the design entity, the project and the client do not contribute directly or indirectly to the violation of the fundamental principles and rights of workers.",
+    "subcategory": "ethical-practices-in-design-and-production",
+    "subcategoryLabel": "Ethical Practices in Design and Production",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": true,
+    "sdgs": [
+      1,
+      2,
+      3,
+      5,
+      8,
+      10
+    ],
+    "summary": "Upholds the rights of workers.",
+    "description": "To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in the violation of the fundamental principles and rights of workers.",
     "whyItMatters": "Upholds the rights of workers.",
     "url": "/generated/criteria/SM3.html"
   },
   "S10": {
     "id": "S10",
-    "label": "ARTIFICIAL INTELLIGENCE (AI)",
+    "displayId": "S7",
+    "legacyId": "S10",
+    "label": "Artificial Intelligence (AI)",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The process of the design production is human made and, if AI was used to create the design, it is clearly labelled. The AI used is from ethical data sourcing, compliant with transparency, from ethical databases, and free from bias.",
-    "description": "The process of the design production is human made and, if AI was used to create the design, it is clearly labelled. The AI used is from ethical data sourcing, compliant with transparency, from ethical databases, and free from bias.",
+    "subcategory": "ethical-practices-in-design-and-production",
+    "subcategoryLabel": "Ethical Practices in Design and Production",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      8,
+      16
+    ],
+    "summary": "Discloses design sources as human-made or AI generated, and adheres to ethical guidelines.",
+    "description": "The project discloses the sources of design whether human made or AI generated. If AI was used to create any part of a design, it follows UNESCO's Recommendation on the Ethics of Artificial Intelligence.",
     "whyItMatters": "Authentically created design by a person.",
     "url": "/generated/criteria/S10.html"
   },
   "S6": {
     "id": "S6",
-    "label": "ELECTRONIC DOCUMENTS",
+    "displayId": "S8",
+    "legacyId": "S6",
+    "label": "Electronic Documents",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "All electronic documents comply with the W3C WCAG 2.0 Level A standard or comply with the ISO standard for PDF/UA accessibility standard.",
-    "description": "All electronic documents comply with the W3C WCAG 2.0 Level A standard or comply with the ISO standard for PDF/UA accessibility standard.",
+    "subcategory": "accessibility",
+    "subcategoryLabel": "Accessibility",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      4,
+      5,
+      8,
+      9,
+      10,
+      11
+    ],
+    "summary": "Ensures accessibility of all electronic documents, including Web pages.",
+    "description": "All electronic documents comply with the W3C WCAG 2.0 Level A standard, or higher, or comply with the ISO standard for PDF/UA accessibility standard.",
     "whyItMatters": "Accessibility of all electronic documents, including Web pages.",
     "url": "/generated/criteria/S6.html"
   },
   "S6b": {
     "id": "S6b",
-    "label": "DOCUMENTS AND COMPLIANCE",
+    "displayId": "S9",
+    "legacyId": "S6b",
+    "label": "Printed Documents and Compliance",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "All documents comply with the W3C WCAG 2.0 Level AA standard or comply with the ISO standard for PDF/UA, formally ISO 14289 accessibility standard.",
-    "description": "All documents comply with the W3C WCAG 2.0 Level AA standard or comply with the ISO standard for PDF/UA, formally ISO 14289 accessibility standard.",
+    "subcategory": "accessibility",
+    "subcategoryLabel": "Accessibility",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      4,
+      5,
+      8,
+      9,
+      10,
+      11
+    ],
+    "summary": "Ensures accessibility of all printed materials.",
+    "description": "Printed materials are designed using accessible typography, contrast, hierarchy, and readability principles to support users with visual, cognitive, or literacy-related accessibility needs.",
     "whyItMatters": "Accessibility of printed documents.",
     "url": "/generated/criteria/S6b.html"
   },
   "S8": {
     "id": "S8",
-    "label": "UNIVERSAL DESIGN PRINCIPLES",
+    "displayId": "S10",
+    "legacyId": "S8",
+    "label": "Universal Design Principles",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The non-document components of the project adhere to universal design principles.",
+    "subcategory": "accessibility",
+    "subcategoryLabel": "Accessibility",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      4,
+      5,
+      8,
+      9,
+      10,
+      11
+    ],
+    "summary": "Complies with Universal Design standards.",
     "description": "The non-document components of the project adhere to universal design principles.",
     "whyItMatters": "Complies with Universal Design standards.",
     "url": "/generated/criteria/S8.html"
   },
   "S9": {
     "id": "S9",
-    "label": "INTELLECTUAL PROPERTY",
+    "displayId": "S11",
+    "legacyId": "S9",
+    "label": "Intellectual Property",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The process or product shares reusable intellectual property that may be considered valuable to society as a whole.",
-    "description": "The process or product shares reusable intellectual property that may be considered valuable to society as a whole.",
-    "whyItMatters": "Design with open content that is freely available for use, adaptation, and distribution under specific conditions set by the creator.",
+    "subcategory": "intellectual-property",
+    "subcategoryLabel": "Intellectual Property",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "summary": "Uses a clear and responsible intellectual property approach.",
+    "description": "The project clearly defines and respects intellectual property ownership, authorship, permissions, licensing, and usage rights. Where appropriate, the project may also share reusable intellectual property through Creative Commons or another open licensing approach that creates value for society.",
+    "whyItMatters": "Clear intellectual property ownership, permissions, licensing, and usage rights protect creators, users, clients, and the public value of reusable design work.",
     "url": "/generated/criteria/S9.html"
   },
   "S11": {
     "id": "S11",
-    "label": "AFFORDABLE",
+    "displayId": "S12",
+    "legacyId": "S11",
+    "label": "Affordable",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The product is affordable to a wide audience including those with limited financial resources.",
+    "subcategory": "social-equality",
+    "subcategoryLabel": "Social Equality",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      1,
+      8,
+      9,
+      10
+    ],
+    "summary": "Maintains affordability for all market sectors.",
     "description": "The product is affordable to a wide audience including those with limited financial resources.",
     "whyItMatters": "Sustainable products are affordable for all market sectors.",
     "url": "/generated/criteria/S11.html"
   },
   "S12": {
     "id": "S12",
-    "label": "FAIR TRADE",
+    "displayId": "S13",
+    "legacyId": "S12",
+    "label": "Fair Trade",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The project involves fair trade.",
-    "description": "The project involves fair trade.",
+    "subcategory": "social-equality",
+    "subcategoryLabel": "Social Equality",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      1,
+      8,
+      10,
+      11,
+      17
+    ],
+    "summary": "Ensures collaborations between low, middle and high income countries.",
+    "description": "The project involves \"fair trade\" to ensure equity between low, middle and high income countries.",
     "whyItMatters": "Collaborations between low, middle and high income countries.",
     "url": "/generated/criteria/S12.html"
   },
   "S13": {
     "id": "S13",
-    "label": "SOCIAL GAPS",
+    "displayId": "S14",
+    "legacyId": "S13",
+    "label": "Social Gaps",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The project’s main focus aims to close gaps of gender, power, or wealth.",
-    "description": "The project’s main focus aims to close gaps of gender, power, or wealth.",
+    "subcategory": "social-equality",
+    "subcategoryLabel": "Social Equality",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      1,
+      5,
+      8,
+      10
+    ],
+    "summary": "Reduces gaps in gender, power, and wealth.",
+    "description": "The project aims to close gaps of gender, power, or wealth within and across social, economic, and political systems.",
     "whyItMatters": "Reduces wealth and power gaps inside and between countries.",
     "url": "/generated/criteria/S13.html"
   },
   "S14": {
     "id": "S14",
-    "label": "FREEDOM OF EXPRESSION",
+    "displayId": "S15",
+    "legacyId": "S14",
+    "label": "Freedom of Expression",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The project’s main focus encourages or educates about democracy and/or freedom of expression.",
-    "description": "The project’s main focus encourages or educates about democracy and/or freedom of expression.",
+    "subcategory": "social-equality",
+    "subcategoryLabel": "Social Equality",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      4,
+      10,
+      16
+    ],
+    "summary": "Encourages freedom of expression and/or democracy.",
+    "description": "The project encourages or educates about democracy and/or freedom of expression.",
     "whyItMatters": "Encourages freedom of expression and/or democracy.",
     "url": "/generated/criteria/S14.html"
   },
   "S15": {
     "id": "S15",
-    "label": "DESIGN EDUCATION",
+    "displayId": "S16",
+    "legacyId": "S15",
+    "label": "Design Education",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The project includes design students and/or enriches existing design school curriculum.",
+    "subcategory": "education",
+    "subcategoryLabel": "Education",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      4,
+      17
+    ],
+    "summary": "Provides design education opportunities for students.",
     "description": "The project includes design students and/or enriches existing design school curriculum.",
     "whyItMatters": "Provides design education opportunities for students.",
     "url": "/generated/criteria/S15.html"
   },
   "S16": {
     "id": "S16",
-    "label": "EDUCATIONAL COMPONENT",
+    "displayId": "S17",
+    "legacyId": "S16",
+    "label": "Educational Component",
     "points": 1,
     "pillarId": "society",
     "pillarLabel": "Social Criteria",
-    "summary": "The product includes an educational component that promotes sustainability to the consumer.",
+    "subcategory": "education",
+    "subcategoryLabel": "Education",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      11,
+      12
+    ],
+    "summary": "Educates the user or consumer on sustainability.",
     "description": "The product includes an educational component that promotes sustainability to the consumer.",
     "whyItMatters": "Educates the user or consumer on sustainability.",
     "url": "/generated/criteria/S16.html"
   },
   "C2": {
     "id": "C2",
-    "label": "ENDANGERED LANGUAGES",
+    "displayId": "C1",
+    "legacyId": "C2",
+    "label": "Endangered Languages",
     "points": 1,
     "pillarId": "culture",
     "pillarLabel": "Cultural Criteria",
-    "summary": "The project is likely to help preserve endangered languages, particularly Indigenous languages.",
-    "description": "The project is likely to help preserve endangered languages, particularly Indigenous languages.",
+    "subcategory": "cultural-preservation-and-adaptation",
+    "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      10,
+      11,
+      16
+    ],
+    "summary": "Contributes to the protection of endangered languages.",
+    "description": "The project helps to preserve endangered languages, particularly Indigenous languages.",
     "whyItMatters": "Contributes to the preservation of endangered languages.",
     "url": "/generated/criteria/C2.html"
   },
   "C3": {
     "id": "C3",
-    "label": "INDIGENOUS CULTURE",
+    "displayId": "C2",
+    "legacyId": "C3",
+    "label": "Indigenous Culture",
     "points": 1,
     "pillarId": "culture",
     "pillarLabel": "Cultural Criteria",
-    "summary": "The project preserves or nurtures Indigenous culture, other than language.",
-    "description": "The project preserves or nurtures Indigenous culture, other than language.",
+    "subcategory": "cultural-preservation-and-adaptation",
+    "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      10,
+      11,
+      16
+    ],
+    "summary": "Preserves or nurtures Indigenous culture.",
+    "description": "The project preserves or nurtures Indigenous culture other than language.",
     "whyItMatters": "Preserves or nurtures Indigenous culture.",
     "url": "/generated/criteria/C3.html"
   },
   "C4": {
     "id": "C4",
-    "label": "LOCAL CULTURE",
+    "displayId": "C3",
+    "legacyId": "C4",
+    "label": "Local Culture",
     "points": 1,
     "pillarId": "culture",
     "pillarLabel": "Cultural Criteria",
-    "summary": "The project’s products or services adapt to local and regional cultures.",
-    "description": "The project’s products or services adapt to local and regional cultures.",
+    "subcategory": "cultural-preservation-and-adaptation",
+    "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      10,
+      11,
+      16
+    ],
+    "summary": "Adapts design to local cultures.",
+    "description": "The project adapts to local and regional cultures.",
     "whyItMatters": "Adapts design to local cultures.",
     "url": "/generated/criteria/C4.html"
   },
   "C5": {
     "id": "C5",
-    "label": "CULTURAL DIVERSITY",
+    "displayId": "C4",
+    "legacyId": "C5",
+    "label": "Cultural Diversity",
     "points": 1,
     "pillarId": "culture",
     "pillarLabel": "Cultural Criteria",
-    "summary": "The project intends to promote or enhance cultural diversity.",
-    "description": "The project intends to promote or enhance cultural diversity.",
+    "subcategory": "cultural-preservation-and-adaptation",
+    "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      10,
+      11,
+      16
+    ],
+    "summary": "Promotes or enhances cultural diversity.",
+    "description": "The project promotes or enhances cultural diversity.",
     "whyItMatters": "Design promotes or enhances cultural diversity.",
     "url": "/generated/criteria/C5.html"
   },
   "CM9": {
     "id": "CM9",
-    "label": "CULTURAL POLICY",
+    "displayId": "CM5",
+    "legacyId": "CM9",
+    "label": "Cultural Policy",
     "points": 1,
     "pillarId": "culture",
     "pillarLabel": "Cultural Criteria",
-    "summary": "The designing entity and the majority of suppliers have a publicly-accessible policy to actively protect and support communities.",
-    "description": "The designing entity and the majority of suppliers have a publicly-accessible policy to actively protect and support communities.",
+    "subcategory": "cultural-preservation-and-adaptation",
+    "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "appliesTo": [
+      "designingEntity"
+    ],
+    "mandatory": true,
+    "sdgs": [
+      5,
+      10,
+      11,
+      14,
+      16
+    ],
+    "summary": "Displays a publicly-accessible cultural policy.",
+    "description": "The design entity and the majority of suppliers have a publicly-accessible policy to actively protect and support communities.",
     "whyItMatters": "Publicly-accessible cultural sustainability policy.",
     "url": "/generated/criteria/CM9.html"
   },
   "C6": {
     "id": "C6",
-    "label": "AUDIENCE PARTICIPATION",
+    "displayId": "C6",
+    "legacyId": "C6",
+    "label": "Audience Engagement",
     "points": 1,
     "pillarId": "culture",
     "pillarLabel": "Cultural Criteria",
-    "summary": "The project includes participation by direct audience members or end users throughout the design process.",
-    "description": "The project includes participation by direct audience members or end users throughout the design process.",
+    "subcategory": "community-and-audience-engagement",
+    "subcategoryLabel": "Community and Audience Engagement",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      11
+    ],
+    "summary": "Engages with end users and audiences.",
+    "description": "The project engages end users throughout the design process or audiences that will be directly impacted by the project.",
     "whyItMatters": "Design process engages with end user.",
     "url": "/generated/criteria/C6.html"
   },
   "C7": {
     "id": "C7",
-    "label": "COMMUNITY PARTICIPATION",
+    "displayId": "C7",
+    "legacyId": "C7",
+    "label": "Community Participation",
     "points": 1,
     "pillarId": "culture",
     "pillarLabel": "Cultural Criteria",
-    "summary": "The project’s designing entity actively supports and participates in the sustainable development of their community.",
-    "description": "The project’s designing entity actively supports and participates in the sustainable development of their community.",
+    "subcategory": "community-and-audience-engagement",
+    "subcategoryLabel": "Community and Audience Engagement",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      10,
+      11
+    ],
+    "summary": "Supports the sustainable development of the design entity's community.",
+    "description": "The design entity actively supports and participates in the sustainable development of their community.",
     "whyItMatters": "Actively supports the sustainable development of your community.",
     "url": "/generated/criteria/C7.html"
   },
   "C8": {
     "id": "C8",
-    "label": "PRACTITIONERS’ EDUCATION",
+    "displayId": "C8",
+    "legacyId": "C8",
+    "label": "Practitioners' Education",
     "points": 1,
     "pillarId": "culture",
     "pillarLabel": "Cultural Criteria",
-    "summary": "The project results in the education of practitioners regarding sustainable design.",
-    "description": "The project results in the education of practitioners regarding sustainable design.",
+    "subcategory": "community-and-audience-engagement",
+    "subcategoryLabel": "Community and Audience Engagement",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      4,
+      9,
+      17
+    ],
+    "summary": "Educates design practitioners.",
+    "description": "The project results in the education of sustainability for design practitioners.",
     "whyItMatters": "Project educates others to support sustainable design education.",
     "url": "/generated/criteria/C8.html"
   },
   "F1": {
     "id": "F1",
-    "label": "ECONOMIC BENEFITS",
+    "displayId": "F1",
+    "legacyId": "F1",
+    "label": "Economic Benefits",
     "points": 1,
     "pillarId": "finance",
     "pillarLabel": "Financial Criteria",
-    "summary": "The project strategy identifies and creates economic benefits outside the client and the designing entity.",
-    "description": "The project strategy identifies and creates economic benefits outside the client and the designing entity.",
+    "subcategory": "basis-of-financial-sustainability",
+    "subcategoryLabel": "Basis of Financial Sustainability",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      1,
+      5,
+      8,
+      9,
+      10,
+      11,
+      16
+    ],
+    "summary": "Adds value that benefits a region's economy.",
+    "description": "The project identifies and creates economic benefits beyond benefits to the client and the design entity.",
     "whyItMatters": "Adds value to benefit a region’s economy.",
     "url": "/generated/criteria/F1.html"
   },
   "F2": {
     "id": "F2",
-    "label": "PROFITABILITY",
+    "displayId": "F2",
+    "legacyId": "F2",
+    "label": "Profitability",
     "points": 1,
     "pillarId": "finance",
     "pillarLabel": "Financial Criteria",
-    "summary": "The project budget or contract does not assume financial loss by the designing entity.",
-    "description": "The project budget or contract does not assume financial loss by the designing entity.",
+    "subcategory": "basis-of-financial-sustainability",
+    "subcategoryLabel": "Basis of Financial Sustainability",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      8,
+      10
+    ],
+    "summary": "Ensures the design entity is paid for work performed.",
+    "description": "The project budget or contract financially compensates the design entity.",
     "whyItMatters": "The designing entity profits from the project.",
     "url": "/generated/criteria/F2.html"
   },
   "FM3": {
     "id": "FM3",
-    "label": "UNPAID WORK",
+    "displayId": "FM3",
+    "legacyId": "FM3",
+    "label": "Unpaid Work",
     "points": 1,
     "pillarId": "finance",
     "pillarLabel": "Financial Criteria",
-    "summary": "There was no process by the design entity or in the project where designers, including student designers, were asked to provide unpaid work, also known as free pitching or speculative work.",
-    "description": "There was no process by the design entity or in the project where designers, including student designers, were asked to provide unpaid work, also known as free pitching or speculative work.",
+    "subcategory": "basis-of-financial-sustainability",
+    "subcategoryLabel": "Basis of Financial Sustainability",
+    "appliesTo": [
+      "project",
+      "designingEntity"
+    ],
+    "mandatory": true,
+    "sdgs": [
+      1,
+      5,
+      8,
+      10
+    ],
+    "summary": "Compensates all designers.",
+    "description": "The design entity and the project did not request unpaid work, also known as \"free pitching\", \"speculative work\", or \"spec work\", from designers, including interns and student designers.",
     "whyItMatters": "All design work is financially compensated.",
     "url": "/generated/criteria/FM3.html"
   },
   "F4": {
     "id": "F4",
-    "label": "SMART GOALS",
+    "displayId": "F4",
+    "legacyId": "F4",
+    "label": "SMART Goals",
     "points": 1,
     "pillarId": "finance",
     "pillarLabel": "Financial Criteria",
-    "summary": "A strategy document exists that includes measurable financial objectives.",
-    "description": "A strategy document exists that includes measurable financial objectives.",
+    "subcategory": "economic-accountability-and-strategic-value",
+    "subcategoryLabel": "Economic Accountability and Strategic Value / Financial Planning",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      8,
+      16
+    ],
+    "summary": "Outlines financial objectives in the design brief.",
+    "description": "A project document exists that establishes SMART financial objectives with clear, measurable targets and time-bound outcomes.",
     "whyItMatters": "Financial objectives are defined in a design brief.",
     "url": "/generated/criteria/F4.html"
   },
   "F5": {
     "id": "F5",
-    "label": "ACCOUNTABILITY AND TRANSPARENCY",
+    "displayId": "F5",
+    "legacyId": "F5",
+    "label": "Accountability and Transparency",
     "points": 1,
     "pillarId": "finance",
     "pillarLabel": "Financial Criteria",
-    "summary": "The designing entity and the client adhere to accountable and transparent processes and procedures.",
-    "description": "The designing entity and the client adhere to accountable and transparent processes and procedures.",
+    "subcategory": "economic-accountability-and-strategic-value",
+    "subcategoryLabel": "Economic Accountability and Strategic Value / Financial Planning",
+    "appliesTo": [
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      1,
+      5,
+      8,
+      12,
+      16
+    ],
+    "summary": "Adheres to transparent financial management and documentation practices.",
+    "description": "Adheres to transparent financial management and documentation practices.",
     "whyItMatters": "Adheres to international accounting standards.",
     "url": "/generated/criteria/F5.html"
   },
   "F6": {
     "id": "F6",
-    "label": "STANDARDS IMPROVEMENT",
+    "displayId": "F6",
+    "legacyId": "F6",
+    "label": "Standards Improvement",
     "points": 1,
     "pillarId": "finance",
     "pillarLabel": "Financial Criteria",
-    "summary": "The project resulted in improvements to the designing entity’s documented standard procedures.",
-    "description": "The project resulted in improvements to the designing entity’s documented standard procedures.",
+    "subcategory": "economic-accountability-and-strategic-value",
+    "subcategoryLabel": "Economic Accountability and Strategic Value / Financial Planning",
+    "appliesTo": [
+      "designingEntity"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      8,
+      9,
+      17
+    ],
+    "summary": "Improves the standards and procedures of the design entity.",
+    "description": "The project improves the design entity's documented standards and procedures.",
     "whyItMatters": "Continuous improvement in the designing entity’s organization.",
     "url": "/generated/criteria/F6.html"
   },
   "F7": {
     "id": "F7",
-    "label": "DESIGN THINKING",
+    "displayId": "F7",
+    "legacyId": "F7",
+    "label": "Design Thinking",
     "points": 1,
     "pillarId": "finance",
     "pillarLabel": "Financial Criteria",
-    "summary": "Design thinking adds financial value to the audience, users, and/or stakeholders.",
-    "description": "Design thinking adds financial value to the audience, users, and/or stakeholders.",
+    "subcategory": "economic-accountability-and-strategic-value",
+    "subcategoryLabel": "Economic Accountability and Strategic Value / Financial Planning",
+    "appliesTo": [
+      "project"
+    ],
+    "mandatory": false,
+    "sdgs": [
+      1,
+      5,
+      8,
+      9,
+      10,
+      11,
+      13,
+      17
+    ],
+    "summary": "Adds business value through design strategy.",
+    "description": "Design thinking adds economic value to audiences, users, and/or stakeholders.",
     "whyItMatters": "Adds value to a business through design strategy.",
     "url": "/generated/criteria/F7.html"
   }

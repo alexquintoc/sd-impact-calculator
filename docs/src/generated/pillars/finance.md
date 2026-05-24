@@ -6,10 +6,10 @@
 **Total available points:** 7
 
 ## Criteria in this pillar
-- [FFS1: ECONOMIC BENEFITS](../criteria/FFS1.md)
-- [FFS2: PROFITABILITY](../criteria/FFS2.md)
-- [FFS3: UNPAID WORK](../criteria/FFS3.md)
-- [FFP1: SMART GOALS](../criteria/FFP1.md)
-- [FFP2: ACCOUNTABILITY AND TRANSPARENCY](../criteria/FFP2.md)
-- [FFP3: STANDARDS IMPROVEMENT](../criteria/FFP3.md)
-- [FFP4: DESIGN THINKING](../criteria/FFP4.md)
+- [F1: Economic Benefits](../criteria/F1.md)
+- [F2: Profitability](../criteria/F2.md)
+- [FM3: Unpaid Work](../criteria/FM3.md)
+- [F4: SMART Goals](../criteria/F4.md)
+- [F5: Accountability and Transparency](../criteria/F5.md)
+- [F6: Standards Improvement](../criteria/F6.md)
+- [F7: Design Thinking](../criteria/F7.md)
