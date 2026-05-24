@@ -9,6 +9,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "environmental-impact-reduction",
     "appliesTo": [
       "project"
     ],
@@ -21,7 +23,7 @@
     "summary": "Reduces environmental impact and is supported by a qualified life cycle study (LCS) or quantitative life cycle assessment (LCA).",
     "description": "The project strategy includes at least one action to reduce environmental impact that is supported by a qualified life cycle study (LCS) or quantitative life cycle assessment (LCA).",
     "whyItMatters": "Actions lead to designs with a lower impact.",
-    "url": "/generated/criteria/E1.html"
+    "url": "/generated/criteria/environmental-impact-reduction.html"
   },
   "E3": {
     "id": "E3",
@@ -33,6 +35,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "product-ingredients-transparency",
     "appliesTo": [
       "project"
     ],
@@ -43,7 +47,7 @@
     "summary": "Displays ingredients or material components.",
     "description": "The project includes a list of all components and/or ingredients.",
     "whyItMatters": "The display of “ingredients” or material components.",
-    "url": "/generated/criteria/E3.html"
+    "url": "/generated/criteria/product-ingredients-transparency.html"
   },
   "E4": {
     "id": "E4",
@@ -55,6 +59,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "ink-printing-and-finishes",
     "appliesTo": [
       "project"
     ],
@@ -65,7 +71,7 @@
     "summary": "Reduces ink coverage on printed materials.",
     "description": "The project reduces or eliminates the use of inks, varnishes and finishes, or requires no printing.",
     "whyItMatters": "Reduces ink coverage on printed materials.",
-    "url": "/generated/criteria/E4.html"
+    "url": "/generated/criteria/ink-printing-and-finishes.html"
   },
   "E5": {
     "id": "E5",
@@ -77,6 +83,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "paper",
     "appliesTo": [
       "project"
     ],
@@ -87,7 +95,7 @@
     "summary": "Reduces paper use.",
     "description": "The project reduces paper use through efficiencies.",
     "whyItMatters": "Efficient use of paper and reduces paper use.",
-    "url": "/generated/criteria/E5.html"
+    "url": "/generated/criteria/paper.html"
   },
   "E6": {
     "id": "E6",
@@ -99,6 +107,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "product-quantity",
     "appliesTo": [
       "project"
     ],
@@ -109,7 +119,7 @@
     "summary": "Considers reproduction needs.",
     "description": "Reproduction is limited to immediate needs, including the possibility that no physical copies were needed.",
     "whyItMatters": "Reproduction and end-of-life considerations.",
-    "url": "/generated/criteria/E6.html"
+    "url": "/generated/criteria/product-quantity.html"
   },
   "E7": {
     "id": "E7",
@@ -121,6 +131,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "durability-extended-life",
     "appliesTo": [
       "project"
     ],
@@ -133,7 +145,7 @@
     "summary": "Integrates extended-life durability through reuse, repair, recharge, and/or upgrade where appropriate.",
     "description": "The product or system is physically durable and has a longer life than the industry average, where desirable. The product or system can be reused, recharged, repaired, and/or upgraded as an environmental benefit.",
     "whyItMatters": "Product design for longer life than the industry average.",
-    "url": "/generated/criteria/E7.html"
+    "url": "/generated/criteria/durability-extended-life.html"
   },
   "E9": {
     "id": "E9",
@@ -145,6 +157,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "toxins",
     "appliesTo": [
       "project"
     ],
@@ -158,7 +172,7 @@
     "summary": "Reduces or eliminates toxins.",
     "description": "The project reduces or eliminates the use of toxins.",
     "whyItMatters": "Reduces or eliminates toxins in a product.",
-    "url": "/generated/criteria/E9.html"
+    "url": "/generated/criteria/toxins.html"
   },
   "E10": {
     "id": "E10",
@@ -170,6 +184,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "environmental-policy",
     "appliesTo": [
       "designingEntity"
     ],
@@ -182,7 +198,7 @@
     "summary": "Displays publicly-accessible environmental policies.",
     "description": "The design entity and a majority of suppliers have publicly-accessible environmental policies.",
     "whyItMatters": "Publicly-accessible environmental policies.",
-    "url": "/generated/criteria/E10.html"
+    "url": "/generated/criteria/environmental-policy.html"
   },
   "EM4": {
     "id": "EM4",
@@ -194,6 +210,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "animal-welfare",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -207,7 +225,7 @@
     "summary": "Protects all animals.",
     "description": "To the best of the design entity's knowledge, the project, the design entity, and the client's activities do not, and will not, put animals at risk.",
     "whyItMatters": "Animals are not at risk from this project.",
-    "url": "/generated/criteria/EM4.html"
+    "url": "/generated/criteria/animal-welfare.html"
   },
   "EM6": {
     "id": "EM6",
@@ -219,6 +237,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "environmental-impact-reduction-and-transparency",
     "subcategoryLabel": "Environmental Impact Reduction and Transparency",
+    "category": "Environmental Impact Reduction and Transparency",
+    "slug": "ecosystems-conservation",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -232,7 +252,7 @@
     "summary": "Conserves valuable ecosystems.",
     "description": "To the best of the design entity's knowledge, the project, the design entity, and the client's activities do not, and will not, support the destruction of ecosystems.",
     "whyItMatters": "Conservation of valuable ecosystems.",
-    "url": "/generated/criteria/EM6.html"
+    "url": "/generated/criteria/ecosystems-conservation.html"
   },
   "E14": {
     "id": "E14",
@@ -244,6 +264,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "circular-design-and-waste-reduction",
     "subcategoryLabel": "Circular Design and Waste Reduction",
+    "category": "Circular Design and Waste Reduction",
+    "slug": "recyclability-or-reusability",
     "appliesTo": [
       "project"
     ],
@@ -257,7 +279,7 @@
     "summary": "Enables recycling or reuse.",
     "description": "Materials or systems used increase the ease and likelihood of recycling and/or reuse of the product and its packaging.",
     "whyItMatters": "Product and packaging can be reused or recycled.",
-    "url": "/generated/criteria/E14.html"
+    "url": "/generated/criteria/recyclability-or-reusability.html"
   },
   "E17": {
     "id": "E17",
@@ -269,6 +291,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "circular-design-and-waste-reduction",
     "subcategoryLabel": "Circular Design and Waste Reduction",
+    "category": "Circular Design and Waste Reduction",
+    "slug": "non-renewable-resources",
     "appliesTo": [
       "project"
     ],
@@ -282,7 +306,7 @@
     "summary": "Reduces non-renewable natural resources and materials.",
     "description": "The project reduces or eliminates the use of scarce, non-renewable natural resources and raw materials.",
     "whyItMatters": "Strategies reduce the use of non-renewable natural resources.",
-    "url": "/generated/criteria/E17.html"
+    "url": "/generated/criteria/non-renewable-resources.html"
   },
   "E15": {
     "id": "E15",
@@ -294,6 +318,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "circular-design-and-waste-reduction",
     "subcategoryLabel": "Circular Design and Waste Reduction",
+    "category": "Circular Design and Waste Reduction",
+    "slug": "biological-or-organic-materials",
     "appliesTo": [
       "project"
     ],
@@ -307,7 +333,7 @@
     "summary": "Uses waste as a nutrient or fuel, or is compostable.",
     "description": "The product can be used as fuel or food, or composted, either locally composted by the end user or incorporated into a local energy-recovery system that does not involve landfill or thermal treatment.",
     "whyItMatters": "The product can be composted or used as fuel or food.",
-    "url": "/generated/criteria/E15.html"
+    "url": "/generated/criteria/biological-or-organic-materials.html"
   },
   "E13": {
     "id": "E13",
@@ -319,6 +345,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "circular-design-and-waste-reduction",
     "subcategoryLabel": "Circular Design and Waste Reduction",
+    "category": "Circular Design and Waste Reduction",
+    "slug": "zero-waste",
     "appliesTo": [
       "project"
     ],
@@ -332,7 +360,7 @@
     "summary": "Eliminates waste.",
     "description": "The final product is a \"zero waste\" product.",
     "whyItMatters": "Zero waste products.",
-    "url": "/generated/criteria/E13.html"
+    "url": "/generated/criteria/zero-waste.html"
   },
   "E16": {
     "id": "E16",
@@ -344,6 +372,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "energy-efficiency",
     "subcategoryLabel": "Energy Efficiency",
+    "category": "Energy Efficiency",
+    "slug": "renewable-energy",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -357,9 +387,9 @@
       13
     ],
     "summary": "Uses renewable energy.",
-    "description": "P: The production of the product uses renewable energy from solar, wind, thermal or tidal sources.\n\nC: The design entity uses renewable energy from solar, wind, thermal or tidal sources.",
+    "description": "Project: The production of the product uses renewable energy from solar, wind, thermal or tidal sources.\n\nDesign Entity: The design entity uses renewable energy from solar, wind, thermal or tidal sources.",
     "whyItMatters": "Clean energy sources were used to make the product.",
-    "url": "/generated/criteria/E16.html"
+    "url": "/generated/criteria/renewable-energy.html"
   },
   "E18": {
     "id": "E18",
@@ -371,6 +401,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "energy-efficiency",
     "subcategoryLabel": "Energy Efficiency",
+    "category": "Energy Efficiency",
+    "slug": "consumer-energy-efficiency",
     "appliesTo": [
       "project"
     ],
@@ -384,7 +416,7 @@
     "summary": "Optimizes consumer energy efficiency.",
     "description": "The product or system used by the consumer is energy efficient or uses renewable energy.",
     "whyItMatters": "The product consumes energy efficiently.",
-    "url": "/generated/criteria/E18.html"
+    "url": "/generated/criteria/consumer-energy-efficiency.html"
   },
   "energy-efficiency": {
     "id": "energy-efficiency",
@@ -396,6 +428,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "energy-efficiency",
     "subcategoryLabel": "Energy Efficiency",
+    "category": "Energy Efficiency",
+    "slug": "energy-efficiency",
     "appliesTo": [
       "project"
     ],
@@ -422,6 +456,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "emissions",
     "subcategoryLabel": "Emissions",
+    "category": "Emissions",
+    "slug": "storage-and-transportation",
     "appliesTo": [
       "project"
     ],
@@ -432,7 +468,7 @@
     "summary": "Optimizes storage and transportation efficiencies.",
     "description": "The project includes shipping and/or warehousing efficiencies to optimize storage and transportation.",
     "whyItMatters": "Efficiency in the product’s transportation.",
-    "url": "/generated/criteria/E19.html"
+    "url": "/generated/criteria/storage-and-transportation.html"
   },
   "E11": {
     "id": "E11",
@@ -444,6 +480,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "emissions",
     "subcategoryLabel": "Emissions",
+    "category": "Emissions",
+    "slug": "quantified-ghg-reporting-and-certification",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -459,9 +497,9 @@
       15
     ],
     "summary": "Displays a publicly-accessible report of emissions, materials use, and waste.",
-    "description": "P: The project has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.\n\nC: The design entity has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.",
+    "description": "Project: The project has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.\n\nDesign Entity: The design entity has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.",
     "whyItMatters": "Publicly-accessible reporting of materials, waste and emissions.",
-    "url": "/generated/criteria/E11.html"
+    "url": "/generated/criteria/quantified-ghg-reporting-and-certification.html"
   },
   "E21": {
     "id": "E21",
@@ -473,6 +511,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "emissions",
     "subcategoryLabel": "Emissions",
+    "category": "Emissions",
+    "slug": "air-pollution",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -484,9 +524,9 @@
       15
     ],
     "summary": "Reduces air pollution.",
-    "description": "P: The project reduces or avoids air pollution.\n\nC: The design entity reduces or avoids air pollution.",
+    "description": "Project: The project reduces or avoids air pollution.\n\nDesign Entity: The design entity reduces or avoids air pollution.",
     "whyItMatters": "Product emission and air pollution.",
-    "url": "/generated/criteria/E21.html"
+    "url": "/generated/criteria/air-pollution.html"
   },
   "E22": {
     "id": "E22",
@@ -498,6 +538,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "emissions",
     "subcategoryLabel": "Emissions",
+    "category": "Emissions",
+    "slug": "carbon-offsets",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -507,9 +549,9 @@
       13
     ],
     "summary": "Offsets travel, production, and web presence emissions through carbon credit purchases.",
-    "description": "P: The project offsets all GHG emissions for travel, production and Web presence.\n\nC: The design entity offsets all GHG emissions for travel, production and Web presence.",
+    "description": "Project: The project offsets all GHG emissions for travel, production and Web presence.\n\nDesign Entity: The design entity offsets all GHG emissions for travel, production and Web presence.",
     "whyItMatters": "Carbon credits offset travel, production and Web presence.",
-    "url": "/generated/criteria/E22.html"
+    "url": "/generated/criteria/carbon-offsets.html"
   },
   "E23": {
     "id": "E23",
@@ -521,6 +563,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "water",
     "subcategoryLabel": "Water",
+    "category": "Water",
+    "slug": "water",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -533,7 +577,7 @@
     "summary": "Reduces or eliminates water use and water pollution.",
     "description": "Water pollution or water use were avoided or reduced.",
     "whyItMatters": "Reduces water use and pollution.",
-    "url": "/generated/criteria/E23.html"
+    "url": "/generated/criteria/water.html"
   },
   "sound-light-pollution": {
     "id": "sound-light-pollution",
@@ -545,6 +589,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "sound-light-and-smell",
     "subcategoryLabel": "Sound, Light and Smell",
+    "category": "Sound, Light and Smell",
+    "slug": "sound-light-pollution",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -555,7 +601,7 @@
       11
     ],
     "summary": "Reduces or eliminates sound and light pollution.",
-    "description": "P: The project avoids or reduces sound and light pollution.\n\nC: The design entity avoids or reduces sound and light pollution.",
+    "description": "Project: The project avoids or reduces sound and light pollution.\n\nDesign Entity: The design entity avoids or reduces sound and light pollution.",
     "whyItMatters": "",
     "url": "/generated/criteria/sound-light-pollution.html"
   },
@@ -569,6 +615,8 @@
     "pillarLabel": "Environmental Criteria",
     "subcategory": "sound-light-and-smell",
     "subcategoryLabel": "Sound, Light and Smell",
+    "category": "Sound, Light and Smell",
+    "slug": "odor-scent-and-fragrance",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -576,9 +624,9 @@
     "mandatory": false,
     "sdgs": [],
     "summary": "Eliminates odors, scents and fragrances.",
-    "description": "P: The project is odor, scent, and fragrance-free.\n\nC: The design entity has a no odor, scent, or fragrance policy.",
+    "description": "Project: The project is odor, scent, and fragrance-free.\n\nDesign Entity: The design entity has a no odor, scent, or fragrance policy.",
     "whyItMatters": "",
-    "url": "/generated/criteria/odor-scent-fragrance.html"
+    "url": "/generated/criteria/odor-scent-and-fragrance.html"
   },
   "S1": {
     "id": "S1",
@@ -590,6 +638,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "design-production-and-social-impact",
     "subcategoryLabel": "Design Production and Social Impact",
+    "category": "Design Production and Social Impact",
+    "slug": "harmless",
     "appliesTo": [
       "project"
     ],
@@ -600,7 +650,7 @@
     "summary": "Reduces injury in the making and use of the product.",
     "description": "The project reduces mental and physical injury to those who produce or use the product.",
     "whyItMatters": "Reduces injury in the making and use of the product.",
-    "url": "/generated/criteria/S1.html"
+    "url": "/generated/criteria/harmless.html"
   },
   "S2": {
     "id": "S2",
@@ -612,6 +662,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "design-production-and-social-impact",
     "subcategoryLabel": "Design Production and Social Impact",
+    "category": "Design Production and Social Impact",
+    "slug": "health-and-safety",
     "appliesTo": [
       "project"
     ],
@@ -623,7 +675,7 @@
     "summary": "Improves human health and/or safety.",
     "description": "The project improves the health or safety of the target audience.",
     "whyItMatters": "Improves human health and/or safety.",
-    "url": "/generated/criteria/S2.html"
+    "url": "/generated/criteria/health-and-safety.html"
   },
   "S3": {
     "id": "S3",
@@ -635,6 +687,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "design-production-and-social-impact",
     "subcategoryLabel": "Design Production and Social Impact",
+    "category": "Design Production and Social Impact",
+    "slug": "local-labour",
     "appliesTo": [
       "project"
     ],
@@ -647,7 +701,7 @@
     "summary": "Increases locally sourced labour.",
     "description": "The project significantly increases the amount of locally sourced labour from the end users' location.",
     "whyItMatters": "Increases locally sourced labour.",
-    "url": "/generated/criteria/S3.html"
+    "url": "/generated/criteria/local-labour.html"
   },
   "SM1": {
     "id": "SM1",
@@ -659,6 +713,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "ethical-practices-in-design-and-production",
     "subcategoryLabel": "Ethical Practices in Design and Production",
+    "category": "Ethical Practices in Design and Production",
+    "slug": "human-rights",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -673,9 +729,9 @@
       10
     ],
     "summary": "Upholds universal human rights.",
-    "description": "P: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in the violation of universal human rights.\n\nC: The design entity does not contribute directly or indirectly to the violation of universal human rights.",
+    "description": "Project: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in the violation of universal human rights.\n\nDesign Entity: The design entity does not contribute directly or indirectly to the violation of universal human rights.",
     "whyItMatters": "Design does not contribute to the violation of human rights.",
-    "url": "/generated/criteria/SM1.html"
+    "url": "/generated/criteria/human-rights.html"
   },
   "SM2": {
     "id": "SM2",
@@ -687,6 +743,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "ethical-practices-in-design-and-production",
     "subcategoryLabel": "Ethical Practices in Design and Production",
+    "category": "Ethical Practices in Design and Production",
+    "slug": "corruption",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -696,9 +754,9 @@
       16
     ],
     "summary": "Upholds high standards of anti-corruption and ethical governance.",
-    "description": "P: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in corruption or unethical governance.\n\nC: The design entity is not involved in corruption or unethical governance.",
+    "description": "Project: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in corruption or unethical governance.\n\nDesign Entity: The design entity is not involved in corruption or unethical governance.",
     "whyItMatters": "Corruption was not identified in the project.",
-    "url": "/generated/criteria/SM2.html"
+    "url": "/generated/criteria/corruption.html"
   },
   "SM3": {
     "id": "SM3",
@@ -710,6 +768,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "ethical-practices-in-design-and-production",
     "subcategoryLabel": "Ethical Practices in Design and Production",
+    "category": "Ethical Practices in Design and Production",
+    "slug": "rights-of-workers",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -726,7 +786,7 @@
     "summary": "Upholds the rights of workers.",
     "description": "To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in the violation of the fundamental principles and rights of workers.",
     "whyItMatters": "Upholds the rights of workers.",
-    "url": "/generated/criteria/SM3.html"
+    "url": "/generated/criteria/rights-of-workers.html"
   },
   "S10": {
     "id": "S10",
@@ -738,6 +798,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "ethical-practices-in-design-and-production",
     "subcategoryLabel": "Ethical Practices in Design and Production",
+    "category": "Ethical Practices in Design and Production",
+    "slug": "artificial-intelligence-ai",
     "appliesTo": [
       "project"
     ],
@@ -749,7 +811,7 @@
     "summary": "Discloses design sources as human-made or AI generated, and adheres to ethical guidelines.",
     "description": "The project discloses the sources of design whether human made or AI generated. If AI was used to create any part of a design, it follows UNESCO's Recommendation on the Ethics of Artificial Intelligence.",
     "whyItMatters": "Authentically created design by a person.",
-    "url": "/generated/criteria/S10.html"
+    "url": "/generated/criteria/artificial-intelligence-ai.html"
   },
   "S6": {
     "id": "S6",
@@ -761,6 +823,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "accessibility",
     "subcategoryLabel": "Accessibility",
+    "category": "Accessibility",
+    "slug": "electronic-documents",
     "appliesTo": [
       "project"
     ],
@@ -776,7 +840,7 @@
     "summary": "Ensures accessibility of all electronic documents, including Web pages.",
     "description": "All electronic documents comply with the W3C WCAG 2.0 Level A standard, or higher, or comply with the ISO standard for PDF/UA accessibility standard.",
     "whyItMatters": "Accessibility of all electronic documents, including Web pages.",
-    "url": "/generated/criteria/S6.html"
+    "url": "/generated/criteria/electronic-documents.html"
   },
   "S6b": {
     "id": "S6b",
@@ -788,6 +852,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "accessibility",
     "subcategoryLabel": "Accessibility",
+    "category": "Accessibility",
+    "slug": "printed-documents-and-compliance",
     "appliesTo": [
       "project"
     ],
@@ -803,7 +869,7 @@
     "summary": "Ensures accessibility of all printed materials.",
     "description": "Printed materials are designed using accessible typography, contrast, hierarchy, and readability principles to support users with visual, cognitive, or literacy-related accessibility needs.",
     "whyItMatters": "Accessibility of printed documents.",
-    "url": "/generated/criteria/S6b.html"
+    "url": "/generated/criteria/printed-documents-and-compliance.html"
   },
   "S8": {
     "id": "S8",
@@ -815,6 +881,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "accessibility",
     "subcategoryLabel": "Accessibility",
+    "category": "Accessibility",
+    "slug": "universal-design-principles",
     "appliesTo": [
       "project"
     ],
@@ -830,7 +898,7 @@
     "summary": "Complies with Universal Design standards.",
     "description": "The non-document components of the project adhere to universal design principles.",
     "whyItMatters": "Complies with Universal Design standards.",
-    "url": "/generated/criteria/S8.html"
+    "url": "/generated/criteria/universal-design-principles.html"
   },
   "S9": {
     "id": "S9",
@@ -842,6 +910,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "intellectual-property",
     "subcategoryLabel": "Intellectual Property",
+    "category": "Intellectual Property",
+    "slug": "intellectual-property",
     "appliesTo": [
       "project"
     ],
@@ -855,7 +925,7 @@
     "summary": "Uses a clear and responsible intellectual property approach.",
     "description": "The project clearly defines and respects intellectual property ownership, authorship, permissions, licensing, and usage rights. Where appropriate, the project may also share reusable intellectual property through Creative Commons or another open licensing approach that creates value for society.",
     "whyItMatters": "Clear intellectual property ownership, permissions, licensing, and usage rights protect creators, users, clients, and the public value of reusable design work.",
-    "url": "/generated/criteria/S9.html"
+    "url": "/generated/criteria/intellectual-property.html"
   },
   "S11": {
     "id": "S11",
@@ -867,6 +937,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "social-equality",
     "subcategoryLabel": "Social Equality",
+    "category": "Social Equality",
+    "slug": "affordable",
     "appliesTo": [
       "project"
     ],
@@ -880,7 +952,7 @@
     "summary": "Maintains affordability for all market sectors.",
     "description": "The product is affordable to a wide audience including those with limited financial resources.",
     "whyItMatters": "Sustainable products are affordable for all market sectors.",
-    "url": "/generated/criteria/S11.html"
+    "url": "/generated/criteria/affordable.html"
   },
   "S12": {
     "id": "S12",
@@ -892,6 +964,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "social-equality",
     "subcategoryLabel": "Social Equality",
+    "category": "Social Equality",
+    "slug": "fair-trade",
     "appliesTo": [
       "project"
     ],
@@ -906,7 +980,7 @@
     "summary": "Ensures collaborations between low, middle and high income countries.",
     "description": "The project involves \"fair trade\" to ensure equity between low, middle and high income countries.",
     "whyItMatters": "Collaborations between low, middle and high income countries.",
-    "url": "/generated/criteria/S12.html"
+    "url": "/generated/criteria/fair-trade.html"
   },
   "S13": {
     "id": "S13",
@@ -918,6 +992,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "social-equality",
     "subcategoryLabel": "Social Equality",
+    "category": "Social Equality",
+    "slug": "social-gaps",
     "appliesTo": [
       "project"
     ],
@@ -931,7 +1007,7 @@
     "summary": "Reduces gaps in gender, power, and wealth.",
     "description": "The project aims to close gaps of gender, power, or wealth within and across social, economic, and political systems.",
     "whyItMatters": "Reduces wealth and power gaps inside and between countries.",
-    "url": "/generated/criteria/S13.html"
+    "url": "/generated/criteria/social-gaps.html"
   },
   "S14": {
     "id": "S14",
@@ -943,6 +1019,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "social-equality",
     "subcategoryLabel": "Social Equality",
+    "category": "Social Equality",
+    "slug": "freedom-of-expression",
     "appliesTo": [
       "project"
     ],
@@ -955,7 +1033,7 @@
     "summary": "Encourages freedom of expression and/or democracy.",
     "description": "The project encourages or educates about democracy and/or freedom of expression.",
     "whyItMatters": "Encourages freedom of expression and/or democracy.",
-    "url": "/generated/criteria/S14.html"
+    "url": "/generated/criteria/freedom-of-expression.html"
   },
   "S15": {
     "id": "S15",
@@ -967,6 +1045,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "education",
     "subcategoryLabel": "Education",
+    "category": "Education",
+    "slug": "design-education",
     "appliesTo": [
       "project"
     ],
@@ -978,7 +1058,7 @@
     "summary": "Provides design education opportunities for students.",
     "description": "The project includes design students and/or enriches existing design school curriculum.",
     "whyItMatters": "Provides design education opportunities for students.",
-    "url": "/generated/criteria/S15.html"
+    "url": "/generated/criteria/design-education.html"
   },
   "S16": {
     "id": "S16",
@@ -990,6 +1070,8 @@
     "pillarLabel": "Social Criteria",
     "subcategory": "education",
     "subcategoryLabel": "Education",
+    "category": "Education",
+    "slug": "educational-component",
     "appliesTo": [
       "project"
     ],
@@ -1001,7 +1083,7 @@
     "summary": "Educates the user or consumer on sustainability.",
     "description": "The product includes an educational component that promotes sustainability to the consumer.",
     "whyItMatters": "Educates the user or consumer on sustainability.",
-    "url": "/generated/criteria/S16.html"
+    "url": "/generated/criteria/educational-component.html"
   },
   "C2": {
     "id": "C2",
@@ -1013,6 +1095,8 @@
     "pillarLabel": "Cultural Criteria",
     "subcategory": "cultural-preservation-and-adaptation",
     "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "category": "Cultural Preservation and Adaptation",
+    "slug": "endangered-languages",
     "appliesTo": [
       "project"
     ],
@@ -1025,7 +1109,7 @@
     "summary": "Contributes to the protection of endangered languages.",
     "description": "The project helps to preserve endangered languages, particularly Indigenous languages.",
     "whyItMatters": "Contributes to the preservation of endangered languages.",
-    "url": "/generated/criteria/C2.html"
+    "url": "/generated/criteria/endangered-languages.html"
   },
   "C3": {
     "id": "C3",
@@ -1037,6 +1121,8 @@
     "pillarLabel": "Cultural Criteria",
     "subcategory": "cultural-preservation-and-adaptation",
     "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "category": "Cultural Preservation and Adaptation",
+    "slug": "indigenous-culture",
     "appliesTo": [
       "project"
     ],
@@ -1049,7 +1135,7 @@
     "summary": "Preserves or nurtures Indigenous culture.",
     "description": "The project preserves or nurtures Indigenous culture other than language.",
     "whyItMatters": "Preserves or nurtures Indigenous culture.",
-    "url": "/generated/criteria/C3.html"
+    "url": "/generated/criteria/indigenous-culture.html"
   },
   "C4": {
     "id": "C4",
@@ -1061,6 +1147,8 @@
     "pillarLabel": "Cultural Criteria",
     "subcategory": "cultural-preservation-and-adaptation",
     "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "category": "Cultural Preservation and Adaptation",
+    "slug": "local-culture",
     "appliesTo": [
       "project"
     ],
@@ -1073,7 +1161,7 @@
     "summary": "Adapts design to local cultures.",
     "description": "The project adapts to local and regional cultures.",
     "whyItMatters": "Adapts design to local cultures.",
-    "url": "/generated/criteria/C4.html"
+    "url": "/generated/criteria/local-culture.html"
   },
   "C5": {
     "id": "C5",
@@ -1085,6 +1173,8 @@
     "pillarLabel": "Cultural Criteria",
     "subcategory": "cultural-preservation-and-adaptation",
     "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "category": "Cultural Preservation and Adaptation",
+    "slug": "cultural-diversity",
     "appliesTo": [
       "project"
     ],
@@ -1097,7 +1187,7 @@
     "summary": "Promotes or enhances cultural diversity.",
     "description": "The project promotes or enhances cultural diversity.",
     "whyItMatters": "Design promotes or enhances cultural diversity.",
-    "url": "/generated/criteria/C5.html"
+    "url": "/generated/criteria/cultural-diversity.html"
   },
   "CM9": {
     "id": "CM9",
@@ -1109,6 +1199,8 @@
     "pillarLabel": "Cultural Criteria",
     "subcategory": "cultural-preservation-and-adaptation",
     "subcategoryLabel": "Cultural Preservation and Adaptation",
+    "category": "Cultural Preservation and Adaptation",
+    "slug": "cultural-policy",
     "appliesTo": [
       "designingEntity"
     ],
@@ -1123,7 +1215,7 @@
     "summary": "Displays a publicly-accessible cultural policy.",
     "description": "The design entity and the majority of suppliers have a publicly-accessible policy to actively protect and support communities.",
     "whyItMatters": "Publicly-accessible cultural sustainability policy.",
-    "url": "/generated/criteria/CM9.html"
+    "url": "/generated/criteria/cultural-policy.html"
   },
   "C6": {
     "id": "C6",
@@ -1135,6 +1227,8 @@
     "pillarLabel": "Cultural Criteria",
     "subcategory": "community-and-audience-engagement",
     "subcategoryLabel": "Community and Audience Engagement",
+    "category": "Community and Audience Engagement",
+    "slug": "audience-engagement",
     "appliesTo": [
       "project"
     ],
@@ -1145,7 +1239,7 @@
     "summary": "Engages with end users and audiences.",
     "description": "The project engages end users throughout the design process or audiences that will be directly impacted by the project.",
     "whyItMatters": "Design process engages with end user.",
-    "url": "/generated/criteria/C6.html"
+    "url": "/generated/criteria/audience-engagement.html"
   },
   "C7": {
     "id": "C7",
@@ -1157,6 +1251,8 @@
     "pillarLabel": "Cultural Criteria",
     "subcategory": "community-and-audience-engagement",
     "subcategoryLabel": "Community and Audience Engagement",
+    "category": "Community and Audience Engagement",
+    "slug": "community-participation",
     "appliesTo": [
       "project"
     ],
@@ -1168,7 +1264,7 @@
     "summary": "Supports the sustainable development of the design entity's community.",
     "description": "The design entity actively supports and participates in the sustainable development of their community.",
     "whyItMatters": "Actively supports the sustainable development of your community.",
-    "url": "/generated/criteria/C7.html"
+    "url": "/generated/criteria/community-participation.html"
   },
   "C8": {
     "id": "C8",
@@ -1180,6 +1276,8 @@
     "pillarLabel": "Cultural Criteria",
     "subcategory": "community-and-audience-engagement",
     "subcategoryLabel": "Community and Audience Engagement",
+    "category": "Community and Audience Engagement",
+    "slug": "practitioners-education",
     "appliesTo": [
       "project"
     ],
@@ -1192,7 +1290,7 @@
     "summary": "Educates design practitioners.",
     "description": "The project results in the education of sustainability for design practitioners.",
     "whyItMatters": "Project educates others to support sustainable design education.",
-    "url": "/generated/criteria/C8.html"
+    "url": "/generated/criteria/practitioners-education.html"
   },
   "F1": {
     "id": "F1",
@@ -1204,6 +1302,8 @@
     "pillarLabel": "Financial Criteria",
     "subcategory": "basis-of-financial-sustainability",
     "subcategoryLabel": "Basis of Financial Sustainability",
+    "category": "Basis of Financial Sustainability",
+    "slug": "economic-benefits",
     "appliesTo": [
       "project"
     ],
@@ -1220,7 +1320,7 @@
     "summary": "Adds value that benefits a region's economy.",
     "description": "The project identifies and creates economic benefits beyond benefits to the client and the design entity.",
     "whyItMatters": "Adds value to benefit a region’s economy.",
-    "url": "/generated/criteria/F1.html"
+    "url": "/generated/criteria/economic-benefits.html"
   },
   "F2": {
     "id": "F2",
@@ -1232,6 +1332,8 @@
     "pillarLabel": "Financial Criteria",
     "subcategory": "basis-of-financial-sustainability",
     "subcategoryLabel": "Basis of Financial Sustainability",
+    "category": "Basis of Financial Sustainability",
+    "slug": "profitability",
     "appliesTo": [
       "project"
     ],
@@ -1243,7 +1345,7 @@
     "summary": "Ensures the design entity is paid for work performed.",
     "description": "The project budget or contract financially compensates the design entity.",
     "whyItMatters": "The designing entity profits from the project.",
-    "url": "/generated/criteria/F2.html"
+    "url": "/generated/criteria/profitability.html"
   },
   "FM3": {
     "id": "FM3",
@@ -1255,6 +1357,8 @@
     "pillarLabel": "Financial Criteria",
     "subcategory": "basis-of-financial-sustainability",
     "subcategoryLabel": "Basis of Financial Sustainability",
+    "category": "Basis of Financial Sustainability",
+    "slug": "unpaid-work",
     "appliesTo": [
       "project",
       "designingEntity"
@@ -1269,7 +1373,7 @@
     "summary": "Compensates all designers.",
     "description": "The design entity and the project did not request unpaid work, also known as \"free pitching\", \"speculative work\", or \"spec work\", from designers, including interns and student designers.",
     "whyItMatters": "All design work is financially compensated.",
-    "url": "/generated/criteria/FM3.html"
+    "url": "/generated/criteria/unpaid-work.html"
   },
   "F4": {
     "id": "F4",
@@ -1281,6 +1385,8 @@
     "pillarLabel": "Financial Criteria",
     "subcategory": "economic-accountability-and-strategic-value",
     "subcategoryLabel": "Economic Accountability and Strategic Value / Financial Planning",
+    "category": "Economic Accountability and Strategic Value / Financial Planning",
+    "slug": "smart-goals",
     "appliesTo": [
       "project"
     ],
@@ -1292,7 +1398,7 @@
     "summary": "Outlines financial objectives in the design brief.",
     "description": "A project document exists that establishes SMART financial objectives with clear, measurable targets and time-bound outcomes.",
     "whyItMatters": "Financial objectives are defined in a design brief.",
-    "url": "/generated/criteria/F4.html"
+    "url": "/generated/criteria/smart-goals.html"
   },
   "F5": {
     "id": "F5",
@@ -1304,6 +1410,8 @@
     "pillarLabel": "Financial Criteria",
     "subcategory": "economic-accountability-and-strategic-value",
     "subcategoryLabel": "Economic Accountability and Strategic Value / Financial Planning",
+    "category": "Economic Accountability and Strategic Value / Financial Planning",
+    "slug": "accountability-and-transparency",
     "appliesTo": [
       "designingEntity"
     ],
@@ -1318,7 +1426,7 @@
     "summary": "Adheres to transparent financial management and documentation practices.",
     "description": "Adheres to transparent financial management and documentation practices.",
     "whyItMatters": "Adheres to international accounting standards.",
-    "url": "/generated/criteria/F5.html"
+    "url": "/generated/criteria/accountability-and-transparency.html"
   },
   "F6": {
     "id": "F6",
@@ -1330,6 +1438,8 @@
     "pillarLabel": "Financial Criteria",
     "subcategory": "economic-accountability-and-strategic-value",
     "subcategoryLabel": "Economic Accountability and Strategic Value / Financial Planning",
+    "category": "Economic Accountability and Strategic Value / Financial Planning",
+    "slug": "standards-improvement",
     "appliesTo": [
       "designingEntity"
     ],
@@ -1342,7 +1452,7 @@
     "summary": "Improves the standards and procedures of the design entity.",
     "description": "The project improves the design entity's documented standards and procedures.",
     "whyItMatters": "Continuous improvement in the designing entity’s organization.",
-    "url": "/generated/criteria/F6.html"
+    "url": "/generated/criteria/standards-improvement.html"
   },
   "F7": {
     "id": "F7",
@@ -1354,6 +1464,8 @@
     "pillarLabel": "Financial Criteria",
     "subcategory": "economic-accountability-and-strategic-value",
     "subcategoryLabel": "Economic Accountability and Strategic Value / Financial Planning",
+    "category": "Economic Accountability and Strategic Value / Financial Planning",
+    "slug": "design-thinking",
     "appliesTo": [
       "project"
     ],
@@ -1371,6 +1483,6 @@
     "summary": "Adds business value through design strategy.",
     "description": "Design thinking adds economic value to audiences, users, and/or stakeholders.",
     "whyItMatters": "Adds value to a business through design strategy.",
-    "url": "/generated/criteria/F7.html"
+    "url": "/generated/criteria/design-thinking.html"
   }
 }

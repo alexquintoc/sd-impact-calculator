@@ -1,7 +1,9 @@
 import {
   briefSeeds,
+  formatCriterionReference,
   pillarDefinitions,
   pillarOrder,
+  validateBriefCriterionReferences,
   type BriefSeed,
   type PillarKey,
 } from '../data/brief-generator-data'
@@ -72,6 +74,17 @@ const getTensionWarning = (values: BriefGeneratorValues) => {
 }
 
 const unique = (values: string[]) => Array.from(new Set(values))
+
+const missingCriteria = validateBriefCriterionReferences(
+  briefSeeds,
+  pillarDefinitions,
+)
+
+if (missingCriteria.length > 0) {
+  console.warn(
+    `Brief Generator has unresolved SD criteria references: ${missingCriteria.join(', ')}`,
+  )
+}
 
 const scoreSeed = (
   seed: BriefSeed,
@@ -155,7 +168,7 @@ export const generateBrief = (
       ...seed.criteria,
       ...pillarDefinitions[dominantPillar].criteria,
       ...pillarDefinitions[supportingPillar].criteria,
-    ]),
+    ]).map(formatCriterionReference),
     tensionWarning: getTensionWarning(values),
     tags: seed.tags,
   }

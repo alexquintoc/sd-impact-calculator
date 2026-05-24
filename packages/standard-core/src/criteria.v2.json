@@ -113,7 +113,9 @@
           "summary": "Reduces environmental impact and is supported by a qualified life cycle study (LCS) or quantitative life cycle assessment (LCA).",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "environmental-impact-reduction",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "E3",
@@ -146,7 +148,9 @@
           "summary": "Displays ingredients or material components.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "product-ingredients-transparency",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "E4",
@@ -184,7 +188,9 @@
           "summary": "Reduces ink coverage on printed materials.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "ink-printing-and-finishes",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "E5",
@@ -222,7 +228,9 @@
           "summary": "Reduces paper use.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "paper",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "E6",
@@ -260,7 +268,9 @@
           "summary": "Considers reproduction needs.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "product-quantity",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "E7",
@@ -300,7 +310,9 @@
           "summary": "Integrates extended-life durability through reuse, repair, recharge, and/or upgrade where appropriate.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "durability-extended-life",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "E9",
@@ -340,7 +352,9 @@
           "summary": "Reduces or eliminates toxins.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "toxins",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "E10",
@@ -374,7 +388,9 @@
           "summary": "Displays publicly-accessible environmental policies.",
           "appliesTo": [
             "designingEntity"
-          ]
+          ],
+          "slug": "environmental-policy",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "EM4",
@@ -409,7 +425,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "animal-welfare",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "EM6",
@@ -444,7 +462,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "ecosystems-conservation",
+          "category": "Environmental Impact Reduction and Transparency"
         },
         {
           "id": "E14",
@@ -484,7 +504,9 @@
           "summary": "Enables recycling or reuse.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "recyclability-or-reusability",
+          "category": "Circular Design and Waste Reduction"
         },
         {
           "id": "E17",
@@ -524,7 +546,9 @@
           "summary": "Reduces non-renewable natural resources and materials.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "non-renewable-resources",
+          "category": "Circular Design and Waste Reduction"
         },
         {
           "id": "E15",
@@ -562,7 +586,9 @@
           "summary": "Uses waste as a nutrient or fuel, or is compostable.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "biological-or-organic-materials",
+          "category": "Circular Design and Waste Reduction"
         },
         {
           "id": "E13",
@@ -600,7 +626,9 @@
           "summary": "Eliminates waste.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "zero-waste",
+          "category": "Circular Design and Waste Reduction"
         },
         {
           "id": "E16",
@@ -609,7 +637,7 @@
           "label": "Renewable Energy",
           "points": 1,
           "subcategory": "energy-efficiency",
-          "description": "P: The production of the product uses renewable energy from solar, wind, thermal or tidal sources.\n\nC: The design entity uses renewable energy from solar, wind, thermal or tidal sources.",
+          "description": "Project: The production of the product uses renewable energy from solar, wind, thermal or tidal sources.\n\nDesign Entity: The design entity uses renewable energy from solar, wind, thermal or tidal sources.",
           "whyItMatters": "Clean energy sources were used to make the product.",
           "sdgs": [
             7,
@@ -637,7 +665,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "renewable-energy",
+          "category": "Energy Efficiency"
         },
         {
           "id": "E18",
@@ -677,7 +707,9 @@
           "summary": "Optimizes consumer energy efficiency.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "consumer-energy-efficiency",
+          "category": "Energy Efficiency"
         },
         {
           "id": "energy-efficiency",
@@ -702,7 +734,9 @@
             "project"
           ],
           "level": "project",
-          "applicability": {}
+          "applicability": {},
+          "slug": "energy-efficiency",
+          "category": "Energy Efficiency"
         },
         {
           "id": "E19",
@@ -740,7 +774,9 @@
           "summary": "Optimizes storage and transportation efficiencies.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "storage-and-transportation",
+          "category": "Emissions"
         },
         {
           "id": "E11",
@@ -749,7 +785,7 @@
           "label": "Quantified GHG Reporting and Certification",
           "points": 1,
           "subcategory": "emissions",
-          "description": "P: The project has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.\n\nC: The design entity has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.",
+          "description": "Project: The project has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.\n\nDesign Entity: The design entity has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.",
           "whyItMatters": "Publicly-accessible reporting of materials, waste and emissions.",
           "sdgs": [
             6,
@@ -779,7 +815,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "quantified-ghg-reporting-and-certification",
+          "category": "Emissions"
         },
         {
           "id": "E21",
@@ -788,7 +826,7 @@
           "label": "Air Pollution",
           "points": 1,
           "subcategory": "emissions",
-          "description": "P: The project reduces or avoids air pollution.\n\nC: The design entity reduces or avoids air pollution.",
+          "description": "Project: The project reduces or avoids air pollution.\n\nDesign Entity: The design entity reduces or avoids air pollution.",
           "whyItMatters": "Product emission and air pollution.",
           "sdgs": [
             13,
@@ -814,7 +852,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "air-pollution",
+          "category": "Emissions"
         },
         {
           "id": "E22",
@@ -823,7 +863,7 @@
           "label": "Carbon Offsets",
           "points": 1,
           "subcategory": "emissions",
-          "description": "P: The project offsets all GHG emissions for travel, production and Web presence.\n\nC: The design entity offsets all GHG emissions for travel, production and Web presence.",
+          "description": "Project: The project offsets all GHG emissions for travel, production and Web presence.\n\nDesign Entity: The design entity offsets all GHG emissions for travel, production and Web presence.",
           "whyItMatters": "Carbon credits offset travel, production and Web presence.",
           "sdgs": [
             13
@@ -847,7 +887,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "carbon-offsets",
+          "category": "Emissions"
         },
         {
           "id": "E23",
@@ -886,7 +928,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "water",
+          "category": "Water"
         },
         {
           "id": "sound-light-pollution",
@@ -898,7 +942,7 @@
           "label": "Sound & Light Pollution",
           "subcategory": "sound-light-and-smell",
           "summary": "Reduces or eliminates sound and light pollution.",
-          "description": "P: The project avoids or reduces sound and light pollution.\n\nC: The design entity avoids or reduces sound and light pollution.",
+          "description": "Project: The project avoids or reduces sound and light pollution.\n\nDesign Entity: The design entity avoids or reduces sound and light pollution.",
           "whyItMatters": "",
           "sdgs": [
             3,
@@ -909,7 +953,9 @@
             "designingEntity"
           ],
           "level": "project",
-          "applicability": {}
+          "applicability": {},
+          "slug": "sound-light-pollution",
+          "category": "Sound, Light and Smell"
         },
         {
           "id": "odor-scent-fragrance",
@@ -921,7 +967,7 @@
           "label": "Odor, Scent and Fragrance",
           "subcategory": "sound-light-and-smell",
           "summary": "Eliminates odors, scents and fragrances.",
-          "description": "P: The project is odor, scent, and fragrance-free.\n\nC: The design entity has a no odor, scent, or fragrance policy.",
+          "description": "Project: The project is odor, scent, and fragrance-free.\n\nDesign Entity: The design entity has a no odor, scent, or fragrance policy.",
           "whyItMatters": "",
           "sdgs": [],
           "appliesTo": [
@@ -929,7 +975,9 @@
             "designingEntity"
           ],
           "level": "project",
-          "applicability": {}
+          "applicability": {},
+          "slug": "odor-scent-and-fragrance",
+          "category": "Sound, Light and Smell"
         }
       ]
     },
@@ -967,7 +1015,9 @@
           "summary": "Reduces injury in the making and use of the product.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "harmless",
+          "category": "Design Production and Social Impact"
         },
         {
           "id": "S2",
@@ -1000,7 +1050,9 @@
           "summary": "Improves human health and/or safety.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "health-and-safety",
+          "category": "Design Production and Social Impact"
         },
         {
           "id": "S3",
@@ -1034,7 +1086,9 @@
           "summary": "Increases locally sourced labour.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "local-labour",
+          "category": "Design Production and Social Impact"
         },
         {
           "id": "SM1",
@@ -1043,7 +1097,7 @@
           "label": "Human Rights",
           "points": 1,
           "subcategory": "ethical-practices-in-design-and-production",
-          "description": "P: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in the violation of universal human rights.\n\nC: The design entity does not contribute directly or indirectly to the violation of universal human rights.",
+          "description": "Project: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in the violation of universal human rights.\n\nDesign Entity: The design entity does not contribute directly or indirectly to the violation of universal human rights.",
           "whyItMatters": "Design does not contribute to the violation of human rights.",
           "sdgs": [
             1,
@@ -1072,7 +1126,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "human-rights",
+          "category": "Ethical Practices in Design and Production"
         },
         {
           "id": "SM2",
@@ -1081,7 +1137,7 @@
           "label": "Corruption",
           "points": 1,
           "subcategory": "ethical-practices-in-design-and-production",
-          "description": "P: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in corruption or unethical governance.\n\nC: The design entity is not involved in corruption or unethical governance.",
+          "description": "Project: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in corruption or unethical governance.\n\nDesign Entity: The design entity is not involved in corruption or unethical governance.",
           "whyItMatters": "Corruption was not identified in the project.",
           "sdgs": [
             16
@@ -1105,7 +1161,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "corruption",
+          "category": "Ethical Practices in Design and Production"
         },
         {
           "id": "SM3",
@@ -1143,7 +1201,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "rights-of-workers",
+          "category": "Ethical Practices in Design and Production"
         },
         {
           "id": "S10",
@@ -1176,7 +1236,9 @@
           "summary": "Discloses design sources as human-made or AI generated, and adheres to ethical guidelines.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "artificial-intelligence-ai",
+          "category": "Ethical Practices in Design and Production"
         },
         {
           "id": "S6",
@@ -1218,7 +1280,9 @@
           "summary": "Ensures accessibility of all electronic documents, including Web pages.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "electronic-documents",
+          "category": "Accessibility"
         },
         {
           "id": "S6b",
@@ -1259,7 +1323,9 @@
           "summary": "Ensures accessibility of all printed materials.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "printed-documents-and-compliance",
+          "category": "Accessibility"
         },
         {
           "id": "S8",
@@ -1296,7 +1362,9 @@
           "summary": "Complies with Universal Design standards.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "universal-design-principles",
+          "category": "Accessibility"
         },
         {
           "id": "S9",
@@ -1331,7 +1399,9 @@
           "summary": "Uses a clear and responsible intellectual property approach.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "intellectual-property",
+          "category": "Intellectual Property"
         },
         {
           "id": "S11",
@@ -1366,7 +1436,9 @@
           "summary": "Maintains affordability for all market sectors.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "affordable",
+          "category": "Social Equality"
         },
         {
           "id": "S12",
@@ -1402,7 +1474,9 @@
           "summary": "Ensures collaborations between low, middle and high income countries.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "fair-trade",
+          "category": "Social Equality"
         },
         {
           "id": "S13",
@@ -1437,7 +1511,9 @@
           "summary": "Reduces gaps in gender, power, and wealth.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "social-gaps",
+          "category": "Social Equality"
         },
         {
           "id": "S14",
@@ -1471,7 +1547,9 @@
           "summary": "Encourages freedom of expression and/or democracy.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "freedom-of-expression",
+          "category": "Social Equality"
         },
         {
           "id": "S15",
@@ -1504,7 +1582,9 @@
           "summary": "Provides design education opportunities for students.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "design-education",
+          "category": "Education"
         },
         {
           "id": "S16",
@@ -1537,7 +1617,9 @@
           "summary": "Educates the user or consumer on sustainability.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "educational-component",
+          "category": "Education"
         }
       ]
     },
@@ -1577,7 +1659,9 @@
           "summary": "Contributes to the protection of endangered languages.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "endangered-languages",
+          "category": "Cultural Preservation and Adaptation"
         },
         {
           "id": "C3",
@@ -1611,7 +1695,9 @@
           "summary": "Preserves or nurtures Indigenous culture.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "indigenous-culture",
+          "category": "Cultural Preservation and Adaptation"
         },
         {
           "id": "C4",
@@ -1645,7 +1731,9 @@
           "summary": "Adapts design to local cultures.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "local-culture",
+          "category": "Cultural Preservation and Adaptation"
         },
         {
           "id": "C5",
@@ -1679,7 +1767,9 @@
           "summary": "Promotes or enhances cultural diversity.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "cultural-diversity",
+          "category": "Cultural Preservation and Adaptation"
         },
         {
           "id": "CM9",
@@ -1715,7 +1805,9 @@
           "summary": "Displays a publicly-accessible cultural policy.",
           "appliesTo": [
             "designingEntity"
-          ]
+          ],
+          "slug": "cultural-policy",
+          "category": "Cultural Preservation and Adaptation"
         },
         {
           "id": "C6",
@@ -1747,7 +1839,9 @@
           "summary": "Engages with end users and audiences.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "audience-engagement",
+          "category": "Community and Audience Engagement"
         },
         {
           "id": "C7",
@@ -1780,7 +1874,9 @@
           "summary": "Supports the sustainable development of the design entity's community.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "community-participation",
+          "category": "Community and Audience Engagement"
         },
         {
           "id": "C8",
@@ -1814,7 +1910,9 @@
           "summary": "Educates design practitioners.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "practitioners-education",
+          "category": "Community and Audience Engagement"
         }
       ]
     },
@@ -1858,7 +1956,9 @@
           "summary": "Adds value that benefits a region's economy.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "economic-benefits",
+          "category": "Basis of Financial Sustainability"
         },
         {
           "id": "F2",
@@ -1891,7 +1991,9 @@
           "summary": "Ensures the design entity is paid for work performed.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "profitability",
+          "category": "Basis of Financial Sustainability"
         },
         {
           "id": "FM3",
@@ -1927,7 +2029,9 @@
           "appliesTo": [
             "project",
             "designingEntity"
-          ]
+          ],
+          "slug": "unpaid-work",
+          "category": "Basis of Financial Sustainability"
         },
         {
           "id": "F4",
@@ -1960,7 +2064,9 @@
           "summary": "Outlines financial objectives in the design brief.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "smart-goals",
+          "category": "Economic Accountability and Strategic Value / Financial Planning"
         },
         {
           "id": "F5",
@@ -1996,7 +2102,9 @@
           "summary": "Adheres to transparent financial management and documentation practices.",
           "appliesTo": [
             "designingEntity"
-          ]
+          ],
+          "slug": "accountability-and-transparency",
+          "category": "Economic Accountability and Strategic Value / Financial Planning"
         },
         {
           "id": "F6",
@@ -2030,7 +2138,9 @@
           "summary": "Improves the standards and procedures of the design entity.",
           "appliesTo": [
             "designingEntity"
-          ]
+          ],
+          "slug": "standards-improvement",
+          "category": "Economic Accountability and Strategic Value / Financial Planning"
         },
         {
           "id": "F7",
@@ -2069,7 +2179,9 @@
           "summary": "Adds business value through design strategy.",
           "appliesTo": [
             "project"
-          ]
+          ],
+          "slug": "design-thinking",
+          "category": "Economic Accountability and Strategic Value / Financial Planning"
         }
       ]
     }

@@ -10,6 +10,6 @@ TBD.
 TBD.
 
 ## Related criteria
-- [E5](../criteria/E5.md)
-- [E14](../criteria/E14.md)
-- [E13](../criteria/E13.md)
+- [E5: Product Quantity](../criteria/product-quantity.md)
+- [E14: Zero Waste](../criteria/zero-waste.md)
+- [E14: Zero Waste](../criteria/zero-waste.md)

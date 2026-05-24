@@ -1,0 +1,27 @@
+<!-- AUTO-GENERATED FILE. DO NOT EDIT DIRECTLY. -->
+<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->
+
+# S16: Design Education
+
+**Display ID:** S16  
+**Pillar:** Social Criteria  
+**Points:** 1  
+**Mandatory for Certification:** No  
+**Category:** Education  
+**Applicability:** Project  
+**Project types:** Print, Digital, Hybrid  
+**Related SDGs:** SDG 4, SDG 17
+
+## Summary
+Provides design education opportunities for students.
+
+## Description
+The project includes design students and/or enriches existing design school curriculum.
+
+## Why it matters
+Provides design education opportunities for students.
+
+## Extended guidance
+### What are examples of design education opportunities?
+
+The project can involve design students in various ways: a lecture, workshop, collaboration, or internship.

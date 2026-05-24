@@ -10,7 +10,7 @@ A method for evaluating the environmental impacts of a product, service, or syst
 It helps teams identify where material, energy, emissions, and end-of-life impacts can be reduced.
 
 ## Related criteria
-- [E1](../criteria/E1.md)
+- [E1: Environmental Impact Reduction](../criteria/environmental-impact-reduction.md)
 
 ## Related terms
 - [Carbon Footprint](carbon-footprint.md)

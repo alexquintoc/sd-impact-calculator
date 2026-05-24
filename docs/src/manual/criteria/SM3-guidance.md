@@ -1,8 +1,6 @@
-﻿# SM3: RIGHTS OF WORKERS — Extended Guidance
+# SM3: RIGHTS OF WORKERS — Extended Guidance
 
 Related criterion: [SM3: RIGHTS OF WORKERS](../../generated/criteria/SEP3.md)
-
-## Purpose
 
 ### What are the fundamental principles and rights of workers?
 
@@ -32,6 +30,7 @@ The UN Global Compact asks companies to embrace, support and enact, within their
 [See all principles:] (https://unglobalcompact.org/what-is-gc/mission/principles/)
 
 ### What is considered child labour?
+
 A child is defined by UNICEF’s standard indicator definition for child labour includes the following:
 
 * Age 5 to 11 years: At least 1 hour of economic work or 28 hours of unpaid household services per week.
@@ -41,18 +40,7 @@ A child is defined by UNICEF’s standard indicator definition for child labour 
 See the related [SDG Indicators] (http://unstats.un.org/sdgs/metadata/files/Metadata-08-07-01.pdf)
 
 ### What is discrimination?
+
 Discrimination is defined as: ” …treatment or consideration of, or making a distinction in favor of or against, a person or thing based on the group, class, or category to which the person or thing is perceived to belong rather than on individual attributes. This includes treatment of an individual or group, based on their actual or perceived membership in a certain group or social category, ‘in a way that is worse than the way people are usually treated’.”
 
 Source: Cambridge Dictionaries Online. Cambridge University. Retrieved 29 March 2013.
-
-## How to apply this criterion
-
-Add practical notes, project-specific guidance, and examples.
-
-## Evidence to document
-
-Add examples of evidence, documentation, or decision records that could support this criterion.
-
-## Related examples
-
-Add links to case studies, tools, or project examples.

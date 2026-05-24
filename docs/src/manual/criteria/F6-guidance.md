@@ -1,4 +1,4 @@
-﻿# F6: STANDARDS IMPROVEMENT — Extended Guidance
+# F6: STANDARDS IMPROVEMENT — Extended Guidance
 
 Related criterion: [F6: STANDARDS IMPROVEMENT](../../generated/criteria/FFP3.md)
 
@@ -24,8 +24,3 @@ The improvement is based on something learned during the project: a measured res
 
 5. The procedure is accessible to the team
 The updated process is stored somewhere the team can realistically use it, such as a shared folder, project management system, internal wiki, onboarding guide, design system, or operations manual.
-
-
-## Related examples
-
-Add links to case studies, tools, or project examples.

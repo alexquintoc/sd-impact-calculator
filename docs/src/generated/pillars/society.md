@@ -6,20 +6,32 @@
 **Total available points:** 17
 
 ## Criteria in this pillar
-- [S1: Harmless](../criteria/S1.md)
-- [S2: Health and Safety](../criteria/S2.md)
-- [S3: Local Labour](../criteria/S3.md)
-- [SM4: Human Rights](../criteria/SM1.md)
-- [SM5: Corruption](../criteria/SM2.md)
-- [SM6: Rights of Workers](../criteria/SM3.md)
-- [S7: Artificial Intelligence (AI)](../criteria/S10.md)
-- [S8: Electronic Documents](../criteria/S6.md)
-- [S9: Printed Documents and Compliance](../criteria/S6b.md)
-- [S10: Universal Design Principles](../criteria/S8.md)
-- [S11: Intellectual Property](../criteria/S9.md)
-- [S12: Affordable](../criteria/S11.md)
-- [S13: Fair Trade](../criteria/S12.md)
-- [S14: Social Gaps](../criteria/S13.md)
-- [S15: Freedom of Expression](../criteria/S14.md)
-- [S16: Design Education](../criteria/S15.md)
-- [S17: Educational Component](../criteria/S16.md)
+### Design Production and Social Impact
+
+- [S1: Harmless](../criteria/harmless.md)
+- [S2: Health and Safety](../criteria/health-and-safety.md)
+- [S3: Local Labour](../criteria/local-labour.md)
+### Ethical Practices in Design and Production
+
+- [SM4: Human Rights](../criteria/human-rights.md)
+- [SM5: Corruption](../criteria/corruption.md)
+- [SM6: Rights of Workers](../criteria/rights-of-workers.md)
+- [S7: Artificial Intelligence (AI)](../criteria/artificial-intelligence-ai.md)
+### Accessibility
+
+- [S8: Electronic Documents](../criteria/electronic-documents.md)
+- [S9: Printed Documents and Compliance](../criteria/printed-documents-and-compliance.md)
+- [S10: Universal Design Principles](../criteria/universal-design-principles.md)
+### Intellectual Property
+
+- [S11: Intellectual Property](../criteria/intellectual-property.md)
+### Social Equality
+
+- [S12: Affordable](../criteria/affordable.md)
+- [S13: Fair Trade](../criteria/fair-trade.md)
+- [S14: Social Gaps](../criteria/social-gaps.md)
+- [S15: Freedom of Expression](../criteria/freedom-of-expression.md)
+### Education
+
+- [S16: Design Education](../criteria/design-education.md)
+- [S17: Educational Component](../criteria/educational-component.md)

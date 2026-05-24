@@ -1,4 +1,4 @@
-﻿# F1: ECONOMIC BENEFITS — Extended Guidance
+# F1: ECONOMIC BENEFITS — Extended Guidance
 
 Related criterion: [F1: ECONOMIC BENEFITS](../../generated/criteria/FFS1.md)
 
@@ -9,15 +9,3 @@ A project may meet this criterion when it intentionally supports broader economi
 This criterion is especially important because sustainable design should not only reduce harm; it should also help build healthier systems of exchange. When designers consider where money, labour, ownership, visibility, and long-term value flow, they can help projects avoid extractive models and instead support more distributed, inclusive, and durable economic benefits.
 
 In practice, this means asking questions such as: Who benefits financially from this project besides the client and the designer? Are local workers, suppliers, contributors, or communities meaningfully included? Does the project create reusable assets, skills, infrastructure, visibility, or market access that will continue to generate value after the project is complete? Does the strategy help circulate economic value more fairly?
-
-## How to apply this criterion
-
-Add practical notes, project-specific guidance, and examples.
-
-## Evidence to document
-
-Add examples of evidence, documentation, or decision records that could support this criterion.
-
-## Related examples
-
-Add links to case studies, tools, or project examples.

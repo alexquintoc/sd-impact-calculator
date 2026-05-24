@@ -10,6 +10,6 @@ Print on demand (POD) is a printing technology and business process in which boo
 Reduces unnecessary material waste.
 
 ## Related criteria
-- [E3](../criteria/E3.md)
-- [E4](../criteria/E4.md)
-- [E5](../criteria/E5.md)
+- [E3: Ink, Printing, and Finishes](../criteria/ink-printing-and-finishes.md)
+- [E4: Paper](../criteria/paper.md)
+- [E5: Product Quantity](../criteria/product-quantity.md)

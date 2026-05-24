@@ -1,4 +1,4 @@
-﻿# F5: ACCOUNTABILITY AND TRANSPARENCY — Extended Guidance
+# F5: ACCOUNTABILITY AND TRANSPARENCY — Extended Guidance
 
 Related criterion: [F5: ACCOUNTABILITY AND TRANSPARENCY](../../generated/criteria/FFP2.md)
 
@@ -33,7 +33,3 @@ Important project decisions, approvals, changes, and responsibilities are record
 A pass condition could be:
 
 This criterion is met when the designing entity uses accountable financial and project management procedures, maintains clear documentation, and communicates project status, responsibilities, and changes transparently with relevant parties.
-
-## Related examples
-
-Add links to case studies, tools, or project examples.

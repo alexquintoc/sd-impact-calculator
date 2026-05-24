@@ -1,20 +1,7 @@
-﻿# S15: DESIGN EDUCATION — Extended Guidance
+# S15: DESIGN EDUCATION — Extended Guidance
 
 Related criterion: [S15: DESIGN EDUCATION](../../generated/criteria/SED1.md)
 
-## Purpose
-
 ## What are examples of design education opportunities?
+
 The project can involve design students in various ways: a lecture, workshop, collaboration, or internship.
-
-## How to apply this criterion
-
-Add practical notes, project-specific guidance, and examples.
-
-## Evidence to document
-
-Add examples of evidence, documentation, or decision records that could support this criterion.
-
-## Related examples
-
-Add links to case studies, tools, or project examples.

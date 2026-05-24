@@ -1,8 +1,6 @@
-﻿# S9: INTELLECTUAL PROPERTY — Extended Guidance
+# S9: INTELLECTUAL PROPERTY — Extended Guidance
 
 Related criterion: [S9: INTELLECTUAL PROPERTY](../../generated/criteria/SA4.md)
-
-## Purpose
 
 ### What is intellectual property?
 
@@ -15,15 +13,3 @@ Related criterion: [S9: INTELLECTUAL PROPERTY](../../generated/criteria/SA4.md)
 ### What is Creative Commons?
 
 A **Creative Commons** (**CC**) **license** is one of several [public copyright licenses](https://en.wikipedia.org/wiki/Public_copyright_license) that enable the free distribution of an otherwise [copyrighted](https://en.wikipedia.org/wiki/Copyright) work. A CC license is used when an author wants to give people the right to share, use, and build upon a work that they have created. CC provides an author flexibility (for example, they might choose to allow only non-commercial uses of their own work) and protects the people who use or redistribute an author’s work from concerns of copyright infringement as long as they abide by the conditions that are specified in the license by which the author distributes the work. The organization that created these licenses is called Creative Commons. source: https://en.wikipedia.org/wiki/Creative_Commons_license
-
-## How to apply this criterion
-
-Add practical notes, project-specific guidance, and examples.
-
-## Evidence to document
-
-Add examples of evidence, documentation, or decision records that could support this criterion.
-
-## Related examples
-
-Add links to case studies, tools, or project examples.

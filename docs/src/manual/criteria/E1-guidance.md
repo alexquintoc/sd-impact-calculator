@@ -1,10 +1,9 @@
-﻿# E1: ENVIRONMENTAL IMPACT REDUCTION — Extended Guidance
+# E1: ENVIRONMENTAL IMPACT REDUCTION — Extended Guidance
 
 Related criterion: [E1: ENVIRONMENTAL IMPACT REDUCTION](../../generated/criteria/EIRT1.md)
 
-## Purpose
-
 ### What is an Environmental Impact Reduction strategy?
+
 This should include a description of the environmental impact and reduction target, and how it is to be accomplished and measured. For example: the design brief for a packaging project may list the goal of reducing the environmental impact associated with virgin fiber by using recycled paper fiber. The design brief specifies that no less than 50% of the project’s paper be made of recycled paper, as measured by weight.
 
 Some environmental impacts, linked to design outcomes include:
@@ -14,6 +13,7 @@ Some environmental impacts, linked to design outcomes include:
 * Localization of Materials and Energy (that decrease ecological impacts), Increasing the Likelihood of Recycling
 
 ### What are environmental impacts?
+
 Environmental impacts refer to the potential environmental consequences of a particular action, activity and/or project. The environmental impact may be positive or negative, but the term is most often used when characterizing a negative result. Environmental impacts are often described in terms of particular categories of impact. Typical impact categories include:
 
 * Climate Change or Global Warming Potential
@@ -30,11 +30,3 @@ Environmental impacts refer to the potential environmental consequences of a par
 ## How to apply this criterion
 
 Describe how the project reduces one of the environmental impact.
-
-## Evidence to document
-
-Add examples of evidence, documentation, or decision records that could support this criterion.
-
-## Related examples
-
-Add links to case studies, tools, or project examples.

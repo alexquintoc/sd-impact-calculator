@@ -1,5 +1,5 @@
 import v1Criteria from "@/calculator/versions/v1/criteria.v1.json";
-import v2Criteria from "@/calculator/versions/v2/criteria.v2.json";
+import v2Criteria from "../../../../../packages/standard-core/src/criteria.v2.json";
 import type { CriteriaData } from "@/lib/score";
 
 export type CalculatorVersionId = "v1" | "v2";

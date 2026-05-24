@@ -1,4 +1,4 @@
-﻿# F2: PROFITABILITY — Extended Guidance
+# F2: PROFITABILITY — Extended Guidance
 
 Related criterion: [F2: PROFITABILITY](../../generated/criteria/FFS2.md)
 
@@ -33,8 +33,3 @@ The project included deposits, milestones, or scheduled payments that reduced fi
 A pass condition could be:
 
 This criterion is met when the project budget or contract does not assume financial loss by the designing entity, and when final project records show that the project generated profit or maintained a sustainable effective hourly rate after all labour and direct costs were considered.
-
-
-## Related examples
-
-Add links to case studies, tools, or project examples.

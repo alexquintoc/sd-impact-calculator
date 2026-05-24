@@ -28,6 +28,7 @@ const docsManualCriteriaDir = path.join(docsManualDir, "criteria");
 const docsBookDir = path.join(root, "docs", "book");
 const distKnowledgeBaseDir = path.join(root, "dist", "knowledge-base");
 const docsSummaryPath = path.join(root, "docs", "src", "SUMMARY.md");
+const docsBookTomlPath = path.join(root, "docs", "book.toml");
 
 const criteriaMetaPath = path.join(
   root,
@@ -43,6 +44,9 @@ const GENERATED_WARNING = [
   "<!-- Edit packages/standard-core/src/criteria.v2.json or terms.json instead. -->",
   ""
 ].join("\n");
+
+const GENERATED_REDIRECTS_START = "# GENERATED_CRITERIA_REDIRECTS:START";
+const GENERATED_REDIRECTS_END = "# GENERATED_CRITERIA_REDIRECTS:END";
 
 function ensureDir(dir) {
   fs.mkdirSync(dir, { recursive: true });
@@ -133,9 +137,6 @@ function removeInvalidGeneratedFilenames(dir) {
 function buildGeneratedSummary(criteriaData, termsData) {
   const lines = [
     "<!-- GENERATED_SUMMARY:START -->",
-    "# Manual Guidance",
-    "- [Criteria Guidance](manual/criteria/README.md)",
-    "",
     "# Reference",
     "- [Pillars](generated/pillars/README.md)"
   ];
@@ -147,10 +148,23 @@ function buildGeneratedSummary(criteriaData, termsData) {
   lines.push("", "- [Criteria Reference](generated/criteria/README.md)");
 
   for (const pillar of criteriaData.pillars) {
+    const pillarCriteriaSlug = `criteria-${getPillarDocSlug(pillar)}`;
+    lines.push(`  - [${pillar.label}](generated/criteria/${pillarCriteriaSlug}.md)`);
+    let currentCategory = "";
+
     for (const criterion of pillar.criteria) {
       const visibleId = getCriterionVisibleId(criterion);
       const docSlug = getCriterionDocSlug(criterion);
-      lines.push(`  - [${visibleId}: ${criterion.label}](generated/criteria/${docSlug}.md)`);
+      const category = getCriterionCategoryLabel(criteriaData, criterion);
+
+      if (category !== currentCategory) {
+        currentCategory = category;
+        lines.push(
+          `    - [${category}](generated/criteria/${getPillarDocSlug(pillar)}-${slugify(category)}.md)`
+        );
+      }
+
+      lines.push(`      - [${visibleId}: ${criterion.label}](generated/criteria/${docSlug}.md)`);
     }
   }
 
@@ -204,12 +218,63 @@ function getPillarDocSlug(pillar) {
   return pillar.id === "environmental" ? "environment" : pillar.id;
 }
 
+function slugify(value) {
+  return `${value || ""}`
+    .normalize("NFKD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .replace(/[\u2018\u2019]/g, "")
+    .replace(/[\u2013\u2014]/g, "-")
+    .replace(/&/g, " ")
+    .replace(/[^a-zA-Z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "")
+    .replace(/-{2,}/g, "-")
+    .toLowerCase();
+}
+
 function getCriterionDocSlug(criterion) {
-  return criterion.id;
+  return criterion.slug || slugify(criterion.label || criterion.id);
 }
 
 function getCriterionVisibleId(criterion) {
   return criterion.displayId || criterion.id;
+}
+
+function getCriterionCategoryLabel(criteriaData, criterion) {
+  return (
+    criterion.category ||
+    formatSubcategory(criteriaData, criterion) ||
+    "Uncategorized"
+  );
+}
+
+function getCriteriaByReference(criteriaData) {
+  const byReference = new Map();
+
+  for (const pillar of criteriaData.pillars) {
+    for (const criterion of pillar.criteria) {
+      for (const reference of [criterion.id, criterion.legacyId, criterion.displayId]) {
+        if (reference) byReference.set(`${reference}`.toLowerCase(), criterion);
+      }
+    }
+  }
+
+  return byReference;
+}
+
+function getCriterionLinkByReference(criteriaByReference, reference, prefix = "../criteria") {
+  const criterion = criteriaByReference.get(`${reference}`.toLowerCase());
+  if (!criterion) return `- [${reference}](${prefix}/${reference}.md)`;
+
+  const visibleId = getCriterionVisibleId(criterion);
+  return `- [${visibleId}: ${criterion.label}](${prefix}/${getCriterionDocSlug(criterion)}.md)`;
+}
+
+function normalizeApplicabilityLabels(content) {
+  if (!content) return "";
+
+  return content
+    .replace(/(^|\r?\n)P:\s+/g, "$1Project: ")
+    .replace(/(^|\r?\n)C:\s+/g, "$1Design Entity: ");
 }
 
 function getCriterionManualFileName(criterion) {
@@ -288,30 +353,78 @@ function stripFirstHeading(content) {
   return content.replace(/^\s*# .*(?:\r?\n)+/, "").trim();
 }
 
+const PLACEHOLDER_GUIDANCE_LINES = new Set([
+  ["Add human-authored", " guidance for this criterion."].join(""),
+  ["Add practical", " notes, project-specific guidance, and examples."].join(""),
+  ["Add examples of", " evidence, documentation, or decision records that could support this criterion."].join(""),
+  ["Add links to case", " studies, tools, or project examples."].join(""),
+  ["Add guidance", " notes here. Empty guidance files are omitted from generated criterion pages."].join("")
+]);
+
+function parseMarkdownSections(content) {
+  const sections = [];
+  let current = { heading: null, lines: [] };
+
+  for (const line of content.split(/\r?\n/)) {
+    const headingMatch = /^(#{1,6})\s+(.+?)\s*$/.exec(line);
+
+    if (headingMatch) {
+      sections.push(current);
+      current = {
+        heading: {
+          raw: line,
+          title: headingMatch[2].trim()
+        },
+        lines: []
+      };
+      continue;
+    }
+
+    current.lines.push(line);
+  }
+
+  sections.push(current);
+  return sections;
+}
+
+function removePlaceholderGuidance(content) {
+  const output = [];
+
+  for (const section of parseMarkdownSections(content)) {
+    const lines = section.lines.filter(
+      (line) => !PLACEHOLDER_GUIDANCE_LINES.has(line.trim())
+    );
+    const body = lines.join("\n").trim();
+    if (section.heading && !body) {
+      continue;
+    }
+
+    if (section.heading) {
+      output.push(section.heading.raw);
+    }
+
+    if (body) {
+      output.push(body);
+    }
+  }
+
+  return output.join("\n\n").trim();
+}
+
 function cleanEmbeddedManualGuidance(content) {
-  return stripFirstHeading(content)
-    .replace(/^\s*Related criterion:\s.*(?:\r?\n)+/i, "")
+  const cleaned = removePlaceholderGuidance(stripFirstHeading(content)
+    .replace(/^\s*Related criterion:\s.*(?:\r?\n|$)/i, "")
     .replace(/(^|\r?\n)#{1,6}\s+Purpose\s*(?:\r?\n)+/i, "$1")
-    .trim();
+    .trim());
+
+  return cleaned.replace(/^(#{1,5})\s+/gm, "$1# ");
 }
 
 function buildManualGuidanceTemplate(criterion) {
   return [
-    `# ${criterion.id}: ${criterion.label} — Extended Guidance`,
+    "# " + criterion.id + ": " + criterion.label + " - Extended Guidance",
     "",
-    "Add human-authored guidance for this criterion.",
-    "",
-    "## How to apply this criterion",
-    "",
-    "Add practical notes, project-specific guidance, and examples.",
-    "",
-    "## Evidence to document",
-    "",
-    "Add examples of evidence, documentation, or decision records that could support this criterion.",
-    "",
-    "## Related examples",
-    "",
-    "Add links to case studies, tools, or project examples."
+    "Add guidance notes here. Empty guidance files are omitted from generated criterion pages."
   ].join("\n");
 }
 
@@ -430,24 +543,86 @@ function validateLinks(criteriaData, termsData) {
   }
 }
 
+function getCompatibilityDocSlugs(criterion) {
+  return unique([criterion.id, criterion.legacyId])
+    .filter(Boolean)
+    .filter((slug) => !/[#?\\/]/.test(slug))
+    .filter((slug) => slug !== getCriterionDocSlug(criterion));
+}
+
+function buildCompatibilityPage(criterion) {
+  const visibleId = getCriterionVisibleId(criterion);
+  const docSlug = getCriterionDocSlug(criterion);
+
+  return [
+    GENERATED_WARNING,
+    `# ${visibleId}: ${criterion.label}`,
+    "",
+    `This criterion page has moved to [${docSlug}.md](${docSlug}.md).`
+  ].join("\n");
+}
+
 function generateCriteriaDocs(criteriaData) {
   ensureDir(docsCriteriaDir);
   cleanGeneratedMarkdown(docsCriteriaDir);
+
+  const missingCategories = [];
 
   const indexLines = [
     GENERATED_WARNING,
     "# Criteria Reference",
     "",
-    "This section contains the criteria used in the SD Standard, grouped by pillar.",
+    "This section contains the criteria used in the SD Standard, grouped by pillar and category.",
     ""
   ];
 
   for (const pillar of criteriaData.pillars) {
     indexLines.push(`## ${pillar.label}`, "");
+    let currentCategory = "";
+    let pillarPageLines = [
+      GENERATED_WARNING,
+      `# ${pillar.label}`,
+      "",
+      "Criteria in this pillar, grouped by category.",
+      ""
+    ];
+    let categoryPageLines = [];
+    let currentCategorySlug = "";
 
     for (const criterion of pillar.criteria) {
       const visibleId = getCriterionVisibleId(criterion);
       const docSlug = getCriterionDocSlug(criterion);
+      const category = getCriterionCategoryLabel(criteriaData, criterion);
+
+      if (!criterion.category && !criterion.subcategory) {
+        missingCategories.push(`${visibleId}: ${criterion.label}`);
+      }
+
+      if (category !== currentCategory) {
+        if (categoryPageLines.length > 0) {
+          writeFile(
+            path.join(docsCriteriaDir, `${currentCategorySlug}.md`),
+            categoryPageLines.join("\n")
+          );
+        }
+
+        currentCategory = category;
+        currentCategorySlug = `${getPillarDocSlug(pillar)}-${slugify(category)}`;
+        indexLines.push(`### ${category}`, "");
+        pillarPageLines.push(
+          `## ${category}`,
+          `- [View category page](${currentCategorySlug}.md)`,
+          ""
+        );
+        categoryPageLines = [
+          GENERATED_WARNING,
+          `# ${category}`,
+          "",
+          `Pillar: ${pillar.label}`,
+          ""
+        ];
+      }
+
       const examples = (criterion.examples || [])
         .map((example) => `- ${example}`)
         .join("\n");
@@ -490,15 +665,15 @@ function generateCriteriaDocs(criteriaData) {
       contentParts.push("");
 
       if (criterion.summary) {
-        contentParts.push("## Summary", criterion.summary, "");
+        contentParts.push("## Summary", normalizeApplicabilityLabels(criterion.summary), "");
       }
 
       if (criterion.description) {
-        contentParts.push("## Description", criterion.description, "");
+        contentParts.push("## Description", normalizeApplicabilityLabels(criterion.description), "");
       }
 
       if (criterion.whyItMatters) {
-        contentParts.push("## Why it matters", criterion.whyItMatters, "");
+        contentParts.push("## Why it matters", normalizeApplicabilityLabels(criterion.whyItMatters), "");
       }
 
       if (examples) {
@@ -514,7 +689,7 @@ function generateCriteriaDocs(criteriaData) {
       if (manualGuidance) {
         contentParts.push(
           "## Extended guidance",
-          manualGuidance,
+          normalizeApplicabilityLabels(manualGuidance),
           ""
         );
       }
@@ -523,17 +698,99 @@ function generateCriteriaDocs(criteriaData) {
       writeFile(filePath, contentParts.join("\n"));
 
       indexLines.push(`- [${visibleId}: ${criterion.label}](${docSlug}.md)`);
+      pillarPageLines.push(`- [${visibleId}: ${criterion.label}](${docSlug}.md)`);
+      categoryPageLines.push(`- [${visibleId}: ${criterion.label}](${docSlug}.md)`);
+
+      for (const compatibilitySlug of getCompatibilityDocSlugs(criterion)) {
+        writeFile(
+          path.join(docsCriteriaDir, `${compatibilitySlug}.md`),
+          buildCompatibilityPage(criterion)
+        );
+      }
     }
 
+    if (categoryPageLines.length > 0) {
+      writeFile(
+        path.join(docsCriteriaDir, `${currentCategorySlug}.md`),
+        categoryPageLines.join("\n")
+      );
+    }
+
+    writeFile(
+      path.join(docsCriteriaDir, `criteria-${getPillarDocSlug(pillar)}.md`),
+      pillarPageLines.join("\n")
+    );
+
     indexLines.push("");
+  }
+
+  if (missingCategories.length > 0) {
+    console.warn(
+      [
+        "Criteria missing category/subcategory; placed under Uncategorized:",
+        ...missingCategories.map((item) => `- ${item}`)
+      ].join("\n")
+    );
   }
 
   writeFile(path.join(docsCriteriaDir, "README.md"), indexLines.join("\n"));
 }
 
-function generateTermsDocs(termsData) {
+function buildCriteriaRedirects(criteriaData) {
+  const redirects = [];
+
+  for (const pillar of criteriaData.pillars) {
+    for (const criterion of pillar.criteria) {
+      const docSlug = getCriterionDocSlug(criterion);
+      for (const compatibilitySlug of getCompatibilityDocSlugs(criterion)) {
+        redirects.push({
+          from: `/generated/criteria/${compatibilitySlug}.html`,
+          to: `/generated/criteria/${docSlug}.html`
+        });
+      }
+    }
+  }
+
+  return redirects;
+}
+
+function updateBookRedirects(criteriaData) {
+  const redirects = buildCriteriaRedirects(criteriaData);
+  const lines = [
+    GENERATED_REDIRECTS_START,
+    "[output.html.redirect]",
+    ...redirects.map(
+      (redirect) => `${JSON.stringify(redirect.from)} = ${JSON.stringify(redirect.to)}`
+    ),
+    GENERATED_REDIRECTS_END
+  ];
+  const generatedBlock = lines.join("\n");
+  const content = fs.readFileSync(docsBookTomlPath, "utf8").trimEnd();
+  const markerPattern = new RegExp(
+    `\\n*${GENERATED_REDIRECTS_START}[\\s\\S]*?${GENERATED_REDIRECTS_END}\\s*`
+  );
+  const redirectTablePattern = /\n*\[output\.html\.redirect\][\s\S]*$/;
+
+  if (markerPattern.test(content)) {
+    fs.writeFileSync(
+      docsBookTomlPath,
+      content.replace(markerPattern, `\n\n${generatedBlock}\n`),
+      "utf8"
+    );
+    return;
+  }
+
+  const baseContent = redirectTablePattern.test(content)
+    ? content.replace(redirectTablePattern, "")
+    : content;
+
+  fs.writeFileSync(docsBookTomlPath, `${baseContent}\n\n${generatedBlock}\n`, "utf8");
+}
+
+function generateTermsDocs(termsData, criteriaData) {
   ensureDir(docsTermsDir);
   cleanGeneratedMarkdown(docsTermsDir);
+  const criteriaByReference = getCriteriaByReference(criteriaData);
 
   const sortedTerms = [...termsData].sort((a, b) =>
     a.title.localeCompare(b.title, "en", { sensitivity: "base" })
@@ -549,7 +806,7 @@ function generateTermsDocs(termsData) {
 
   for (const term of sortedTerms) {
     const relatedCriteria = (term.relatedCriteria || [])
-      .map((criterionId) => `- [${criterionId}](../criteria/${criterionId}.md)`)
+      .map((criterionId) => getCriterionLinkByReference(criteriaByReference, criterionId))
       .join("\n");
 
     const relatedTerms = (term.relatedTerms || [])
@@ -605,15 +862,23 @@ function generatePillarDocs(criteriaData) {
     const threshold = thresholds[pillar.id];
     const pillarSlug = getPillarDocSlug(pillar);
 
-    const criteriaLinks = pillar.criteria
-      .map(
-        (criterion) => {
-          const visibleId = getCriterionVisibleId(criterion);
-          const docSlug = getCriterionDocSlug(criterion);
-          return `- [${visibleId}: ${criterion.label}](../criteria/${docSlug}.md)`;
-        }
-      )
-      .join("\n");
+    const criteriaLinkLines = [];
+    let currentCategory = "";
+
+    for (const criterion of pillar.criteria) {
+      const visibleId = getCriterionVisibleId(criterion);
+      const docSlug = getCriterionDocSlug(criterion);
+      const category = getCriterionCategoryLabel(criteriaData, criterion);
+
+      if (category !== currentCategory) {
+        currentCategory = category;
+        criteriaLinkLines.push(`### ${category}`, "");
+      }
+
+      criteriaLinkLines.push(`- [${visibleId}: ${criterion.label}](../criteria/${docSlug}.md)`);
+    }
+
+    const criteriaLinks = criteriaLinkLines.join("\n");
 
     const relatedTermIds = unique(
       pillar.criteria.flatMap((criterion) => criterion.terms || [])
@@ -680,12 +945,14 @@ function generateCriteriaMeta(criteriaData) {
         pillarLabel: pillar.label,
         subcategory: criterion.subcategory || "",
         subcategoryLabel: formatSubcategory(criteriaData, criterion),
+        category: getCriterionCategoryLabel(criteriaData, criterion),
+        slug: getCriterionDocSlug(criterion),
         appliesTo: Array.isArray(criterion.appliesTo) ? criterion.appliesTo : [],
         mandatory: criterion.mandatory === true,
         sdgs: Array.isArray(criterion.sdgs) ? criterion.sdgs : [],
-        summary: criterion.summary || criterion.description || "",
-        description: criterion.description || "",
-        whyItMatters: criterion.whyItMatters || "",
+        summary: normalizeApplicabilityLabels(criterion.summary || criterion.description || ""),
+        description: normalizeApplicabilityLabels(criterion.description || ""),
+        whyItMatters: normalizeApplicabilityLabels(criterion.whyItMatters || ""),
         url: `/generated/criteria/${getCriterionDocSlug(criterion)}.html`
       };
     }
@@ -714,10 +981,11 @@ function main() {
   validateLinks(criteriaData, termsData);
   ensureManualGuidanceDocs(criteriaData);
   generateCriteriaDocs(criteriaData);
-  generateTermsDocs(termsData);
+  generateTermsDocs(termsData, criteriaData);
   generatePillarDocs(criteriaData);
   generateCriteriaMeta(criteriaData);
   updateGeneratedSummary(criteriaData, termsData);
+  updateBookRedirects(criteriaData);
   removeInvalidGeneratedFilenames(docsGeneratedDir);
   assertNoInvalidGeneratedFilenames(docsGeneratedDir);
   invalidateBuiltBook();

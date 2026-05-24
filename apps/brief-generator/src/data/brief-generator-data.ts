@@ -1,3 +1,5 @@
+import criteriaV2 from '../../../../packages/standard-core/src/criteria.v2.json'
+
 export type PillarKey = 'environment' | 'society' | 'culture' | 'finance'
 
 export type PillarDefinition = {
@@ -19,10 +21,96 @@ export type BriefSeed = {
   tags: string[]
 }
 
+type StandardCriterion = {
+  id: string
+  displayId?: string
+  legacyId?: string
+  label: string
+}
+
+type StandardPillar = {
+  id: string
+  label: string
+  criteria: StandardCriterion[]
+}
+
+const standardPillars = criteriaV2.pillars as StandardPillar[]
+
+const pillarAlias: Record<string, PillarKey> = {
+  environment: 'environment',
+  environmental: 'environment',
+  society: 'society',
+  social: 'society',
+  culture: 'culture',
+  cultural: 'culture',
+  finance: 'finance',
+  financial: 'finance',
+}
+
+const pillarByKey = new Map<PillarKey, StandardPillar>()
+const criterionByLookupId = new Map<string, StandardCriterion>()
+
+for (const pillar of standardPillars) {
+  const key = pillarAlias[pillar.id]
+  if (key) {
+    pillarByKey.set(key, pillar)
+  }
+
+  for (const criterion of pillar.criteria) {
+    for (const lookupId of [
+      criterion.id,
+      criterion.displayId,
+      criterion.legacyId,
+    ]) {
+      if (lookupId) {
+        criterionByLookupId.set(lookupId.toLowerCase(), criterion)
+      }
+    }
+  }
+}
+
+const getPillarLabel = (key: PillarKey) =>
+  pillarByKey.get(key)?.label.replace(' Criteria', '') ?? key
+
+const getCriterion = (criterionId: string) =>
+  criterionByLookupId.get(criterionId.toLowerCase())
+
+export const formatCriterionReference = (criterionId: string) => {
+  const criterion = getCriterion(criterionId)
+  if (!criterion) return criterionId
+
+  return `${criterion.displayId ?? criterion.id}: ${criterion.label}`
+}
+
+export const validateBriefCriterionReferences = (
+  seeds: BriefSeed[],
+  definitions: Record<PillarKey, PillarDefinition>,
+) => {
+  const missing = new Set<string>()
+
+  for (const seed of seeds) {
+    for (const criterionId of seed.criteria) {
+      if (!getCriterion(criterionId)) {
+        missing.add(criterionId)
+      }
+    }
+  }
+
+  for (const definition of Object.values(definitions)) {
+    for (const criterionId of definition.criteria) {
+      if (!getCriterion(criterionId)) {
+        missing.add(criterionId)
+      }
+    }
+  }
+
+  return Array.from(missing).sort()
+}
+
 export const pillarDefinitions: Record<PillarKey, PillarDefinition> = {
   environment: {
     key: 'environment',
-    label: 'Environment',
+    label: getPillarLabel('environment'),
     projectTypes: [
       'low-impact product system',
       'circular service model',
@@ -38,7 +126,7 @@ export const pillarDefinitions: Record<PillarKey, PillarDefinition> = {
   },
   society: {
     key: 'society',
-    label: 'Society',
+    label: getPillarLabel('society'),
     projectTypes: [
       'community benefit platform',
       'inclusive access program',
@@ -54,7 +142,7 @@ export const pillarDefinitions: Record<PillarKey, PillarDefinition> = {
   },
   culture: {
     key: 'culture',
-    label: 'Culture',
+    label: getPillarLabel('culture'),
     projectTypes: [
       'cultural experience system',
       'heritage-informed brand concept',
@@ -70,7 +158,7 @@ export const pillarDefinitions: Record<PillarKey, PillarDefinition> = {
   },
   finance: {
     key: 'finance',
-    label: 'Finance',
+    label: getPillarLabel('finance'),
     projectTypes: [
       'market-ready venture concept',
       'scalable business model',
@@ -81,7 +169,7 @@ export const pillarDefinitions: Record<PillarKey, PillarDefinition> = {
       'balances user value with clear market demand and operating logic',
       'turns cost, revenue, and delivery limits into clear design constraints',
     ],
-    criteria: ['F1', 'F2', 'F3', 'F4'],
+    criteria: ['F1', 'F2', 'FM3', 'F4'],
     archetype: 'Viability-Driven Brief',
   },
 }
@@ -111,7 +199,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a takeaway food packaging system made from compostable fiber with printed park drop-off maps, seed-safe ink, and a collection loop that turns lunch waste into soil for neighborhood green spaces.',
     primaryPillar: 'environment',
     secondaryPillars: ['society', 'finance'],
-    criteria: ['E1', 'E14', 'S8', 'S16', 'F3'],
+    criteria: ['E1', 'E14', 'S8', 'S16', 'FM3'],
     tags: ['packaging', 'compost', 'parks'],
   },
   {
@@ -151,7 +239,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a pedestrian wayfinding system that maps shade, drinking water, cool interiors, and bus stops using durable low-ink signage installed along heat-vulnerable routes.',
     primaryPillar: 'environment',
     secondaryPillars: ['society', 'finance'],
-    criteria: ['E14', 'S1', 'S8', 'S11', 'F3'],
+    criteria: ['E14', 'S1', 'S8', 'S11', 'FM3'],
     tags: ['wayfinding', 'heat resilience', 'public space'],
   },
   {
@@ -211,7 +299,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a public health toolkit for clinics that uses plain-language cards, multilingual posters, and appointment reminders built with patients who often miss care because of cost, work, or transport.',
     primaryPillar: 'society',
     secondaryPillars: ['culture', 'finance'],
-    criteria: ['S1', 'S8', 'S11', 'C5', 'F3'],
+    criteria: ['S1', 'S8', 'S11', 'C5', 'FM3'],
     tags: ['health', 'accessibility', 'clinics'],
   },
   {
@@ -241,7 +329,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a food pantry wayfinding system that protects privacy, shortens waiting time, and helps volunteers direct visitors without forcing people to repeat personal information.',
     primaryPillar: 'society',
     secondaryPillars: ['finance', 'culture'],
-    criteria: ['S1', 'S8', 'S16', 'F3', 'C5'],
+    criteria: ['S1', 'S8', 'S16', 'FM3', 'C5'],
     tags: ['food access', 'wayfinding', 'privacy'],
   },
   {
@@ -301,7 +389,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a mobile library pop-up for transit stops that lends books, phone chargers, and service guides while collecting resident requests for future neighborhood programming.',
     primaryPillar: 'society',
     secondaryPillars: ['culture', 'finance'],
-    criteria: ['S1', 'S8', 'C6', 'F3', 'S16'],
+    criteria: ['S1', 'S8', 'C6', 'FM3', 'S16'],
     tags: ['library', 'transit', 'public service'],
   },
   {
@@ -441,7 +529,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a social media campaign for a repair shop network that turns repeat repairs into loyalty rewards, publishes repair wins, and makes service pricing easy to compare.',
     primaryPillar: 'finance',
     secondaryPillars: ['environment', 'society'],
-    criteria: ['F1', 'F3', 'E1', 'E5', 'S8'],
+    criteria: ['F1', 'FM3', 'E1', 'E5', 'S8'],
     tags: ['repair', 'loyalty', 'pricing'],
   },
   {
@@ -451,7 +539,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a transit-station wayfinding system that guides commuters to local vendors, public services, and refill points while giving small businesses affordable ad placements.',
     primaryPillar: 'finance',
     secondaryPillars: ['society', 'environment'],
-    criteria: ['F1', 'F3', 'S8', 'S11', 'E14'],
+    criteria: ['F1', 'FM3', 'S8', 'S11', 'E14'],
     tags: ['transit', 'retail', 'vendors'],
   },
   {
@@ -461,7 +549,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a subscription repair manual for shared appliances, with illustrated diagnostics, parts bundles, maintenance calendars, and a pricing model that rewards longer product life.',
     primaryPillar: 'finance',
     secondaryPillars: ['environment', 'society'],
-    criteria: ['F2', 'F3', 'E1', 'E5', 'S8'],
+    criteria: ['F2', 'FM3', 'E1', 'E5', 'S8'],
     tags: ['subscription', 'repair', 'appliances'],
   },
   {
@@ -481,7 +569,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design an event identity system for a pop-up marketplace that gives microvendors shared signage, transparent fee tiers, waste sorting graphics, and reusable booth templates.',
     primaryPillar: 'finance',
     secondaryPillars: ['society', 'environment'],
-    criteria: ['F1', 'F3', 'S8', 'S16', 'E1'],
+    criteria: ['F1', 'FM3', 'S8', 'S16', 'E1'],
     tags: ['marketplace', 'microvendors', 'reuse'],
   },
   {
@@ -511,7 +599,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a low-bandwidth website for paid neighborhood skill exchanges, with clear rates, trust signals, service categories, and offline flyers that bring non-digital users into the network.',
     primaryPillar: 'finance',
     secondaryPillars: ['society', 'culture'],
-    criteria: ['F1', 'F3', 'F4', 'S8', 'C6'],
+    criteria: ['F1', 'FM3', 'F4', 'S8', 'C6'],
     tags: ['skills', 'low-bandwidth', 'local economy'],
   },
   {
@@ -521,7 +609,7 @@ export const briefSeeds: BriefSeed[] = [
       'Design a public health toolkit that clinics can license affordably, customize quickly, and use to reduce missed appointments through printed reminders and culturally specific outreach templates.',
     primaryPillar: 'finance',
     secondaryPillars: ['society', 'culture'],
-    criteria: ['F2', 'F3', 'F4', 'S1', 'C5'],
+    criteria: ['F2', 'FM3', 'F4', 'S1', 'C5'],
     tags: ['health', 'licensing', 'templates'],
   },
 ]

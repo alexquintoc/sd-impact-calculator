@@ -1,10 +1,6 @@
-﻿# S6b: DOCUMENTS AND COMPLIANCE — Extended Guidance
+# S6b: DOCUMENTS AND COMPLIANCE — Extended Guidance
 
 Related criterion: [S6b: DOCUMENTS AND COMPLIANCE](../../generated/criteria/SA2.md)
-
-## Purpose
-
-Add human-authored guidance for this criterion.
 
 ## Visual impairment levels
 
@@ -24,15 +20,3 @@ See [WHO's factsheet on blindness and vision impairment] (https://www.who.int/ne
 ## Spatial considerations
 
 When designing for spatial environments, high-contrast principles are used to assist audiences with low-vision
-
-## How to apply this criterion
-
-Add practical notes, project-specific guidance, and examples.
-
-## Evidence to document
-
-Add examples of evidence, documentation, or decision records that could support this criterion.
-
-## Related examples
-
-Add links to case studies, tools, or project examples.
