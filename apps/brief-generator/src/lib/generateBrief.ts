@@ -168,7 +168,7 @@ export const generateBrief = (
       ...seed.criteria,
       ...pillarDefinitions[dominantPillar].criteria,
       ...pillarDefinitions[supportingPillar].criteria,
-    ]).map(formatCriterionReference),
+    ].map(formatCriterionReference)),
     tensionWarning: getTensionWarning(values),
     tags: seed.tags,
   }

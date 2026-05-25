@@ -1,38 +1,38 @@
-import { Check, Lightbulb, Minus } from "lucide-react";
+import { Check, CircleHelp, Lightbulb } from "lucide-react";
 import { cn } from "@/lib/utils";
-import type { CriteriaScanStatus } from "../types";
+import type { ImpactSnapshotStatus } from "../types";
 
 const STATUS_CONFIG: Record<
-  CriteriaScanStatus,
+  ImpactSnapshotStatus,
   {
     label: string;
     className: string;
     icon: React.ComponentType<{ className?: string }>;
   }
 > = {
-  "likely-met": {
-    label: "Likely met",
+  likely: {
+    label: "Likely",
     className: "bg-[#31b84a] text-white",
     icon: Check,
   },
-  opportunity: {
-    label: "Opportunity",
+  possible: {
+    label: "Possible",
     className: "bg-[#fff11f] text-[#111111] ring-1 ring-black/10",
     icon: Lightbulb,
   },
-  "not-considered": {
-    label: "Not considered",
+  not_enough_evidence: {
+    label: "Not enough evidence",
     className: "bg-[#9da0a2] text-white",
-    icon: Minus,
+    icon: CircleHelp,
   },
 };
 
 type CriteriaStatusDotProps = {
-  status: CriteriaScanStatus;
+  status: ImpactSnapshotStatus;
   size?: "sm" | "lg";
 };
 
-export function getStatusLabel(status: CriteriaScanStatus) {
+export function getStatusLabel(status: ImpactSnapshotStatus) {
   return STATUS_CONFIG[status].label;
 }
 

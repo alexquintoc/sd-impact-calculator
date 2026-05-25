@@ -130,7 +130,7 @@ a {
 .site-footer-inner {
   display: grid;
   gap: 28px;
-  grid-template-columns: minmax(0, 1fr) auto;
+  grid-template-columns: minmax(0, 1fr) minmax(160px, auto) minmax(140px, auto);
   padding-bottom: 42px;
   padding-top: 42px;
 }
@@ -147,13 +147,11 @@ a {
   max-width: 560px;
 }
 
-.site-footer nav {
+.site-footer-nav {
   align-items: start;
   display: grid;
-  gap: 24px;
-  grid-template-columns: repeat(4, minmax(120px, 1fr));
+  gap: 12px;
   justify-content: flex-end;
-  min-width: 34rem;
 }
 
 .site-footer a {
@@ -167,23 +165,51 @@ a {
   color: #fff;
 }
 
-.site-footer-group {
-  display: grid;
-  gap: 8px;
-}
-
-.site-footer-column {
+.site-footer-connect {
   align-content: start;
   display: grid;
-  gap: 8px;
+  gap: 14px;
 }
 
-.site-footer-group a:not(:first-child) {
-  color: rgba(255, 255, 255, 0.64);
+.site-footer-connect > a {
+  font-weight: 800;
 }
 
-.site-footer-group a:not(:first-child):hover {
-  color: #fff;
+.site-social-links {
+  display: flex;
+  gap: 10px;
+}
+
+.site-social-links a {
+  align-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.22);
+  border-radius: 8px;
+  display: inline-flex;
+  height: 36px;
+  justify-content: center;
+  width: 36px;
+}
+
+.site-social-links a:hover {
+  border-color: rgba(255, 255, 255, 0.7);
+}
+
+.site-social-links svg {
+  fill: currentColor;
+  height: 18px;
+  width: 18px;
+}
+
+.sr-only {
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
 }
 
 .projects-shell {
@@ -705,8 +731,6 @@ a {
 
   .site-footer nav {
     justify-content: flex-start;
-    min-width: 0;
-    grid-template-columns: repeat(2, minmax(140px, 1fr));
   }
 
   .projects-shell {

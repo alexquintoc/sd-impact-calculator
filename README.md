@@ -84,7 +84,7 @@ The platform is actively exploring:
 | `/` | Homepage |
 | `/calculator` | Impact Calculator |
 | `/brief-generator` | Sustainable Design Brief Tool |
-| `/project-scan` | Quick Project Scan |
+| `/impact-snapshot` | Impact Snapshot |
 | `/knowledge-base` | Documentation + Criteria Reference |
 | `/projects` | Project Repository / Case Studies |
 | `/admin` | CMS Administration |

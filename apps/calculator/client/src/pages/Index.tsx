@@ -58,7 +58,7 @@ const tools = [
   {
     title: "Scan a Project",
     description: "Quickly Identify sustainable options for a current project.",
-    href: "/quick-project-scan",
+    href: "/impact-snapshot",
     label: "Scan a project",
     icon: ScanLine,
   },

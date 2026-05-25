@@ -9,12 +9,22 @@
 
 [[redirects]]
   from = "/quick-project-scan"
-  to = "/project-scan"
+  to = "/impact-snapshot"
   status = 301
 
 [[redirects]]
   from = "/quick-project-scan/*"
-  to = "/project-scan"
+  to = "/impact-snapshot/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/project-scan"
+  to = "/impact-snapshot"
+  status = 301
+
+[[redirects]]
+  from = "/project-scan/*"
+  to = "/impact-snapshot/:splat"
   status = 301
 
 [[redirects]]

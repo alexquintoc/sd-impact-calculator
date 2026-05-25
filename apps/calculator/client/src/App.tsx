@@ -1,4 +1,5 @@
-import { Switch, Route } from "wouter";
+import { Switch, Route, useLocation } from "wouter";
+import { useEffect } from "react";
 import { queryClient } from "./lib/queryClient";
 import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
@@ -13,7 +14,18 @@ import Index from "@/pages/Index";
 import ProjectDetail from "@/pages/ProjectDetail";
 import Projects from "@/pages/Projects";
 import QuickProjectScan from "@/pages/QuickProjectScan";
+import QuickProjectScanEmbed from "@/pages/QuickProjectScanEmbed";
 import SiteChrome from "@/components/SiteChrome";
+
+function Redirect({ to }: { to: string }) {
+  const [, setLocation] = useLocation();
+
+  useEffect(() => {
+    setLocation(to, { replace: true });
+  }, [setLocation, to]);
+
+  return null;
+}
 
 function Router() {
   return (
@@ -25,10 +37,28 @@ function Router() {
       <Route path="/calculator/" component={Home} />
       <Route path="/footprints" component={Footprints} />
       <Route path="/footprints/" component={Footprints} />
-      <Route path="/project-scan" component={QuickProjectScan} />
-      <Route path="/project-scan/" component={QuickProjectScan} />
-      <Route path="/quick-project-scan" component={QuickProjectScan} />
-      <Route path="/quick-project-scan/" component={QuickProjectScan} />
+      <Route path="/impact-snapshot" component={QuickProjectScan} />
+      <Route path="/impact-snapshot/" component={QuickProjectScan} />
+      <Route path="/impact-snapshot/embed" component={QuickProjectScanEmbed} />
+      <Route path="/impact-snapshot/embed/" component={QuickProjectScanEmbed} />
+      <Route path="/project-scan">
+        {() => <Redirect to="/impact-snapshot" />}
+      </Route>
+      <Route path="/project-scan/">
+        {() => <Redirect to="/impact-snapshot" />}
+      </Route>
+      <Route path="/quick-project-scan/embed">
+        {() => <Redirect to="/impact-snapshot/embed" />}
+      </Route>
+      <Route path="/quick-project-scan/embed/">
+        {() => <Redirect to="/impact-snapshot/embed" />}
+      </Route>
+      <Route path="/quick-project-scan">
+        {() => <Redirect to="/impact-snapshot" />}
+      </Route>
+      <Route path="/quick-project-scan/">
+        {() => <Redirect to="/impact-snapshot" />}
+      </Route>
       <Route path="/projects" component={Projects} />
       <Route path="/projects/" component={Projects} />
       <Route path="/projects/:slug">
@@ -45,13 +75,21 @@ function Router() {
 }
 
 function App() {
+  const [location] = useLocation();
+  const chrome = location.startsWith("/impact-snapshot/embed") ||
+    location.startsWith("/quick-project-scan/embed") ? (
+    <Router />
+  ) : (
+    <SiteChrome>
+      <Router />
+    </SiteChrome>
+  );
+
   return (
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
-        <SiteChrome>
-          <Router />
-        </SiteChrome>
+        {chrome}
       </TooltipProvider>
     </QueryClientProvider>
   );

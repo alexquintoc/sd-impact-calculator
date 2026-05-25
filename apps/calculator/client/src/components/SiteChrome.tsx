@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Github, Instagram, Linkedin } from "lucide-react";
 import { useLocation } from "wouter";
 
 type NavItem = {
@@ -9,20 +10,37 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: "Footprints", href: "/footprints" },
-  { label: "Quick Scan", href: "/quick-project-scan" },
+  { label: "Impact Snapshot", href: "/impact-snapshot" },
+  { label: "Evaluate", href: "/calculator" },
+  { label: "Learn", href: "/knowledge-base" },
+  { label: "Imagine", href: "/brief-generator" },
+  { label: "Get Involved", href: "/#get-involved" },
+];
+
+const footerNavItems: NavItem[] = [
+  { label: "Footprints", href: "/footprints" },
+  { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
   { label: "Learn", href: "/knowledge-base" },
   { label: "Imagine", href: "/brief-generator" },
 ];
 
-const footerColumns: NavItem[][] = [
-  [{ label: "Footprints", href: "/footprints" }],
-  [{ label: "Quick Scan", href: "/quick-project-scan" }],
-  [{ label: "Evaluate", href: "/calculator" }],
-  [
-    { label: "Learn", href: "/knowledge-base" },
-    { label: "Imagine", href: "/brief-generator" },
-  ],
+const socialItems = [
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/company/sd-standard",
+    Icon: Linkedin,
+  },
+  {
+    label: "Instagram",
+    href: "https://www.instagram.com/sdstandard",
+    Icon: Instagram,
+  },
+  {
+    label: "GitHub",
+    href: "https://github.com/alexquintoc/sd-standard",
+    Icon: Github,
+  },
 ];
 
 function isActive(pathname: string, href: string) {
@@ -80,31 +98,39 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
       {children}
 
       <footer className="border-t border-[#d9d4c8] bg-[#1f241f] text-white">
-        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 sm:px-8 md:grid-cols-[minmax(0,1fr)_auto] lg:px-10">
+        <div className="mx-auto grid max-w-7xl gap-8 px-5 py-10 sm:px-8 md:grid-cols-[minmax(0,1fr)_minmax(10rem,auto)_minmax(9rem,auto)] lg:px-10">
           <div className="max-w-xl">
             <h2 className="text-xl font-extrabold">SD Standard</h2>
             <p className="mt-3 text-sm leading-6 text-white/70">
               An open sustainability standard for visual communication and design practitioners
             </p>
           </div>
-          <nav className="grid gap-6 sm:grid-cols-2 md:min-w-[34rem] md:grid-cols-4" aria-label="Footer navigation">
-            {footerColumns.map((column, index) => (
-              <div className="grid content-start gap-2" key={index}>
-                {column.map((item) => (
-                  <div className="grid gap-2" key={item.href}>
-                    <a className="text-sm font-extrabold text-white/80 hover:text-white" href={item.href}>
-                      {item.label}
-                    </a>
-                    {item.children?.map((child) => (
-                      <a className="text-sm font-bold text-white/65 hover:text-white" href={child.href} key={child.href}>
-                        {child.label}
-                      </a>
-                    ))}
-                  </div>
-                ))}
-              </div>
+          <nav className="grid content-start gap-3" aria-label="Footer navigation">
+            {footerNavItems.map((item) => (
+              <a className="text-sm font-extrabold text-white/80 hover:text-white" href={item.href} key={item.href}>
+                {item.label}
+              </a>
             ))}
           </nav>
+          <div className="grid content-start gap-4">
+            <a className="text-sm font-extrabold text-white/80 hover:text-white" href="/#get-involved">
+              Get Involved
+            </a>
+            <div className="flex gap-2" aria-label="Social media">
+              {socialItems.map(({ label, href, Icon }) => (
+                <a
+                  aria-label={label}
+                  className="inline-flex h-9 w-9 items-center justify-center rounded-md border border-white/20 text-white/80 hover:border-white/70 hover:text-white"
+                  href={href}
+                  key={href}
+                  rel="noreferrer"
+                  target="_blank"
+                >
+                  <Icon className="h-4 w-4" aria-hidden="true" />
+                </a>
+              ))}
+            </div>
+          </div>
         </div>
       </footer>
     </div>

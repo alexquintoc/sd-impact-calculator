@@ -37,11 +37,29 @@ export async function registerRoutes(
   });
 
   app.get("/quick-project-scan", (_req, res) => {
-    res.redirect(301, "/project-scan");
+    res.redirect(301, "/impact-snapshot");
   });
 
   app.get("/quick-project-scan/", (_req, res) => {
-    res.redirect(301, "/project-scan");
+    res.redirect(301, "/impact-snapshot");
+  });
+
+  app.get("/quick-project-scan/embed", (req, res) => {
+    const query = req.url.includes("?") ? req.url.slice(req.url.indexOf("?")) : "";
+    res.redirect(301, `/impact-snapshot/embed${query}`);
+  });
+
+  app.get("/quick-project-scan/embed/", (req, res) => {
+    const query = req.url.includes("?") ? req.url.slice(req.url.indexOf("?")) : "";
+    res.redirect(301, `/impact-snapshot/embed${query}`);
+  });
+
+  app.get("/project-scan", (_req, res) => {
+    res.redirect(301, "/impact-snapshot");
+  });
+
+  app.get("/project-scan/", (_req, res) => {
+    res.redirect(301, "/impact-snapshot");
   });
 
   app.get("/api/projects", (_req, res) => {

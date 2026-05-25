@@ -2,21 +2,15 @@ import { useMemo, useState } from "react";
 import { calculatorVersions } from "@/calculator/registry";
 import { QuickProjectScanForm } from "@/quick-project-scan/components/QuickProjectScanForm";
 import { QuickProjectScanResults } from "@/quick-project-scan/components/QuickProjectScanResults";
-import { scanProjectDescription } from "@/quick-project-scan/lib/scanProjectDescription";
-import type { QuickProjectScanInput, QuickProjectScanResult } from "@/quick-project-scan/types";
+import { analyzeProjectDescription } from "@/quick-project-scan/lib/scanProjectDescription";
+import type { ImpactSnapshot } from "@/quick-project-scan/types";
 
-const EMPTY_SCAN_INPUT: QuickProjectScanInput = {
-  projectName: "",
-  projectCategory: "",
-  projectType: "",
-  projectFormat: "",
-  description: "",
-};
+const STORAGE_KEY = "sd-standard-impact-snapshot:last";
 
 export default function QuickProjectScan() {
   const criteriaData = calculatorVersions.v2.criteria;
-  const [formValue, setFormValue] = useState<QuickProjectScanInput>(EMPTY_SCAN_INPUT);
-  const [result, setResult] = useState<QuickProjectScanResult | null>(null);
+  const [description, setDescription] = useState("");
+  const [result, setResult] = useState<ImpactSnapshot | null>(null);
 
   const criteriaCount = useMemo(
     () => criteriaData.pillars.reduce((total, pillar) => total + pillar.criteria.length, 0),
@@ -24,12 +18,15 @@ export default function QuickProjectScan() {
   );
 
   const handleSubmit = () => {
-    setResult(scanProjectDescription(formValue, criteriaData));
+    const snapshot = analyzeProjectDescription(description.trim(), criteriaData);
+    setResult(snapshot);
+    window.localStorage.setItem(STORAGE_KEY, JSON.stringify(snapshot));
   };
 
   const handleStartAgain = () => {
-    setFormValue(EMPTY_SCAN_INPUT);
+    setDescription("");
     setResult(null);
+    window.localStorage.removeItem(STORAGE_KEY);
   };
 
   return (
@@ -44,11 +41,12 @@ export default function QuickProjectScan() {
               SD Standard
             </a>
             <h1 className="mt-3 text-5xl font-extrabold leading-none tracking-normal sm:text-6xl">
-              Quick Project Scan
+              SD Standard Impact Snapshot
             </h1>
             <p className="mt-5 max-w-3xl text-lg leading-8 text-[#5f5a50]">
-              Scan an early project description against the Environmental, Social, Cultural,
-              and Financial pillars before moving into a full calculator review.
+              Describe a design project in your own words. The tool will map the project against
+              the SD Standard criteria and generate a simple four-pillar snapshot across
+              Environment, Society, Culture, and Finance.
             </p>
           </div>
           <p className="max-w-xs rounded-md border border-[#d9d4c8] bg-[#fffdf8] px-4 py-3 text-sm font-bold leading-6 text-[#5f5a50]">
@@ -60,9 +58,8 @@ export default function QuickProjectScan() {
           <QuickProjectScanResults result={result} onStartAgain={handleStartAgain} />
         ) : (
           <QuickProjectScanForm
-            criteriaData={criteriaData}
-            value={formValue}
-            onChange={setFormValue}
+            value={description}
+            onChange={setDescription}
             onSubmit={handleSubmit}
           />
         )}

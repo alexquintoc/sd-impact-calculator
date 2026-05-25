@@ -1,31 +1,48 @@
-export type CriteriaScanStatus = "likely-met" | "opportunity" | "not-considered";
+export type ImpactSnapshotStatus = "likely" | "possible" | "not_enough_evidence";
 
-export type QuickProjectScanInput = {
-  projectName: string;
-  projectCategory: string;
-  projectType: string;
-  projectFormat: string;
-  description: string;
-};
+export type ImpactSnapshotPillarId = "environment" | "society" | "culture" | "finance";
 
-export type ScannedCriterion = {
+export type ImpactSnapshotCriterion = {
   id: string;
   label: string;
-  pillarId: string;
+  pillarId: ImpactSnapshotPillarId;
   pillarLabel: string;
-  status: CriteriaScanStatus;
-  matchedKeywords: string[];
+  status: ImpactSnapshotStatus;
+  confidence: number;
+  rationale: string;
+  evidence: string | null;
+  knowledgeBaseUrl: string | null;
 };
 
-export type ScannedPillar = {
-  id: string;
-  label: string;
-  criteria: ScannedCriterion[];
+export type ImpactSnapshotPillarSummary = {
+  likely: number;
+  possible: number;
 };
 
-export type QuickProjectScanResult = {
-  projectName: string;
-  interpretationNote: string;
-  pillars: ScannedPillar[];
-  totals: Record<CriteriaScanStatus, number>;
+export type ImpactSnapshot = {
+  schema: "sd-standard-impact-snapshot-v1";
+  generatedAt: string;
+  assessmentType: "ai-assisted-self-assessment";
+  project: {
+    description: string;
+    inferredTitle: string | null;
+    inferredProjectType: string | null;
+    inferredFormat: string | null;
+  };
+  summary: {
+    totalLikelyCriteria: number;
+    totalPossibleCriteria: number;
+    pillars: Record<ImpactSnapshotPillarId, ImpactSnapshotPillarSummary>;
+  };
+  criteria: ImpactSnapshotCriterion[];
+  missingInformation: string[];
+  disclaimer: string;
+};
+
+export type SnapshotEmbedPayload = {
+  schema: "sd-standard-impact-snapshot-embed-v1";
+  generatedAt: string;
+  projectTitle: string | null;
+  summary: ImpactSnapshot["summary"];
+  likelyCriteria: Array<Pick<ImpactSnapshotCriterion, "id" | "label" | "pillarId" | "pillarLabel">>;
 };

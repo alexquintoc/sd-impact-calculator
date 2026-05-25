@@ -48,7 +48,8 @@ const pillarAlias: Record<string, PillarKey> = {
 }
 
 const pillarByKey = new Map<PillarKey, StandardPillar>()
-const criterionByLookupId = new Map<string, StandardCriterion>()
+const criterionByPrimaryId = new Map<string, StandardCriterion>()
+const criterionByDisplayId = new Map<string, StandardCriterion>()
 
 for (const pillar of standardPillars) {
   const key = pillarAlias[pillar.id]
@@ -57,14 +58,14 @@ for (const pillar of standardPillars) {
   }
 
   for (const criterion of pillar.criteria) {
-    for (const lookupId of [
-      criterion.id,
-      criterion.displayId,
-      criterion.legacyId,
-    ]) {
-      if (lookupId) {
-        criterionByLookupId.set(lookupId.toLowerCase(), criterion)
+    for (const lookupId of [criterion.id, criterion.legacyId]) {
+      if (lookupId && !criterionByPrimaryId.has(lookupId.toLowerCase())) {
+        criterionByPrimaryId.set(lookupId.toLowerCase(), criterion)
       }
+    }
+
+    if (criterion.displayId) {
+      criterionByDisplayId.set(criterion.displayId.toLowerCase(), criterion)
     }
   }
 }
@@ -73,7 +74,8 @@ const getPillarLabel = (key: PillarKey) =>
   pillarByKey.get(key)?.label.replace(' Criteria', '') ?? key
 
 const getCriterion = (criterionId: string) =>
-  criterionByLookupId.get(criterionId.toLowerCase())
+  criterionByPrimaryId.get(criterionId.toLowerCase()) ??
+  criterionByDisplayId.get(criterionId.toLowerCase())
 
 export const formatCriterionReference = (criterionId: string) => {
   const criterion = getCriterion(criterionId)

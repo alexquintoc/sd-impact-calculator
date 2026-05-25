@@ -1,18 +1,10 @@
 (function () {
   const navItems = [
-    { label: "Home", href: "/" },
-    {
-      label: "Tools and Resources",
-      href: "/#tools-resources",
-      children: [
-        { label: "Impact Calculator", href: "/calculator" },
-        { label: "Brief Generator", href: "/brief-generator" },
-        { label: "Quick Project Scan", href: "/quick-project-scan" },
-        { label: "Knowledge Base", href: "/knowledge-base" },
-      ],
-    },
-    { label: "Projects", href: "/projects" },
-    { label: "Baselines", href: "/baselines" },
+    { label: "Footprints", href: "/footprints" },
+    { label: "Impact Snapshot", href: "/impact-snapshot" },
+    { label: "Evaluate", href: "/calculator" },
+    { label: "Learn", href: "/knowledge-base" },
+    { label: "Imagine", href: "/brief-generator" },
     { label: "Get Involved", href: "/#get-involved" },
   ];
 
