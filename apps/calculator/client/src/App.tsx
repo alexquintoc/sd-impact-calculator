@@ -74,6 +74,30 @@ function Router() {
   );
 }
 
+function HashScroll() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    const hash = window.location.hash;
+    if (!hash) return;
+
+    const scrollToTarget = () => {
+      const target = document.querySelector(hash);
+      const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      target?.scrollIntoView({
+        behavior: prefersReducedMotion ? "auto" : "smooth",
+        block: "start",
+      });
+    };
+
+    const timeout = window.setTimeout(scrollToTarget, 80);
+    return () => window.clearTimeout(timeout);
+  }, [location]);
+
+  return null;
+}
+
 function App() {
   const [location] = useLocation();
   const chrome = location.startsWith("/impact-snapshot/embed") ||
@@ -89,6 +113,7 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <TooltipProvider>
         <Toaster />
+        <HashScroll />
         {chrome}
       </TooltipProvider>
     </QueryClientProvider>

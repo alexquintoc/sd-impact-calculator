@@ -4,10 +4,10 @@
   --muted: #5a6461;
   --line: #d9dfd8;
   --panel: #ffffff;
-  --environment: #1f7a55;
+  --environment: #71b88f;
   --society: #2d6cdf;
-  --culture: #8a5a12;
-  --finance: #6f7d1c;
+  --culture: #c46a4a;
+  --finance: #f6d365;
 }
 
 * {
@@ -514,7 +514,7 @@ a {
 }
 
 .score-meter span {
-  background: #1f7a55;
+  background: var(--environment);
   display: block;
   height: 100%;
 }

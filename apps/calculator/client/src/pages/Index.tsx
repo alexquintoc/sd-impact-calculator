@@ -3,11 +3,12 @@ import {
   BookOpen,
   Calculator,
   Footprints as FootprintsIcon,
-  Network,
   PenLine,
   ScanLine,
 } from "lucide-react";
 import type { ReactNode } from "react";
+import { HeroPillarCircles } from "@/components/HeroPillarCircles";
+import { PILLAR_COLORS, type PillarColorKey } from "@/lib/pillar-colors";
 
 // HOMEPAGE COPY: Edit the objects in this block to change the main language on `/`.
 // These are hand-authored strings and are separate from generated Knowledge Base files.
@@ -22,30 +23,36 @@ const pillars = [
     description: "Focus on ecological impact, natural resources, and the full lifecycle of design outputs.",
     themes: ["materials", "emissions", "waste", "energy", "lifecycle impact"],
     href: "/knowledge-base/generated/pillars/environment.html",
-    accent: "bg-[#28775e]",
+    colorKey: "environment",
   },
   {
     title: "Society",
     description: "Focus on equity, accessibility, labour conditions, and social well-being.",
     themes: ["accessibility", "labour rights", "education", "equity", "participation"],
     href: "/knowledge-base/generated/pillars/society.html",
-    accent: "bg-[#2d6cdf]",
+    colorKey: "society",
   },
   {
     title: "Culture",
     description: "Focus on identity, heritage, language, diversity, and community participation.",
     themes: ["local identity", "Indigenous culture", "diversity", "language preservation", "audience participation"],
     href: "/knowledge-base/generated/pillars/culture.html",
-    accent: "bg-[#8a5a12]",
+    colorKey: "culture",
   },
   {
     title: "Finance",
     description: "Focus on economic sustainability, accountability, and long-term value.",
     themes: ["transparency", "fair compensation", "profitability", "accountability", "long-term value"],
     href: "/knowledge-base/generated/pillars/finance.html",
-    accent: "bg-[#6f7d1c]",
+    colorKey: "finance",
   },
-];
+] satisfies Array<{
+  title: string;
+  description: string;
+  themes: string[];
+  href: string;
+  colorKey: PillarColorKey;
+}>;
 
 const tools = [
   {
@@ -163,7 +170,7 @@ function LinkButton({
   return (
     <a
       href={href}
-      className={`inline-flex items-center justify-center rounded-md px-5 py-3 text-sm font-extrabold transition focus:outline-none focus:ring-4 ${classes}`}
+      className={`inline-flex max-w-full items-center justify-center rounded-md px-5 py-3 text-center text-sm font-extrabold transition focus:outline-none focus:ring-4 ${classes}`}
     >
       {children}
     </a>
@@ -174,12 +181,13 @@ export default function Index() {
   return (
     <main className="min-h-screen bg-[#f7f5ef] text-[#1f241f]">
       {/* HOMEPAGE COPY: Hero headline, intro paragraph, and primary CTA. */}
-      <section className="mx-auto grid min-h-[92vh] w-full max-w-7xl items-center gap-12 px-5 py-14 sm:px-8 lg:grid-cols-[minmax(0,1fr)_380px] lg:px-10 lg:py-20">
-        <div>
+      <section className="relative isolate mx-auto grid min-h-[92vh] w-full max-w-7xl items-center overflow-hidden px-5 py-14 sm:px-8 lg:px-10 lg:py-20">
+        <HeroPillarCircles />
+        <div className="relative z-[1] max-w-4xl">
           <p className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#28775e]">
             Sustainable Design Standard
           </p>
-          <h1 className="mt-5 max-w-5xl text-5xl font-extrabold leading-[0.98] tracking-normal sm:text-6xl lg:text-7xl">
+          <h1 className="mt-5 max-w-4xl text-5xl font-extrabold leading-[0.98] tracking-normal sm:text-6xl lg:text-7xl">
             An open sustainability standard for creatives
           </h1>
           <p className="mt-7 max-w-3xl text-lg leading-8 text-[#5f5a50] sm:text-xl">
@@ -192,38 +200,6 @@ export default function Index() {
           </div>
         </div>
 
-        <aside className="rounded-lg border border-[#d9d4c8] bg-[#fffdf8] p-6 shadow-[0_18px_50px_rgba(45,39,28,0.08)]">
-          <div className="flex items-center gap-3">
-            <span className="flex h-12 w-12 items-center justify-center rounded-md bg-[#e5efe9] text-[#28775e]">
-              <Network className="h-6 w-6" aria-hidden="true" />
-            </span>
-            <div>
-              <p className="text-xs font-extrabold uppercase tracking-[0.08em] text-[#5f5a50]">
-                Integrated workflow
-              </p>
-              <h2 className="text-xl font-extrabold">Brief, design, evaluate, improve</h2>
-            </div>
-          </div>
-          <div className="mt-7 grid gap-3">
-            {["Environment", "Society", "Culture", "Finance"].map((pillar, index) => (
-              <div
-                className="grid grid-cols-[auto_1fr_auto] items-center gap-3 rounded-md border border-[#d9d4c8] bg-white p-4"
-                key={pillar}
-              >
-                <span className="text-sm font-extrabold text-[#28775e]">
-                  0{index + 1}
-                </span>
-                <span className="font-extrabold">{pillar}</span>
-                <span className="h-2 w-16 rounded-full bg-[#28775e]/20">
-                  <span
-                    className="block h-2 rounded-full bg-[#28775e]"
-                    style={{ width: `${82 - index * 11}%` }}
-                  />
-                </span>
-              </div>
-            ))}
-          </div>
-        </aside>
       </section>
 
       {/* HOMEPAGE COPY: Section headers and body copy below are safe to edit here. */}
@@ -241,7 +217,10 @@ export default function Index() {
                 key={pillar.title}
               >
                 <div>
-                  <span className={`mb-5 block h-2 w-16 rounded-full ${pillar.accent}`} />
+                  <span
+                    className="mb-5 block h-2 w-16 rounded-full"
+                    style={{ backgroundColor: PILLAR_COLORS[pillar.colorKey] }}
+                  />
                   <h3 className="text-2xl font-extrabold">{pillar.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-[#5f5a50]">
                     {pillar.description}

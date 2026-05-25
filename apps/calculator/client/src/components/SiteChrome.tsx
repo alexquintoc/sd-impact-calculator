@@ -1,5 +1,5 @@
-import type { ReactNode } from "react";
-import { Github, Instagram, Linkedin } from "lucide-react";
+import { useEffect, useState, type MouseEvent, type ReactNode } from "react";
+import { Github, Instagram, Linkedin, Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
 
 type NavItem = {
@@ -69,16 +69,73 @@ function getNavLinkClasses(active: boolean) {
 }
 
 export default function SiteChrome({ children }: { children: ReactNode }) {
-  const [location] = useLocation();
+  const [location, setLocation] = useLocation();
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+
+  useEffect(() => {
+    setMobileMenuOpen(false);
+  }, [location]);
+
+  useEffect(() => {
+    if (!mobileMenuOpen) return;
+
+    function handleKeyDown(event: KeyboardEvent) {
+      if (event.key === "Escape") {
+        setMobileMenuOpen(false);
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [mobileMenuOpen]);
+
+  const scrollToHash = (hash: string) => {
+    const target = document.querySelector(hash);
+    const prefersReducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    target?.scrollIntoView({
+      behavior: prefersReducedMotion ? "auto" : "smooth",
+      block: "start",
+    });
+  };
+
+  const handleNavClick = (href: string) => (event: MouseEvent<HTMLAnchorElement>) => {
+    setMobileMenuOpen(false);
+
+    if (href === "/#get-involved") {
+      event.preventDefault();
+
+      if (location !== "/") {
+        setLocation("/");
+      }
+
+      window.history.pushState(null, "", "/#get-involved");
+      window.setTimeout(() => scrollToHash("#get-involved"), 80);
+    }
+  };
 
   return (
-    <div className="min-h-screen bg-[#f7f5ef] text-[#1f241f]">
+    <div className="min-h-screen overflow-x-hidden bg-[#f7f5ef] text-[#1f241f]">
       <header className="border-b border-[#d9d4c8] bg-[#fffdf8]/95 backdrop-blur">
-        <div className="mx-auto flex max-w-7xl flex-col gap-4 px-5 py-4 sm:px-8 lg:flex-row lg:items-center lg:justify-between lg:px-10">
+        <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10">
           <a href="/" className="text-lg font-extrabold tracking-normal text-[#1f241f]">
             SD Standard
           </a>
-          <nav className="flex flex-wrap gap-2" aria-label="Main navigation">
+          <button
+            aria-controls="mobile-navigation"
+            aria-expanded={mobileMenuOpen}
+            aria-label={mobileMenuOpen ? "Close main navigation" : "Open main navigation"}
+            className="inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#d9d4c8] bg-[#fffdf8] text-[#1f241f] transition hover:bg-white focus:outline-none focus:ring-4 focus:ring-[#85bba8] lg:hidden"
+            type="button"
+            onClick={() => setMobileMenuOpen((isOpen) => !isOpen)}
+          >
+            {mobileMenuOpen ? (
+              <X className="h-5 w-5" aria-hidden="true" />
+            ) : (
+              <Menu className="h-5 w-5" aria-hidden="true" />
+            )}
+          </button>
+          <nav className="hidden flex-wrap gap-2 lg:flex" aria-label="Main navigation">
             {navItems.map((item) => {
               const active = isActive(location, item.href);
               return (
@@ -86,6 +143,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
                   className={getNavLinkClasses(active)}
                   href={item.href}
                   key={item.href}
+                  onClick={handleNavClick(item.href)}
                 >
                   {item.label}
                 </a>
@@ -93,6 +151,25 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
             })}
           </nav>
         </div>
+        <nav
+          aria-label="Mobile navigation"
+          className={`${mobileMenuOpen ? "grid" : "hidden"} border-t border-[#d9d4c8] bg-[#fffdf8] px-5 py-3 shadow-[0_18px_40px_rgba(45,39,28,0.08)] sm:px-8 lg:hidden`}
+          id="mobile-navigation"
+        >
+          {navItems.map((item) => {
+            const active = isActive(location, item.href);
+            return (
+              <a
+                className={`${getNavLinkClasses(active)} block`}
+                href={item.href}
+                key={item.href}
+                onClick={handleNavClick(item.href)}
+              >
+                {item.label}
+              </a>
+            );
+          })}
+        </nav>
       </header>
 
       {children}
@@ -113,7 +190,11 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
             ))}
           </nav>
           <div className="grid content-start gap-4">
-            <a className="text-sm font-extrabold text-white/80 hover:text-white" href="/#get-involved">
+            <a
+              className="text-sm font-extrabold text-white/80 hover:text-white"
+              href="/#get-involved"
+              onClick={handleNavClick("/#get-involved")}
+            >
               Get Involved
             </a>
             <div className="flex gap-2" aria-label="Social media">

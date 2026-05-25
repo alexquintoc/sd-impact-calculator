@@ -1,4 +1,5 @@
 import { decodeSnapshotPayload } from "@/quick-project-scan/lib/scanProjectDescription";
+import { getPillarColor } from "@/lib/pillar-colors";
 import type { ImpactSnapshotPillarId, SnapshotEmbedPayload } from "@/quick-project-scan/types";
 
 const PILLARS: Array<{ id: ImpactSnapshotPillarId; label: string }> = [
@@ -55,7 +56,10 @@ function PillarBar({
         <span className="text-xs font-bold text-[#5f5a50]">{counts.likely} likely</span>
       </div>
       <div className="mt-2 h-2 overflow-hidden rounded-full bg-[#e5e1d7]">
-        <div className="h-full rounded-full bg-[#28775e]" style={{ width: `${width}%` }} />
+        <div
+          className="h-full rounded-full"
+          style={{ width: `${width}%`, backgroundColor: getPillarColor(pillar.id) }}
+        />
       </div>
     </div>
   );

@@ -1,16 +1,10 @@
 import { useEffect, useMemo, useState } from "react";
 import { Loader2 } from "lucide-react";
 import BaselineComparison from "@/components/BaselineComparison";
+import { getPillarColor } from "@/lib/pillar-colors";
 import { fetchProject, getPillarLabel, type ProjectDetail as ProjectDetailType } from "@/lib/projects";
 
 const pillarOrder = ["environment", "social", "cultural", "financial"];
-
-const pillarColors: Record<string, string> = {
-  environment: "#28775e",
-  social: "#2d6cdf",
-  cultural: "#8a5a12",
-  financial: "#6f7d1c",
-};
 
 export default function ProjectDetail({ params }: { params: { slug: string } }) {
   const [project, setProject] = useState<ProjectDetailType | null>(null);
@@ -136,7 +130,7 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
                       <span className="h-2 overflow-hidden rounded-full bg-[#e5e0d5]">
                         <span
                           className="block h-full rounded-full"
-                          style={{ width: `${width}%`, backgroundColor: pillarColors[pillar] }}
+                          style={{ width: `${width}%`, backgroundColor: getPillarColor(pillar) }}
                         />
                       </span>
                     </div>

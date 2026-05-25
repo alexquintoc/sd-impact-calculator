@@ -103,6 +103,7 @@ function BriefGeneratorApp() {
             {pillarOrder.map((pillar) => (
               <PillarSlider
                 key={pillar}
+                color={pillarDefinitions[pillar].color}
                 label={pillarDefinitions[pillar].label}
                 value={values[pillar]}
                 onChange={updateValue(pillar)}

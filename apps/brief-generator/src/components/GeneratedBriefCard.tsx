@@ -21,11 +21,11 @@ export function GeneratedBriefCard({ brief }: GeneratedBriefCardProps) {
       <p className="brief-statement">{brief.briefStatement}</p>
 
       <div className="brief-meta">
-        <div>
+        <div style={{ borderLeftColor: pillarDefinitions[brief.dominantPillar].color }}>
           <p className="eyebrow">Dominant pillar</p>
           <strong>{pillarDefinitions[brief.dominantPillar].label}</strong>
         </div>
-        <div>
+        <div style={{ borderLeftColor: pillarDefinitions[brief.supportingPillar].color }}>
           <p className="eyebrow">Supporting pillar</p>
           <strong>{pillarDefinitions[brief.supportingPillar].label}</strong>
         </div>

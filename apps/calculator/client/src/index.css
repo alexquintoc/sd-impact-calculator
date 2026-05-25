@@ -94,3 +94,74 @@
     scrollbar-width: none;
   }
 }
+
+@layer components {
+  .hero-pillar-circles {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .hero-pillar-circles__circle {
+    position: absolute;
+    top: var(--pillar-circle-top);
+    left: var(--pillar-circle-left);
+    width: var(--pillar-circle-size);
+    height: var(--pillar-circle-size);
+    border-radius: 999px;
+    display: block;
+    background: var(--pillar-circle-color);
+    box-shadow:
+      inset 0 0 42px rgb(255 253 248 / 0.36),
+      0 20px 70px rgb(31 36 31 / 0.08);
+    filter: blur(5px);
+    mix-blend-mode: multiply;
+    opacity: var(--pillar-circle-opacity);
+    transform: translate3d(0, 0, 0);
+    transform-origin: center;
+    animation: hero-pillar-drift var(--pillar-circle-duration) ease-in-out infinite alternate;
+    animation-delay: var(--pillar-circle-delay, 0s);
+    will-change: transform;
+  }
+
+  /* HeroPillarCircles tuning:
+     Size, color, opacity, and speed live in HeroPillarCircles.tsx.
+     Motion distance is controlled by --pillar-circle-dx and --pillar-circle-dy. */
+  @keyframes hero-pillar-drift {
+    from {
+      transform: translate3d(0, 0, 0);
+    }
+
+    to {
+      transform: translate3d(var(--pillar-circle-dx), var(--pillar-circle-dy), 0);
+    }
+  }
+
+  @media (max-width: 1023px) {
+    .hero-pillar-circles__circle {
+      width: calc(var(--pillar-circle-size) * 0.76);
+      height: calc(var(--pillar-circle-size) * 0.76);
+      opacity: calc(var(--pillar-circle-opacity) * 0.86);
+    }
+  }
+
+  @media (max-width: 640px) {
+    .hero-pillar-circles {
+      inset: 4rem -7rem 8rem -4rem;
+    }
+
+    .hero-pillar-circles__circle {
+      width: calc(var(--pillar-circle-size) * 0.42);
+      height: calc(var(--pillar-circle-size) * 0.42);
+      opacity: calc(var(--pillar-circle-opacity) * 0.83);
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .hero-pillar-circles__circle {
+      animation: none;
+    }
+  }
+}

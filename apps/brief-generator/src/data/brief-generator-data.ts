@@ -1,4 +1,5 @@
 import criteriaV2 from '../../../../packages/standard-core/src/criteria.v2.json'
+import { PILLAR_COLORS } from '../../../../packages/standard-core/src/pillar-colors'
 
 export type PillarKey = 'environment' | 'society' | 'culture' | 'finance'
 
@@ -9,6 +10,7 @@ export type PillarDefinition = {
   phrases: string[]
   criteria: string[]
   archetype: string
+  color: string
 }
 
 export type BriefSeed = {
@@ -125,6 +127,7 @@ export const pillarDefinitions: Record<PillarKey, PillarDefinition> = {
     ],
     criteria: ['E1', 'E5', 'E13', 'E14'],
     archetype: 'Eco-Optimized Brief',
+    color: PILLAR_COLORS.environment,
   },
   society: {
     key: 'society',
@@ -141,6 +144,7 @@ export const pillarDefinitions: Record<PillarKey, PillarDefinition> = {
     ],
     criteria: ['S1', 'S8', 'S11', 'S16'],
     archetype: 'Equity-Centered Brief',
+    color: PILLAR_COLORS.society,
   },
   culture: {
     key: 'culture',
@@ -157,6 +161,7 @@ export const pillarDefinitions: Record<PillarKey, PillarDefinition> = {
     ],
     criteria: ['C2', 'C4', 'C5', 'C6'],
     archetype: 'Culture-Led Brief',
+    color: PILLAR_COLORS.culture,
   },
   finance: {
     key: 'finance',
@@ -173,6 +178,7 @@ export const pillarDefinitions: Record<PillarKey, PillarDefinition> = {
     ],
     criteria: ['F1', 'F2', 'FM3', 'F4'],
     archetype: 'Viability-Driven Brief',
+    color: PILLAR_COLORS.finance,
   },
 }
 

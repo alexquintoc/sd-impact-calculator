@@ -5,6 +5,7 @@ import {
   encodeSnapshotPayload,
   getCriteriaByStatus,
 } from "@/quick-project-scan/lib/scanProjectDescription";
+import { getPillarColor } from "@/lib/pillar-colors";
 import { CriteriaCard } from "./CriteriaCard";
 import type {
   ImpactSnapshot,
@@ -179,7 +180,10 @@ function PillarSummaryCard({
         </span>
       </div>
       <div className="mt-4 h-3 overflow-hidden rounded-full bg-[#e5e1d7]">
-        <div className="h-full rounded-full bg-[#28775e]" style={{ width: `${width}%` }} />
+        <div
+          className="h-full rounded-full"
+          style={{ width: `${width}%`, backgroundColor: getPillarColor(pillar.id) }}
+        />
       </div>
       <div className="mt-4 grid grid-cols-2 gap-2">
         <div className="rounded-md bg-white px-3 py-2">
