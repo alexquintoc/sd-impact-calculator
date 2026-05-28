@@ -3,12 +3,14 @@ import {
   BookOpen,
   Calculator,
   Footprints as FootprintsIcon,
+  Loader2,
   PenLine,
   ScanLine,
 } from "lucide-react";
-import type { ReactNode } from "react";
+import { useEffect, useState, type ReactNode } from "react";
 import { HeroPillarCircles } from "@/components/HeroPillarCircles";
 import { PILLAR_COLORS, type PillarColorKey } from "@/lib/pillar-colors";
+import { fetchProjects, type ProjectSummary } from "@/lib/projects";
 
 // HOMEPAGE COPY: Edit the objects in this block to change the main language on `/`.
 // These are hand-authored strings and are separate from generated Knowledge Base files.
@@ -99,30 +101,6 @@ const workflowSteps = [
   "Document and improve impact",
 ];
 
-const featuredProjects = [
-  {
-    title: "Accessible Report System",
-    description: "A digital-first reporting system focused on accessible documents and lower production waste.",
-    image: "/images/projects/report-cover.svg",
-    score: 86,
-    rating: "Transformative",
-  },
-  {
-    title: "Reusable Exhibit Kit",
-    description: "A modular exhibit system designed for repeated use across community events.",
-    image: "/images/projects/exhibit-cover.svg",
-    score: 79,
-    rating: "Advanced",
-  },
-  {
-    title: "Low-carbon Poster Example",
-    description: "A poster project designed to reduce paper, ink, and transport impacts.",
-    image: "/images/projects/poster-cover.svg",
-    score: 74,
-    rating: "Advanced",
-  },
-];
-
 const involvementGroups = [
   {
     title: "Contributors & Collaborators",
@@ -178,6 +156,18 @@ function LinkButton({
 }
 
 export default function Index() {
+  const [featuredProjects, setFeaturedProjects] = useState<ProjectSummary[]>([]);
+  const [projectsStatus, setProjectsStatus] = useState<"loading" | "ready" | "error">("loading");
+
+  useEffect(() => {
+    fetchProjects()
+      .then((projects) => {
+        setFeaturedProjects(projects.slice(0, 3));
+        setProjectsStatus("ready");
+      })
+      .catch(() => setProjectsStatus("error"));
+  }, []);
+
   return (
     <main className="min-h-screen bg-[#f7f5ef] text-[#1f241f]">
       {/* HOMEPAGE COPY: Hero headline, intro paragraph, and primary CTA. */}
@@ -328,33 +318,58 @@ export default function Index() {
             </LinkButton>
           </div>
         </div>
-        <div className="mt-9 grid gap-5 md:grid-cols-3">
-          {featuredProjects.map((project) => (
-            <article
-              className="overflow-hidden rounded-lg border border-[#d9d4c8] bg-[#fffdf8] shadow-[0_18px_50px_rgba(45,39,28,0.08)]"
-              key={project.title}
-            >
-              <img
-                src={project.image}
-                alt=""
-                className="aspect-[3/2] w-full object-cover"
-                loading="lazy"
-              />
-              <div className="p-6">
-                <div className="mb-4 flex items-center justify-between gap-3">
-                  <span className="text-3xl font-extrabold">{project.score}</span>
-                  <span className="rounded-full bg-[#1f241f] px-3 py-1 text-xs font-extrabold text-white">
-                    {project.rating}
+        {projectsStatus === "loading" ? (
+          <div className="mt-9 flex min-h-64 items-center justify-center rounded-lg border border-[#d9d4c8] bg-[#fffdf8] text-[#5f5a50]">
+            <Loader2 className="mr-3 h-5 w-5 animate-spin text-[#28775e]" />
+            Loading latest projects...
+          </div>
+        ) : null}
+
+        {projectsStatus === "error" ? (
+          <div className="mt-9 rounded-lg border border-[#d9d4c8] bg-[#fffdf8] p-6 text-[#5f5a50]">
+            Latest projects could not be loaded.
+          </div>
+        ) : null}
+
+        {projectsStatus === "ready" ? (
+          <div className="mt-9 grid gap-5 md:grid-cols-3">
+            {featuredProjects.map((project) => (
+              <a
+                href={`/projects/${project.slug}`}
+                className="group overflow-hidden rounded-lg border border-[#d9d4c8] bg-[#fffdf8] shadow-[0_18px_50px_rgba(45,39,28,0.08)] transition hover:-translate-y-1 hover:border-[#28775e] focus:outline-none focus:ring-4 focus:ring-[#85bba8]"
+                key={project.slug}
+              >
+                <img
+                  src={project.coverImage}
+                  alt=""
+                  className="aspect-[3/2] w-full object-cover"
+                  loading="lazy"
+                />
+                <div className="p-6">
+                  <div className="mb-4 flex items-center justify-between gap-3">
+                    <span className="text-3xl font-extrabold">{project.score}</span>
+                    <span className="rounded-full bg-[#1f241f] px-3 py-1 text-xs font-extrabold text-white">
+                      {project.rating}
+                    </span>
+                  </div>
+                  <div className="mb-3 flex flex-wrap gap-2 text-xs font-bold text-[#5f5a50]">
+                    <span>{project.year}</span>
+                    <span>{project.location}</span>
+                    <span>{project.projectType}</span>
+                  </div>
+                  <h3 className="text-xl font-extrabold">{project.title}</h3>
+                  <p className="mt-3 text-sm leading-6 text-[#5f5a50]">
+                    {project.description}
+                  </p>
+                  <span className="mt-6 inline-flex items-center text-sm font-extrabold text-[#28775e]">
+                    View project
+                    <ArrowRight className="ml-2 h-4 w-4 transition group-hover:translate-x-1" aria-hidden="true" />
                   </span>
                 </div>
-                <h3 className="text-xl font-extrabold">{project.title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#5f5a50]">
-                  {project.description}
-                </p>
-              </div>
-            </article>
-          ))}
-        </div>
+              </a>
+            ))}
+          </div>
+        ) : null}
       </section>
 
       <section id="get-involved" className="scroll-mt-24 border-t border-[#d9d4c8] bg-[#fffdf8]">

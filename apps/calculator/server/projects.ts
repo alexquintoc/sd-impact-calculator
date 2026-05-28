@@ -72,6 +72,65 @@ const pillarDisplayLabels: Record<string, string> = {
 const criteriaByDisplayId = new Map<string, CriteriaDetail>();
 const criteriaByLegacyId = new Map<string, CriteriaDetail>();
 const criteriaById = new Map<string, CriteriaDetail>();
+const criteriaByAliasId = new Map<string, CriteriaDetail>();
+
+const criteriaAliasTargets: Record<string, string> = {
+  EIRT1: "E1",
+  EIRT3: "E3",
+  EIRT4: "E4",
+  EIRT5: "E5",
+  EIRT6: "E6",
+  EIRT7: "E7",
+  EIRT8: "E7",
+  EIRT9: "E9",
+  EIRT10: "E10",
+  EIRT11: "E11",
+  EIRT12: "EM4",
+  EIRT13: "EM6",
+  EW1: "E15",
+  EW2: "E14",
+  EW3: "E13",
+  EE1: "E16",
+  EE2: "E17",
+  EE3: "E18",
+  EEM1: "E19",
+  EEM2: "E11",
+  EEM3: "E21",
+  EEM4: "E22",
+  EWAT1: "E23",
+  SDP1: "S1",
+  SDP2: "S2",
+  SDP3: "S3",
+  SEP1: "SM1",
+  SEP2: "SM2",
+  SEP3: "SM3",
+  SEP4: "S10",
+  SA1: "S6",
+  SA2: "S6b",
+  SA3: "S8",
+  SA4: "S9",
+  SSE1: "S11",
+  SSE2: "S12",
+  SSE3: "S13",
+  SSE4: "S14",
+  SED1: "S15",
+  SED2: "S16",
+  CCP1: "C2",
+  CCP2: "C3",
+  CCP3: "C4",
+  CCP4: "C5",
+  CCP5: "CM9",
+  CCE1: "C6",
+  CCE2: "C7",
+  CCE3: "C8",
+  FFS1: "F1",
+  FFS2: "F2",
+  FFS3: "FM3",
+  FFP1: "F4",
+  FFP2: "F5",
+  FFP3: "F6",
+  FFP4: "F7",
+};
 
 for (const pillar of criteriaV2.pillars) {
   const prefix =
@@ -100,9 +159,29 @@ for (const pillar of criteriaV2.pillars) {
     criteriaByDisplayId.set(detail.displayId.toLowerCase(), detail);
     if (detail.legacyId) {
       criteriaByLegacyId.set(detail.legacyId.toLowerCase(), detail);
+      detail.legacyId
+        .split("/")
+        .map((legacyId) => legacyId.trim())
+        .filter(Boolean)
+        .forEach((legacyId) => criteriaByLegacyId.set(legacyId.toLowerCase(), detail));
     }
     criteriaById.set(detail.id.toLowerCase(), detail);
   });
+}
+
+for (const [aliasId, targetId] of Object.entries(criteriaAliasTargets)) {
+  const targetKey = targetId.toLowerCase();
+  const detail =
+    criteriaById.get(targetKey) ??
+    criteriaByLegacyId.get(targetKey) ??
+    criteriaByDisplayId.get(targetKey);
+
+  if (detail) {
+    criteriaByAliasId.set(aliasId.toLowerCase(), {
+      ...detail,
+      displayId: aliasId,
+    });
+  }
 }
 
 export function getAllProjects(): ProjectSummary[] {
@@ -171,9 +250,10 @@ export function getCriteriaDetails(criteria: string[]) {
   return criteria.map((criterion) => {
     const key = criterion.toLowerCase();
     return (
-      criteriaByDisplayId.get(key) ??
+      criteriaById.get(key) ??
       criteriaByLegacyId.get(key) ??
-      criteriaById.get(key) ?? {
+      criteriaByAliasId.get(key) ??
+      criteriaByDisplayId.get(key) ?? {
         displayId: criterion,
         id: criterion,
         label: criterion,
