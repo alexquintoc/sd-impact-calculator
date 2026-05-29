@@ -5,6 +5,7 @@ import { QueryClientProvider } from "@tanstack/react-query";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import NotFound from "@/pages/not-found";
+import About from "@/pages/About";
 import BaselineDetail from "@/pages/BaselineDetail";
 import Baselines from "@/pages/Baselines";
 import BriefGenerator from "@/pages/BriefGenerator";
@@ -31,6 +32,8 @@ function Router() {
   return (
     <Switch>
       <Route path="/" component={Index} />
+      <Route path="/about" component={About} />
+      <Route path="/about/" component={About} />
       <Route path="/brief-generator" component={BriefGenerator} />
       <Route path="/brief-generator/" component={BriefGenerator} />
       <Route path="/calculator" component={Home} />

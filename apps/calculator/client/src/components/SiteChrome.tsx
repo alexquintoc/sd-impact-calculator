@@ -9,6 +9,7 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
+  { label: "About", href: "/about" },
   { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
@@ -18,6 +19,7 @@ const navItems: NavItem[] = [
 ];
 
 const footerNavItems: NavItem[] = [
+  { label: "About", href: "/about" },
   { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
