@@ -67,6 +67,14 @@ function writeIndexPage() {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>SD Standard</title>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-N1FKMBM1KL"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-N1FKMBM1KL');
+    </script>
     <style>
       :root {
         --accent: #28775e;
