@@ -181,6 +181,42 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
             <p className="mt-3 text-sm leading-6 text-white/70">
               An open sustainability standard for visual communication and design practitioners
             </p>
+            <form
+              action="https://buttondown.com/api/emails/embed-subscribe/sdstandard"
+              method="post"
+              className="embeddable-buttondown-form mt-6 grid max-w-md gap-3"
+            >
+              <p className="m-0 text-sm leading-6 text-white/80">
+                Get occasional updates about the SD Standard.
+              </p>
+              <label className="text-sm font-extrabold text-white/90" htmlFor="bd-email">
+                Enter your email
+              </label>
+              <div className="flex flex-col gap-2 sm:flex-row">
+                <input
+                  className="min-w-0 flex-1 rounded-md border border-white/25 bg-white/10 px-3 py-3 text-sm text-white outline-none transition placeholder:text-white/45 focus:border-[#85bba8] focus:ring-4 focus:ring-[#85bba8]/25"
+                  type="email"
+                  name="email"
+                  id="bd-email"
+                  required
+                />
+                <input
+                  className="cursor-pointer rounded-md border border-[#85bba8] bg-[#85bba8] px-4 py-3 text-sm font-extrabold text-[#1f241f] transition hover:border-[#a3d5bb] hover:bg-[#a3d5bb]"
+                  type="submit"
+                  value="Subscribe"
+                />
+              </div>
+              <p className="m-0 text-xs leading-5">
+                <a
+                  className="font-bold text-white/60 hover:text-white"
+                  href="https://buttondown.com/refer/sdstandard"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  Powered by Buttondown.
+                </a>
+              </p>
+            </form>
           </div>
           <nav className="grid content-start gap-3" aria-label="Footer navigation">
             {footerNavItems.map((item) => (

@@ -78,11 +78,34 @@ export default function RootLayout({
         {children}
         <footer className="site-footer">
           <div className="site-footer-inner">
-            <div>
+            <div className="site-footer-brand">
               <h2>SD Standard</h2>
               <p>
-                An openy sustainability standard for visual communication and design practitioners
+                An open sustainability standard for visual communication and design practitioners
               </p>
+              <form
+                action="https://buttondown.com/api/emails/embed-subscribe/sdstandard"
+                method="post"
+                className="embeddable-buttondown-form site-newsletter-form"
+              >
+                <p className="site-newsletter-intro">
+                  Get occasional updates about the SD Standard.
+                </p>
+                <label htmlFor="bd-email">Enter your email</label>
+                <div className="site-newsletter-fields">
+                  <input type="email" name="email" id="bd-email" required />
+                  <input type="submit" value="Subscribe" />
+                </div>
+                <p className="site-newsletter-powered">
+                  <a
+                    href="https://buttondown.com/refer/sdstandard"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Powered by Buttondown.
+                  </a>
+                </p>
+              </form>
             </div>
             <nav aria-label="Footer navigation" className="site-footer-nav">
               {footerNavItems.map((item) => (
