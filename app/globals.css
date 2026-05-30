@@ -67,17 +67,25 @@ a {
   position: relative;
 }
 
-.site-nav a {
+.site-nav a,
+.site-nav button {
   border-radius: 8px;
   color: var(--muted);
   display: inline-flex;
+  align-items: center;
+  background: transparent;
+  border: 0;
+  cursor: default;
+  font: inherit;
   font-size: 0.9rem;
   font-weight: 700;
+  min-height: 38px;
   padding: 9px 11px;
   text-decoration: none;
 }
 
-.site-nav a:hover {
+.site-nav a:hover,
+.site-nav button:hover {
   background: #e5efe9;
   color: var(--environment);
 }
@@ -131,8 +139,8 @@ a {
   display: grid;
   gap: 28px;
   grid-template-columns: minmax(0, 1fr) minmax(160px, auto) minmax(140px, auto);
-  padding-bottom: 42px;
-  padding-top: 42px;
+  padding-bottom: 58px;
+  padding-top: 58px;
 }
 
 .site-footer h2 {

@@ -19,7 +19,14 @@ const navItems: NavItem[] = [
   { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
-  { label: "Learn", href: "/knowledge-base" },
+  {
+    label: "Learn",
+    href: "/knowledge-base",
+    children: [
+      { label: "Knowledge Base", href: "/knowledge-base" },
+      { label: "Standard and SDGs", href: "/the-standard-and-the-sdgs" },
+    ],
+  },
   { label: "Imagine", href: "/brief-generator" },
   { label: "Get Involved", href: "/#get-involved" },
 ];
@@ -29,7 +36,8 @@ const footerNavItems: NavItem[] = [
   { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
-  { label: "Learn", href: "/knowledge-base" },
+  { label: "Knowledge Base", href: "/knowledge-base" },
+  { label: "Standard and SDGs", href: "/the-standard-and-the-sdgs" },
   { label: "Imagine", href: "/brief-generator" },
 ];
 
@@ -37,6 +45,7 @@ const socialItems: NavItem[] = [
   { label: "LinkedIn", href: "https://www.linkedin.com/company/sd-standard" },
   { label: "Instagram", href: "https://www.instagram.com/sdstandard" },
   { label: "GitHub", href: "https://github.com/alexquintoc/sd-standard" },
+  { label: "Bluesky", href: "https://bsky.app/profile/sdstandard.bsky.social" },
 ];
 
 export default function RootLayout({
@@ -69,7 +78,9 @@ export default function RootLayout({
                 if (item.children) {
                   return (
                     <div className="site-nav-group" key={item.href}>
-                      <Link href={item.href}>{item.label}</Link>
+                      <button aria-haspopup="true" type="button">
+                        {item.label}
+                      </button>
                       <div className="site-subnav">
                         {item.children.map((child) => (
                           <Link href={child.href} key={child.href}>
@@ -143,9 +154,21 @@ export default function RootLayout({
                       <svg aria-hidden="true" viewBox="0 0 24 24">
                         <path d="M7.5 2h9A5.51 5.51 0 0 1 22 7.5v9a5.51 5.51 0 0 1-5.5 5.5h-9A5.51 5.51 0 0 1 2 16.5v-9A5.51 5.51 0 0 1 7.5 2Zm0 2A3.5 3.5 0 0 0 4 7.5v9A3.5 3.5 0 0 0 7.5 20h9a3.5 3.5 0 0 0 3.5-3.5v-9A3.5 3.5 0 0 0 16.5 4h-9ZM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10Zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6Zm5.25-2.5a1.25 1.25 0 1 1 0 2.5 1.25 1.25 0 0 1 0-2.5Z" />
                       </svg>
-                    ) : (
+                    ) : item.label === "GitHub" ? (
                       <svg aria-hidden="true" viewBox="0 0 24 24">
                         <path d="M12 .5A12 12 0 0 0 8.2 23.9c.6.11.82-.26.82-.58v-2.24c-3.34.73-4.04-1.42-4.04-1.42-.55-1.39-1.34-1.76-1.34-1.76-1.09-.75.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.81 1.3 3.49.99.11-.78.42-1.3.76-1.6-2.66-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.53.12-3.18 0 0 1.01-.32 3.3 1.23A11.4 11.4 0 0 1 12 6.3c1.02 0 2.05.14 3.01.4 2.29-1.55 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.62-5.49 5.92.43.37.82 1.1.82 2.23v3.3c0 .32.21.7.83.58A12 12 0 0 0 12 .5Z" />
+                      </svg>
+                    ) : (
+                      <svg
+                        aria-hidden="true"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth="2"
+                        viewBox="0 0 24 24"
+                      >
+                        <path d="M12 10.8C10.5 7.9 7.3 4.2 4.6 3.1c-1.2-.5-2 .1-2 1.4 0 2.9 1.5 5.3 4.3 6.1-2.9.5-4 2.4-2.2 4.7 2.2 2.8 5.3 1.4 7.3-2.9 2 4.3 5.1 5.7 7.3 2.9 1.8-2.3.7-4.2-2.2-4.7 2.8-.8 4.3-3.2 4.3-6.1 0-1.3-.8-1.9-2-1.4-2.7 1.1-5.9 4.8-7.4 7.7Z" />
                       </svg>
                     )}
                   </a>

@@ -16,6 +16,7 @@ import ProjectDetail from "@/pages/ProjectDetail";
 import Projects from "@/pages/Projects";
 import QuickProjectScan from "@/pages/QuickProjectScan";
 import QuickProjectScanEmbed from "@/pages/QuickProjectScanEmbed";
+import TheStandardAndTheSdgs from "@/pages/TheStandardAndTheSdgs";
 import SiteChrome from "@/components/SiteChrome";
 
 function Redirect({ to }: { to: string }) {
@@ -66,6 +67,14 @@ function Router() {
       <Route path="/projects/" component={Projects} />
       <Route path="/projects/:slug">
         {(params) => <ProjectDetail params={params} />}
+      </Route>
+      <Route path="/the-standard-and-the-sdgs" component={TheStandardAndTheSdgs} />
+      <Route path="/the-standard-and-the-sdgs/" component={TheStandardAndTheSdgs} />
+      <Route path="/relationship-map">
+        {() => <Redirect to="/the-standard-and-the-sdgs" />}
+      </Route>
+      <Route path="/relationship-map/">
+        {() => <Redirect to="/the-standard-and-the-sdgs" />}
       </Route>
       <Route path="/baselines" component={Baselines} />
       <Route path="/baselines/" component={Baselines} />

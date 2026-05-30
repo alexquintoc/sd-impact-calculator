@@ -1,9 +1,16 @@
 (function () {
   const navItems = [
+    { label: "About", href: "/about" },
     { label: "Footprints", href: "/footprints" },
     { label: "Impact Snapshot", href: "/impact-snapshot" },
     { label: "Evaluate", href: "/calculator" },
-    { label: "Learn", href: "/knowledge-base" },
+    {
+      label: "Learn",
+      children: [
+        { label: "Knowledge Base", href: "/knowledge-base" },
+        { label: "Standard and SDGs", href: "/the-standard-and-the-sdgs" },
+      ],
+    },
     { label: "Imagine", href: "/brief-generator" },
     { label: "Get Involved", href: "/#get-involved" },
   ];
@@ -35,7 +42,7 @@
   }
 
   function initSiteNav() {
-    if (document.querySelector(".sd-site-nav")) return;
+    if (document.querySelector("[data-sd-site-nav]")) return;
 
     const header = document.createElement("header");
     header.className = "border-b border-[#d9d4c8] bg-[#fffdf8]/95 backdrop-blur";
@@ -55,7 +62,7 @@
     nav.setAttribute("aria-label", "Main navigation");
     navItems.forEach((item) => {
       const navLinkClasses =
-        "rounded-md px-3 py-2 text-sm font-bold transition focus:outline-none focus:ring-4 focus:ring-[#85bba8]";
+        "inline-flex min-h-10 items-center rounded-md px-3 py-2 text-sm font-bold transition focus:outline-none focus:ring-4 focus:ring-[#85bba8]";
       const inactiveNavLinkClasses = "text-[#5f5a50] hover:bg-white hover:text-[#1f241f]";
       const activeNavLinkClasses = "bg-[#e5efe9] text-[#28775e]";
       const dropdownLinkClasses =
@@ -74,14 +81,14 @@
       }
 
       const group = document.createElement("div");
-      group.className = "group relative";
+      group.className = "group relative flex items-center";
 
-      const parentIsActive = item.children.some((child) => isKnowledgeBaseLink(child.href));
-      const parentLink = document.createElement("a");
+      const parentLink = document.createElement("button");
       parentLink.className = `${navLinkClasses} ${
-        parentIsActive ? activeNavLinkClasses : inactiveNavLinkClasses
+        inactiveNavLinkClasses
       } inline-flex items-center gap-1`;
-      parentLink.href = item.href;
+      parentLink.type = "button";
+      parentLink.setAttribute("aria-haspopup", "true");
       parentLink.textContent = item.label;
 
       const chevron = document.createElementNS("http://www.w3.org/2000/svg", "svg");

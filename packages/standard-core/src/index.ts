@@ -4,3 +4,4 @@ export { criteria };
 export * from "./types";
 export * from "./pillars";
 export * from "./pillar-colors";
+export * from "./relationship-map";

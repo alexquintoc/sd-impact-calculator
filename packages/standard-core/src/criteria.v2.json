@@ -969,7 +969,10 @@
           "summary": "Eliminates odors, scents and fragrances.",
           "description": "Project: The project is odor, scent, and fragrance-free.\n\nDesign Entity: The design entity has a no odor, scent, or fragrance policy.",
           "whyItMatters": "",
-          "sdgs": [],
+          "sdgs": [
+            3,
+            11
+          ],
           "appliesTo": [
             "project",
             "designingEntity"

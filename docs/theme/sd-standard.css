@@ -94,10 +94,15 @@ body {
   position: relative;
 }
 
-[data-sd-site-nav] nav a {
+[data-sd-site-nav] nav a,
+[data-sd-site-nav] nav button {
   display: inline-flex;
   align-items: center;
+  border: 0;
   border-radius: 6px;
+  background: transparent;
+  cursor: default;
+  font-family: inherit;
   font-size: 14px;
   font-weight: 800;
   line-height: 1.15;
@@ -108,16 +113,18 @@ body {
 }
 
 [data-sd-site-nav] nav > a,
-[data-sd-site-nav] .group > a {
-  min-height: 36px;
+[data-sd-site-nav] .group > button {
+  min-height: 40px;
 }
 
-[data-sd-site-nav] nav a:hover {
+[data-sd-site-nav] nav a:hover,
+[data-sd-site-nav] nav button:hover {
   background: #ffffff;
   color: var(--sd-text);
 }
 
-[data-sd-site-nav] a:focus-visible {
+[data-sd-site-nav] a:focus-visible,
+[data-sd-site-nav] button:focus-visible {
   outline: 4px solid var(--sd-focus);
   outline-offset: 2px;
 }

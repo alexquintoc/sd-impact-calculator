@@ -111,11 +111,6 @@ const roadmap = [
 
 const team = [
   {
-    name: "Alex Quinto",
-    role: "Visual communication designer and web designer",
-    bio: "Alex Quinto is a visual communication designer and web designer from Mexico focused on helping mission-driven organizations create clearer, more responsible communications. He has worked on design and digital projects for nonprofits, public-interest organizations, and international institutions, including the Inter-American Development Bank, Resilient Cities Catalyst, Bloomberg Philanthropies, and was previously a designer at Rockefeller Foundation's 100 Resilient Cities program. Alex served as an International Council of Design (ico-D) sustainability juror from 2012 to 2015. As a co-creator of the SD Standard, Alex develops practical tools, criteria, and resources to help designers reduce environmental impact, strengthen social value, and make sustainability easier to apply in everyday design work.",
-  },
-  {
     name: "Valerie Elliott",
     role: "F.DesCan, Strategic Communications Consultant, iD2 Communications Inc.",
     bio: "Valerie Elliott is a strategic creative working in Canada. She spearheaded and led the Sustainability Committee for the Professional Designers of Canada, previously the Graphic Designers of Canada, from 2007 to 2017, and joined the AIGA in developing their own sustainability initiative. She served as an International Council of Design (ico-D) sustainability juror from 2012 to 2015. From 2008 to 2009, Elliott sat on British Columbia, Canada's Climate Action Secretariat, Citizen's Conservation Council on Climate Action. Elliott has hosted exhibitions exploring social and environmental responsibility and spoken to design and business audiences across Canada on the importance of applying sustainability principles to design and communications work. She is a member of the International Association for Public Participation and is a film producer.",
@@ -125,10 +120,15 @@ const team = [
     role: "Founder/Creative Director, INSPIRIT Creatives UG / NGO",
     bio: "Tuuli Sauren is a multidisciplinary creative leader working across Europe with more than two decades of experience in communication design, sustainability, and human rights advocacy. She has worked extensively with NGOs and United Nations agencies since 2001. She brings a rare combination of strategic design expertise, systems thinking, and social justice commitment to the evaluation of sustainable design projects. Tuuli served as an International Council of Design (ico-D) sustainability juror from 2012 to 2015 and founded the Sustainable Designers Initiative (SDI), an initiative to expand equitable access to design education globally. Her work focuses on human-centred design, ethical impact, and the long-term societal consequences of organizational and design decisions, approaching sustainability not as compliance or perceived optics, but as a responsibility to human dignity, cultural integrity, and future generations.",
   },
+  {
+    name: "Alex Quinto",
+    role: "Visual communication designer and web designer",
+    bio: "Alex Quinto is a visual communication designer and web designer from Mexico focused on helping mission-driven organizations create clearer, more responsible communications. He has worked on design and digital projects for nonprofits, public-interest organizations, and international institutions, including the Inter-American Development Bank, Resilient Cities Catalyst, Bloomberg Philanthropies, and was previously a designer at Rockefeller Foundation's 100 Resilient Cities program. Alex served as an International Council of Design (ico-D) sustainability juror from 2012 to 2015. As a co-creator of the SD Standard, Alex develops practical tools, criteria, and resources to help designers reduce environmental impact, strengthen social value, and make sustainability easier to apply in everyday design work.",
+  },
 ];
 
 const foundingContributors =
-  "David Berman (original concept and founding chair), Marc Alt, Edi Berk, Simon Berry, Riitta Brusila, Donna Campbell, Banu [surname unclear in source], Valerie Elliott, Richard Henderson, Jiang Hua, Betty Lam Yan Yan, Ezio Manzini, Heidrun Mumper-Drumm, Stephen Palmer, Peter Perstel, Alex Quinto, Ajanta Sen, Tuuli Sauren, Sophie Thomas, Ursula Tischner, Bonne Zabolotney.";
+  "David Berman (original concept and founding chair), Marc Alt, Edi Berk, Simon Berry, Riitta Brusila, Donna Campbell, Banu, Valerie Elliott, Richard Henderson, Jiang Hua, Betty Lam Yan Yan, Ezio Manzini, Heidrun Mumper-Drumm, Stephen Palmer, Peter Perstel, Alex Quinto, Ajanta Sen, Tuuli Sauren, Sophie Thomas, Ursula Tischner, Bonne Zabolotney.";
 
 export default function About() {
   return (

@@ -9,6 +9,7 @@
 **Mandatory for Certification:** No  
 **Category:** Sound, Light and Smell  
 **Applicability:** Project, Designing Entity  
+**Related SDGs:** SDG 3, SDG 11
 
 ## Summary
 Eliminates odors, scents and fragrances.
