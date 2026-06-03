@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 230.85 154.44">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #7a8794;
+      }
+
+      .cls-2 {
+        fill: #2d6cdf;
+      }
+
+      .cls-3 {
+        fill: #71b88f;
+      }
+
+      .cls-4 {
+        fill: #fff;
+        stroke: #26323f;
+        stroke-width: 1.23px;
+      }
+
+      .cls-5 {
+        fill: #2d6cdf;
+      }
+
+      .cls-6 {
+        stroke: #143d2c;
+        stroke-linecap: round;
+        stroke-width: 1.46px;
+      }
+
+      .cls-7 {
+        fill: #f6d365;
+      }
+
+      .cls-8 {
+        fill: #f7f3e8;
+      }
+    </style>
+  </defs>
+  <rect class="cls-8" x="-1.1" y="-1.26" width="233.97" height="155.98"/>
+  <rect class="cls-5" x="34.52" y="17.39" width="76.62" height="117.48"/>
+  <rect class="cls-7" x="44.37" y="29.79" width="47.43" height="6.57" rx="1.46" ry="1.46"/>
+  <rect class="cls-4" x="120.03" y="17.68" width="76.61" height="117.98" rx="2.77" ry="2.77"/>
+  <rect class="cls-2" x="130.85" y="34.79" width="55.06" height="4.46" rx="1.05" ry="1.05"/>
+  <rect class="cls-1" x="130.85" y="47.38" width="41.95" height="3.15" rx=".79" ry=".79"/>
+  <rect class="cls-1" x="130.85" y="54.98" width="56.37" height="3.15" rx=".79" ry=".79"/>
+  <rect class="cls-1" x="130.85" y="62.58" width="47.19" height="3.15" rx=".79" ry=".79"/>
+  <circle class="cls-3" cx="58.74" cy="105.92" r="12.06"/>
+  <rect class="cls-7" x="66.88" y="52.12" width="34.41" height="34.41" rx="5.07" ry="5.07"/>
+  <path class="cls-6" d="M133.04,119.64h51.27"/>
+  <circle class="cls-3" cx="137.92" cy="119.64" r="5.25"/>
+  <circle class="cls-7" cx="158.67" cy="119.64" r="5.25"/>
+  <circle class="cls-2" cx="179.42" cy="119.64" r="5.25"/>
+</svg>
