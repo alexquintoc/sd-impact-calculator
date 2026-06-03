@@ -117,7 +117,10 @@ export default function Footprints() {
                   <p className="mt-3 text-sm leading-6 text-[#5f5a50]">
                     {project.description}
                   </p>
-                  <div className="mt-5 flex flex-wrap gap-2">
+                  <div className="mt-5 flex flex-wrap items-center gap-2">
+                    <span className="rounded-full bg-[#1f241f] px-3 py-1 text-xs font-extrabold text-white">
+                      {project.rating}
+                    </span>
                     {project.pillars.map((pillar) => (
                       <span
                         className="rounded-full border border-[#d9d4c8] px-3 py-1 text-xs font-bold text-[#5f5a50]"
@@ -126,12 +129,6 @@ export default function Footprints() {
                         {getPillarLabel(pillar)}
                       </span>
                     ))}
-                  </div>
-                  <div className="mt-6 flex items-center justify-between gap-3">
-                    <span className="text-3xl font-extrabold">{project.score}</span>
-                    <span className="rounded-full bg-[#1f241f] px-3 py-1 text-xs font-extrabold text-white">
-                      {project.rating}
-                    </span>
                   </div>
                   <span className="mt-6 inline-flex items-center text-sm font-extrabold text-[#28775e]">
                     View project

@@ -401,6 +401,10 @@ a {
   justify-content: space-between;
 }
 
+.score-row.rating-only {
+  justify-content: flex-end;
+}
+
 .score {
   font-size: 2rem;
   font-weight: 800;
@@ -566,6 +570,17 @@ a {
 
 .project-body p {
   color: var(--muted);
+}
+
+.detail-description a,
+.project-body a {
+  color: var(--environment);
+  font-weight: 800;
+}
+
+.detail-description a:hover,
+.project-body a:hover {
+  color: var(--ink);
 }
 
 .project-body li {

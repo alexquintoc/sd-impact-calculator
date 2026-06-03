@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import type { ReactNode } from "react";
 import { BaselineComparison } from "../../components/BaselineComparison";
 import { getBaselinesForProjectSlug } from "../../../lib/baselines";
 import {
@@ -66,7 +67,9 @@ export default async function ProjectPage({ params }: PageProps) {
               {project.year} / {project.location} / {project.projectType}
             </p>
             <h1 className="detail-title">{project.title}</h1>
-            <p className="detail-description">{project.description}</p>
+            <p className="detail-description">
+              <MarkdownInline markdown={project.description} />
+            </p>
             {project.website ? (
               <p>
                 <a href={project.website}>Visit project website</a>
@@ -84,15 +87,11 @@ export default async function ProjectPage({ params }: PageProps) {
           <MarkdownContent markdown={project.body} />
         </article>
 
-        <aside className="side-panel" aria-label="Project score and criteria">
+        <aside className="side-panel" aria-label="Project rating and criteria">
           <section>
-            <h2>SD Standard Score</h2>
-            <div className="score-row">
-              <span className="score">{project.score}</span>
+            <h2>SD Standard Overall Rating</h2>
+            <div className="tag-list">
               <span className="rating">{project.rating}</span>
-            </div>
-            <div className="score-meter" aria-hidden="true">
-              <span style={{ width: `${project.score}%` }} />
             </div>
           </section>
 
@@ -163,8 +162,7 @@ export default async function ProjectPage({ params }: PageProps) {
                 <div className="project-card-body">
                   <h3>{relatedProject.title}</h3>
                   <p>{relatedProject.description}</p>
-                  <div className="score-row">
-                    <span className="score">{relatedProject.score}</span>
+                  <div className="score-row rating-only">
                     <span className="rating">{relatedProject.rating}</span>
                   </div>
                 </div>
@@ -243,8 +241,42 @@ function MarkdownContent({ markdown }: { markdown: string }) {
           );
         }
 
-        return <p key={index}>{block}</p>;
+        return (
+          <p key={index}>
+            <MarkdownInline markdown={block} />
+          </p>
+        );
       })}
     </>
   );
+}
+
+function MarkdownInline({ markdown }: { markdown: string }) {
+  return <>{renderMarkdownLinks(markdown)}</>;
+}
+
+function renderMarkdownLinks(markdown: string): ReactNode[] {
+  const nodes: ReactNode[] = [];
+  const linkPattern = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = linkPattern.exec(markdown))) {
+    if (match.index > lastIndex) {
+      nodes.push(markdown.slice(lastIndex, match.index));
+    }
+
+    nodes.push(
+      <a href={match[2]} key={`${match.index}-${match[2]}`}>
+        {match[1]}
+      </a>,
+    );
+    lastIndex = linkPattern.lastIndex;
+  }
+
+  if (lastIndex < markdown.length) {
+    nodes.push(markdown.slice(lastIndex));
+  }
+
+  return nodes;
 }

@@ -55,16 +55,13 @@ export default function FootprintsPage() {
                 </div>
                 <h2>{project.title}</h2>
                 <p>{project.description}</p>
-                <div className="tag-list" aria-label="Pillars">
+                <div className="tag-list" aria-label="Rating and pillars">
+                  <span className="rating">{project.rating}</span>
                   {project.pillars.map((pillar) => (
                     <span className="tag" key={pillar}>
                       {getPillarLabel(pillar)}
                     </span>
                   ))}
-                </div>
-                <div className="score-row">
-                  <span className="score">{project.score}</span>
-                  <span className="rating">{project.rating}</span>
                 </div>
               </div>
             </Link>

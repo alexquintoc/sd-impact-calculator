@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import type { ReactNode } from "react";
 import { Loader2 } from "lucide-react";
 import BaselineComparison from "@/components/BaselineComparison";
 import { getPillarColor } from "@/lib/pillar-colors";
@@ -77,8 +78,8 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
             <h1 className="mt-3 text-5xl font-extrabold leading-none sm:text-6xl">
               {project.title}
             </h1>
-            <p className="mt-5 max-w-3xl text-lg leading-8 text-[#5f5a50]">
-              {project.description}
+            <p className="mt-5 max-w-3xl text-lg leading-8 text-[#5f5a50] [&_a]:font-extrabold [&_a]:text-[#28775e] hover:[&_a]:text-[#1f241f]">
+              <MarkdownInline markdown={project.description} />
             </p>
             {project.website ? (
               <a className="mt-5 inline-flex font-extrabold text-[#28775e]" href={project.website}>
@@ -101,16 +102,12 @@ export default function ProjectDetail({ params }: { params: { slug: string } }) 
           <aside className="space-y-6">
             <section className="rounded-lg border border-[#d9d4c8] bg-[#fffdf8] p-6">
               <h2 className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#28775e]">
-                SD Standard Score
+                SD Standard Overall Rating
               </h2>
-              <div className="mt-4 flex items-center justify-between gap-4">
-                <span className="text-4xl font-extrabold">{project.score}</span>
+              <div className="mt-4 flex items-center justify-start gap-4">
                 <span className="rounded-full bg-[#1f241f] px-3 py-1 text-xs font-extrabold text-white">
                   {project.rating}
                 </span>
-              </div>
-              <div className="mt-4 h-3 overflow-hidden rounded-full bg-[#e5e0d5]">
-                <span className="block h-full rounded-full bg-[#28775e]" style={{ width: `${project.score}%` }} />
               </div>
             </section>
 
@@ -263,8 +260,42 @@ function MarkdownContent({ markdown }: { markdown: string }) {
           );
         }
 
-        return <p key={index}>{block}</p>;
+        return (
+          <p key={index}>
+            <MarkdownInline markdown={block} />
+          </p>
+        );
       })}
     </div>
   );
+}
+
+function MarkdownInline({ markdown }: { markdown: string }) {
+  return <>{renderMarkdownLinks(markdown)}</>;
+}
+
+function renderMarkdownLinks(markdown: string): ReactNode[] {
+  const nodes: ReactNode[] = [];
+  const linkPattern = /\[([^\]]+)\]\((https?:\/\/[^)\s]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+
+  while ((match = linkPattern.exec(markdown))) {
+    if (match.index > lastIndex) {
+      nodes.push(markdown.slice(lastIndex, match.index));
+    }
+
+    nodes.push(
+      <a href={match[2]} key={`${match.index}-${match[2]}`}>
+        {match[1]}
+      </a>,
+    );
+    lastIndex = linkPattern.lastIndex;
+  }
+
+  if (lastIndex < markdown.length) {
+    nodes.push(markdown.slice(lastIndex));
+  }
+
+  return nodes;
 }

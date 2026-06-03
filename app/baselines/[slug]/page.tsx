@@ -130,8 +130,7 @@ export default async function BaselinePage({ params }: PageProps) {
                 <div className="project-card-body">
                   <h3>{project.title}</h3>
                   <p>{project.description}</p>
-                  <div className="score-row">
-                    <span className="score">{project.score}</span>
+                  <div className="score-row rating-only">
                     <span className="rating">{project.rating}</span>
                   </div>
                 </div>

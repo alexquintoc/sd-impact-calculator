@@ -346,8 +346,7 @@ export default function Index() {
                   loading="lazy"
                 />
                 <div className="p-6">
-                  <div className="mb-4 flex items-center justify-between gap-3">
-                    <span className="text-3xl font-extrabold">{project.score}</span>
+                  <div className="mb-4 flex items-center justify-start gap-3">
                     <span className="rounded-full bg-[#1f241f] px-3 py-1 text-xs font-extrabold text-white">
                       {project.rating}
                     </span>
