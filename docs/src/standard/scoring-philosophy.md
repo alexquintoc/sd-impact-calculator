@@ -1,7 +1,5 @@
 # Scoring Philosophy
 
-# Scoring Philosophy
-
 The scoring component of the SD Standard criteria can be applied in different ways depending on the purpose of the assessment, the level of evidence available, and how the design entity or designer wishes to report alignment with the criteria.
 
 The SD Standard is intended to support both improvement and accountability. For this reason, scoring should distinguish between criteria that have already been addressed, criteria that are partially addressed, criteria that are supported by evidence, and criteria that represent future or modelled improvements.
