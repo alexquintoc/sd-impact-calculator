@@ -90,23 +90,34 @@ const displayData = useMemo(() => {
       ...pillar,
       criteria: pillar.criteria.filter((criterion: any) => {
         const criterionLevel = criterion.level ?? "project";
+        const appliesTo: string[] = criterion.appliesTo ?? [];
+        const targetsProject =
+          appliesTo.length > 0
+            ? appliesTo.includes("project")
+            : criterionLevel === "project";
+        const targetsEntity =
+          appliesTo.length > 0
+            ? appliesTo.includes("designingEntity") || appliesTo.includes("entity")
+            : criterionLevel === "entity" || criterionLevel === "company";
+        // Category and type refine project criteria when a complete profile is
+        // selected, but the criteria-level control must also work on its own.
         const matchesProjectApplicability =
-          hasProjectProfile &&
+          !hasProjectProfile ||
           isCriterionApplicable(criterion.applicability, {
             projectCategory,
             projectType,
           });
 
         if (isEntityLevel) {
-          return criterionLevel === "entity";
+          return targetsEntity;
         }
 
         if (isProjectLevel) {
-          return criterionLevel === "project" && matchesProjectApplicability;
+          return targetsProject && matchesProjectApplicability;
         }
 
         if (isAllLevel) {
-          return criterionLevel === "entity" || matchesProjectApplicability;
+          return targetsEntity || (targetsProject && matchesProjectApplicability);
         }
 
         return false;
@@ -309,7 +320,7 @@ const scores = computePillarScores(displayData, answers);
         {showProjectSetupPrompt && (
           <div className="mb-6 rounded-2xl border border-dashed border-border bg-background p-6 text-center">
             <p className="text-sm font-medium text-foreground">
-              Select a project category and project type to load the relevant criteria.
+              Select a project category and project type to tailor the project criteria.
             </p>
             <p className="mt-1 text-sm text-muted-foreground">
               In v2, the calculator adapts the criteria to the type of project being evaluated.
