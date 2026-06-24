@@ -131,7 +131,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f7f5ef] text-[#1f241f]">
-      <header className="border-b border-[#d9d4c8] bg-[#fffdf8]/95 backdrop-blur">
+      <header className="relative z-50 border-b border-[#d9d4c8] bg-[#fffdf8]/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10">
           <a href="/" className="text-lg font-extrabold tracking-normal text-[#1f241f]">
             SD Standard
