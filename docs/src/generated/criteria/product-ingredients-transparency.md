@@ -15,7 +15,7 @@
 ## Summary
 Displays ingredients or material components.
 
-## Description
+## Criteria
 The project includes a list of all components and/or ingredients.
 
 ## Why it matters

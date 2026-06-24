@@ -15,7 +15,7 @@
 ## Summary
 Optimizes storage and transportation efficiencies.
 
-## Description
+## Criteria
 The project includes shipping and/or warehousing efficiencies to optimize storage and transportation.
 
 ## Why it matters

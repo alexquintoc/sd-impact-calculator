@@ -15,7 +15,7 @@
 ## Summary
 Contributes to the protection of endangered languages.
 
-## Description
+## Criteria
 The project helps to preserve endangered languages, particularly Indigenous languages.
 
 ## Why it matters

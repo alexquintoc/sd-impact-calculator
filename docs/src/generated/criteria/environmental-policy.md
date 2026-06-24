@@ -15,7 +15,7 @@
 ## Summary
 Displays publicly-accessible environmental policies.
 
-## Description
+## Criteria
 The design entity and a majority of suppliers have publicly-accessible environmental policies.
 
 ## Why it matters

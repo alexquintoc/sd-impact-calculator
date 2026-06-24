@@ -15,7 +15,7 @@
 ## Summary
 Eliminates waste.
 
-## Description
+## Criteria
 The final product is a "zero waste" product.
 
 ## Why it matters

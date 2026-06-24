@@ -15,7 +15,7 @@
 ## Summary
 Preserves or nurtures Indigenous culture.
 
-## Description
+## Criteria
 The project preserves or nurtures Indigenous culture other than language.
 
 ## Why it matters

@@ -15,7 +15,7 @@
 ## Summary
 Offsets travel, production, and web presence emissions through carbon credit purchases.
 
-## Description
+## Criteria
 Project: The project offsets all GHG emissions for travel, production and Web presence.
 
 Design Entity: The design entity offsets all GHG emissions for travel, production and Web presence.

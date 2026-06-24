@@ -15,7 +15,7 @@
 ## Summary
 Uses renewable energy.
 
-## Description
+## Criteria
 Project: The production of the product uses renewable energy from solar, wind, thermal or tidal sources.
 
 Design Entity: The design entity uses renewable energy from solar, wind, thermal or tidal sources.

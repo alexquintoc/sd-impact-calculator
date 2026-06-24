@@ -15,7 +15,7 @@
 ## Summary
 Reduces gaps in gender, power, and wealth.
 
-## Description
+## Criteria
 The project aims to close gaps of gender, power, or wealth within and across social, economic, and political systems.
 
 ## Why it matters

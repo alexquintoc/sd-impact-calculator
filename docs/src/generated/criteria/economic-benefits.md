@@ -15,7 +15,7 @@
 ## Summary
 Adds value that benefits a region's economy.
 
-## Description
+## Criteria
 The project identifies and creates economic benefits beyond benefits to the client and the design entity.
 
 ## Why it matters

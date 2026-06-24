@@ -15,7 +15,7 @@
 ## Summary
 Supports the sustainable development of the design entity's community.
 
-## Description
+## Criteria
 The design entity actively supports and participates in the sustainable development of their community.
 
 ## Why it matters

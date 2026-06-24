@@ -15,7 +15,7 @@
 ## Summary
 Upholds high standards of anti-corruption and ethical governance.
 
-## Description
+## Criteria
 Project: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in corruption or unethical governance.
 
 Design Entity: The design entity is not involved in corruption or unethical governance.

@@ -15,7 +15,7 @@
 ## Summary
 Considers reproduction needs.
 
-## Description
+## Criteria
 Reproduction is limited to immediate needs, including the possibility that no physical copies were needed.
 
 ## Why it matters

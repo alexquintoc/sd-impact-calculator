@@ -15,7 +15,7 @@
 ## Summary
 Ensures collaborations between low, middle and high income countries.
 
-## Description
+## Criteria
 The project involves "fair trade" to ensure equity between low, middle and high income countries.
 
 ## Why it matters

@@ -15,7 +15,7 @@
 ## Summary
 Conserves valuable ecosystems.
 
-## Description
+## Criteria
 To the best of the design entity's knowledge, the project, the design entity, and the client's activities do not, and will not, support the destruction of ecosystems.
 
 ## Why it matters

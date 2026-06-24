@@ -15,7 +15,7 @@
 ## Summary
 Outlines financial objectives in the design brief.
 
-## Description
+## Criteria
 A project document exists that establishes SMART financial objectives with clear, measurable targets and time-bound outcomes.
 
 ## Why it matters

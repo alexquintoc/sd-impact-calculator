@@ -15,7 +15,7 @@
 ## Summary
 Enables recycling or reuse.
 
-## Description
+## Criteria
 Materials or systems used increase the ease and likelihood of recycling and/or reuse of the product and its packaging.
 
 ## Why it matters

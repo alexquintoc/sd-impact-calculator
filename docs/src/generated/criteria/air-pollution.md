@@ -15,7 +15,7 @@
 ## Summary
 Reduces air pollution.
 
-## Description
+## Criteria
 Project: The project reduces or avoids air pollution.
 
 Design Entity: The design entity reduces or avoids air pollution.

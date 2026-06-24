@@ -15,7 +15,7 @@
 ## Summary
 Discloses design sources as human-made or AI generated, and adheres to ethical guidelines.
 
-## Description
+## Criteria
 The project discloses the sources of design whether human made or AI generated. If AI was used to create any part of a design, it follows UNESCO's Recommendation on the Ethics of Artificial Intelligence.
 
 ## Why it matters

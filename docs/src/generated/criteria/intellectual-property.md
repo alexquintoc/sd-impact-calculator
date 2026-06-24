@@ -15,7 +15,7 @@
 ## Summary
 Uses a clear and responsible intellectual property approach.
 
-## Description
+## Criteria
 The project clearly defines and respects intellectual property ownership, authorship, permissions, licensing, and usage rights. Where appropriate, the project may also share reusable intellectual property through Creative Commons or another open licensing approach that creates value for society.
 
 ## Why it matters

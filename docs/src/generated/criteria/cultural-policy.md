@@ -15,7 +15,7 @@
 ## Summary
 Displays a publicly-accessible cultural policy.
 
-## Description
+## Criteria
 The design entity and the majority of suppliers have a publicly-accessible policy to actively protect and support communities.
 
 ## Why it matters

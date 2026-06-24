@@ -15,7 +15,7 @@
 ## Summary
 Adds business value through design strategy.
 
-## Description
+## Criteria
 Design thinking adds economic value to audiences, users, and/or stakeholders.
 
 ## Why it matters

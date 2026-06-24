@@ -15,7 +15,7 @@
 ## Summary
 Integrates extended-life durability through reuse, repair, recharge, and/or upgrade where appropriate.
 
-## Description
+## Criteria
 The product or system is physically durable and has a longer life than the industry average, where desirable. The product or system can be reused, recharged, repaired, and/or upgraded as an environmental benefit.
 
 ## Why it matters

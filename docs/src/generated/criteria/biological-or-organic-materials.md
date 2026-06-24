@@ -15,7 +15,7 @@
 ## Summary
 Uses waste as a nutrient or fuel, or is compostable.
 
-## Description
+## Criteria
 The product can be used as fuel or food, or composted, either locally composted by the end user or incorporated into a local energy-recovery system that does not involve landfill or thermal treatment.
 
 ## Why it matters

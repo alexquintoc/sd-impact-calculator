@@ -15,7 +15,7 @@
 ## Summary
 Compensates all designers.
 
-## Description
+## Criteria
 The design entity and the project did not request unpaid work, also known as "free pitching", "speculative work", or "spec work", from designers, including interns and student designers.
 
 ## Why it matters

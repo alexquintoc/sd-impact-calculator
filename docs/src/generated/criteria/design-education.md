@@ -15,7 +15,7 @@
 ## Summary
 Provides design education opportunities for students.
 
-## Description
+## Criteria
 The project includes design students and/or enriches existing design school curriculum.
 
 ## Why it matters

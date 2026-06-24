@@ -669,7 +669,7 @@ function generateCriteriaDocs(criteriaData) {
       }
 
       if (criterion.description) {
-        contentParts.push("## Description", normalizeApplicabilityLabels(criterion.description), "");
+        contentParts.push("## Criteria", normalizeApplicabilityLabels(criterion.description), "");
       }
 
       if (criterion.whyItMatters) {

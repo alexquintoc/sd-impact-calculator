@@ -15,7 +15,7 @@
 ## Summary
 Complies with Universal Design standards.
 
-## Description
+## Criteria
 The non-document components of the project adhere to universal design principles.
 
 ## Why it matters

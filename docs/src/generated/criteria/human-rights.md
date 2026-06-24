@@ -15,7 +15,7 @@
 ## Summary
 Upholds universal human rights.
 
-## Description
+## Criteria
 Project: To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in the violation of universal human rights.
 
 Design Entity: The design entity does not contribute directly or indirectly to the violation of universal human rights.

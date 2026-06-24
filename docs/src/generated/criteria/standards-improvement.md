@@ -15,7 +15,7 @@
 ## Summary
 Improves the standards and procedures of the design entity.
 
-## Description
+## Criteria
 The project improves the design entity's documented standards and procedures.
 
 ## Why it matters

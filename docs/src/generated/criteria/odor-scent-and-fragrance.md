@@ -14,7 +14,7 @@
 ## Summary
 Eliminates odors, scents and fragrances.
 
-## Description
+## Criteria
 Project: The project is odor, scent, and fragrance-free.
 
 Design Entity: The design entity has a no odor, scent, or fragrance policy.

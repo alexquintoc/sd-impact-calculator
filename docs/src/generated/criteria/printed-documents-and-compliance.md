@@ -15,7 +15,7 @@
 ## Summary
 Ensures accessibility of all printed materials.
 
-## Description
+## Criteria
 Printed materials are designed using accessible typography, contrast, hierarchy, and readability principles to support users with visual, cognitive, or literacy-related accessibility needs.
 
 ## Why it matters

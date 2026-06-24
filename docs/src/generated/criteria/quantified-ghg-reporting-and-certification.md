@@ -15,7 +15,7 @@
 ## Summary
 Displays a publicly-accessible report of emissions, materials use, and waste.
 
-## Description
+## Criteria
 Project: The project has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.
 
 Design Entity: The design entity has a publicly-accessible quantified report of GHG reductions and/or energy, material use and waste disposal.

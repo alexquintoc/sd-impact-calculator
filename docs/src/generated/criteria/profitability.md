@@ -15,7 +15,7 @@
 ## Summary
 Ensures the design entity is paid for work performed.
 
-## Description
+## Criteria
 The project budget or contract financially compensates the design entity.
 
 ## Why it matters

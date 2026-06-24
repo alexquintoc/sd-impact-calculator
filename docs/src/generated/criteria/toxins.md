@@ -15,7 +15,7 @@
 ## Summary
 Reduces or eliminates toxins.
 
-## Description
+## Criteria
 The project reduces or eliminates the use of toxins.
 
 ## Why it matters

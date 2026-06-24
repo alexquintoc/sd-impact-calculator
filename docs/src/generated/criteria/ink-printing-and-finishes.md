@@ -15,7 +15,7 @@
 ## Summary
 Reduces ink coverage on printed materials.
 
-## Description
+## Criteria
 The project reduces or eliminates the use of inks, varnishes and finishes, or requires no printing.
 
 ## Why it matters

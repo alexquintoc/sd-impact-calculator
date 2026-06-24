@@ -15,7 +15,7 @@
 ## Summary
 Increases locally sourced labour.
 
-## Description
+## Criteria
 The project significantly increases the amount of locally sourced labour from the end users' location.
 
 ## Why it matters

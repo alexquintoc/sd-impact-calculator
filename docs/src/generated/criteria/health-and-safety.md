@@ -15,7 +15,7 @@
 ## Summary
 Improves human health and/or safety.
 
-## Description
+## Criteria
 The project improves the health or safety of the target audience.
 
 ## Why it matters

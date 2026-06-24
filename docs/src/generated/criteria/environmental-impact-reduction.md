@@ -15,7 +15,7 @@
 ## Summary
 Reduces environmental impact and is supported by a qualified life cycle study (LCS) or quantitative life cycle assessment (LCA).
 
-## Description
+## Criteria
 The project strategy includes at least one action to reduce environmental impact that is supported by a qualified life cycle study (LCS) or quantitative life cycle assessment (LCA).
 
 ## Why it matters

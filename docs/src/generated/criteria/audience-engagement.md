@@ -15,7 +15,7 @@
 ## Summary
 Engages with end users and audiences.
 
-## Description
+## Criteria
 The project engages end users throughout the design process or audiences that will be directly impacted by the project.
 
 ## Why it matters

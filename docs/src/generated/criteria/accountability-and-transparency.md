@@ -15,7 +15,7 @@
 ## Summary
 Adheres to transparent financial management and documentation practices.
 
-## Description
+## Criteria
 Adheres to transparent financial management and documentation practices.
 
 ## Why it matters

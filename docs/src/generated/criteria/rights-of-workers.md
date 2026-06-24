@@ -15,7 +15,7 @@
 ## Summary
 Upholds the rights of workers.
 
-## Description
+## Criteria
 To the best of the design entity's knowledge, the project and the client's activities are not directly or indirectly involved in the violation of the fundamental principles and rights of workers.
 
 ## Why it matters

@@ -15,7 +15,7 @@
 ## Summary
 Ensures accessibility of all electronic documents, including Web pages.
 
-## Description
+## Criteria
 All electronic documents comply with the W3C WCAG 2.0 Level A standard, or higher, or comply with the ISO standard for PDF/UA accessibility standard.
 
 ## Why it matters

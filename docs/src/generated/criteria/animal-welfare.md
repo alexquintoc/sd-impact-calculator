@@ -15,7 +15,7 @@
 ## Summary
 Protects all animals.
 
-## Description
+## Criteria
 To the best of the design entity's knowledge, the project, the design entity, and the client's activities do not, and will not, put animals at risk.
 
 ## Why it matters

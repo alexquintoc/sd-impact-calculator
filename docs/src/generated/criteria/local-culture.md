@@ -15,7 +15,7 @@
 ## Summary
 Adapts design to local cultures.
 
-## Description
+## Criteria
 The project adapts to local and regional cultures.
 
 ## Why it matters

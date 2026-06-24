@@ -15,7 +15,7 @@
 ## Summary
 Promotes or enhances cultural diversity.
 
-## Description
+## Criteria
 The project promotes or enhances cultural diversity.
 
 ## Why it matters

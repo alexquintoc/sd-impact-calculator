@@ -15,7 +15,7 @@
 ## Summary
 Reduces injury in the making and use of the product.
 
-## Description
+## Criteria
 The project reduces mental and physical injury to those who produce or use the product.
 
 ## Why it matters

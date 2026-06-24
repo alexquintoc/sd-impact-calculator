@@ -14,5 +14,5 @@
 ## Summary
 Maximizes the product or the system's energy efficiency.
 
-## Description
+## Criteria
 The product or system used by the consumer is energy efficient or uses renewable energy.

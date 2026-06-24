@@ -15,7 +15,7 @@
 ## Summary
 Educates design practitioners.
 
-## Description
+## Criteria
 The project results in the education of sustainability for design practitioners.
 
 ## Why it matters

@@ -15,7 +15,7 @@
 ## Summary
 Reduces paper use.
 
-## Description
+## Criteria
 The project reduces paper use through efficiencies.
 
 ## Why it matters

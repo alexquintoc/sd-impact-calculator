@@ -15,7 +15,7 @@
 ## Summary
 Maintains affordability for all market sectors.
 
-## Description
+## Criteria
 The product is affordable to a wide audience including those with limited financial resources.
 
 ## Why it matters

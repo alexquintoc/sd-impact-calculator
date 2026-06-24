@@ -15,7 +15,7 @@
 ## Summary
 Reduces non-renewable natural resources and materials.
 
-## Description
+## Criteria
 The project reduces or eliminates the use of scarce, non-renewable natural resources and raw materials.
 
 ## Why it matters

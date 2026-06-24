@@ -15,7 +15,7 @@
 ## Summary
 Encourages freedom of expression and/or democracy.
 
-## Description
+## Criteria
 The project encourages or educates about democracy and/or freedom of expression.
 
 ## Why it matters

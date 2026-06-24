@@ -15,7 +15,7 @@
 ## Summary
 Reduces or eliminates water use and water pollution.
 
-## Description
+## Criteria
 Water pollution or water use were avoided or reduced.
 
 ## Why it matters

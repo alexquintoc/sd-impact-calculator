@@ -14,7 +14,7 @@
 ## Summary
 Reduces or eliminates sound and light pollution.
 
-## Description
+## Criteria
 Project: The project avoids or reduces sound and light pollution.
 
 Design Entity: The design entity avoids or reduces sound and light pollution.

@@ -15,7 +15,7 @@
 ## Summary
 Educates the user or consumer on sustainability.
 
-## Description
+## Criteria
 The product includes an educational component that promotes sustainability to the consumer.
 
 ## Why it matters
