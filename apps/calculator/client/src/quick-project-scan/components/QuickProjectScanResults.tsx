@@ -1,10 +1,11 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, type ReactNode } from "react";
 import { Clipboard, Download, FileText, RotateCcw } from "lucide-react";
 import {
   buildSnapshotEmbedPayload,
   encodeSnapshotPayload,
   getCriteriaByStatus,
 } from "@/quick-project-scan/lib/scanProjectDescription";
+import { serializeImpactSnapshot } from "@/quick-project-scan/lib/impactSnapshotImport";
 import { getPillarColor } from "@/lib/pillar-colors";
 import { CriteriaCard } from "./CriteriaCard";
 import type {
@@ -16,6 +17,8 @@ import type {
 
 type QuickProjectScanResultsProps = {
   result: ImpactSnapshot;
+  criteriaVersion: string;
+  importControl?: ReactNode;
   onStartAgain: () => void;
 };
 
@@ -26,8 +29,9 @@ const PILLARS: Array<{ id: ImpactSnapshotPillarId; label: string }> = [
   { id: "finance", label: "Finance" },
 ];
 
-function makeDownload(result: ImpactSnapshot) {
-  const blob = new Blob([JSON.stringify(result, null, 2)], { type: "application/json" });
+function makeDownload(result: ImpactSnapshot, criteriaVersion: string) {
+  const exportValue = serializeImpactSnapshot(result, criteriaVersion);
+  const blob = new Blob([JSON.stringify(exportValue, null, 2)], { type: "application/json" });
   const url = URL.createObjectURL(blob);
   const link = document.createElement("a");
   link.href = url;
@@ -244,7 +248,12 @@ function CriteriaSection({
   );
 }
 
-export function QuickProjectScanResults({ result, onStartAgain }: QuickProjectScanResultsProps) {
+export function QuickProjectScanResults({
+  result,
+  criteriaVersion,
+  importControl,
+  onStartAgain,
+}: QuickProjectScanResultsProps) {
   const [copyState, setCopyState] = useState<"idle" | "copied">("idle");
   const likelyCriteria = useMemo(() => getCriteriaByStatus(result, "likely"), [result]);
   const possibleCriteria = useMemo(() => getCriteriaByStatus(result, "possible"), [result]);
@@ -284,9 +293,10 @@ export function QuickProjectScanResults({ result, onStartAgain }: QuickProjectSc
           </div>
 
           <div className="flex flex-wrap gap-3">
+            {importControl}
             <button
               type="button"
-              onClick={() => makeDownload(result)}
+              onClick={() => makeDownload(result, criteriaVersion)}
               className="inline-flex items-center justify-center gap-2 rounded-md bg-[#28775e] px-4 py-3 text-sm font-extrabold text-white transition hover:bg-[#1f241f] focus:outline-none focus:ring-4 focus:ring-[#85bba8]"
             >
               <Download className="h-4 w-4" aria-hidden="true" />

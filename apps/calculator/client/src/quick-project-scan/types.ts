@@ -21,7 +21,10 @@ export type ImpactSnapshotPillarSummary = {
 
 export type ImpactSnapshot = {
   schema: "sd-standard-impact-snapshot-v1";
+  schemaVersion?: 1;
   generatedAt: string;
+  exportedAt?: string;
+  criteriaVersion?: string;
   assessmentType: "ai-assisted-self-assessment";
   project: {
     description: string;

@@ -1,12 +1,18 @@
-import type { FormEvent } from "react";
+import type { FormEvent, ReactNode } from "react";
 
 type QuickProjectScanFormProps = {
   value: string;
   onChange: (value: string) => void;
   onSubmit: () => void;
+  importControl?: ReactNode;
 };
 
-export function QuickProjectScanForm({ value, onChange, onSubmit }: QuickProjectScanFormProps) {
+export function QuickProjectScanForm({
+  value,
+  onChange,
+  onSubmit,
+  importControl,
+}: QuickProjectScanFormProps) {
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     onSubmit();
@@ -34,13 +40,16 @@ export function QuickProjectScanForm({ value, onChange, onSubmit }: QuickProject
           This snapshot uses transparent rule-assisted matching against SD Standard v2 draft
           criteria. It suggests criteria to review; it does not certify or verify the project.
         </p>
-        <button
-          type="submit"
-          className="inline-flex items-center justify-center rounded-md bg-[#1f241f] px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#28775e] focus:outline-none focus:ring-4 focus:ring-[#85bba8] disabled:cursor-not-allowed disabled:opacity-55"
-          disabled={value.trim().length < 12}
-        >
-          Generate impact snapshot
-        </button>
+        <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+          {importControl}
+          <button
+            type="submit"
+            className="inline-flex items-center justify-center rounded-md bg-[#1f241f] px-5 py-3 text-sm font-extrabold text-white transition hover:bg-[#28775e] focus:outline-none focus:ring-4 focus:ring-[#85bba8] disabled:cursor-not-allowed disabled:opacity-55"
+            disabled={value.trim().length < 12}
+          >
+            Generate impact snapshot
+          </button>
+        </div>
       </div>
     </form>
   );

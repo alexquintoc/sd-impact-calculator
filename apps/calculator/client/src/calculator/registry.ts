@@ -19,6 +19,9 @@ export type ProjectType = {
 
 export type CalculatorCriteriaData = CriteriaData & {
   standardVersion?: string;
+  standard?: {
+    standardVersion?: string;
+  };
   projectCategories?: ProjectCategory[];
   projectTypes?: ProjectType[];
   pillars: Array<{
