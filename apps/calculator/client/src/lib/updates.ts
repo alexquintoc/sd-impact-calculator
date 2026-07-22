@@ -1,0 +1,5 @@
+import { fetchJsonWithFallback } from "@/lib/fetchJson";
+export type Update = { slug:string; title:string; summary:string; publishedDate:string; published:boolean; category:string; featuredImage?:string; imageAlt?:string; body:string; showInAnnouncementBar:boolean; announcementText?:string; announcementLinkLabel:string; announcementStart?:string; announcementEnd?:string; announcementPriority?:number };
+export async function fetchUpdates() { return (await fetchJsonWithFallback<{updates:Update[]}>("/api/updates", "/data/updates.json")).updates; }
+export async function fetchUpdate(slug:string) { return (await fetchJsonWithFallback<{update:Update}>(`/api/updates/${encodeURIComponent(slug)}`, `/data/updates/${encodeURIComponent(slug)}.json`)).update; }
+export function selectAnnouncement(updates:Update[], now=Date.now()) { return updates.filter((u) => u.published && u.showInAnnouncementBar && (!u.announcementStart || Date.parse(u.announcementStart) <= now) && (!u.announcementEnd || Date.parse(u.announcementEnd) >= now)).sort((a,b) => (b.announcementPriority ?? 0)-(a.announcementPriority ?? 0) || Date.parse(b.publishedDate)-Date.parse(a.publishedDate))[0] ?? null; }

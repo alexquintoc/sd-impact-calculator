@@ -1,6 +1,7 @@
 import { useEffect, useState, type MouseEvent, type ReactNode } from "react";
 import { Github, Instagram, Linkedin, Menu, X } from "lucide-react";
 import { useLocation } from "wouter";
+import { fetchUpdates, selectAnnouncement, type Update } from "@/lib/updates";
 
 type NavItem = {
   label: string;
@@ -9,7 +10,14 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { label: "About", href: "/about" },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "About", href: "/about" },
+      { label: "Updates", href: "/updates" },
+    ],
+  },
   { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
@@ -27,6 +35,7 @@ const navItems: NavItem[] = [
 
 const footerNavItems: NavItem[] = [
   { label: "About", href: "/about" },
+  { label: "Updates", href: "/updates" },
   { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
@@ -86,6 +95,9 @@ function getNavLinkClasses(active: boolean) {
 export default function SiteChrome({ children }: { children: ReactNode }) {
   const [location, setLocation] = useLocation();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [announcement, setAnnouncement] = useState<Update | null>(null);
+
+  useEffect(() => { fetchUpdates().then((items) => { const selected = selectAnnouncement(items); if (selected && localStorage.getItem(`sd-standard:announcement:${selected.slug}`) !== "dismissed") setAnnouncement(selected); }).catch(() => undefined); }, []);
 
   useEffect(() => {
     setMobileMenuOpen(false);
@@ -131,6 +143,7 @@ export default function SiteChrome({ children }: { children: ReactNode }) {
 
   return (
     <div className="min-h-screen overflow-x-hidden bg-[#f7f5ef] text-[#1f241f]">
+      {announcement ? <aside className="bg-[#1f241f] text-white" aria-label="Announcement"><div className="mx-auto flex min-h-12 max-w-7xl items-center justify-between gap-4 px-5 py-2 sm:px-8 lg:px-10"><p className="text-sm">{announcement.announcementText || announcement.title} <a className="font-extrabold text-[#a9e2c1] underline" href={`/updates/${announcement.slug}`}>{announcement.announcementLinkLabel || "Learn more"}</a></p><button className="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/50 focus:outline-none focus:ring-4 focus:ring-[#85bba8]" aria-label="Dismiss announcement" onClick={() => { localStorage.setItem(`sd-standard:announcement:${announcement.slug}`, "dismissed"); setAnnouncement(null); }}><X className="h-4 w-4" aria-hidden="true" /></button></div></aside> : null}
       <header className="relative z-50 border-b border-[#d9d4c8] bg-[#fffdf8]/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-5 py-4 sm:px-8 lg:px-10">
           <a href="/" className="text-lg font-extrabold tracking-normal text-[#1f241f]">

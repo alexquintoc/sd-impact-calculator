@@ -18,6 +18,8 @@ import QuickProjectScan from "@/pages/QuickProjectScan";
 import QuickProjectScanEmbed from "@/pages/QuickProjectScanEmbed";
 import TheStandardAndTheSdgs from "@/pages/TheStandardAndTheSdgs";
 import SiteChrome from "@/components/SiteChrome";
+import Updates from "@/pages/Updates";
+import UpdateDetail from "@/pages/UpdateDetail";
 
 function Redirect({ to }: { to: string }) {
   const [, setLocation] = useLocation();
@@ -68,6 +70,9 @@ function Router() {
       <Route path="/projects/:slug">
         {(params) => <ProjectDetail params={params} />}
       </Route>
+      <Route path="/updates" component={Updates} />
+      <Route path="/updates/" component={Updates} />
+      <Route path="/updates/:slug">{(params) => <UpdateDetail params={params} />}</Route>
       <Route path="/the-standard-and-the-sdgs" component={TheStandardAndTheSdgs} />
       <Route path="/the-standard-and-the-sdgs/" component={TheStandardAndTheSdgs} />
       <Route path="/relationship-map">

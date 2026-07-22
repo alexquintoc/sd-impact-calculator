@@ -5,6 +5,7 @@ import fs from "fs";
 import path from "path";
 import { getAllBaselines, getBaseline, getBaselinesForProjectSlug } from "./baselines";
 import { getAllProjects, getProject } from "./projects";
+import { getAllUpdates, getUpdate } from "./updates";
 
 function serveKnowledgeBase(app: Express) {
   const knowledgeBasePath = path.resolve(
@@ -96,6 +97,8 @@ export async function registerRoutes(
 
     res.json({ baseline });
   });
+  app.get("/api/updates", (_req, res) => res.json({ updates: getAllUpdates() }));
+  app.get("/api/updates/:slug", (req, res) => { const update = getUpdate(req.params.slug); if (!update) return res.status(404).json({ message: "Update not found" }); res.json({ update }); });
 
   serveKnowledgeBase(app);
 

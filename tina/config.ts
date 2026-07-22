@@ -66,6 +66,52 @@ export default defineConfig({
   schema: {
     collections: [
       {
+        name: "update",
+        label: "Updates",
+        path: "content/updates",
+        format: "mdx",
+        fields: [
+          { type: "string", name: "title", label: "Title", isTitle: true, required: true },
+          {
+            type: "string",
+            name: "summary",
+            label: "Summary",
+            ui: { component: "textarea" },
+          },
+          { type: "datetime", name: "publishedDate", label: "Publication date", required: true },
+          { type: "boolean", name: "published", label: "Published" },
+          {
+            type: "string",
+            name: "category",
+            label: "Category",
+            required: true,
+            options: ["Event", "Project update", "Partnership", "Research", "Tool release", "Opportunity"],
+          },
+          { type: "image", name: "featuredImage", label: "Featured image" },
+          {
+            type: "string",
+            name: "imageAlt",
+            label: "Featured image alternative text",
+            description: "Required when a featured image is supplied. Describe the image's content and purpose.",
+          },
+          { type: "rich-text", name: "body", label: "Body", isBody: true },
+          { type: "boolean", name: "showInAnnouncementBar", label: "Show in announcement bar" },
+          { type: "string", name: "announcementText", label: "Announcement text" },
+          {
+            type: "string",
+            name: "announcementLinkLabel",
+            label: "Announcement link label",
+            ui: { defaultValue: "Learn more" },
+          },
+          { type: "datetime", name: "announcementStart", label: "Announcement start" },
+          { type: "datetime", name: "announcementEnd", label: "Announcement end" },
+          { type: "number", name: "announcementPriority", label: "Announcement priority" },
+        ],
+        ui: {
+          router: ({ document }) => `/updates/${document._sys.filename}`,
+        },
+      },
+      {
         name: "post",
         label: "Posts",
         path: "content/posts",

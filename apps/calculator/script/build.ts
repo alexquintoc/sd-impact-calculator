@@ -9,6 +9,7 @@ import {
   getBaselinesForProjectSlug,
 } from "../server/baselines";
 import { getAllProjects, getProject } from "../server/projects";
+import { getAllUpdates, getUpdate } from "../server/updates";
 
 // server deps to bundle to reduce openat(2) syscalls
 // which helps cold start times
@@ -111,10 +112,13 @@ async function writeStaticData() {
   const baselinesRoot = path.join(outputRoot, "baselines");
   const projects = getAllProjects();
   const baselines = getAllBaselines();
+  const updates = getAllUpdates();
 
   await rm(outputRoot, { recursive: true, force: true });
   await writeJson(path.join(outputRoot, "projects.json"), { projects });
   await writeJson(path.join(outputRoot, "baselines.json"), { baselines });
+  await writeJson(path.join(outputRoot, "updates.json"), { updates });
+  await Promise.all(updates.map((update) => writeJson(path.join(outputRoot, "updates", `${update.slug}.json`), { update: getUpdate(update.slug) ?? update })));
 
   await Promise.all(
     projects.map((project) => {

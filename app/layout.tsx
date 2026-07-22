@@ -1,9 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Script from "next/script";
+import { AnnouncementBar } from "./components/AnnouncementBar";
+import { getAllUpdates, selectAnnouncement } from "../lib/updates";
 import "./globals.css";
 
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? "https://sdstandard.org"),
   title: "SD Standard",
   description: "Sustainable Design Standard tools, projects, and baselines.",
 };
@@ -15,7 +18,14 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { label: "About", href: "/about" },
+  {
+    label: "About",
+    href: "/about",
+    children: [
+      { label: "About", href: "/about" },
+      { label: "Updates", href: "/updates" },
+    ],
+  },
   { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
@@ -33,6 +43,7 @@ const navItems: NavItem[] = [
 
 const footerNavItems: NavItem[] = [
   { label: "About", href: "/about" },
+  { label: "Updates", href: "/updates" },
   { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
@@ -68,6 +79,7 @@ export default function RootLayout({
         </Script>
       </head>
       <body>
+        <AnnouncementBar update={selectAnnouncement(getAllUpdates())} />
         <header className="site-header">
           <div className="site-header-inner">
             <Link className="site-logo" href="/">

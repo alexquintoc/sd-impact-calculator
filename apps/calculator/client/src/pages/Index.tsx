@@ -167,7 +167,6 @@ export default function Index() {
       })
       .catch(() => setProjectsStatus("error"));
   }, []);
-
   return (
     <main className="min-h-screen bg-[#f7f5ef] text-[#1f241f]">
       {/* HOMEPAGE COPY: Hero headline, intro paragraph, and primary CTA. */}

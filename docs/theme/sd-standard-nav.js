@@ -1,6 +1,12 @@
 (function () {
   const navItems = [
-    { label: "About", href: "/about" },
+    {
+      label: "About",
+      children: [
+        { label: "About", href: "/about" },
+        { label: "Updates", href: "/updates" },
+      ],
+    },
     { label: "Footprints", href: "/footprints" },
     { label: "Impact Snapshot", href: "/impact-snapshot" },
     { label: "Evaluate", href: "/calculator" },
