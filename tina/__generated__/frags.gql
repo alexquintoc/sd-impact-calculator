@@ -1,0 +1,76 @@
+fragment UpdateParts on Update {
+  __typename
+  title
+  summary
+  publishedDate
+  published
+  category
+  featuredImage
+  imageAlt
+  body
+  showInAnnouncementBar
+  announcementText
+  announcementLinkLabel
+  announcementStart
+  announcementEnd
+  announcementPriority
+}
+
+fragment PostParts on Post {
+  __typename
+  title
+  body
+}
+
+fragment ProjectParts on Project {
+  __typename
+  title
+  description
+  year
+  location
+  projectType
+  website
+  coverImage
+  gallery
+  pillars
+  criteria
+  rating
+  score
+  relatedBaselines
+  published
+  body
+}
+
+fragment BaselineParts on Baseline {
+  __typename
+  title
+  slug
+  summary
+  projectType
+  format
+  region
+  year
+  coverImage
+  gallery
+  pillars
+  criteria
+  sdgs
+  rating
+  estimatedCarbonKg
+  estimatedWasteKg
+  estimatedLifespanUses
+  recyclability
+  productionAssumptions
+  materialAssumptions
+  transportAssumptions
+  disposalAssumptions
+  evidenceNotes
+  sources {
+    __typename
+    label
+    url
+  }
+  relatedProjects
+  published
+  body
+}
