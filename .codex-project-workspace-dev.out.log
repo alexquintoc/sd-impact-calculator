@@ -1,0 +1,14 @@
+
+> dev:app
+> cross-env PORT=5000 npm run dev -w apps/calculator
+
+
+> rest-express@1.0.0 dev
+> cross-env NODE_ENV=development tsx watch server/index.ts
+
+2:05:44 PM [express] serving on port 5000
+2:07:00 PM [express] GET /api/updates 200 in 4ms :: {"updates":[{"slug":"abierto-de-diseno-cdmx-2026","title":"The SD Standard at Abierto de Diseño CDMX 2026","summary":"The Sustainable Design Standard will be featured at this year's Abierto de Diseño CDMX through an installation that presents the framework as both a communication tool and a material experiment.","publishedDate":"2026-07-21T12:00:00.000Z","published":true,"category":"Event","body":"The Sustainable Design Standard will participate in [Abierto de Diseño CDMX 2026](https://abiertocdmx.com/) with an installation that presents the framework as both a communication tool and a material experiment.\r\n\r\nIn 2026, Abierto de Diseño CDMX celebrates its tenth edition with **Futuros**, a program exploring how design shapes the possibilities, challenges, and collective futures being built today. Taking place from September 25 to October 4, the event brings together designers, artists, architects, students, studios, and communities to make design visible, accessible, and part of public life across Mexico City.\r\n\r\nOpening hours and participation details are **to be confirmed**. This update will be revised when the event information is confirmed.","showInAnnouncementBar":true,"announcementText":"The SD Standard is coming to Abierto de Diseño CDMX 2026.","announcementLinkLabel":"Learn more","announcementPriority":1}]}
+[2m2:07:54 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/ProjectWorkspace.tsx, /src/components/RelationshipSankey.tsx[22m
+[2m2:07:55 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/ProjectWorkspace.tsx, /src/components/RelationshipSankey.tsx[22m
+[2m2:08:15 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/ProjectWorkspace.tsx, /src/components/RelationshipSankey.tsx[22m
+[2m2:08:41 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/pages/QuickProjectScanEmbed.tsx, /src/pages/QuickProjectScan.tsx, /src/quick-project-scan/components/QuickProjectScanResults.tsx, /src/components/CriterionInfoButton.tsx[22m

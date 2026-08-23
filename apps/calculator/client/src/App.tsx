@@ -13,6 +13,7 @@ import Footprints from "@/pages/Footprints";
 import Home from "@/pages/Home";
 import Index from "@/pages/Index";
 import ProjectDetail from "@/pages/ProjectDetail";
+import ProjectWorkspace from "@/pages/ProjectWorkspace";
 import Projects from "@/pages/Projects";
 import QuickProjectScan from "@/pages/QuickProjectScan";
 import QuickProjectScanEmbed from "@/pages/QuickProjectScanEmbed";
@@ -70,6 +71,16 @@ function Router() {
       <Route path="/projects/:slug">
         {(params) => <ProjectDetail params={params} />}
       </Route>
+      <Route path="/dev/project-file" component={ProjectWorkspace} />
+      <Route path="/dev/project-file/" component={ProjectWorkspace} />
+      <Route path="/workspace" component={ProjectWorkspace} />
+      <Route path="/workspace/" component={ProjectWorkspace} />
+      <Route path="/workspace/components" component={ProjectWorkspace} />
+      <Route path="/workspace/components/" component={ProjectWorkspace} />
+      <Route path="/workspace/criteria" component={ProjectWorkspace} />
+      <Route path="/workspace/criteria/" component={ProjectWorkspace} />
+      <Route path="/workspace/project-file" component={ProjectWorkspace} />
+      <Route path="/workspace/project-file/" component={ProjectWorkspace} />
       <Route path="/updates" component={Updates} />
       <Route path="/updates/" component={Updates} />
       <Route path="/updates/:slug">{(params) => <UpdateDetail params={params} />}</Route>

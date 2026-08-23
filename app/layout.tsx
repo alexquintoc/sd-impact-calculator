@@ -26,7 +26,6 @@ const navItems: NavItem[] = [
       { label: "Updates", href: "/updates" },
     ],
   },
-  { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
   {
@@ -44,7 +43,6 @@ const navItems: NavItem[] = [
 const footerNavItems: NavItem[] = [
   { label: "About", href: "/about" },
   { label: "Updates", href: "/updates" },
-  { label: "Footprints", href: "/footprints" },
   { label: "Impact Snapshot", href: "/impact-snapshot" },
   { label: "Evaluate", href: "/calculator" },
   { label: "Knowledge Base", href: "/knowledge-base" },

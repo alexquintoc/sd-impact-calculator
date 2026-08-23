@@ -1,0 +1,9 @@
+export const fieldClass = "mt-2 w-full rounded-md border border-[#bbb5a8] bg-[#fffdf8] px-3 py-3 text-sm text-[#1f241f] outline-none transition placeholder:text-[#777166] focus:border-[#28775e] focus:ring-4 focus:ring-[#85bba8]/40 disabled:cursor-not-allowed disabled:opacity-60";
+export const primaryButton = "inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#28775e] px-4 py-2 text-sm font-extrabold text-white transition hover:bg-[#1f241f] focus:outline-none focus:ring-4 focus:ring-[#85bba8] active:translate-y-px disabled:cursor-not-allowed disabled:opacity-50";
+export const secondaryButton = "inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-[#28775e] bg-[#fffdf8] px-4 py-2 text-sm font-extrabold text-[#28775e] transition hover:bg-[#e5efe9] focus:outline-none focus:ring-4 focus:ring-[#85bba8] active:translate-y-px disabled:cursor-not-allowed disabled:opacity-50";
+export const dangerButton = "inline-flex min-h-11 items-center justify-center gap-2 rounded-md bg-[#8a3028] px-4 py-2 text-sm font-extrabold text-white transition hover:bg-[#64231e] focus:outline-none focus:ring-4 focus:ring-[#dca9a4] disabled:opacity-50";
+export const panelClass = "rounded-md border border-[#d9d4c8] bg-[#fffdf8] p-5";
+
+export function humanize(value: string) { return value.split("-").map((part) => part ? part[0].toUpperCase() + part.slice(1) : part).join(" "); }
+export function formatDate(value: string | null) { if (!value) return "Not yet"; const date = new Date(value); return Number.isNaN(date.getTime()) ? "Unknown" : new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(date); }
+export function downloadJson(json: string, filename: string) { const url = URL.createObjectURL(new Blob([json], { type: "application/json;charset=utf-8" })); const anchor = document.createElement("a"); anchor.href = url; anchor.download = filename; anchor.click(); URL.revokeObjectURL(url); }

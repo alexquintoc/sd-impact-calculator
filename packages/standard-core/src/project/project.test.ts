@@ -1,0 +1,27 @@
+import assert from "node:assert/strict";
+import { readFileSync } from "node:fs";
+import { test } from "node:test";
+import { fileURLToPath } from "node:url";
+import { createBlankProject } from "./createProject";
+import { exportProject } from "./exportProject";
+import { importProject } from "./importProject";
+import { loadProjectLocally, saveProjectLocally, type StorageLike } from "./storage";
+import type { SDStandardProject } from "./types";
+import { validateProject } from "./validateProject";
+
+const makeProject = () => createBlankProject({ title: "Test project", id: "test-project", now: new Date("2026-01-01T00:00:00.000Z") });
+const codes = (project: unknown) => validateProject(project).errors.map((item) => item.code);
+test("creates a blank project", () => { const project = makeProject(); assert.equal(project.schema.version, "0.1.0"); assert.equal(project.project.title, "Test project"); assert.deepEqual(project.components, []); });
+test("validates a valid project", () => assert.equal(validateProject(makeProject()).valid, true));
+test("rejects unsupported schema versions", () => { const project = structuredClone(makeProject()) as unknown as Record<string, Record<string, unknown>>; project.schema.version = "9.0.0"; assert.ok(codes(project).includes("UNSUPPORTED_SCHEMA_VERSION")); });
+test("rejects unknown criterion IDs", () => { const project = makeProject(); project.criteriaAssessments = [{ criterionId: "E99", scope: { level: "project", componentIds: [] }, relevance: "high", status: "planned", response: "baseline", strategies: [], notes: "" }]; assert.ok(codes(project).includes("UNKNOWN_CRITERION")); });
+test("rejects duplicate component IDs", () => { const project = makeProject(); project.components = ["One", "Two"].map((name) => ({ id: "same", name, type: "other", description: "", notes: "" })); assert.ok(codes(project).includes("DUPLICATE_COMPONENT_ID")); });
+test("rejects nonexistent component references", () => { const project = makeProject(); project.criteriaAssessments = [{ criterionId: "E1", scope: { level: "component", componentIds: ["missing"] }, relevance: "high", status: "planned", response: "baseline", strategies: [], notes: "" }]; assert.ok(codes(project).includes("UNKNOWN_COMPONENT_REFERENCE")); });
+test("rejects invalid project stages", () => { const project = structuredClone(makeProject()) as unknown as Record<string, Record<string, unknown>>; project.project.stage = "launching"; assert.ok(codes(project).includes("INVALID_PROJECT_STAGE")); });
+test("rejects project scope containing components", () => { const project = makeProject(); project.components = [{ id: "one", name: "One", type: "other", description: "", notes: "" }]; project.criteriaAssessments = [{ criterionId: "E1", scope: { level: "project", componentIds: ["one"] } as never, relevance: "high", status: "planned", response: "baseline", strategies: [], notes: "" }]; assert.ok(codes(project).includes("PROJECT_SCOPE_HAS_COMPONENTS")); });
+test("rejects empty component scope", () => { const project = makeProject(); project.criteriaAssessments = [{ criterionId: "E1", scope: { level: "component", componentIds: [] }, relevance: "high", status: "planned", response: "baseline", strategies: [], notes: "" }]; assert.ok(codes(project).includes("COMPONENT_SCOPE_EMPTY")); });
+test("export/import preserves meaningful data", () => { const project = makeProject(); const exported = exportProject(project, new Date("2026-02-01T00:00:00.000Z")); const imported = importProject(exported.json); assert.equal(imported.success, true); if (imported.success) { assert.equal(imported.project.project.title, project.project.title); assert.equal(imported.project.application.exportedAt, "2026-02-01T00:00:00.000Z"); } assert.equal(project.application.exportedAt, null); });
+test("rejects malformed JSON", () => { const result = importProject("{"); assert.equal(result.success, false); if (!result.success) assert.equal(result.errors[0].code, "MALFORMED_JSON"); });
+test("validates local storage data", () => { const values = new Map<string, string>(); const storage: StorageLike = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: (key) => values.delete(key) }; assert.equal(saveProjectLocally(makeProject(), storage), true); assert.equal(loadProjectLocally(storage)?.success, true); values.set("sd-standard:project:v0.1", "{}"); assert.equal(loadProjectLocally(storage)?.success, false); });
+test("handles local storage write errors", () => { const storage: StorageLike = { getItem: () => null, setItem: () => { throw new Error("quota"); }, removeItem: () => undefined }; assert.equal(saveProjectLocally(makeProject(), storage), false); });
+test("imports the Abierto fixture", () => { const path = fileURLToPath(new URL("../../examples/abierto-project.v0.1.json", import.meta.url)); const result = importProject(readFileSync(path, "utf8")); assert.equal(result.success, true); if (result.success) assert.equal(result.project.components.length, 4); });

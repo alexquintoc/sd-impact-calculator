@@ -1,0 +1,19 @@
+import { PROJECT_STAGES, selectAssessmentCount, selectComponentCount, selectStrategyCount, selectUnreviewedAssessmentCount, type ProjectStage } from "../../../../../packages/standard-core/src/project";
+import { useWorkspace } from "./WorkspaceProvider";
+import { fieldClass, formatDate, humanize, panelClass } from "./ui";
+
+export function OverviewView() {
+  const { project, updateProjectMetadata, updateProjectNotes } = useWorkspace(); if (!project) return null;
+  const summaries = [
+    ["Components", selectComponentCount(project)], ["Criteria selected", selectAssessmentCount(project)],
+    ["Strategies", selectStrategyCount(project)], ["Criteria not reviewed", selectUnreviewedAssessmentCount(project)],
+  ];
+  return <div className="grid gap-10"><section aria-labelledby="overview-heading"><h2 id="overview-heading" className="text-3xl font-extrabold">Overview</h2><p className="mt-2 text-sm leading-6 text-[#5f5a50]">Keep the project brief and overall working notes current. Changes save automatically in this browser.</p><div className="mt-6 grid gap-5">
+    <label className="text-sm font-extrabold">Project title<input className={fieldClass} value={project.project.title} onChange={(event) => updateProjectMetadata({ title: event.target.value })} /></label>
+    <label className="text-sm font-extrabold">Description<textarea className={`${fieldClass} min-h-32 resize-y`} value={project.project.description} onChange={(event) => updateProjectMetadata({ description: event.target.value })} /></label>
+    <div className="grid gap-5 md:grid-cols-2"><label className="text-sm font-extrabold">Current stage<select className={fieldClass} value={project.project.stage} onChange={(event) => updateProjectMetadata({ stage: event.target.value as ProjectStage })}>{PROJECT_STAGES.map((stage) => <option key={stage} value={stage}>{humanize(stage)}</option>)}</select></label><label className="text-sm font-extrabold">Project types<span className="mt-1 block font-medium text-[#5f5a50]">Comma separated; custom values are allowed.</span><input className={fieldClass} value={project.project.projectTypes.join(", ")} onChange={(event) => updateProjectMetadata({ projectTypes: event.target.value.split(",").map((item) => item.trim()).filter(Boolean) })} /></label></div>
+    <label className="text-sm font-extrabold">Project notes<textarea className={`${fieldClass} min-h-36 resize-y`} value={project.projectNotes} onChange={(event) => updateProjectNotes(event.target.value)} /></label>
+  </div></section>
+  <section aria-labelledby="summary-heading"><h2 id="summary-heading" className="text-2xl font-extrabold">Project summary</h2><div className="mt-5 grid grid-cols-2 gap-3 lg:grid-cols-4">{summaries.map(([label, value]) => <div className={panelClass} key={String(label)}><p className="text-3xl font-extrabold text-[#28775e]">{value}</p><p className="mt-2 text-sm font-bold text-[#5f5a50]">{label}</p></div>)}</div></section>
+  <section className="border-t border-[#d9d4c8] pt-6" aria-labelledby="metadata-heading"><h2 id="metadata-heading" className="text-lg font-extrabold">File information</h2><dl className="mt-4 grid gap-4 text-sm sm:grid-cols-2 lg:grid-cols-4"><div><dt className="font-bold text-[#5f5a50]">Schema version</dt><dd className="mt-1 font-extrabold">{project.schema.version}</dd></div><div><dt className="font-bold text-[#5f5a50]">Criteria version</dt><dd className="mt-1 font-extrabold">{project.standard.criteriaVersion}</dd></div><div><dt className="font-bold text-[#5f5a50]">Created</dt><dd className="mt-1 font-extrabold">{formatDate(project.project.createdAt)}</dd></div><div><dt className="font-bold text-[#5f5a50]">Last export</dt><dd className="mt-1 font-extrabold">{formatDate(project.application.exportedAt)}</dd></div></dl></section></div>;
+}

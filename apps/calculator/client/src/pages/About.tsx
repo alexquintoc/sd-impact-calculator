@@ -72,10 +72,11 @@ const contributionWays = [
 ];
 
 const currentTools = [
-  "Creative Brief Generator",
-  "Self-assessment Impact Calculator",
-  "Impact Snapshot / Quick Project Scan tool",
-  "Knowledge Base",
+  { title: "Creative Brief Generator", href: "/brief-generator" },
+  { title: "Self-assessment Impact Calculator", href: "/calculator" },
+  { title: "Impact Snapshot / Quick Project Scan tool", href: "/impact-snapshot" },
+  { title: "Knowledge Base", href: "/knowledge-base" },
+  { title: "Footprints", href: "/footprints" },
 ];
 
 const roadmap = [
@@ -250,9 +251,17 @@ export default function About() {
           </div>
           <div className="grid content-start gap-4 sm:grid-cols-2">
             {currentTools.map((tool) => (
-              <div className="rounded-lg border border-[#d9d4c8] bg-white p-5 text-lg font-extrabold" key={tool}>
-                {tool}
-              </div>
+              <a
+                className="group flex min-h-24 items-start justify-between gap-4 rounded-lg border border-[#d9d4c8] bg-white p-5 text-lg font-extrabold text-[#1f241f] transition-[background-color,border-color,color,transform] duration-200 hover:border-[#28775e] hover:bg-[#eef5f0] hover:text-[#28775e] focus:outline-none focus:ring-4 focus:ring-[#85bba8] active:translate-y-px"
+                href={tool.href}
+                key={tool.href}
+              >
+                <span>{tool.title}</span>
+                <ArrowRight
+                  aria-hidden="true"
+                  className="mt-1 h-4 w-4 shrink-0 transition-transform duration-200 group-hover:translate-x-1"
+                />
+              </a>
             ))}
           </div>
         </div>

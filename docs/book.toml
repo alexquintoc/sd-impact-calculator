@@ -9,7 +9,7 @@ build-dir = "book"
 
 [output.html]
 git-repository-url = "https://github.com/alexquintoc/sd-standard"
-edit-url-template = "https://github.com/alexquintoc/sd-standard/edit/main/docs/{path}"
+edit-url-template = "https://github.com/alexquintoc/sd-standard/edit/repo-restructure/docs/{path}"
 additional-css = ["theme/sd-standard.css"]
 additional-js = ["theme/sd-standard-nav.js", "theme/google-analytics.js"]
 

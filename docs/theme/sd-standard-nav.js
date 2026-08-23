@@ -7,7 +7,6 @@
         { label: "Updates", href: "/updates" },
       ],
     },
-    { label: "Footprints", href: "/footprints" },
     { label: "Impact Snapshot", href: "/impact-snapshot" },
     { label: "Evaluate", href: "/calculator" },
     {

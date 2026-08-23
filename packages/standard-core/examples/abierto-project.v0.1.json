@@ -1,0 +1,63 @@
+{
+  "schema": { "name": "sd-standard-project", "version": "0.1.0" },
+  "standard": { "criteriaVersion": "criteria-v2", "criteriaSource": "criteria.v2.json" },
+  "project": {
+    "id": "sd-standard-abierto-de-diseno",
+    "title": "SD Standard at Abierto de Diseño",
+    "description": "An exhibition installation introducing the SD Standard through physical objects, printed interpretation, and a supporting website.",
+    "stage": "production",
+    "projectTypes": ["exhibition", "installation", "print", "website"],
+    "createdAt": "2026-05-01T12:00:00.000Z",
+    "updatedAt": "2026-07-15T18:30:00.000Z"
+  },
+  "components": [
+    { "id": "lamp-shade", "name": "Suspended lamp shade", "type": "installation-component", "description": "A lightweight overhead element defining the exhibition space.", "notes": "Confirm end-of-life route with fabricator." },
+    { "id": "display-base", "name": "Display base", "type": "exhibition", "description": "Modular base supporting the exhibition objects.", "notes": "Designed for reuse after the event." },
+    { "id": "printed-materials", "name": "Printed cards and posters", "type": "print", "description": "Visitor cards, criterion prompts, and event posters.", "notes": "Print quantities will follow daily attendance estimates." },
+    { "id": "website", "name": "Website", "type": "website", "description": "A lightweight companion page for visitors and remote audiences.", "notes": "Test on low-bandwidth mobile connections." }
+  ],
+  "criteriaAssessments": [
+    {
+      "criterionId": "F4",
+      "scope": { "level": "project", "componentIds": [] },
+      "relevance": "high", "status": "completed", "response": "improved",
+      "strategies": [{ "id": "define-event-goals", "title": "Define measurable event goals", "description": "Set targets for visitor engagement and follow-up learning.", "status": "completed", "notes": "Goals agreed with the exhibition team." }],
+      "notes": "Goals cover the full exhibition project."
+    },
+    {
+      "criterionId": "E5",
+      "scope": { "level": "component", "componentIds": ["printed-materials"] },
+      "relevance": "high", "status": "planned", "response": "baseline",
+      "strategies": [{ "id": "specify-recycled-paper", "title": "Specify recycled paper", "description": "Select a locally available high-recycled-content stock.", "status": "selected", "notes": "Awaiting printer samples." }],
+      "notes": "Applies only to cards and posters."
+    },
+    {
+      "criterionId": "E7",
+      "scope": { "level": "component", "componentIds": ["lamp-shade", "display-base"] },
+      "relevance": "high", "status": "in-progress", "response": "improved",
+      "strategies": [
+        { "id": "design-for-disassembly", "title": "Design for disassembly", "description": "Use reversible connections so parts can be separated after the exhibition.", "status": "in-progress", "notes": "Prototype assembly planned." },
+        { "id": "single-use-adhesive", "title": "Use permanent adhesive", "description": "Bond the display base for faster installation.", "status": "rejected", "notes": "Rejected because it prevents repair and material separation." }
+      ],
+      "notes": "One shared assessment covers both fabricated components."
+    },
+    {
+      "criterionId": "S6",
+      "scope": { "level": "component", "componentIds": ["website"] },
+      "relevance": "medium", "status": "planned", "response": "modeled",
+      "strategies": [
+        { "id": "optimize-assets", "title": "Optimize website assets", "description": "Compress images and avoid unnecessary scripts.", "status": "selected", "notes": "" },
+        { "id": "test-low-bandwidth", "title": "Test low-bandwidth access", "description": "Verify the page remains useful on constrained mobile connections.", "status": "considering", "notes": "" }
+      ],
+      "notes": "Performance budget to be confirmed before launch."
+    },
+    {
+      "criterionId": "E4",
+      "scope": { "level": "component", "componentIds": ["website"] },
+      "relevance": "not-applicable", "status": "not-applicable", "response": "not-assessed", "strategies": [],
+      "notes": "Ink and printing finishes do not apply to the website component."
+    }
+  ],
+  "projectNotes": "The exhibition should work as both a public introduction to the SD Standard and a practical test of reusable exhibition production methods.",
+  "application": { "lastView": "criteria", "completedSections": ["project", "components"], "exportedAt": null, "generator": { "name": "SD Standard", "version": "" } }
+}
