@@ -12,6 +12,30 @@ import { ProjectSetupBar, type CriteriaLevelFilter } from "@/calculator/componen
 import { calculatorVersions, type CalculatorVersionId } from "@/calculator/registry";
 import { isCriterionApplicable } from "@/calculator/utils/applicability";
 
+function getCriterionTargets(criterion: any) {
+  const criterionLevel = criterion.level ?? "project";
+  const appliesTo: string[] = criterion.appliesTo ?? [];
+
+  return {
+    project:
+      appliesTo.length > 0
+        ? appliesTo.includes("project")
+        : criterionLevel === "project",
+    entity:
+      appliesTo.length > 0
+        ? appliesTo.includes("designingEntity") || appliesTo.includes("entity")
+        : criterionLevel === "entity" || criterionLevel === "company",
+  };
+}
+
+function getCriterionApplicabilityLabel(criterion: any) {
+  const targets = getCriterionTargets(criterion);
+
+  if (targets.project && targets.entity) return "Project + Entity";
+  if (targets.entity) return "Entity";
+  return "Project";
+}
+
 
 export default function Home() {
   const [calculatorVersion, setCalculatorVersion] = useState<CalculatorVersionId>("v1");
@@ -89,16 +113,7 @@ const displayData = useMemo(() => {
     pillars: data.pillars.map((pillar) => ({
       ...pillar,
       criteria: pillar.criteria.filter((criterion: any) => {
-        const criterionLevel = criterion.level ?? "project";
-        const appliesTo: string[] = criterion.appliesTo ?? [];
-        const targetsProject =
-          appliesTo.length > 0
-            ? appliesTo.includes("project")
-            : criterionLevel === "project";
-        const targetsEntity =
-          appliesTo.length > 0
-            ? appliesTo.includes("designingEntity") || appliesTo.includes("entity")
-            : criterionLevel === "entity" || criterionLevel === "company";
+        const targets = getCriterionTargets(criterion);
         // Category and type refine project criteria when a complete profile is
         // selected, but the criteria-level control must also work on its own.
         const matchesProjectApplicability =
@@ -109,15 +124,15 @@ const displayData = useMemo(() => {
           });
 
         if (isEntityLevel) {
-          return targetsEntity;
+          return targets.entity;
         }
 
         if (isProjectLevel) {
-          return targetsProject && matchesProjectApplicability;
+          return targets.project && matchesProjectApplicability;
         }
 
         if (isAllLevel) {
-          return targetsEntity || (targetsProject && matchesProjectApplicability);
+          return targets.entity || (targets.project && matchesProjectApplicability);
         }
 
         return false;
@@ -386,8 +401,8 @@ const scores = computePillarScores(displayData, answers);
                                   {criterion.label}
                                 </h3>
                                 {showEntityProjectToggle && (
-                                  <span className="inline-flex rounded-full bg-secondary px-2 py-0.5 text-[11px] font-semibold capitalize text-muted-foreground">
-                                    {criterion.level ?? "project"}
+                                  <span className="inline-flex rounded-full bg-secondary px-2 py-0.5 text-[11px] font-semibold text-muted-foreground">
+                                    {getCriterionApplicabilityLabel(criterion)}
                                   </span>
                                 )}
                               </div>
