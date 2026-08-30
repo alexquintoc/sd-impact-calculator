@@ -6,4 +6,4 @@ export const panelClass = "rounded-md border border-[#d9d4c8] bg-[#fffdf8] p-5";
 
 export function humanize(value: string) { return value.split("-").map((part) => part ? part[0].toUpperCase() + part.slice(1) : part).join(" "); }
 export function formatDate(value: string | null) { if (!value) return "Not yet"; const date = new Date(value); return Number.isNaN(date.getTime()) ? "Unknown" : new Intl.DateTimeFormat(undefined, { dateStyle: "medium", timeStyle: "short" }).format(date); }
-export function downloadJson(json: string, filename: string) { const url = URL.createObjectURL(new Blob([json], { type: "application/json;charset=utf-8" })); const anchor = document.createElement("a"); anchor.href = url; anchor.download = filename; anchor.click(); URL.revokeObjectURL(url); }
+export function downloadJson(json: string, filename: string) { const url = URL.createObjectURL(new Blob([json], { type: "application/json;charset=utf-8" })); const anchor = document.createElement("a"); anchor.href = url; anchor.download = filename; document.body.append(anchor); anchor.click(); anchor.remove(); window.setTimeout(() => URL.revokeObjectURL(url), 0); }

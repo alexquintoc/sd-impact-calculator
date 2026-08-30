@@ -3,4 +3,9 @@
 /quick-project-scan/* /impact-snapshot/:splat 301
 /project-scan /impact-snapshot 301
 /project-scan/* /impact-snapshot/:splat 301
+# Permanent QR-code aliases: keep these short URLs stable; update only destinations.
+/environment /knowledge-base/generated/pillars/environment.html 301
+/society /knowledge-base/generated/pillars/society.html 301
+/culture /knowledge-base/generated/pillars/culture.html 301
+/finance /knowledge-base/generated/pillars/finance.html 301
 /* /index.html 200

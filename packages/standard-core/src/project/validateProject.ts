@@ -48,11 +48,14 @@ export function validateProject(value: unknown): ProjectValidationResult {
     if (!isString(component.type) || !component.type.trim()) error("MISSING_COMPONENT_TYPE", `${path}.type`, "Each component must have a type.");
   });
 
+  const assessedCriterionIds = new Set<string>();
   if (!Array.isArray(value.criteriaAssessments)) error("MISSING_SECTION", "criteriaAssessments", "Criteria assessments must be an array.");
   else value.criteriaAssessments.forEach((assessment, index) => {
     const path = `criteriaAssessments[${index}]`;
     if (!isRecord(assessment)) { error("INVALID_ASSESSMENT", path, "Each criterion assessment must be an object."); return; }
     if (!isString(assessment.criterionId) || !PROJECT_CRITERION_IDS.has(assessment.criterionId)) error("UNKNOWN_CRITERION", `${path}.criterionId`, `Criterion ${String(assessment.criterionId)} does not exist in criteria.v2.json.`);
+    else if (assessedCriterionIds.has(assessment.criterionId)) error("DUPLICATE_CRITERION_ASSESSMENT", `${path}.criterionId`, `Criterion ${assessment.criterionId} is assessed more than once.`);
+    else assessedCriterionIds.add(assessment.criterionId);
     if (!includes(CRITERION_RELEVANCE_VALUES, assessment.relevance)) error("INVALID_RELEVANCE", `${path}.relevance`, "Criterion relevance is not recognized.");
     if (!includes(CRITERION_STATUS_VALUES, assessment.status)) error("INVALID_CRITERION_STATUS", `${path}.status`, "Criterion status is not recognized.");
     if (!includes(ASSESSMENT_RESPONSE_VALUES, assessment.response)) error("INVALID_ASSESSMENT_RESPONSE", `${path}.response`, "Assessment response is not recognized.");

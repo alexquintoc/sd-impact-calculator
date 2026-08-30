@@ -36,6 +36,7 @@ import {
   type CriterionScope,
 } from "../../../../../packages/standard-core/src/project";
 import abiertoFixture from "../../../../../packages/standard-core/examples/abierto-project.v0.1.json";
+import { createPersistenceCoordinator } from "./persistence";
 
 type LocalState = "loading" | "none" | "valid" | "invalid";
 type ImportPreview = ImportProjectResult | null;
@@ -77,48 +78,45 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
   const [saveState, setSaveState] = useState<SaveState>("idle");
   const [localState, setLocalState] = useState<LocalState>("loading");
   const [importPreview, setImportPreview] = useState<ImportPreview>(null);
-  const timerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
-  const generationRef = useRef(0);
+  const projectRef = useRef<SDStandardProject | null>(null);
+  const persistenceRef = useRef<ReturnType<typeof createPersistenceCoordinator> | null>(null);
+  if (!persistenceRef.current) persistenceRef.current = createPersistenceCoordinator({
+    save: saveProjectLocally,
+    onStateChange: (state) => { setSaveState(state); if (state === "saved") setLocalState("valid"); },
+  });
 
-  const cancelPendingSave = useCallback(() => { if (timerRef.current) clearTimeout(timerRef.current); timerRef.current = null; generationRef.current += 1; }, []);
+  const cancelPendingSave = useCallback(() => persistenceRef.current?.cancel(), []);
   useEffect(() => {
     const stored = loadProjectLocally();
-    if (stored?.success) { setProject(stored.project); setSaveState("saved"); setLocalState("valid"); }
+    if (stored?.success) { projectRef.current = stored.project; setProject(stored.project); setSaveState("saved"); setLocalState("valid"); }
     else if (stored && !stored.success) setLocalState("invalid");
     else setLocalState(hasLocalProject() ? "invalid" : "none");
     return cancelPendingSave;
   }, [cancelPendingSave]);
 
   const mutate = useCallback((operation: (current: SDStandardProject) => SDStandardProject) => {
-    setProject((current) => current ? operation(current) : current);
-    setSaveState("dirty");
+    const current = projectRef.current;
+    if (!current) return;
+    const next = operation(current);
+    if (next === current) return;
+    projectRef.current = next;
+    setProject(next);
+    persistenceRef.current?.schedule(next);
   }, []);
-  useEffect(() => {
-    if (!project || saveState !== "dirty") return;
-    const generation = ++generationRef.current;
-    if (timerRef.current) clearTimeout(timerRef.current);
-    timerRef.current = setTimeout(() => {
-      if (generation !== generationRef.current) return;
-      setSaveState("saving");
-      const saved = saveProjectLocally(project);
-      if (generation !== generationRef.current) return;
-      setSaveState(saved ? "saved" : "error");
-      if (saved) setLocalState("valid");
-      timerRef.current = null;
-    }, 700);
-    return () => { if (timerRef.current) clearTimeout(timerRef.current); };
-  }, [project, saveState]);
 
   const replace = useCallback((next: SDStandardProject, saveNow: boolean) => {
-    cancelPendingSave(); setProject(next); setImportPreview(null);
-    const saved = saveNow ? saveProjectLocally(next) : false;
-    setSaveState(saveNow ? (saved ? "saved" : "error") : "dirty");
+    cancelPendingSave(); projectRef.current = next; setProject(next); setImportPreview(null);
+    const saved = saveNow ? (persistenceRef.current?.flush(next) ?? false) : false;
+    if (!saveNow) persistenceRef.current?.schedule(next);
     setLocalState(saveNow && saved ? "valid" : "none");
   }, [cancelPendingSave]);
   const saveProject = useCallback(() => {
-    if (!project) return false; cancelPendingSave(); setSaveState("saving");
-    const saved = saveProjectLocally(project); setSaveState(saved ? "saved" : "error"); if (saved) setLocalState("valid"); return saved;
-  }, [cancelPendingSave, project]);
+    const current = projectRef.current;
+    if (!current) return false;
+    const saved = persistenceRef.current?.flush(current) ?? false;
+    if (saved) setLocalState("valid");
+    return saved;
+  }, []);
 
   const value = useMemo<WorkspaceContextValue>(() => ({
     project,
@@ -150,7 +148,7 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     previewImport: (text) => setImportPreview(importProject(text)),
     cancelImport: () => setImportPreview(null),
     confirmImport: () => { if (!importPreview?.success) return false; replace(importPreview.project, true); return true; },
-    clearProject: () => { cancelPendingSave(); const removed = removeLocalProject(); if (!removed && hasLocalProject()) { setSaveState("error"); return false; } setProject(null); setSaveState("idle"); setLocalState("none"); setImportPreview(null); return true; },
+    clearProject: () => { cancelPendingSave(); const removed = removeLocalProject(); if (!removed && hasLocalProject()) { setSaveState("error"); return false; } projectRef.current = null; setProject(null); setSaveState("idle"); setLocalState("none"); setImportPreview(null); return true; },
     clearInvalidLocalData: () => { const removed = removeLocalProject(); if (removed || !hasLocalProject()) { setLocalState("none"); return true; } return false; },
   }), [cancelPendingSave, importPreview, localState, mutate, project, replace, saveProject, saveState]);
   return <WorkspaceContext.Provider value={value}>{children}</WorkspaceContext.Provider>;
