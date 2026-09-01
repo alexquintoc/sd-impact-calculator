@@ -211,7 +211,12 @@ function writeIndexPage() {
 }
 
 function writeRedirects() {
+  // Reuse the stable QR aliases from the primary Netlify build.
+  const aliases = fs.readFileSync(path.join(root, "apps/calculator/client/public/_redirects"), "utf8")
+    .split(/\r?\n/)
+    .filter((line) => /^\/(b\/|environment |society |culture |finance )/.test(line));
   const redirects = [
+    ...aliases,
     "/calculator/* /calculator/index.html 200",
     "/brief-generator/* /brief-generator/index.html 200",
     "",

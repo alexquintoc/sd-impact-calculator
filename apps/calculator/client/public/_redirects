@@ -3,6 +3,15 @@
 /quick-project-scan/* /impact-snapshot/:splat 301
 /project-scan /impact-snapshot 301
 /project-scan/* /impact-snapshot/:splat 301
+# Printed Brief Generator QR aliases: keep paths stable and redirects temporary.
+/b/e /brief-generator?pillar=environment&lang=es 302
+/b/e/ /brief-generator?pillar=environment&lang=es 302
+/b/s /brief-generator?pillar=society&lang=es 302
+/b/s/ /brief-generator?pillar=society&lang=es 302
+/b/c /brief-generator?pillar=culture&lang=es 302
+/b/c/ /brief-generator?pillar=culture&lang=es 302
+/b/f /brief-generator?pillar=finance&lang=es 302
+/b/f/ /brief-generator?pillar=finance&lang=es 302
 # Permanent QR-code aliases: keep these short URLs stable; update only destinations.
 /environment /knowledge-base/generated/pillars/environment.html 301
 /society /knowledge-base/generated/pillars/society.html 301

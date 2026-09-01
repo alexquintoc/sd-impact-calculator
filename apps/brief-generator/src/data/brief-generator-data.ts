@@ -1,5 +1,6 @@
 import criteriaV2 from '../../../../packages/standard-core/src/criteria.v2.json'
 import { PILLAR_COLORS } from '../../../../packages/standard-core/src/pillar-colors'
+import { spanishCriteria, type Language } from '../lib/localization'
 
 export type PillarKey = 'environment' | 'society' | 'culture' | 'finance'
 
@@ -79,11 +80,12 @@ const getCriterion = (criterionId: string) =>
   criterionByPrimaryId.get(criterionId.toLowerCase()) ??
   criterionByDisplayId.get(criterionId.toLowerCase())
 
-export const formatCriterionReference = (criterionId: string) => {
+export const formatCriterionReference = (criterionId: string, language: Language = 'en') => {
   const criterion = getCriterion(criterionId)
   if (!criterion) return criterionId
 
-  return `${criterion.displayId ?? criterion.id}: ${criterion.label}`
+  const label = language === 'es' ? spanishCriteria[criterion.id] : criterion.label
+  return `${criterion.displayId ?? criterion.id}: ${label}`
 }
 
 export const validateBriefCriterionReferences = (

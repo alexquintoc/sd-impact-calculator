@@ -1,38 +1,43 @@
 import { pillarDefinitions } from '../data/brief-generator-data'
+import { copy, spanishPillars, type Language } from '../lib/localization'
 import type { GeneratedBrief } from '../lib/generateBrief'
 
 type GeneratedBriefCardProps = {
+  language: Language
   brief: GeneratedBrief
 }
 
-export function GeneratedBriefCard({ brief }: GeneratedBriefCardProps) {
+export function GeneratedBriefCard({ brief, language }: GeneratedBriefCardProps) {
+  const text = copy[language]
+  const pillars = language === 'es' ? spanishPillars : pillarDefinitions
   return (
     <section className="brief-card" aria-live="polite">
       <div>
-        <p className="eyebrow">Generated archetype</p>
+        <p className="eyebrow">{text.archetype}</p>
         <h2>{brief.archetype}</h2>
       </div>
 
       <div>
-        <p className="eyebrow">Brief title</p>
+        <p className="eyebrow">{text.briefTitle}</p>
         <h3>{brief.title}</h3>
       </div>
 
+      <p>{text.projectType}: {brief.projectType}</p>
       <p className="brief-statement">{brief.briefStatement}</p>
 
       <div className="brief-meta">
         <div style={{ borderLeftColor: pillarDefinitions[brief.dominantPillar].color }}>
-          <p className="eyebrow">Dominant pillar</p>
-          <strong>{pillarDefinitions[brief.dominantPillar].label}</strong>
+          <p className="eyebrow">{text.dominant}</p>
+          <strong>{pillars[brief.dominantPillar].label}</strong>
         </div>
         <div style={{ borderLeftColor: pillarDefinitions[brief.supportingPillar].color }}>
-          <p className="eyebrow">Supporting pillar</p>
-          <strong>{pillarDefinitions[brief.supportingPillar].label}</strong>
+          <p className="eyebrow">{text.supporting}</p>
+          <strong>{pillars[brief.supportingPillar].label}</strong>
         </div>
       </div>
 
       <div>
-        <p className="eyebrow">Related SD criteria</p>
+        <p className="eyebrow">{text.criteria}</p>
         <ul className="criteria-list">
           {brief.relatedCriteria.map((criterion) => (
             <li key={criterion}>{criterion}</li>
@@ -41,7 +46,7 @@ export function GeneratedBriefCard({ brief }: GeneratedBriefCardProps) {
       </div>
 
       <div>
-        <p className="eyebrow">Tags</p>
+        <p className="eyebrow">{text.tags}</p>
         <ul className="tag-list">
           {brief.tags.map((tag) => (
             <li key={tag}>{tag}</li>
@@ -51,7 +56,7 @@ export function GeneratedBriefCard({ brief }: GeneratedBriefCardProps) {
 
       {brief.tensionWarning ? (
         <div className="tension-warning">
-          <p className="eyebrow">Tension warning</p>
+          <p className="eyebrow">{text.warning}</p>
           <p>{brief.tensionWarning}</p>
         </div>
       ) : null}

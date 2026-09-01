@@ -142,6 +142,7 @@
 
 .pillar-slider input {
   width: 100%;
+  min-height: 32px;
   accent-color: var(--accent);
 }
 
@@ -266,6 +267,10 @@
 
   .generator-layout,
   .brief-meta {
+    grid-template-columns: 1fr;
+  }
+
+  .value-grid {
     grid-template-columns: 1fr;
   }
 }

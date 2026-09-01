@@ -7,10 +7,13 @@ import {
   type BriefSeed,
   type PillarKey,
 } from '../data/brief-generator-data'
+import { spanishBriefs } from '../data/briefs.es'
+import { copy, spanishPillars, type Language } from './localization'
 
 export type BriefGeneratorValues = Record<PillarKey, number>
 
 export type GeneratedBrief = {
+  seedTitle: string
   title: string
   dominantPillar: PillarKey
   supportingPillar: PillarKey
@@ -35,39 +38,40 @@ const findRankedPillars = (values: BriefGeneratorValues) =>
 const getArchetype = (
   values: BriefGeneratorValues,
   dominantPillar: PillarKey,
+  language: Language,
 ) => {
   const scores = Object.values(values)
 
   if (scores.every((score) => score > 75)) {
-    return 'Regenerative Systems Brief'
+    return copy[language].regenerative
   }
 
   if (scores.every((score) => score < 25)) {
-    return 'Business-as-Usual Brief'
+    return copy[language].usual
   }
 
-  return pillarDefinitions[dominantPillar].archetype
+  return (language === 'es' ? spanishPillars : pillarDefinitions)[dominantPillar].archetype
 }
 
-const getTensionWarning = (values: BriefGeneratorValues) => {
+const getTensionWarning = (values: BriefGeneratorValues, language: Language) => {
   if (Object.values(values).every((score) => score > 75)) {
-    return 'Ambitious systemic brief. May require longer timelines, partnerships, and higher budget.'
+    return copy[language].warnings.systemic
   }
 
   if (values.environment > 75 && values.finance < 25) {
-    return 'Strong environmental ambition, but financial feasibility may be weak.'
+    return copy[language].warnings.feasibility
   }
 
   if (values.finance > 75 && values.society < 25) {
-    return 'Strong market focus, but accessibility and social benefit may be underdeveloped.'
+    return copy[language].warnings.access
   }
 
   if (values.culture > 75 && values.society < 40) {
-    return 'Cultural representation is strong, but community participation may need more attention.'
+    return copy[language].warnings.participation
   }
 
   if (values.environment < 25 && values.finance > 75) {
-    return 'Commercially viable, but environmental impact may be ignored.'
+    return copy[language].warnings.environment
   }
 
   return null
@@ -113,21 +117,15 @@ const scoreSeed = (
   return score
 }
 
-const hashSelection = (values: BriefGeneratorValues, variant: number) => {
-  const signature = pillarOrder
-    .map((pillar, index) => values[pillar] * (index + 3))
-    .reduce((total, value) => total + value, variant * 97)
-
-  return Math.abs(Math.sin(signature) * 10000)
-}
-
 const selectBriefSeed = (
   values: BriefGeneratorValues,
   dominantPillar: PillarKey,
   supportingPillar: PillarKey,
-  variant: number,
+  random: number,
+  previousSeedTitle?: string,
 ) => {
   const rankedSeeds = briefSeeds
+    .filter((seed) => seed.primaryPillar === dominantPillar)
     .map((seed) => ({
       seed,
       score: scoreSeed(seed, values, dominantPillar, supportingPillar),
@@ -135,14 +133,18 @@ const selectBriefSeed = (
     .sort((first, second) => second.score - first.score)
 
   const topSeeds = rankedSeeds.slice(0, 8).map(({ seed }) => seed)
-  const index = Math.floor(hashSelection(values, variant) % topSeeds.length)
+  const alternatives = topSeeds.filter((seed) => seed.title !== previousSeedTitle)
+  const candidates = alternatives.length ? alternatives : topSeeds
+  const index = Math.min(candidates.length - 1, Math.floor(Math.max(0, random) * candidates.length))
 
-  return topSeeds[index]
+  return candidates[index]
 }
 
 export const generateBrief = (
   rawValues: BriefGeneratorValues,
-  variant = 0,
+  random = Math.random(),
+  language: Language = 'en',
+  previousSeedTitle?: string,
 ): GeneratedBrief => {
   const values = pillarOrder.reduce((nextValues, pillar) => {
     nextValues[pillar] = clampScore(rawValues[pillar])
@@ -154,22 +156,25 @@ export const generateBrief = (
     values,
     dominantPillar,
     supportingPillar,
-    variant,
+    random,
+    previousSeedTitle,
   )
+  const content = language === 'es' ? spanishBriefs[seed.title] : seed
 
   return {
-    title: seed.title,
+    seedTitle: seed.title,
+    title: content.title,
     dominantPillar,
     supportingPillar,
-    archetype: getArchetype(values, dominantPillar),
-    projectType: seed.projectType,
-    briefStatement: seed.brief,
+    archetype: getArchetype(values, dominantPillar, language),
+    projectType: content.projectType,
+    briefStatement: content.brief,
     relatedCriteria: unique([
       ...seed.criteria,
       ...pillarDefinitions[dominantPillar].criteria,
       ...pillarDefinitions[supportingPillar].criteria,
-    ].map(formatCriterionReference)),
-    tensionWarning: getTensionWarning(values),
-    tags: seed.tags,
+    ].map((id) => formatCriterionReference(id, language))),
+    tensionWarning: getTensionWarning(values, language),
+    tags: content.tags,
   }
 }
