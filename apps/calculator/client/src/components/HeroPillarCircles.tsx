@@ -79,9 +79,9 @@ function circleStyle(circle: PillarCircle): CSSProperties {
   } as CSSProperties;
 }
 
-export function HeroPillarCircles() {
+export function HeroPillarCircles({ className = "" }: { className?: string }) {
   return (
-    <div aria-hidden="true" className="hero-pillar-circles">
+    <div aria-hidden="true" className={`hero-pillar-circles ${className}`.trim()}>
       {/* Adjust circle count by editing pillarCircles above. The current design intentionally uses four circles. */}
       {/* Adjust size, color, opacity, and animation speed in the pillarCircles values. */}
       {/* Adjust desktop/mobile layout in the CSS for .hero-pillar-circles and .hero-pillar-circles__circle. */}
