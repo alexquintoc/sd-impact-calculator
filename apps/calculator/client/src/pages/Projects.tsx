@@ -1,3 +1,5 @@
+import { PageMeta } from "@/public-site/PageIntro";
+import { Link } from "wouter";
 import { useEffect, useState } from "react";
 import { ArrowRight, Loader2 } from "lucide-react";
 import { fetchProjects, getPillarLabel, type ProjectSummary } from "@/lib/projects";
@@ -17,20 +19,21 @@ export default function Projects() {
 
   return (
     <main className="min-h-screen bg-[#f7f5ef] px-5 py-8 text-[#1f241f] sm:px-8 lg:px-10">
-      <div className="mx-auto max-w-7xl">
+      <PageMeta title="Projects" description="Projects and case studies explored through the SD Standard, including the Abierto Project Passport." /><div className="mx-auto max-w-7xl">
         <header className="mb-8 max-w-3xl">
           <p className="text-sm font-extrabold uppercase tracking-[0.08em] text-[#28775e]">
             SD Standard
           </p>
           <h1 className="mt-3 text-5xl font-extrabold leading-none tracking-normal sm:text-6xl">
-            Project examples
+            Projects
           </h1>
           <p className="mt-5 text-lg leading-8 text-[#5f5a50]">
-            Explore project examples mapped to SD Standard pillars, criteria,
+            Explore projects and case studies mapped to SD Standard pillars, criteria,
             scores, and ratings.
           </p>
         </header>
 
+        <section className="public-passport-entry" aria-label="Project Passports"><p className="public-eyebrow">Project Passport · In development</p><h2>SD Standard × Abierto de Diseño</h2><p>An installation presenting the framework as a communication tool and a material experiment.</p><p className="public-count">Exhibition installation · Mexico City · September 25 – October 4, 2026</p><Link className="public-link" href="/projects/abierto">View Project Passport →</Link></section><h2 className="public-gallery-heading">Project case studies</h2>
         <aside className="mb-8 rounded-lg border border-[#d9d4c8] bg-[#e5efe9] p-6 text-[#1f241f]">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">
             <div>
@@ -67,7 +70,7 @@ export default function Projects() {
             {projects.map((project) => (
               <a
                 href={`/projects/${project.slug}`}
-                className="group overflow-hidden rounded-lg border border-[#d9d4c8] bg-[#fffdf8] shadow-[0_18px_50px_rgba(45,39,28,0.08)] transition hover:-translate-y-1 hover:border-[#28775e] focus:outline-none focus:ring-4 focus:ring-[#85bba8]"
+                className="public-project-card group focus:outline-none focus:ring-4 focus:ring-[#85bba8]"
                 key={project.slug}
               >
                 <img

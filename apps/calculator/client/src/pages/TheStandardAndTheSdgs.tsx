@@ -1,3 +1,4 @@
+import { PageMeta } from "@/public-site/PageIntro";
 import { useEffect } from "react";
 import criteriaV2 from "../../../../../packages/standard-core/src/criteria.v2.json";
 import { RelationshipSankey } from "@/components/RelationshipSankey";
@@ -10,7 +11,7 @@ export default function TheStandardAndTheSdgs() {
   }, []);
 
   return (
-    <main className="min-h-screen bg-[#f7f5ef]">
+    <main className="min-h-screen bg-[#f7f5ef]"><PageMeta title="The Standard and the SDGs" description="Explore the connections between the SD Standard and the UN Sustainable Development Goals." />
       <section className="mx-auto max-w-7xl px-5 py-10 sm:px-8 lg:px-10">
         <p className="text-xs font-extrabold uppercase tracking-[0.12em] text-[#5f5a50]">
           SD Standard

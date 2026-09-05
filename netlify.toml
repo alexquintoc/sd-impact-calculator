@@ -28,6 +28,51 @@
   status = 301
 
 [[redirects]]
+  from = "/updates"
+  to = "/about/updates"
+  status = 301
+
+[[redirects]]
+  from = "/updates/*"
+  to = "/about/updates/:splat"
+  status = 301
+
+[[redirects]]
+  from = "/the-standard-and-the-sdgs"
+  to = "/explore/sdgs"
+  status = 301
+
+[[redirects]]
+  from = "/the-standard-and-the-sdgs/"
+  to = "/explore/sdgs"
+  status = 301
+
+[[redirects]]
+  from = "/relationship-map"
+  to = "/explore/sdgs"
+  status = 301
+
+[[redirects]]
+  from = "/relationship-map/"
+  to = "/explore/sdgs"
+  status = 301
+
+[[redirects]]
+  from = "/learn"
+  to = "/explore"
+  status = 301
+
+[[redirects]]
+  from = "/imagine"
+  to = "/brief-generator"
+  status = 301
+
+[[redirects]]
+  from = "/get-involved"
+  to = "/about/get-involved"
+  status = 301
+
+[[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200

@@ -1,5 +1,6 @@
 // Site chrome shown around the Spanish Brief Generator. Other pages stay English.
 const spanish: Record<string, string> = {
+  Workspace: 'Espacio de proyecto', Explore: 'Explora', Projects: 'Proyectos', 'Open Project': 'Abrir proyecto',
   About: 'Acerca de', Updates: 'Novedades', 'Impact Snapshot': 'Panorama de impacto',
   Evaluate: 'Evaluar', Learn: 'Aprender', 'Knowledge Base': 'Base de conocimiento',
   'Standard and SDGs': 'El estándar y los ODS', Imagine: 'Imaginar', 'Get Involved': 'Participa',

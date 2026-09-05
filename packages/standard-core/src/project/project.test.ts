@@ -5,7 +5,7 @@ import { fileURLToPath } from "node:url";
 import { createBlankProject } from "./createProject";
 import { exportProject } from "./exportProject";
 import { importProject } from "./importProject";
-import { loadProjectLocally, saveProjectLocally, type StorageLike } from "./storage";
+import { activateProjectLocally, PROJECT_LIBRARY_KEY, loadProjectLocally, saveProjectLocally, type StorageLike } from "./storage";
 import type { SDStandardProject } from "./types";
 import { validateProject } from "./validateProject";
 
@@ -23,6 +23,7 @@ test("rejects project scope containing components", () => { const project = make
 test("rejects empty component scope", () => { const project = makeProject(); project.criteriaAssessments = [{ criterionId: "E1", scope: { level: "component", componentIds: [] }, relevance: "high", status: "planned", response: "baseline", strategies: [], notes: "" }]; assert.ok(codes(project).includes("COMPONENT_SCOPE_EMPTY")); });
 test("export/import preserves meaningful data", () => { const project = makeProject(); const exported = exportProject(project, new Date("2026-02-01T00:00:00.000Z")); const imported = importProject(exported.json); assert.equal(imported.success, true); if (imported.success) { assert.equal(imported.project.project.title, project.project.title); assert.equal(imported.project.application.exportedAt, "2026-02-01T00:00:00.000Z"); } assert.equal(project.application.exportedAt, null); });
 test("rejects malformed JSON", () => { const result = importProject("{"); assert.equal(result.success, false); if (!result.success) assert.equal(result.errors[0].code, "MALFORMED_JSON"); });
-test("validates local storage data", () => { const values = new Map<string, string>(); const storage: StorageLike = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: (key) => values.delete(key) }; assert.equal(saveProjectLocally(makeProject(), storage), true); assert.equal(loadProjectLocally(storage)?.success, true); values.set("sd-standard:project:v0.1", "{}"); assert.equal(loadProjectLocally(storage)?.success, false); });
+test("validates local storage data", () => { const values = new Map<string, string>(); const storage: StorageLike = { getItem: (key) => values.get(key) ?? null, setItem: (key, value) => values.set(key, value), removeItem: (key) => values.delete(key) }; assert.equal(activateProjectLocally(makeProject(), storage), true); assert.equal(loadProjectLocally(storage)?.success, true); values.set(PROJECT_LIBRARY_KEY, "{}"); assert.equal(loadProjectLocally(storage)?.success, false); });
 test("handles local storage write errors", () => { const storage: StorageLike = { getItem: () => null, setItem: () => { throw new Error("quota"); }, removeItem: () => undefined }; assert.equal(saveProjectLocally(makeProject(), storage), false); });
 test("imports the Abierto fixture", () => { const path = fileURLToPath(new URL("../../examples/abierto-project.v0.1.json", import.meta.url)); const result = importProject(readFileSync(path, "utf8")); assert.equal(result.success, true); if (result.success) assert.equal(result.project.components.length, 4); });
+

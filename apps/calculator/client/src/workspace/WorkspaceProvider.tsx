@@ -4,6 +4,11 @@ import {
   addCriterionAssessment as addCriterionAssessmentAction,
   addStrategy as addStrategyAction,
   createBlankProject,
+  activateProjectLocally,
+  closeProjectLocally,
+  clearInvalidProjectStorage,
+  loadSavedProject,
+  listSavedProjects,
   duplicateComponent as duplicateComponentAction,
   exportProject,
   getComponentRemovalImpact,
@@ -46,7 +51,10 @@ interface WorkspaceContextValue {
   saveState: SaveState;
   localState: LocalState;
   importPreview: ImportPreview;
-  createNewProject: (values: Parameters<typeof createBlankProject>[0]) => void;
+  createNewProject: (values: Parameters<typeof createBlankProject>[0]) => boolean;
+  closeProject: () => boolean;
+  reopenProject: (id: string) => boolean;
+  savedProjects: () => Array<{ id: string; title: string }>;
   loadAbiertoExample: () => void;
   updateProjectMetadata: (patch: ProjectMetadataPatch) => void;
   updateProjectNotes: (notes: string) => void;
@@ -104,11 +112,12 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     persistenceRef.current?.schedule(next);
   }, []);
 
-  const replace = useCallback((next: SDStandardProject, saveNow: boolean) => {
+  const replace = useCallback((next: SDStandardProject) => {
+    const current = projectRef.current;
+    if (current && !persistenceRef.current?.flush(current)) return false;
+    if (!activateProjectLocally(next)) { setSaveState("error"); return false; }
     cancelPendingSave(); projectRef.current = next; setProject(next); setImportPreview(null);
-    const saved = saveNow ? (persistenceRef.current?.flush(next) ?? false) : false;
-    if (!saveNow) persistenceRef.current?.schedule(next);
-    setLocalState(saveNow && saved ? "valid" : "none");
+    setSaveState("saved"); setLocalState("valid"); return true;
   }, [cancelPendingSave]);
   const saveProject = useCallback(() => {
     const current = projectRef.current;
@@ -118,14 +127,33 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     return saved;
   }, []);
 
+  useEffect(() => {
+    const flush = () => { if (projectRef.current) persistenceRef.current?.flush(projectRef.current); };
+    const beforeUnload = (event: BeforeUnloadEvent) => {
+      if (projectRef.current && !persistenceRef.current?.flush(projectRef.current)) { event.preventDefault(); event.returnValue = ""; }
+    };
+    window.addEventListener?.("pagehide", flush);
+    window.addEventListener?.("beforeunload", beforeUnload);
+    return () => { window.removeEventListener?.("pagehide", flush); window.removeEventListener?.("beforeunload", beforeUnload); };
+  }, []);
+
   const value = useMemo<WorkspaceContextValue>(() => ({
     project,
     validation: project ? validateProject(project) : null,
     saveState,
     localState,
     importPreview,
-    createNewProject: (values) => replace(createBlankProject(values), true),
-    loadAbiertoExample: () => { const result = importProject(abiertoFixture); if (result.success) replace(result.project, true); },
+    createNewProject: (values) => replace(createBlankProject(values)),
+    savedProjects: () => listSavedProjects(),
+    reopenProject: (id) => { const result = loadSavedProject(id); return result?.success ? replace(result.project) : false; },
+    closeProject: () => {
+      const current = projectRef.current;
+      if (!current) return true;
+      cancelPendingSave();
+      if (!closeProjectLocally(current)) { setSaveState("error"); return false; }
+      projectRef.current = null; setProject(null); setSaveState("idle"); setLocalState("none"); setImportPreview(null); return true;
+    },
+    loadAbiertoExample: () => { const result = importProject(abiertoFixture); if (result.success) replace(result.project); },
     updateProjectMetadata: (patch) => mutate((current) => updateProjectMetadataAction(current, patch)),
     updateProjectNotes: (notes) => mutate((current) => updateProjectNotesAction(current, notes)),
     addComponent: (input) => mutate((current) => addComponentAction(current, input)),
@@ -147,9 +175,9 @@ export function WorkspaceProvider({ children }: { children: ReactNode }) {
     },
     previewImport: (text) => setImportPreview(importProject(text)),
     cancelImport: () => setImportPreview(null),
-    confirmImport: () => { if (!importPreview?.success) return false; replace(importPreview.project, true); return true; },
+    confirmImport: () => { if (!importPreview?.success) return false; return replace(importPreview.project); },
     clearProject: () => { cancelPendingSave(); const removed = removeLocalProject(); if (!removed && hasLocalProject()) { setSaveState("error"); return false; } projectRef.current = null; setProject(null); setSaveState("idle"); setLocalState("none"); setImportPreview(null); return true; },
-    clearInvalidLocalData: () => { const removed = removeLocalProject(); if (removed || !hasLocalProject()) { setLocalState("none"); return true; } return false; },
+    clearInvalidLocalData: () => { const removed = clearInvalidProjectStorage(); if (removed) { setLocalState("none"); return true; } setSaveState("error"); return false; },
   }), [cancelPendingSave, importPreview, localState, mutate, project, replace, saveProject, saveState]);
   return <WorkspaceContext.Provider value={value}>{children}</WorkspaceContext.Provider>;
 }
